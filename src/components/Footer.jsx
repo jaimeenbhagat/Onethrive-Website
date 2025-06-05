@@ -1,26 +1,37 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
-import logo from '../assets/Logo.png' 
+import logo from '../assets/Logo.png'
+import { motion } from 'framer-motion'
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white px-6 md:px-20 py-12 mt-24">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+    <motion.footer
+      className="bg-black text-white px-6 md:px-20 py-16"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+    >
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-12">
 
         {/* Logo and tagline */}
         <div>
-          <img src={logo} alt="OneThrive Logo" className="h-12 mb-4" />
-          <p className="text-gray-400 text-sm">
-            Empowering workforces through immersive engagement experiences.
+          <img src={logo} alt="OneThrive Logo" className="h-16 mb-4" />
+          <p className="text-gray-400 text-sm leading-relaxed">
+            Empowering workforces through immersive engagement experiences that inspire collaboration and culture.
           </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
-          <ul className="space-y-2 text-gray-400 text-sm">
+          <h3 className="text-lg font-semibold mb-4 text-center">Quick Links</h3>
+          <ul className="space-y-2 text-gray-400 text-sm text-center">
             {['Home', 'About Us', 'Services', 'Process', 'FAQs', 'Contact'].map((link, idx) => (
               <li key={idx}>
-                <a href={`#${link.toLowerCase().replace(/\s+/g, '')}`} className="hover:text-[#00FFAB] transition">
+                <a
+                  href={`#${link.toLowerCase().replace(/\s+/g, '')}`}
+                  className="transition duration-300 ease-in-out hover:text-[#00FFAB]"
+                  style={{ color: '#00FFAB', textDecoration: 'none' }}
+                >
                   {link}
                 </a>
               </li>
@@ -28,37 +39,26 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Newsletter */}
-        <div className="md:col-span-2">
-          <h3 className="text-lg font-semibold mb-4 text-white">Subscribe to Our Newsletter</h3>
-          <form className="flex flex-col sm:flex-row gap-4">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-4 py-2 w-full sm:w-auto rounded-full text-black focus:outline-none"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-[#00FFAB] text-black font-semibold px-6 py-2 rounded-full hover:brightness-110 transition"
-            >
-              Subscribe
-            </button>
-          </form>
+        {/* Contact & Socials */}
+        <div className="pl-20">
+          <h3 className="text-lg font-semibold mb-4">Contact & Socials</h3>
+          <ul className="space-y-3 text-gray-400 text-sm" style={{ color: '#00FFAB', textDecoration: 'none' }}>
+            <li>📞 +91 9137849313</li>
+            <li>📞 +91 7718840072</li>
+            <li>📧 <a href="mailto:info.onethrive@gmail.com" className="hover:text-[#00FFAB]" style={{ color: '#00FFAB', textDecoration: 'none' }}>info.onethrive@gmail.com</a></li>
+            <li className="flex gap-4 mt-2">
+              <a href="#" className="hover:text-[#00FFAB] transition text-lg" style={{ color: '#00FFAB', textDecoration: 'none' }}><FaInstagram /></a>
+              <a href="#" className="hover:text-[#00FFAB] transition text-lg" style={{ color: '#00FFAB', textDecoration: 'none' }}><FaLinkedinIn /></a>
+            </li>
+          </ul>
         </div>
       </div>
 
-      {/* Bottom Line */}
-      <div className="mt-12 border-t border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500">
+      {/* Bottom Center Line */}
+      <div className="mt-10 flex justify-center text-lg text-white ">
         <p>© {new Date().getFullYear()} OneThrive. All rights reserved.</p>
-        <div className="flex gap-4 mt-4 md:mt-0">
-          <a href="#" className="hover:text-[#00FFAB]"><FaFacebookF /></a>
-          <a href="#" className="hover:text-[#00FFAB]"><FaInstagram /></a>
-          <a href="#" className="hover:text-[#00FFAB]"><FaLinkedinIn /></a>
-          <a href="#" className="hover:text-[#00FFAB]"><FaTwitter /></a>
-        </div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }
 

@@ -47,12 +47,12 @@ const HeroSection = () => {
         <img
           src={heroImage}
           alt="OneThrive Hero"
-          className="w-full h-auto rounded-xl shadow-xl border border-[#00FFAB]/30"
+          className="w-full h-auto rounded-xl shadow-xl "
         />
       </motion.div>
 
       {/* Optional: Glowing Background Effect */}
-      <div className="absolute top-0 left-100 w-[600px] h-[600px] bg-[#00FFAB] opacity-10 rounded-full filter blur-3xl animate-pulse z-0" />
+      <div className="absolute top-0 left-30 w-[600px] h-[600px] bg-[#00FFAB] opacity-10 rounded-full filter blur-3xl animate-pulse z-0" />
     </section>
   )
 }

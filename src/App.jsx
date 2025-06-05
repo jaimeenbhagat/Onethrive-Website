@@ -7,7 +7,7 @@ import HeroSection from './components/HeroSection'
 import Footer from './components/Footer'
 
 // // Importing pages (will create these later)
-// import Home from './pages/Home'
+import Home from './pages/Home'
 // import About from './pages/About'
 // import Services from './pages/Services'
 // import Process from './pages/Process'
@@ -20,16 +20,16 @@ function App() {
       <div className="bg-black text-white font-sans min-h-screen flex flex-col">
         <Navbar />
         <HeroSection />
-        {/* <main className="flex-grow">
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            {/* <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/process" element={<Process />} />
             <Route path="/faqs" element={<FAQs />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} /> */}
           </Routes>
-        </main> */}
+        </main>
 
         <Footer />
       </div>
