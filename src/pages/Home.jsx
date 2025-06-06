@@ -153,7 +153,9 @@ const AboutSection = () => {
               <div
                 key={idx}
                 className={`${
-                  shouldCenterLast ? "col-span-full flex justify-center" : ""
+                  shouldCenterLast
+                    ? "lg:col-start-2 flex justify-center"
+                    : ""
                 }`}
               >
                 <div
@@ -164,7 +166,7 @@ const AboutSection = () => {
                     {/* Front Side */}
                     <div className="absolute border-2 border-[#00FFAB] inset-0 bg-black rounded-xl shadow-xl overflow-hidden backface-hidden flex flex-col">
                       <div className="h-1/2 flex items-center justify-center px-4">
-                        <h3 className="text-white font-semibold text-lg text-center">
+                        <h3 className="text-[#00FFAB] font-semibold text-lg text-center">
                           {service.title}
                         </h3>
                       </div>
@@ -172,7 +174,7 @@ const AboutSection = () => {
                         <img
                           src={service.image}
                           alt={service.title}
-                          className="w-300 h-64 object-contain pt-10"
+                          className="w-70 h-40 mb-10 shadow-xl rounded-2xl border-2 border-transparent"
                         />
                       </div>
                     </div>
@@ -184,7 +186,7 @@ const AboutSection = () => {
                           {service.title}
                         </h3>
                       </div>
-                      <p className="text-sm py-10 font-medium text-center leading-relaxed">
+                      <p className="text-sm py-10 px-2 font-medium text-center leading-relaxed">
                         {service.description}
                       </p>
                     </div>
@@ -211,32 +213,16 @@ const AboutSection = () => {
           {[1, 2, 3, 4].map((logo, idx) => (
             <div
               key={idx}
-              className="h-24 bg-[#1a1a1a] rounded-lg flex items-center justify-center text-gray-500 text-lg font-semibold shadow-md"
+              className="h-24 bg-[#1a1a1a] rounded-lg flex items-center justify-center shadow-md hover:shadow-[#00FFAB]/50 transition-all cursor-pointer"
             >
-              <span className="hidden sm:block">Logo {logo}</span>
-              <span className="sm:hidden">Client</span>
+              <img
+                src={`/clients/client${logo}.png`}
+                alt={`Client ${logo}`}
+                className="max-h-14"
+              />
             </div>
           ))}
         </div>
-      </motion.div>
-
-      {/* CTA */}
-      <motion.div
-        className="mt-24 text-center"
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <h3 className="text-3xl md:text-4xl font-bold mb-6">
-          Ready to Transform Your Workplace?
-        </h3>
-        <a
-          href="#contact"
-          className="bg-[#00FFAB] hover:bg-[#00e69a] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition shadow-lg shadow-[#00FFAB]/30"
-        >
-          Get Started
-        </a>
       </motion.div>
     </section>
   );
