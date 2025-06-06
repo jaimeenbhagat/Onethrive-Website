@@ -8,6 +8,8 @@ module.exports = {
     extend: {
       colors: {
         neonGreen: "#00FFAB",
+        mintGlow: 'rgba(0, 255, 171, 0.15)',
+        mintGlowStrong: 'rgba(0, 255, 171, 0.25)',
       },
       keyframes: {
         moveStars: {

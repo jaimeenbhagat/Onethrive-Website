@@ -42,3 +42,27 @@ textarea:focus {
   background-size: 50px 50px;
   opacity: 0.3;
 }
+
+@layer utilities {
+  @keyframes gradientFade {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  .animate-gradientFade {
+    animation: gradientFade 10s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+}
+
