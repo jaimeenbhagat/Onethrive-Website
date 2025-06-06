@@ -3,7 +3,7 @@ import aboutImage from '../assets/about.png';
 
 const AboutSection = () => {
   return (
-    <section className="w-full bg-gradient-to-b from-black via-[#0d0d0d] to-black text-white py-24 px-6 md:px-20 overflow-hidden">
+    <section className="w-full text-white py-24 px-6 md:px-20 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
 
         {/* Text Content */}

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import Footer from './components/Footer'
+import Background from './components/Background';
 
 // // Importing pages (will create these later)
 import Home from './pages/Home'
@@ -17,9 +18,10 @@ import Home from './pages/Home'
 function App() {
   return (
     <Router>
-      <div className="bg-black text-white font-sans min-h-screen flex flex-col">
+      <div className=" text-white font-sans min-h-screen flex flex-col">
         <Navbar />
         <HeroSection />
+        <Background />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />

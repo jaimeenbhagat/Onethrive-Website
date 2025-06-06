@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import heroImage from "../assets/herosectionimage.png"; // Make sure this path is correct
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full min-h-screen bg-black text-white flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-12 md:py-0 overflow-hidden">
-      {/* Left Content */}
+    <section className="relative w-full min-h-screen text-white flex flex-col items-center justify-center px-6 md:px-20 py-24 overflow-hidden">
+      {/* Centered Content */}
       <motion.div
-        className="z-10 max-w-2xl text-center md:text-left"
+        className="z-10 max-w-3xl text-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -37,20 +36,6 @@ const HeroSection = () => {
         >
           Elevate Your Team Today
         </motion.button>
-      </motion.div>
-
-      {/* Right Image */}
-      <motion.div
-        className="mt-10 md:mt-0 md:ml-16 max-w-xl w-full"
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <img
-          src={heroImage}
-          alt="Team Collaboration"
-          className="w-full h-auto rounded-xl shadow-xl object-cover"
-        />
       </motion.div>
     </section>
   );

@@ -9,7 +9,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/10 shadow-md">
+    <header className="fixed top-0 left-0 w-full z-50  backdrop-blur-lg border-b border-white/10 shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Logo */}
@@ -19,9 +19,6 @@ function Navbar() {
           className="flex items-center gap-2"
         >
           <img src={logo} alt="OneThrive Logo" className="h-12 md:h-14 w-auto" />
-          <span className="text-white font-bold text-xl md:text-2xl tracking-widest">
-            OneThrive
-          </span>
         </motion.a>
 
         {/* Desktop Nav */}
