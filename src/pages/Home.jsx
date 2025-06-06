@@ -100,26 +100,24 @@ const AboutSection = () => {
         </p>
       </motion.div>
 
-      {/* Client Logos with horizontal scroll */}
+      {/* Client Logos */}
       <motion.div
-        className="mt-24 overflow-hidden"
+        className="mt-24"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
       >
         <h2 className="text-4xl font-bold text-center mb-10">Trusted by Amazing Teams</h2>
-        <div className="relative w-full">
-          <div className="flex space-x-10 animate-scroll-x-large px-2 py-6">
-            {[1, 2, 3, 4].map((logo, idx) => (
-              <div
-                key={idx}
-                className="min-w-[180px] h-24 bg-[#1a1a1a] rounded-lg flex items-center justify-center text-gray-500 text-lg font-semibold shadow-md"
-              >
-                Logo {logo}
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[1, 2, 3, 4].map((logo, idx) => (
+            <div
+              key={idx}
+              className="h-24 bg-[#1a1a1a] rounded-lg flex items-center justify-center text-gray-500 text-lg font-semibold shadow-md"
+            >
+              Logo {logo}
+            </div>
+          ))}
         </div>
       </motion.div>
 
@@ -134,7 +132,7 @@ const AboutSection = () => {
         <h3 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Workplace?</h3>
         <a
           href="#contact"
-          className="bg-[#00FFAB] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition shadow-lg shadow-[#00FFAB]/30"
+          className="bg-[#00FFAB] hover:bg-[#00e69a] text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition shadow-lg shadow-[#00FFAB]/30"
         >
           Get Started
         </a>

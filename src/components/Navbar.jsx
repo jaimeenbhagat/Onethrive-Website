@@ -9,7 +9,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md border-b border-white/10 shadow-sm">
+    <header className="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/10 shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Logo */}
@@ -29,7 +29,7 @@ function Navbar() {
           {navItems.map((item) => (
             <button
               key={item}
-              className="text-white hover:text-[#00FFAB] font-semibold tracking-wide uppercase text-sm transition duration-300 ease-in-out transform hover:scale-105 bg-transparent border-none focus:outline-none"
+              className="text-white hover:text-emerald-400 font-medium tracking-wide uppercase text-sm transition duration-300 ease-in-out transform hover:scale-105 bg-transparent border-none focus:outline-none"
             >
               {item}
             </button>
@@ -40,7 +40,7 @@ function Navbar() {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white text-2xl focus:outline-none"
+            className="text-white text-3xl focus:outline-none"
           >
             {isOpen ? <HiX /> : <HiMenuAlt3 />}
           </button>
@@ -58,7 +58,7 @@ function Navbar() {
           {navItems.map((item) => (
             <button
               key={item}
-              className="text-white hover:text-[#00FFAB] font-semibold tracking-wide uppercase text-sm transition duration-300 ease-in-out transform hover:scale-105 bg-transparent border-none focus:outline-none text-left"
+              className="text-white hover:text-emerald-400 font-medium tracking-wide uppercase text-sm transition duration-300 ease-in-out transform hover:scale-105 bg-transparent border-none focus:outline-none text-left"
             >
               {item}
             </button>
