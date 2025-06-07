@@ -11,7 +11,7 @@ import Background from './components/Background';
 import Home from './pages/Home'
 // import About from './pages/About'
 // import Services from './pages/Services'
-// import Process from './pages/Process'
+// import Blog from './pages/Blog'
 // import FAQs from './pages/FAQs'
 // import Contact from './pages/Contact'
 
@@ -27,7 +27,7 @@ function App() {
             <Route path="/" element={<Home />} />
             {/* <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/process" element={<Process />} />
+            <Route path="/Blog" element={<Blog />} />
             <Route path="/faqs" element={<FAQs />} />
             <Route path="/contact" element={<Contact />} /> */}
           </Routes>

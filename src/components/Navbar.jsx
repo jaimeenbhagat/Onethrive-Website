@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import logo from '../assets/Logo.png'
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
 
-const navItems = ["Home", "About Us", "Services", "Process", "FAQs", "Contact"]
+const navItems = ["Home", "About Us", "Services", "Blog", "FAQs", "Contact"]
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
