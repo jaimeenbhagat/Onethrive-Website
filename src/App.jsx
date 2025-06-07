@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 // Importing shared components (will create these later)
 import Navbar from './components/Navbar'
-import HeroSection from './components/HeroSection'
 import Footer from './components/Footer'
 import Background from './components/Background';
 
 // // Importing pages (will create these later)
 import Home from './pages/Home'
-// import About from './pages/About'
+import About from './pages/About'
 // import Services from './pages/Services'
 // import Blog from './pages/Blog'
 // import FAQs from './pages/FAQs'
@@ -20,13 +19,12 @@ function App() {
     <Router>
       <div className=" text-white font-sans min-h-screen flex flex-col">
         <Navbar />
-        <HeroSection />
         <Background />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<About />} />
+            {/* <Route path="/services" element={<Services />} />
             <Route path="/Blog" element={<Blog />} />
             <Route path="/faqs" element={<FAQs />} />
             <Route path="/contact" element={<Contact />} /> */}

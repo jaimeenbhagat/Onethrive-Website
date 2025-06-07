@@ -1,64 +1,122 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import aboutImage from "../assets/about.png";
+import HeroSection from '../components/HeroSection'
 import service1 from "../assets/services/services1.png";
 import service2 from "../assets/services/services2.png";
 import service3 from "../assets/services/services3.png";
 import service4 from "../assets/services/services4.png";
 import service5 from "../assets/services/services5.png";
-import service6 from "../assets/services/services6.png";
 import service7 from "../assets/services/services7.png";
 
 const services = [
   {
     title: "Team Building Games",
     description:
-      "Our team-building games are crafted to energize your team, boost morale, and encourage open communication. Whether it’s strategic puzzles, timed missions, or fun group challenges, these activities ignite collaboration, improve trust, and foster a workplace that thrives on mutual support and shared victories.",
+      "Fun and energizing activities that strengthen collaboration and communication within your team.",
     image: service1,
   },
   {
     title: "Wellness Programs",
     description:
-      "We design wellness programs that balance mental and physical well-being. From guided meditation sessions and ergonomic consultations to fitness challenges and healthy habit workshops, our offerings inspire sustainable lifestyle changes and create a culture that prioritizes employee health and happiness.",
+      "Health-focused initiatives designed to boost employee well-being and work-life balance.",
     image: service2,
   },
   {
     title: "Creative Workshops",
     description:
-      "Let your team explore their innovative side with our hands-on creative workshops. These sessions are tailored to stimulate imagination, promote unconventional thinking, and encourage problem-solving through activities like storytelling, design thinking, and creative brainstorming.",
+      "Innovative sessions that spark imagination and enhance creative problem-solving.",
     image: service3,
   },
   {
     title: "Sports Tournaments",
     description:
-      "Fuel excitement and camaraderie with sports tournaments that promote friendly competition and active lifestyles. Whether it’s indoor games or full-day outdoor events, these programs encourage fitness, teamwork, and a spirited company culture that your team will look forward to every season.",
+      "Team sports and contests to encourage active lifestyles and friendly competition.",
     image: service4,
   },
   {
     title: "Entertainment Events",
     description:
-      "From comedy nights and live bands to talent shows and movie screenings, our entertainment events inject energy and joy into the workplace. These gatherings create lasting memories, strengthen interdepartmental bonds, and remind teams that celebration is a vital part of success.",
+      "Exciting events like comedy shows, movie nights, and music gigs to uplift team spirit.",
     image: service5,
-  },
-  {
-    title: "CSR Activities",
-    description:
-      "We help your team connect with meaningful causes through hands-on Corporate Social Responsibility initiatives. From environmental drives and community support programs to educational outreach, these experiences inspire purpose, unity, and a sense of fulfillment beyond the workplace.",
-    image: service6,
   },
   {
     title: "Offsite Retreats",
     description:
-      "Break free from the usual routine with immersive offsite retreats that combine relaxation, strategy, and fun. These getaways are designed to strengthen relationships, reignite creativity, and align teams with company goals—all in a refreshing and inspiring environment.",
+      "Refreshing getaways that combine fun, bonding, and strategic team alignment.",
     image: service7,
   },
 ];
 
+const processSteps = [
+  {
+    title: "Discovery",
+    description:
+      "We begin by understanding your goals, challenges, and culture to create a tailored approach.",
+  },
+  {
+    title: "Planning",
+    description:
+      "We strategize the timeline, resources, and activities aligned with your team's dynamics.",
+  },
+  {
+    title: "Execution",
+    description:
+      "Our team brings the plan to life with precision, creativity, and real-time coordination.",
+  },
+  {
+    title: "Engagement",
+    description:
+      "We actively engage your team through interactive, fun, and meaningful experiences.",
+  },
+  {
+    title: "Evaluation",
+    description:
+      "We assess the outcomes, gather feedback, and continuously refine for future success.",
+  },
+];
+
 const AboutSection = () => {
+  const carouselRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const scrollToIndex = (index) => {
+    if (carouselRef.current) {
+      const childWidth = carouselRef.current.children[0].offsetWidth + 24; // card width + gap
+      carouselRef.current.scrollTo({
+        left: index * childWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const nextSlide = () => {
+    const maxIndex = processSteps.length - 3;
+    const newIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+    scrollToIndex(newIndex);
+  };
+
+  const prevSlide = () => {
+    const maxIndex = processSteps.length - 3;
+    const newIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+    setCurrentIndex(newIndex);
+    scrollToIndex(newIndex);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [currentIndex]);
+
   return (
+    
     <section className="w-full text-white pt-2 pb-24 px-6 md:px-20 overflow-hidden">
-      {/* Title */}
+      <HeroSection />
+      {/* Title Section */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
-        {/* Text Content */}
         <motion.div
           className="md:w-1/2"
           initial={{ opacity: 0, x: -50 }}
@@ -67,25 +125,15 @@ const AboutSection = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Building Better Workplaces,
-            <br /> One Team at a Time
+            Building Better Workplaces,<br /> One Team at a Time
           </h2>
           <p className="text-gray-400 mb-6">
-            OneThrive is more than just an employee engagement company—we are
-            workplace culture architects. We know that a motivated workforce
-            drives business success. That’s why OneThrive is dedicated to
-            delivering high-energy engagement solutions that make workplaces
-            more dynamic, fulfilling, and fun.
+            OneThrive is more than just an employee engagement company—we are workplace culture architects...
           </p>
           <p className="text-gray-400">
-            As a new player in this space, we bring a fresh perspective,
-            commitment to excellence, and a client-first mindset to every
-            project, helping you build a workplace that’s as dynamic as your
-            thriving team.
+            As a new player in this space, we bring a fresh perspective...
           </p>
         </motion.div>
-
-        {/* Image Section */}
         <motion.div
           className="md:w-1/2"
           initial={{ opacity: 0, x: 50 }}
@@ -93,15 +141,11 @@ const AboutSection = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <img
-            src={aboutImage}
-            alt="About OneThrive"
-            className="w-full rounded-2xl shadow-lg shadow-[#00FFAB]/30"
-          />
+          <img src={aboutImage} alt="About OneThrive" className="w-full rounded-2xl shadow-lg shadow-[#00FFAB]/30" />
         </motion.div>
       </div>
 
-      {/* Statistics */}
+      {/* Stats */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-20 text-center"
         initial={{ opacity: 0, y: 40 }}
@@ -110,34 +154,21 @@ const AboutSection = () => {
         viewport={{ once: true }}
       >
         {[
-          {
-            number: "10+",
-            label: "Teams Engaged\nIn Our Pilot\nPhase Programs",
-          },
+          { number: "10+", label: "Teams Engaged\nIn Our Pilot\nPhase Programs" },
           { number: "80%", label: "Positive Response\nIn Pre-Launch\nSurveys" },
           { number: "90%", label: "Employee Participation\nIn Pilot Events" },
-          {
-            number: "100+",
-            label: "Activity Programs\nDesigned For\nMaximum Impact",
-          },
+          { number: "100+", label: "Activity Programs\nDesigned For\nMaximum Impact" },
         ].map((stat, idx) => (
-          <div
-            key={idx}
-            className="bg-[#111] p-6 rounded-xl shadow-md hover:shadow-[#00FFAB]/40 transition-all"
-          >
-            <h3 className="text-3xl font-bold text-[#00FFAB] mb-2">
-              {stat.number}
-            </h3>
-            <p className="text-gray-400 whitespace-pre-line text-sm leading-relaxed">
-              {stat.label}
-            </p>
+          <div key={idx} className="bg-[#111] p-6 rounded-xl shadow-md hover:shadow-[#00FFAB]/40 transition-all">
+            <h3 className="text-3xl font-bold text-[#00FFAB] mb-2">{stat.number}</h3>
+            <p className="text-gray-400 whitespace-pre-line text-sm leading-relaxed">{stat.label}</p>
           </div>
         ))}
       </motion.div>
 
-      {/* Services Grid */}
+      {/* Services */}
       <motion.div
-        className="mt-10 text-center"
+        className="mt-20 text-center"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -145,56 +176,49 @@ const AboutSection = () => {
       >
         <h2 className="text-4xl font-bold mb-12">Our Engagement Offerings</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {services.map((service, idx) => {
-            const isLastCard = idx === services.length - 1;
-            const shouldCenterLast = services.length % 3 === 1 && isLastCard;
+          {services.map((service, idx) => (
+            <div key={idx}
+              className="bg-[#111] p-6 rounded-xl shadow-md hover:shadow-[#00FFAB]/40 hover:scale-110 transition-all text-left cursor-pointer"
+              onClick={() => (window.location.href = "/services")}
+            >
+              <img src={service.image} alt={service.title} className="w-full h-40 object-cover rounded-xl mb-4" />
+              <h3 className="text-xl font-semibold text-[#00FFAB] mb-2">{service.title}</h3>
+              <p className="text-sm text-gray-300">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
 
-            return (
+      {/* Our Process Carousel */}
+      <motion.div className="mt-24" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+        <h2 className="text-4xl font-bold text-center mb-6 text-[#00FFAB]">Our Process</h2>
+        <p className="text-center text-gray-400 max-w-3xl mx-auto mb-12">
+          We follow a 5-step journey to ensure impactful outcomes and lasting workplace engagement.
+        </p>
+
+        <div className="relative">
+          <div className="flex justify-between absolute w-full top-1/2 transform -translate-y-1/2 z-10 px-2">
+            <button onClick={prevSlide} className="bg-[#111] text-[#00FFAB] px-3 py-2 rounded-full shadow-md hover:bg-[#00ffab]/10 transition">
+              ←
+            </button>
+            <button onClick={nextSlide} className="bg-[#111] text-[#00FFAB] px-3 py-2 rounded-full shadow-md hover:bg-[#00ffab]/10 transition">
+              →
+            </button>
+          </div>
+          <div
+            ref={carouselRef}
+            className="flex overflow-x-scroll no-scrollbar scroll-smooth space-x-6 px-4 sm:px-10 py-4"
+          >
+            {processSteps.map((step, idx) => (
               <div
                 key={idx}
-                className={`${
-                  shouldCenterLast
-                    ? "lg:col-start-2 flex justify-center"
-                    : ""
-                }`}
+                className="bg-[#111] min-w-[280px] sm:min-w-[300px] md:min-w-[340px] p-6 rounded-xl text-left border border-[#1f1f1f] shadow-md transition-all duration-300"
               >
-                <div
-                  className="[perspective:1200px] group cursor-pointer w-full max-w-[20rem]"
-                  onClick={() => (window.location.href = "/services")}
-                >
-                  <div className="relative h-80 w-full [transform-style:preserve-3d] duration-700 group-hover:[transform:rotateY(180deg)]">
-                    {/* Front Side */}
-                    <div className="absolute border-2 border-[#00FFAB] inset-0 bg-black rounded-xl shadow-xl overflow-hidden backface-hidden flex flex-col">
-                      <div className="h-1/2 flex items-center justify-center px-4">
-                        <h3 className="text-[#00FFAB] font-semibold text-lg text-center">
-                          {service.title}
-                        </h3>
-                      </div>
-                      <div className="flex items-center justify-center">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-70 h-40 mb-10 shadow-xl rounded-2xl border-2 border-transparent"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Back Side */}
-                    <div className="absolute border-2 border-[#00FFAB] inset-0 bg-black text-white rounded-xl rotate-y-180 backface-hidden">
-                      <div className="h-10 flex items-center justify-center py-8">
-                        <h3 className="text-white font-semibold text-lg text-center">
-                          {service.title}
-                        </h3>
-                      </div>
-                      <p className="text-sm py-10 px-2 font-medium text-center leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <h3 className="text-xl font-semibold text-[#00FFAB] mb-2">{`${idx + 1}. ${step.title}`}</h3>
+                <p className="text-gray-300 text-sm">{step.description}</p>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </motion.div>
 
@@ -211,15 +235,8 @@ const AboutSection = () => {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[1, 2, 3, 4].map((logo, idx) => (
-            <div
-              key={idx}
-              className="h-24 bg-[#1a1a1a] rounded-lg flex items-center justify-center shadow-md hover:shadow-[#00FFAB]/50 transition-all cursor-pointer"
-            >
-              <img
-                src={`/clients/client${logo}.png`}
-                alt={`Client ${logo}`}
-                className="max-h-14"
-              />
+            <div key={idx} className="h-24 bg-[#1a1a1a] rounded-lg flex items-center justify-center shadow-md hover:shadow-[#00FFAB]/50 transition-all cursor-pointer">
+              <img src={`/clients/client${logo}.png`} alt={`Client ${logo}`} className="max-h-14" />
             </div>
           ))}
         </div>
