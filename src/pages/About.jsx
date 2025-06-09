@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import team1 from "../assets/team/sujal.png"; // Update with actual path
-import team2 from "../assets/team/smeet.png"; // Update with actual path
+import team1 from "../assets/team/sujal.png";
+import team2 from "../assets/team/smeet.png";
+import team3 from "../assets/team/parth.png"; // Newly added photo
 
 const timeline = [
   {
@@ -44,7 +45,7 @@ const AboutUs = () => {
         </p>
       </motion.div>
 
-      {/* Our Team */}
+      {/* Meet Our Team */}
       <motion.div
         className="max-w-6xl mx-auto mb-24"
         initial={{ opacity: 0, y: 40 }}
@@ -52,12 +53,13 @@ const AboutUs = () => {
         transition={{ duration: 1 }}
       >
         <h2 className="text-4xl font-bold text-center mb-12 text-[#00FFAB]">
-          Our Team
+          Meet Our Team
         </h2>
         <p className="text-center text-gray-400 max-w-xl mx-auto mb-10">
           Driven by passion, guided by purpose — meet the people who make OneThrive thrive.
         </p>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-12">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 place-items-center">
           {/* Sujal */}
           <div className="text-center">
             <img
@@ -83,6 +85,20 @@ const AboutUs = () => {
             <p className="text-sm text-gray-400 mb-2">Founder</p>
             <p className="text-sm text-gray-300 max-w-sm mx-auto">
               He is the logistical genius who makes OneThrive’s magic happen. With his skills in sports management, he ensures every event runs like clockwork.
+            </p>
+          </div>
+
+          {/* Parth */}
+          <div className="text-center">
+            <img
+              src={team3}
+              alt="Parth Patva"
+              className="w-40 h-40 rounded-full object-cover mx-auto mb-4"
+            />
+            <h3 className="text-xl font-semibold text-[#00FFAB]">Parth Patva</h3>
+            <p className="text-sm text-gray-400 mb-2">Co-founder</p>
+            <p className="text-sm text-gray-300 max-w-sm mx-auto">
+              The creative strategist behind OneThrive’s vision. Parth brings innovation and clarity to our mission, making sure every idea resonates with purpose and impact.
             </p>
           </div>
         </div>
