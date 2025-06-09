@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaHeart } from 'react-icons/fa';
+import herosectionImage from '../assets/herosectionimage.png';
 
 const blogs = [
   {
     id: 1,
     title: "Revolutionizing Employee Engagement",
     author: "Team OneThrive",
-    image: "https://source.unsplash.com/400x250/?teamwork",
+    image: herosectionImage,
   },
   {
     id: 2,
