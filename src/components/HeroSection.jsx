@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full min-h-screen text-white flex flex-col items-center justify-center px-6 md:px-20 py-24 overflow-hidden">
+    <section className="relative w-full min-h-screen bg-white text-gray-900 flex flex-col items-center justify-center px-6 md:px-20 py-24 overflow-hidden">
       {/* Centered Content */}
       <motion.div
         className="z-10 max-w-3xl text-center"
@@ -16,12 +16,12 @@ const HeroSection = () => {
           <span className="text-[#00FFAB]">Elevating Engagement</span>
         </h1>
 
-        <h2 className="text-xl md:text-2xl font-medium text-gray-300 mb-6 leading-relaxed">
+        <h2 className="text-xl md:text-2xl font-medium text-gray-700 mb-6 leading-relaxed">
           Because Work Should Be{" "}
-          <span className="text-white font-semibold">More Than Just Work!</span>
+          <span className="text-black font-semibold">More Than Just Work!</span>
         </h2>
 
-        <p className="text-base md:text-lg text-gray-400 mb-8">
+        <p className="text-base md:text-lg text-gray-600 mb-8">
           We curate immersive experiences that turn colleagues into communities
           and challenges into opportunities. Partner with us to foster
           collaboration, well-being, and a vibrant company culture through our

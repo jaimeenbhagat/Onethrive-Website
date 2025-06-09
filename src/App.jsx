@@ -11,8 +11,8 @@ import Home from './pages/Home'
 import About from './pages/About'
 // import Services from './pages/Services'
 // import Blog from './pages/Blog'
-// import FAQs from './pages/FAQs'
-// import Contact from './pages/Contact'
+import FAQs from './pages/FAQs'
+import Contact from './pages/Contact'
 
 function App() {
   return (
@@ -25,9 +25,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             {/* <Route path="/services" element={<Services />} />
-            <Route path="/Blog" element={<Blog />} />
-            <Route path="/faqs" element={<FAQs />} />
-            <Route path="/contact" element={<Contact />} /> */}
+            <Route path="/Blog" element={<Blog />} /> */}
+            <Route path="/FAQs" element={<FAQs />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
 

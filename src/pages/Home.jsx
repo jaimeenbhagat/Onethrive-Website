@@ -113,10 +113,12 @@ const AboutSection = () => {
 
   return (
     
-    <section className="w-full text-white pt-2 pb-24 px-6 md:px-20 overflow-hidden">
-      <HeroSection />
+    <section className="w-full text-white pt-2 pb-24  overflow-hidden">
+      <div className="bg-white w-full">
+        <HeroSection />
+      </div>
       {/* Title Section */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16 px-6  pt-12 md:px-20">
         <motion.div
           className="md:w-1/2"
           initial={{ opacity: 0, x: -50 }}
@@ -147,7 +149,7 @@ const AboutSection = () => {
 
       {/* Stats */}
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-20 text-center"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-20 text-center px-6 md:px-20"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -168,7 +170,7 @@ const AboutSection = () => {
 
       {/* Services */}
       <motion.div
-        className="mt-20 text-center"
+        className="mt-20 text-center px-6 md:px-20"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -190,7 +192,7 @@ const AboutSection = () => {
       </motion.div>
 
       {/* Our Process Carousel */}
-      <motion.div className="mt-24" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+      <motion.div className="mt-24 px-6 md:px-20" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}>
         <h2 className="text-4xl font-bold text-center mb-6 text-[#00FFAB]">Our Process</h2>
         <p className="text-center text-gray-400 max-w-3xl mx-auto mb-12">
           We follow a 5-step journey to ensure impactful outcomes and lasting workplace engagement.
@@ -224,7 +226,7 @@ const AboutSection = () => {
 
       {/* Client Logos */}
       <motion.div
-        className="mt-24"
+        className="mt-24 px-6 md:px-20"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}

@@ -17,33 +17,33 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-lg border-b border-white/10 shadow-md">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        
-        {/* Logo */}
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b border-white/10 shadow-md">
+      <div className="max-w-7xl mx-auto px-6 py-4 relative flex items-center justify-between">
+
+        {/* Logo on the left */}
         <motion.a
           href="/"
           whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 z-20"
         >
           <img src={logo} alt="OneThrive Logo" className="h-12 md:h-14 w-auto" />
         </motion.a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8 items-center">
+        {/* Centered Nav - Desktop Only */}
+        <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 gap-8 items-center z-10">
           {navItems.map(({ name, path }) => (
             <Link
               key={name}
               to={path}
-              className="text-white hover:text-emerald-400 font-medium tracking-wide uppercase text-sm transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
+              className="text-gray-500 font-semibold hover:text-emerald-400 tracking-wide uppercase text-sm transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer"
             >
               {name}
             </Link>
           ))}
         </nav>
 
-        {/* Mobile Toggle */}
-        <div className="md:hidden">
+        {/* Mobile Toggle on the right */}
+        <div className="md:hidden z-20">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-white text-3xl focus:outline-none"
