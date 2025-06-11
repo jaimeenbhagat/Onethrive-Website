@@ -43,6 +43,14 @@ textarea:focus {
   opacity: 0.3;
 }
 
+/* Add this to your global CSS (e.g., index.css or tailwind.css) */
+.bg-grid-pattern {
+  background-image: linear-gradient(90deg, rgba(240, 240, 240, 0.4) 1px, transparent 1px),
+                    linear-gradient(rgba(240, 240, 240, 0.4) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+
 @layer utilities {
   @keyframes gradientFade {
     0%, 100% {

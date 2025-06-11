@@ -6,6 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'hero': '4rem', // or 5rem for huge hero headings
+      },
+      letterSpacing: {
+        tighter: '-0.02em',
+      },
+      fontFamily: {
+        satoshi: ['Satoshi', 'ui-sans-serif', 'system-ui'],
+      },
       colors: {
         neonGreen: "#00FFAB",
         mintGlow: 'rgba(0, 255, 171, 0.15)',
