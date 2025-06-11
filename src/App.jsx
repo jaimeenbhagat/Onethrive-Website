@@ -18,7 +18,7 @@ import Contact from './pages/Contact'
 function App() {
   return (
     <Router>
-      <div className=" text-white font-sans min-h-screen flex flex-col">
+      <div className=" text-white font-interphase min-h-screen flex flex-col">
         <Navbar />
         <ScrollToTop />
         <Background />

@@ -13,7 +13,7 @@ module.exports = {
         tighter: '-0.02em',
       },
       fontFamily: {
-        satoshi: ['Satoshi', 'ui-sans-serif', 'system-ui'],
+        interphase: ['"TT Interphases"', 'sans-serif'],
       },
       colors: {
         neonGreen: "#00FFAB",

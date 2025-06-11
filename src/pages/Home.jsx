@@ -46,12 +46,6 @@ const services = [
       "Exciting events like comedy shows, movie nights, and music gigs to uplift team spirit.",
     image: service5,
   },
-  {
-    title: "Offsite Retreats",
-    description:
-      "Refreshing getaways that combine fun, bonding, and strategic team alignment.",
-    image: service7,
-  },
 ];
 
 const processSteps = [
@@ -142,11 +136,11 @@ const AboutSection = () => {
             <br />
             One Team at a Time
           </h2>
-          <p className="text-gray-400 mb-6">
+          <p className="text-[#00FFAB]/80 mb-6">
             OneThrive is more than just an employee engagement company—we are
             workplace culture architects...
           </p>
-          <p className="text-gray-400">
+          <p className="text-[#00FFAB]/80">
             As a new player in this space, we bring a fresh perspective...
           </p>
         </motion.div>
@@ -189,7 +183,7 @@ const AboutSection = () => {
             <h3 className="text-3xl font-bold text-[#00FFAB] mb-2">
               {stat.number}
             </h3>
-            <p className="text-gray-400 whitespace-pre-line text-sm leading-relaxed">
+            <p className="text-[#00FFAB]/80 whitespace-pre-line text-sm leading-relaxed">
               {stat.label}
             </p>
           </div>
@@ -214,90 +208,60 @@ const AboutSection = () => {
           <div className="w-24 h-1 bg-[#00FFAB] mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, idx) => {
-            // Enhanced gradient backgrounds with better visual appeal
-            const gradients = [
-              "bg-gradient-to-br from-[#00FFAB] via-[#00E599] to-[#00CC88]", // Vibrant green for Team Building
-              "bg-gradient-to-br from-[#1a1a1a] via-[#2d2d2d] to-[#000000]", // Sophisticated dark for Wellness
-              "bg-gradient-to-br from-[#00FFAB]/90 via-[#00FFAB]/70 to-[#00FFAB]/50", // Bright green for Creative
-              "bg-gradient-to-br from-[#0d0d0d] via-[#1a1a1a] to-[#404040]", // Modern dark for Sports
-              "bg-gradient-to-br from-[#00FFAB]/80 via-[#00E599]/60 to-[#00CC88]/40", // Gradient green for Entertainment
-              "bg-gradient-to-br from-[#000000] via-[#1a1a1a] to-[#00FFAB]/20", // Black to subtle green for Retreats
-            ];
-
-            // Color variations for better contrast
-            const textColors = [
-              "text-black", // Black text on bright green
-              "text-white", // White text on dark
-              "text-black", // Black text on bright green
-              "text-white", // White text on dark
-              "text-black", // Black text on bright green  
-              "text-white", // White text on dark
-            ];
-
-            const descriptionColors = [
-              "text-black/80", // Dark text on bright green
-              "text-white/80", // Light text on dark
-              "text-black/80", // Dark text on bright green
-              "text-white/80", // Light text on dark
-              "text-black/80", // Dark text on bright green
-              "text-white/80", // Light text on dark
-            ];
-
-            return (
+        <div className="flex flex-col gap-8">
+          {/* First row - 3 services */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.slice(0, 3).map((service, idx) => (
               <motion.div
                 key={idx}
-                className={`${gradients[idx]} rounded-3xl p-8 h-[320px] flex flex-col justify-between cursor-pointer overflow-hidden relative group shadow-2xl`}
-                whileHover={{ scale: 1.08, y: -10 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="bg-black rounded-3xl cursor-pointer overflow-hidden relative group shadow-2xl h-[300px]"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
                 onClick={() => (window.location.href = "/services")}
               >
-                {/* Enhanced background patterns */}
-                <div className="absolute inset-0 opacity-15">
-                  <div className="absolute top-6 right-6 w-32 h-32 rounded-full bg-white/20 blur-xl"></div>
-                  <div className="absolute bottom-6 left-6 w-24 h-24 rounded-full bg-white/15 blur-lg"></div>
-                  <div className="absolute top-1/3 right-12 w-16 h-16 rounded-full bg-white/25"></div>
-                  <div className="absolute bottom-1/3 left-12 w-12 h-12 rounded-full bg-white/20"></div>
-                </div>
-
-                {/* Geometric accent */}
-                <div className="absolute top-0 right-0 w-20 h-20 opacity-10">
-                  <div className="absolute inset-0 bg-white rounded-bl-full"></div>
-                </div>
-
-                {/* Content */}
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="  rounded-3xl flex items-center justify-center  group-hover:scale-110 transition-transform duration-300">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-36 h-36 object-contain"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex-grow flex flex-col justify-end">
-                    <h3 className={`text-2xl font-bold ${textColors[idx]} mb-4 leading-tight`}>
+                <div className="w-full h-full relative">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <h3 className="text-white text-2xl font-bold text-center px-4">
                       {service.title}
                     </h3>
-
-                    <p className={`${descriptionColors[idx]} text-sm leading-relaxed font-medium`}>
-                      {service.description}
-                    </p>
                   </div>
                 </div>
-
-                {/* Enhanced hover effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl"></div>
-                
-                {/* Subtle border glow */}
-                <div className="absolute inset-0 rounded-3xl border border-white/10 group-hover:border-white/30 transition-colors duration-300"></div>
               </motion.div>
-            );
-          })}
+            ))}
+          </div>
+          
+          {/* Second row - 2 services centered */}
+          <div className="flex justify-center gap-8">
+            {services.slice(3, 5).map((service, idx) => (
+              <motion.div
+                key={idx + 3}
+                className="bg-black rounded-3xl cursor-pointer overflow-hidden relative group shadow-2xl h-[300px] w-full max-w-[350px]"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                onClick={() => (window.location.href = "/services")}
+              >
+                <div className="w-full h-full relative">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <h3 className="text-white text-2xl font-bold text-center px-4">
+                      {service.title}
+                    </h3>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
+
 
         {/* Call to action */}
         <div className="text-center mt-16">
@@ -323,7 +287,7 @@ const AboutSection = () => {
         <h2 className="text-4xl font-bold text-center mb-6 text-[#00FFAB]">
           Our Process
         </h2>
-        <p className="text-center text-gray-400 max-w-3xl mx-auto mb-12">
+        <p className="text-center text-[#00FFAB]/80 max-w-3xl mx-auto mb-12">
           We follow a 5-step journey to ensure impactful outcomes and lasting
           workplace engagement.
         </p>
@@ -356,7 +320,7 @@ const AboutSection = () => {
                   <h3 className="text-3xl font-bold text-white pt-10 ">
                     {item.step.title}
                   </h3>
-                  <p className="text-base text-gray-400 leading-relaxed pt-10">
+                  <p className="text-base text-[#00FFAB]/80 leading-relaxed pt-10">
                     {item.step.description}
                   </p>
                 </motion.div>

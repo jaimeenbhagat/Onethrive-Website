@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 const Contact = () => {
   return (
-    <section className="min-h-screen bg-black text-white mt-24 px-6 md:px-20 py-16 flex flex-col md:flex-row justify-between items-start gap-10">
+    <section className="min-h-screen font-interphase bg-black text-white mt-24 px-6 md:px-20 py-16 flex flex-col md:flex-row justify-between items-start gap-10">
       {/* Left - Contact Info */}
       <div className="w-auto">
       <div className="flex items-center gap-2 mb-4">
@@ -37,7 +37,7 @@ const Contact = () => {
             <FaEnvelope className="text-green-400 text-3xl" />
             <div>
               <p className="font-semibold text-2xl">Email Address</p>
-              <p className="text-gray-300 pt-1">info.onethrive@gmail.com</p>
+              <p className="text-gray-300 pt-1">info@onethrive.in</p>
             </div>
           </div>
         </div>

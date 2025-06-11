@@ -33,7 +33,7 @@ const FAQs = () => {
 
   return (
     <div 
-      className="bg-black text-white min-h-screen mt-24 p-4 md:p-6 lg:p-8"
+      className="bg-black font-interphase text-white min-h-screen mt-24 p-4 md:p-6 lg:p-8"
       style={{ fontFamily: '"Bricolage Grotesque", "Bricolage Grotesque Placeholder", sans-serif' }}
     >
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-8">

@@ -74,3 +74,15 @@ textarea:focus {
   }
 }
 
+@font-face {
+  font-family: "TT Interphases";
+  src: url("/fonts/TTInterphases-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "TT Interphases", sans-serif;
+}
+
+
