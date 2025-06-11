@@ -131,16 +131,16 @@ const AboutSection = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6  text-[#00FFAB] leading-tight">
             Building Better Workplaces,
             <br />
             One Team at a Time
           </h2>
-          <p className="text-[#00FFAB]/80 mb-6">
+          <p className="text-[white mb-6">
             OneThrive is more than just an employee engagement company—we are
             workplace culture architects...
           </p>
-          <p className="text-[#00FFAB]/80">
+          <p className="text-white">
             As a new player in this space, we bring a fresh perspective...
           </p>
         </motion.div>
@@ -180,10 +180,10 @@ const AboutSection = () => {
           },
         ].map((stat, idx) => (
           <div key={idx} className="p-6 rounded-xl shadow-md">
-            <h3 className="text-3xl font-bold text-[#00FFAB] mb-2">
+            <h3 className="text-3xl font-bold text-white mb-2">
               {stat.number}
             </h3>
-            <p className="text-[#00FFAB]/80 whitespace-pre-line text-sm leading-relaxed">
+            <p className="text-white whitespace-pre-line text-sm leading-relaxed">
               {stat.label}
             </p>
           </div>
@@ -287,7 +287,7 @@ const AboutSection = () => {
         <h2 className="text-4xl font-bold text-center mb-6 text-[#00FFAB]">
           Our Process
         </h2>
-        <p className="text-center text-[#00FFAB]/80 max-w-3xl mx-auto mb-12">
+        <p className="text-center text-white max-w-3xl mx-auto mb-12">
           We follow a 5-step journey to ensure impactful outcomes and lasting
           workplace engagement.
         </p>
