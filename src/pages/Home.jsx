@@ -180,10 +180,10 @@ const AboutSection = () => {
           },
         ].map((stat, idx) => (
           <div key={idx} className="p-6 rounded-xl shadow-md">
-            <h3 className="text-3xl font-bold text-white mb-2">
+            <h3 className="text-5xl font-bold text-white mb-2">
               {stat.number}
             </h3>
-            <p className="text-white whitespace-pre-line text-sm leading-relaxed">
+            <p className="text-white whitespace-pre-line text-lg leading-relaxed">
               {stat.label}
             </p>
           </div>
