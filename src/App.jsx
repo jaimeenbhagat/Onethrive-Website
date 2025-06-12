@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Background from './components/Background';
-
+import CustomCursor from "./components/CustomCursor";
 // // Importing pages (will create these later)
 import Home from './pages/Home'
 import About from './pages/About'
@@ -21,6 +21,7 @@ function App() {
       <div className=" text-white font-interphase min-h-screen flex flex-col">
         <Navbar />
         <ScrollToTop />
+        <CustomCursor />
         <Background />
         <main className="flex-grow">
           <Routes>
