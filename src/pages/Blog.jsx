@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaHeart } from 'react-icons/fa';
-import herosectionImage from '../assets/herosectionimage.png';
+import herosectionImage from '../assets/about.png';
 
 const blogs = [
   {
