@@ -3,15 +3,13 @@ import heroImage from "../assets/herosectionimage.png"; // Update path as needed
 
 const HeroSection = () => {
   return (
-    <section className=" relative w-full min-h-screen bg-white text-black flex flex-col md:flex-row items-center justify-between px-6 pl-24 md:px-20 pt-32 pb-24 overflow-hidden">
+    <section className="relative w-full min-h-screen bg-white text-black flex flex-col md:flex-row items-center justify-between px-6 pl-24 md:px-20 pt-32 pb-24 overflow-hidden">
       {/* GRID BACKGROUND WITH GRAY FILLED BOXES */}
       <div className="absolute inset-0 z-0 pointer-events-none grid grid-cols-[repeat(auto-fill,minmax(40px,1fr))] grid-rows-[repeat(auto-fill,40px)] opacity-20">
         {Array.from({ length: 600 }).map((_, i) => (
           <div
             key={i}
-            className={`w-full h-full ${
-              Math.random() > 0.88 ? "bg-gray-300" : ""
-            }`}
+            className={`w-full h-full ${Math.random() > 0.88 ? "bg-gray-300" : ""}`}
           />
         ))}
       </div>
@@ -23,19 +21,18 @@ const HeroSection = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <p className="text-sm font-semibold text-black tracking-wide mb-4 font-satoshi">
+        <p className="text-sm font-semibold text-black tracking-wide mb-3 font-satoshi">
           ✦ Empowering Workforces, Elevating Engagement
         </p>
-        <h1 className="font-satoshi text-4xl md:text-6xl leading-tight tracking-tight mb-6">
-          Because Work <br />
-          Should Be More <br />
-          Than Just Work!
+
+        <h1 className="font-satoshi text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-5">
+          Everything You Need for Team Building & Engagement.
+          <br />
+          One Roof. One Thrive.
         </h1>
-        <p className="text-base md:text-lg text-gray-700 mb-10 max-w-md">
-          We curate immersive experiences that turn colleagues into communities
-          and challenges into opportunities. Partner with us to foster
-          collaboration, well-being, and a vibrant company culture through our
-          innovative engagement solutions.
+
+        <p className="text-base md:text-lg text-gray-700 mb-8 max-w-md">
+          At OneThrive, we create meaningful, memorable experiences that bring your teams closer — from energizing team-building activities to impactful engagement strategies. Whether you're scaling culture or boosting collaboration, we deliver everything you need to help your people connect, grow, and thrive.
         </p>
 
         <motion.a

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import aboutImage from "../assets/about.png";
 import HeroSection from "../components/HeroSection";
+import FAQs from "../components/FAQs";
 import service1 from "../assets/services/services1.png";
 import service2 from "../assets/services/services2.png";
 import service3 from "../assets/services/services3.png";
@@ -45,6 +46,12 @@ const services = [
     description:
       "Exciting events like comedy shows, movie nights, and music gigs to uplift team spirit.",
     image: service5,
+  },
+  {
+    title: "Offsite Retreats",
+    description:
+      "Exciting events like comedy shows, movie nights, and music gigs to uplift team spirit.",
+    image: service7,
   },
 ];
 
@@ -121,7 +128,7 @@ const AboutSection = () => {
       <div className="w-full">
         <HeroSection />
       </div>
-      
+
       {/* About */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16 px-6 pt-12 md:px-20">
         <motion.div
@@ -158,7 +165,7 @@ const AboutSection = () => {
           />
         </motion.div>
       </div>
-      
+
       {/* Stats */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-20 text-center px-6 md:px-20"
@@ -189,7 +196,7 @@ const AboutSection = () => {
           </div>
         ))}
       </motion.div>
-      
+
       {/* Services */}
       <motion.div
         className="mt-20 px-6 md:px-20 max-w-8xl mx-auto"
@@ -208,62 +215,33 @@ const AboutSection = () => {
           <div className="w-24 h-1 bg-[#00FFAB] mx-auto rounded-full"></div>
         </div>
 
-        <div className="flex flex-col gap-8">
-          {/* First row - 3 services */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.slice(0, 3).map((service, idx) => (
-              <motion.div
-                key={idx}
-                className="bg-black rounded-3xl cursor-pointer overflow-hidden relative group shadow-2xl h-[300px]"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.1, ease: "easeOut" }}
-                onClick={() => (window.location.href = "/services")}
-              >
-                <div className="w-full h-full relative">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <h3 className="text-white text-2xl font-bold text-center px-4">
-                      {service.title}
-                    </h3>
-                  </div>
+        {/* Service Cards Grid: 6 services in two rows of 3 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, idx) => (
+            <motion.div
+              key={idx}
+              className="bg-black rounded-3xl cursor-pointer overflow-hidden relative group shadow-2xl h-[300px]"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.1, ease: "easeOut" }}
+              onClick={() => (window.location.href = "/services")}
+            >
+              <div className="w-full h-full relative">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <h3 className="text-white text-2xl font-bold text-center px-4">
+                    {service.title}
+                  </h3>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-          
-          {/* Second row - 2 services centered */}
-          <div className="flex justify-center gap-8">
-            {services.slice(3, 5).map((service, idx) => (
-              <motion.div
-                key={idx + 3}
-                className="bg-black rounded-3xl cursor-pointer overflow-hidden relative group shadow-2xl h-[300px] w-full max-w-[350px]"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                onClick={() => (window.location.href = "/services")}
-              >
-                <div className="w-full h-full relative">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <h3 className="text-white text-2xl font-bold text-center px-4">
-                      {service.title}
-                    </h3>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-
-        {/* Call to action */}
+        {/* CTA Button */}
         <div className="text-center mt-16">
           <motion.button
             className="bg-[#00FFAB] text-black font-bold px-8 py-4 rounded-full hover:bg-white transition-colors duration-300 shadow-lg hover:shadow-[#00FFAB]/30"
@@ -275,7 +253,7 @@ const AboutSection = () => {
           </motion.button>
         </div>
       </motion.div>
-      
+
       {/* Our Process */}
       <motion.div
         className="mt-24 px-6 md:px-20 max-w-7xl mx-auto"
@@ -347,6 +325,9 @@ const AboutSection = () => {
           </div>
         </div>
       </motion.div>
+      <div className="w-full">
+        <FAQs />
+      </div>
     </section>
   );
 };
