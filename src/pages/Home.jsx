@@ -216,7 +216,7 @@ const AboutSection = () => {
                 key={idx}
                 className="bg-black rounded-3xl cursor-pointer overflow-hidden relative group shadow-2xl h-[300px]"
                 whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+                transition={{ duration: 0.1, ease: "easeOut" }}
                 onClick={() => (window.location.href = "/services")}
               >
                 <div className="w-full h-full relative">
