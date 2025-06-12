@@ -59,8 +59,7 @@ const AboutSection = () => {
   const visibleSteps = getVisibleSteps();
 
   return (
-    <section className="w-full text-white bg-black">
-      {/* Hero Section */}
+    <section className="w-full text-white bg-black font-interphase">
       <HeroSection />
 
       {/* About Section */}
@@ -70,32 +69,32 @@ const AboutSection = () => {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#00FFAB] mb-6">
-            Building Better Workplaces,<br />One Team at a Time
+          <h2 className="text-4xl md:text-5xl font-bold text-[#00FFAB] mb-6 leading-tight">
+            Building Better Workplaces,
+            <br />
+            One Team at a Time
           </h2>
-          <p className="text-white mb-4">OneThrive is more than just an employee engagement company—we are workplace culture architects...</p>
-          <p className="text-white">As a new player in this space, we bring a fresh perspective...</p>
+          <p className="text-white text-lg mb-4">OneThrive is more than just an employee engagement company—we are workplace culture architects...</p>
+          <p className="text-white text-lg">As a new player in this space, we bring a fresh perspective...</p>
         </motion.div>
+
         <motion.div
           className="md:w-1/2"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true }}
         >
           <img src={aboutImage} alt="About OneThrive" className="w-full rounded-2xl shadow-lg shadow-[#00FFAB]/30" />
         </motion.div>
       </div>
 
-      {/* Stats Section */}
+      {/* Stats */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 md:px-20 py-16 max-w-7xl mx-auto text-center"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        viewport={{ once: true }}
       >
         {[
           { number: "10+", label: "Teams Engaged\nIn Our Pilot\nPhase Programs" },
@@ -104,8 +103,8 @@ const AboutSection = () => {
           { number: "100+", label: "Activity Programs\nDesigned For\nMaximum Impact" },
         ].map((stat, idx) => (
           <div key={idx} className="p-6 rounded-xl shadow-md bg-[#111]">
-            <h3 className="text-5xl font-bold mb-2 text-white">{stat.number}</h3>
-            <p className="text-white whitespace-pre-line text-lg leading-relaxed">{stat.label}</p>
+            <h3 className="text-5xl font-bold text-white mb-2">{stat.number}</h3>
+            <p className="text-white whitespace-pre-line text-base leading-relaxed">{stat.label}</p>
           </div>
         ))}
       </motion.div>
@@ -116,7 +115,6 @@ const AboutSection = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        viewport={{ once: true }}
       >
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-white mb-4">ONE PLATFORM FOR ALL YOUR</h2>
@@ -161,7 +159,6 @@ const AboutSection = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        viewport={{ once: true }}
       >
         <h2 className="text-4xl font-bold text-center mb-6 text-[#00FFAB]">Our Process</h2>
         <p className="text-center text-white max-w-3xl mx-auto mb-12">
@@ -202,10 +199,10 @@ const AboutSection = () => {
         </div>
       </motion.div>
 
-      {/* FAQs Section */}
       <FAQs />
     </section>
   );
 };
 
 export default AboutSection;
+ 
