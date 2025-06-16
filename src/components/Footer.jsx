@@ -11,7 +11,6 @@ const Footer = () => {
     { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Blog', path: '/blog' },
-    { name: 'FAQs', path: '/faqs' },
     { name: 'Contact', path: '/contact' }
   ];
 
@@ -22,43 +21,45 @@ const Footer = () => {
 
   return (
     <motion.footer
-      className="text-white px-6 md:px-20 py-16 bg-black"
+      className="bg-black text-white px-6 sm:px-10 md:px-20 py-12"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-gray-800 pb-12">
-
-        {/* Logo and tagline */}
-        <div>
-          <img src={logo} alt="OneThrive Logo" className="h-16 mb-4" />
+      {/* Top Section */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 border-b border-gray-800 pb-12">
+        
+        {/* Logo + Tagline */}
+        <div className="flex flex-col items-center sm:items-start">
+          <img src={logo} alt="OneThrive Logo" className="h-14 sm:h-16 mb-4" />
         </div>
 
-        {/* Contact & Socials */}
-        <div className="md:pr-10">
+        {/* Contact Info + Social */}
+        <div className="text-center sm:text-left">
           <h3 className="text-lg font-semibold mb-4">Contact & Socials</h3>
-          <ul className="space-y-3 text-sm text-[#00FFAB]">
+          <ul className="space-y-2 text-sm text-[#00FFAB]">
             <li>📞 +91 9137849313</li>
             <li>📞 +91 7718840072</li>
             <li>
               📧 <a href="mailto:info@onethrive.in" className="hover:underline">info@onethrive.in</a>
             </li>
-            <li className="flex gap-4 mt-2">
-              <a href="#" className="text-lg hover:text-white transition"><FaInstagram /></a>
-              <a href="#" className="text-lg hover:text-white transition"><FaLinkedinIn /></a>
+            <li className="flex justify-center sm:justify-start gap-4 mt-3 text-white">
+              <a href="#" className="text-lg hover:text-[#00FFAB] transition"><FaInstagram /></a>
+              <a href="#" className="text-lg hover:text-[#00FFAB] transition"><FaLinkedinIn /></a>
             </li>
           </ul>
         </div>
+
         {/* Quick Links */}
-      <div>
-          <h3 className="text-lg font-semibold mb-4 text-center ">Quick Links</h3>
-          <ul className="space-y-2 text-center text-sm ">
+        <div className="text-center sm:text-right md:text-center">
+          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul className="space-y-2 text-sm">
             {quickLinks.map(({ name, path }, idx) => (
               <li key={idx}>
                 <button
                   onClick={() => handleLinkClick(path)}
-                  className="text-[#00FFAB] hover:underline transition hover:cursor-pointer"
+                  className="text-white hover:underline transition"
                 >
                   {name}
                 </button>
@@ -68,10 +69,8 @@ const Footer = () => {
         </div>
       </div>
 
-      
-
-      {/* Bottom Center Line */}
-      <div className="mt-10 flex justify-center text-sm text-white text-center">
+      {/* Bottom Line */}
+      <div className="mt-10 text-center text-xs sm:text-sm text-white/70">
         <p>© {new Date().getFullYear()} OneThrive. All rights reserved.</p>
       </div>
     </motion.footer>

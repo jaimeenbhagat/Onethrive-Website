@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import HeroSection from "../components/HeroSection";
 import FAQs from "../components/FAQs";
 import aboutImage from "../assets/about.png";
@@ -27,40 +27,61 @@ const services = [
 ];
 
 const processSteps = [
-  {
-    title: "Discovery",
-    description: "Understand your goals, challenges, and culture.",
-    icon: discoveryIcon,
-  },
-  {
-    title: "Planning",
-    description: "Strategize timeline, resources, and activities.",
-    icon: planningIcon,
-  },
-  {
-    title: "Execution",
-    description: "Bring the plan to life with creativity and precision.",
-    icon: executionIcon,
-  },
-  {
-    title: "Engagement",
-    description: "Interactive and meaningful team participation.",
-    icon: engagementIcon,
-  },
-  {
-    title: "Evaluation",
-    description: "Measure success and refine future programs.",
-    icon: evaluationIcon,
-  },
+  { title: "Discovery", description: "Understand your goals, challenges, and culture.", icon: discoveryIcon },
+  { title: "Planning", description: "Strategize timeline, resources, and activities.", icon: planningIcon },
+  { title: "Execution", description: "Bring the plan to life with creativity and precision.", icon: executionIcon },
+  { title: "Engagement", description: "Interactive and meaningful team participation.", icon: engagementIcon },
+  { title: "Evaluation", description: "Measure success and refine future programs.", icon: evaluationIcon },
 ];
 
+// Step animation component
+const ProcessStep = ({ step, index, direction }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: false, margin: "-20% 0px -20% 0px" });
+
+  const variants = {
+    hidden: { opacity: 0, y: direction === "down" ? 60 : -60 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={variants}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="flex flex-col items-center text-center md:w-1/5 group"
+    >
+      <div className="bg-[#111] border border-white/20 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full shadow-md group-hover:scale-105 transition">
+        <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10" />
+      </div>
+      <h3 className="text-xl font-semibold text-white my-4">{step.title}</h3>
+      <p className="text-sm sm:text-base text-white/60 leading-snug">{step.description}</p>
+    </motion.div>
+  );
+};
+
 const AboutSection = () => {
+  const [scrollDir, setScrollDir] = useState("down");
+
+  useEffect(() => {
+    let lastScroll = window.scrollY;
+    const handleScroll = () => {
+      const current = window.scrollY;
+      setScrollDir(current > lastScroll ? "down" : "up");
+      lastScroll = current <= 0 ? 0 : current;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className="w-full text-white bg-black font-interphase">
       <HeroSection />
 
       {/* About */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16 px-6 py-24 md:px-20">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 px-6 py-16 md:px-20">
         <motion.div
           className="md:w-1/2"
           initial={{ opacity: 0, x: -50 }}
@@ -88,29 +109,9 @@ const AboutSection = () => {
         </motion.div>
       </div>
 
-      {/* Stats */}
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 md:px-20 py-16 max-w-7xl mx-auto text-center"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        {[
-          { number: "10+", label: "Teams Engaged\nIn Pilot Programs" },
-          { number: "80%", label: "Positive Feedback\nIn Surveys" },
-          { number: "90%", label: "Employee Participation\nAcross Activities" },
-          { number: "100+", label: "Custom Engagements\nDesigned & Delivered" },
-        ].map((stat, idx) => (
-          <div key={idx} className="p-6 rounded-xl shadow-md">
-            <h3 className="text-5xl font-bold text-white mb-3">{stat.number}</h3>
-            <p className="whitespace-pre-line text-base text-white leading-relaxed">{stat.label}</p>
-          </div>
-        ))}
-      </motion.div>
-
       {/* Services */}
       <motion.div
-        className="py-24 px-6 md:px-20 max-w-7xl mx-auto"
+        className="py-20 px-6 md:px-20 max-w-7xl mx-auto"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -167,23 +168,10 @@ const AboutSection = () => {
         </div>
 
         <div className="relative">
-          <div className="absolute top-[38px] md:top-[50px] left-0 w-full h-1 bg-white/20 z-0" />
-
-          <div className="flex flex-col md:flex-row justify-between items-start gap-10 z-10 relative">
+          <div className="hidden md:block absolute top-[50px] left-0 w-full h-1 bg-white/20 z-0" />
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 z-10 relative">
             {processSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                className="flex flex-col items-center text-center md:w-1/5 group"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="bg-[#111] border border-white/20 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full shadow-md group-hover:scale-105 transition">
-                  <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10" />
-                </div>
-                <h3 className="text-xl font-semibold text-white my-5">{step.title}</h3>
-                <p className="text-sm text-white/60 leading-snug">{step.description}</p>
-              </motion.div>
+              <ProcessStep key={index} step={step} index={index} direction={scrollDir} />
             ))}
           </div>
         </div>

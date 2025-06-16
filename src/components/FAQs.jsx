@@ -49,7 +49,7 @@ const FAQs = () => {
         {/* Left Panel */}
         <div className="lg:w-1/3">
           <motion.div
-            className="relative bg-gradient-to-br from-[#0a0a0a] via-[#101010] to-[#1a1a1a] border border-white/10 rounded-2xl p-8 text-center overflow-hidden shadow-xl"
+            className="relative bg-gradient-to-br from-[#0a0a0a] via-[#101010] to-[#00FFAB] border border-white/70 rounded-2xl p-8 text-center overflow-hidden shadow-xl"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -84,12 +84,8 @@ const FAQs = () => {
         {/* Right Panel - FAQ Accordion */}
         <div className="lg:w-2/3">
           <div className="mb-8 lg:mb-10">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-4 h-4 bg-[#00FFAB] rounded transform rotate-45"></div>
-              <span className="text-gray-300 text-base font-medium">FAQs</span>
-            </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-              Got <span className="underline decoration-2 underline-offset-4">Questions</span>?<br />
+              Got Questions?<br />
               We've Got <span className="text-[#00FFAB]">Answers</span>!
             </h2>
           </div>

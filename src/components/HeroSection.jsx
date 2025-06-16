@@ -1,38 +1,39 @@
 import { motion } from "framer-motion";
-import heroImage from "../assets/herosectionimage.png"; // Update path as needed
+import bgImage from "../assets/herosectionimage1.png"; // Your new image
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full min-h-screen bg-white text-black flex flex-col md:flex-row items-center justify-between px-6 pl-24 md:px-20 pt-32 pb-24 overflow-hidden">
-      {/* GRID BACKGROUND WITH GRAY FILLED BOXES */}
-      <div className="absolute inset-0 z-0 pointer-events-none grid grid-cols-[repeat(auto-fill,minmax(40px,1fr))] grid-rows-[repeat(auto-fill,40px)] opacity-20">
-        {Array.from({ length: 600 }).map((_, i) => (
-          <div
-            key={i}
-            className={`w-full h-full ${Math.random() > 0.88 ? "bg-gray-300" : ""}`}
-          />
-        ))}
-      </div>
+    <section
+      className="relative w-full min-h-screen bg-black text-white flex items-center justify-center px-6 sm:px-10 md:px-20 pt-24 pb-16 md:pt-32 md:pb-24 bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Overlay for better text contrast */}
+      <div className="absolute inset-0 bg-black/60 z-0"></div>
 
-      {/* LEFT TEXT CONTENT */}
+      {/* Text Content */}
       <motion.div
-        className="z-10 w-full md:w-1/2 text-left"
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
+        className="relative z-10 max-w-3xl text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <p className="text-sm font-semibold text-black tracking-wide mb-3 font-satoshi">
-          ✦ Empowering Workforces, Elevating Engagement
-        </p>
-
-        <h1 className="font-satoshi text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-5">
+        <h1 className="font-satoshi text-3xl sm:text-4xl md:text-5xl font-bold leading-snug mb-6">
           Everything You Need for Team Building & Engagement.
-          <br />
+          <br className="hidden sm:block" />
           One Roof. One Thrive.
         </h1>
 
-        <p className="text-base md:text-lg text-gray-700 mb-8 max-w-md">
-          At OneThrive, we create meaningful, memorable experiences that bring your teams closer — from energizing team-building activities to impactful engagement strategies. Whether you're scaling culture or boosting collaboration, we deliver everything you need to help your people connect, grow, and thrive.
+        <p className="text-base sm:text-lg text-gray-200 mb-8 leading-relaxed">
+          At OneThrive, we create meaningful, memorable experiences that bring
+          your teams closer from energizing team-building activities to impactful
+          engagement strategies. Whether you're scaling culture or boosting
+          collaboration, we deliver everything you need to help your people connect,
+          grow, and thrive.
         </p>
 
         <motion.a
@@ -43,20 +44,6 @@ const HeroSection = () => {
         >
           Elevate Your Team Today →
         </motion.a>
-      </motion.div>
-
-      {/* RIGHT IMAGE */}
-      <motion.div
-        className="w-full md:w-1/2 flex justify-center mt-16 md:mt-0 z-10"
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <img
-          src={heroImage}
-          alt="OneThrive Hero Illustration"
-          className="w-[350px] md:w-[450px]"
-        />
       </motion.div>
     </section>
   );
