@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import aboutImage from "../assets/about.png";
+import { motion } from "framer-motion";
 import HeroSection from "../components/HeroSection";
 import FAQs from "../components/FAQs";
+import aboutImage from "../assets/about.png";
+
 import service1 from "../assets/services/services1.png";
 import service2 from "../assets/services/services2.png";
 import service3 from "../assets/services/services3.png";
@@ -17,52 +18,48 @@ import engagementIcon from "../assets/process/engagement.png";
 import evaluationIcon from "../assets/process/evaluation.png";
 
 const services = [
-  { title: "Team Building Games", description: "Fun and energizing activities that strengthen collaboration and communication within your team.", image: service1 },
-  { title: "Wellness Programs", description: "Health-focused initiatives designed to boost employee well-being and work-life balance.", image: service2 },
-  { title: "Creative Workshops", description: "Innovative sessions that spark imagination and enhance creative problem-solving.", image: service3 },
-  { title: "Sports Tournaments", description: "Team sports and contests to encourage active lifestyles and friendly competition.", image: service4 },
-  { title: "Entertainment Events", description: "Exciting events like comedy shows, movie nights, and music gigs to uplift team spirit.", image: service5 },
-  { title: "Offsite Retreats", description: "Scenic retreats designed to foster team bonding, strategy, and rejuvenation in serene locations.", image: service7 },
+  { title: "Team Building Games", image: service1 },
+  { title: "Wellness Programs", image: service2 },
+  { title: "Creative Workshops", image: service3 },
+  { title: "Sports Tournaments", image: service4 },
+  { title: "Entertainment Events", image: service5 },
+  { title: "Offsite Retreats", image: service7 },
 ];
 
 const processSteps = [
-  { title: "Discovery", description: "We begin by understanding your goals, challenges, and culture to create a tailored approach.", icon: discoveryIcon },
-  { title: "Planning", description: "We strategize the timeline, resources, and activities aligned with your team's dynamics.", icon: planningIcon },
-  { title: "Execution", description: "Our team brings the plan to life with precision, creativity, and real-time coordination.", icon: executionIcon },
-  { title: "Engagement", description: "We actively engage your team through interactive, fun, and meaningful experiences.", icon: engagementIcon },
-  { title: "Evaluation", description: "We assess the outcomes, gather feedback, and continuously refine for future success.", icon: evaluationIcon },
+  {
+    title: "Discovery",
+    description: "Understand your goals, challenges, and culture.",
+    icon: discoveryIcon,
+  },
+  {
+    title: "Planning",
+    description: "Strategize timeline, resources, and activities.",
+    icon: planningIcon,
+  },
+  {
+    title: "Execution",
+    description: "Bring the plan to life with creativity and precision.",
+    icon: executionIcon,
+  },
+  {
+    title: "Engagement",
+    description: "Interactive and meaningful team participation.",
+    icon: engagementIcon,
+  },
+  {
+    title: "Evaluation",
+    description: "Measure success and refine future programs.",
+    icon: evaluationIcon,
+  },
 ];
 
 const AboutSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextStep = () => setCurrentIndex((prev) => (prev + 1) % processSteps.length);
-  const prevStep = () => setCurrentIndex((prev) => (prev - 1 + processSteps.length) % processSteps.length);
-
-  useEffect(() => {
-    const interval = setInterval(nextStep, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const getVisibleSteps = () => {
-    const visible = [];
-    for (let i = 0; i < 3; i++) {
-      visible.push({
-        step: processSteps[(currentIndex + i) % processSteps.length],
-        stepNumber: ((currentIndex + i) % processSteps.length) + 1,
-        key: `${currentIndex}-${i}`,
-      });
-    }
-    return visible;
-  };
-
-  const visibleSteps = getVisibleSteps();
-
   return (
     <section className="w-full text-white bg-black font-interphase">
       <HeroSection />
 
-      {/* About Section */}
+      {/* About */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16 px-6 py-24 md:px-20">
         <motion.div
           className="md:w-1/2"
@@ -70,13 +67,19 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#00FFAB] mb-6 leading-tight">
+          <h2 className="text-5xl font-bold text-[#00FFAB] mb-6 leading-tight">
             Building Better Workplaces,
             <br />
             One Team at a Time
           </h2>
-          <p className="text-white text-lg mb-4">OneThrive is more than just an employee engagement company—we are workplace culture architects...</p>
-          <p className="text-white text-lg">As a new player in this space, we bring a fresh perspective...</p>
+          <p className="text-white text-lg mb-4">
+            OneThrive is more than just an employee engagement company—we’re
+            workplace culture architects.
+          </p>
+          <p className="text-white text-lg">
+            As a new player in this space, we bring a fresh, fun, and
+            forward-thinking approach.
+          </p>
         </motion.div>
 
         <motion.div
@@ -85,7 +88,11 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <img src={aboutImage} alt="About OneThrive" className="w-full rounded-2xl shadow-lg shadow-[#00FFAB]/30" />
+          <img
+            src={aboutImage}
+            alt="About"
+            className="w-full rounded-2xl shadow-lg shadow-[#00FFAB]/30"
+          />
         </motion.div>
       </div>
 
@@ -97,19 +104,23 @@ const AboutSection = () => {
         transition={{ duration: 1 }}
       >
         {[
-          { number: "10+", label: "Teams Engaged\nIn Our Pilot\nPhase Programs" },
-          { number: "80%", label: "Positive Response\nIn Pre-Launch\nSurveys" },
-          { number: "90%", label: "Employee Participation\nIn Pilot Events" },
-          { number: "100+", label: "Activity Programs\nDesigned For\nMaximum Impact" },
+          { number: "10+", label: "Teams Engaged\nIn Pilot Programs" },
+          { number: "80%", label: "Positive Feedback\nIn Surveys" },
+          { number: "90%", label: "Employee Participation\nAcross Activities" },
+          { number: "100+", label: "Custom Engagements\nDesigned & Delivered" },
         ].map((stat, idx) => (
           <div key={idx} className="p-6 rounded-xl shadow-md bg-[#111]">
-            <h3 className="text-5xl font-bold text-white mb-2">{stat.number}</h3>
-            <p className="text-white whitespace-pre-line text-base leading-relaxed">{stat.label}</p>
+            <h3 className="text-5xl font-bold text-white mb-2">
+              {stat.number}
+            </h3>
+            <p className="whitespace-pre-line text-base text-white">
+              {stat.label}
+            </p>
           </div>
         ))}
       </motion.div>
 
-      {/* Services Section */}
+      {/* Services */}
       <motion.div
         className="py-24 px-6 md:px-20 max-w-7xl mx-auto"
         initial={{ opacity: 0, y: 50 }}
@@ -117,36 +128,46 @@ const AboutSection = () => {
         transition={{ duration: 1 }}
       >
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-white mb-4">ONE PLATFORM FOR ALL YOUR</h2>
-          <h2 className="text-5xl font-bold text-[#00FFAB] mb-4">ENGAGEMENT NEEDS</h2>
-          <div className="w-24 h-1 bg-[#00FFAB] mx-auto rounded-full"></div>
+          <h2 className="text-5xl font-bold text-white mb-2">
+            ONE PLATFORM FOR ALL YOUR
+          </h2>
+          <h2 className="text-5xl font-bold text-[#00FFAB]">
+            ENGAGEMENT NEEDS
+          </h2>
+          <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-4 rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
-              className="bg-black rounded-3xl overflow-hidden cursor-pointer group shadow-2xl h-[300px]"
+              className="bg-black rounded-3xl overflow-hidden cursor-pointer group shadow-xl h-[300px]"
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.3 }}
               onClick={() => (window.location.href = "/services")}
             >
-              <div className="w-full h-full relative">
-                <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <h3 className="text-white text-2xl font-bold text-center px-4">{service.title}</h3>
+              <div className="relative w-full h-full">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
+                  <h3 className="text-white text-2xl font-bold text-center">
+                    {service.title}
+                  </h3>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-16">
+        <div className="text-center mt-12">
           <motion.button
-            className="bg-[#00FFAB] text-black font-bold px-8 py-4 rounded-full hover:bg-white transition-colors duration-300 shadow-lg hover:shadow-[#00FFAB]/30"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => (window.location.href = "/services")}
+            className="bg-[#00FFAB] text-black font-bold px-8 py-4 rounded-full shadow-lg hover:bg-white transition"
           >
             Explore All Services
           </motion.button>
@@ -155,54 +176,55 @@ const AboutSection = () => {
 
       {/* Our Process Section */}
       <motion.div
-        className="px-6 md:px-20 py-24 max-w-7xl mx-auto"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        className="py-24 px-6 md:px-20 max-w-7xl mx-auto"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-4xl font-bold text-center mb-6 text-[#00FFAB]">Our Process</h2>
-        <p className="text-center text-white max-w-3xl mx-auto mb-12">
-          We follow a 5-step journey to ensure impactful outcomes and lasting workplace engagement.
-        </p>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#00FFAB] mb-4">
+            Our Process
+          </h2>
+          <p className="text-white max-w-2xl mx-auto text-lg">
+            A step-by-step journey to meaningful, measurable engagement —
+            tailored to your team.
+          </p>
+        </div>
 
-        <div className="relative overflow-hidden">
-          <div className="flex justify-center items-stretch gap-6">
-            <AnimatePresence mode="popLayout">
-              {visibleSteps.map((item) => (
-                <motion.div
-                  key={item.key}
-                  layout
-                  initial={{ x: 300, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: -300, opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                  className="bg-black border border-white shadow-[10px_10px_0px_rgba(255,255,255,1)] p-6 w-[350px] h-[480px] flex flex-col"
-                >
-                  <img src={item.step.icon} alt={item.step.title} className="w-16 h-16 mb-4 object-contain" />
-                  <div className="text-white text-sm uppercase pt-10 font-bold">Step {item.stepNumber}</div>
-                  <h3 className="text-3xl font-bold text-white pt-10">{item.step.title}</h3>
-                  <p className="text-base text-[#00FFAB]/80 leading-relaxed pt-10">{item.step.description}</p>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
+        <div className="relative">
+          {/* Horizontal Line */}
+          <div className="absolute top-[38px] md:top-[50px] left-0 w-full h-1 bg-white/20 z-0"></div>
 
-          {/* Arrows */}
-          <div className="flex justify-center mt-10 space-x-8">
-            <button onClick={prevStep} className="bg-white text-black text-xl p-3 rounded-full hover:bg-[#00FFAB] hover:text-black transition">
-              &#8592;
-            </button>
-            <button onClick={nextStep} className="bg-white text-black text-xl p-3 rounded-full hover:bg-[#00FFAB] hover:text-black transition">
-              &#8594;
-            </button>
+          <div className="flex flex-col md:flex-row justify-between items-start gap-10 z-10 relative">
+            {processSteps.map((step, index) => (
+              <motion.div
+                key={index}
+                className="flex flex-col items-center text-center md:w-1/5 group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div className="bg-[#111] border border-white/20 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full shadow-md group-hover:scale-105 transition">
+                  <img
+                    src={step.icon}
+                    alt={step.title}
+                    className="w-8 h-8 md:w-10 md:h-10"
+                  />
+                </div>
+                <h3 className="text-lg md:text-xl font-semibold text-white my-5">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-white/60">{step.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </motion.div>
 
+      {/* FAQs Section */}
       <FAQs />
     </section>
   );
 };
 
 export default AboutSection;
- 
