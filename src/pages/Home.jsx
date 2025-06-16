@@ -68,17 +68,13 @@ const AboutSection = () => {
           transition={{ duration: 1 }}
         >
           <h2 className="text-5xl font-bold text-[#00FFAB] mb-6 leading-tight">
-            Building Better Workplaces,
-            <br />
-            One Team at a Time
+            Building Better Workplaces,<br />One Team at a Time
           </h2>
-          <p className="text-white text-lg mb-4">
-            OneThrive is more than just an employee engagement company—we’re
-            workplace culture architects.
+          <p className="text-lg text-white mb-4 leading-relaxed">
+            OneThrive is more than just an employee engagement company—we’re workplace culture architects.
           </p>
-          <p className="text-white text-lg">
-            As a new player in this space, we bring a fresh, fun, and
-            forward-thinking approach.
+          <p className="text-lg text-white leading-relaxed">
+            As a new player in this space, we bring a fresh, fun, and forward-thinking approach.
           </p>
         </motion.div>
 
@@ -88,11 +84,7 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <img
-            src={aboutImage}
-            alt="About"
-            className="w-full rounded-2xl shadow-lg shadow-[#00FFAB]/30"
-          />
+          <img src={aboutImage} alt="About" className="w-full rounded-2xl shadow-lg shadow-[#00FFAB]/30" />
         </motion.div>
       </div>
 
@@ -109,13 +101,9 @@ const AboutSection = () => {
           { number: "90%", label: "Employee Participation\nAcross Activities" },
           { number: "100+", label: "Custom Engagements\nDesigned & Delivered" },
         ].map((stat, idx) => (
-          <div key={idx} className="p-6 rounded-xl shadow-md bg-[#111]">
-            <h3 className="text-5xl font-bold text-white mb-2">
-              {stat.number}
-            </h3>
-            <p className="whitespace-pre-line text-base text-white">
-              {stat.label}
-            </p>
+          <div key={idx} className="p-6 rounded-xl shadow-md">
+            <h3 className="text-5xl font-bold text-white mb-3">{stat.number}</h3>
+            <p className="whitespace-pre-line text-base text-white leading-relaxed">{stat.label}</p>
           </div>
         ))}
       </motion.div>
@@ -128,13 +116,9 @@ const AboutSection = () => {
         transition={{ duration: 1 }}
       >
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-white mb-2">
-            ONE PLATFORM FOR ALL YOUR
-          </h2>
-          <h2 className="text-5xl font-bold text-[#00FFAB]">
-            ENGAGEMENT NEEDS
-          </h2>
-          <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-4 rounded-full"></div>
+          <h2 className="text-5xl font-bold text-white mb-2">ONE PLATFORM FOR ALL YOUR</h2>
+          <h2 className="text-5xl font-bold text-[#00FFAB]">ENGAGEMENT NEEDS</h2>
+          <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-4 rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -147,15 +131,9 @@ const AboutSection = () => {
               onClick={() => (window.location.href = "/services")}
             >
               <div className="relative w-full h-full">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="object-cover w-full h-full"
-                />
+                <img src={service.image} alt={service.title} className="object-cover w-full h-full" />
                 <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
-                  <h3 className="text-white text-2xl font-bold text-center">
-                    {service.title}
-                  </h3>
+                  <h3 className="text-white text-2xl font-bold text-center">{service.title}</h3>
                 </div>
               </div>
             </motion.div>
@@ -174,7 +152,7 @@ const AboutSection = () => {
         </div>
       </motion.div>
 
-      {/* Our Process Section */}
+      {/* Our Process */}
       <motion.div
         className="py-24 px-6 md:px-20 max-w-7xl mx-auto"
         initial={{ opacity: 0 }}
@@ -182,18 +160,14 @@ const AboutSection = () => {
         transition={{ duration: 1 }}
       >
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#00FFAB] mb-4">
-            Our Process
-          </h2>
-          <p className="text-white max-w-2xl mx-auto text-lg">
-            A step-by-step journey to meaningful, measurable engagement —
-            tailored to your team.
+          <h2 className="text-5xl font-bold text-[#00FFAB] mb-4">Our Process</h2>
+          <p className="text-lg text-white max-w-2xl mx-auto leading-relaxed">
+            A step-by-step journey to meaningful, measurable engagement — tailored to your team.
           </p>
         </div>
 
         <div className="relative">
-          {/* Horizontal Line */}
-          <div className="absolute top-[38px] md:top-[50px] left-0 w-full h-1 bg-white/20 z-0"></div>
+          <div className="absolute top-[38px] md:top-[50px] left-0 w-full h-1 bg-white/20 z-0" />
 
           <div className="flex flex-col md:flex-row justify-between items-start gap-10 z-10 relative">
             {processSteps.map((step, index) => (
@@ -205,23 +179,16 @@ const AboutSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="bg-[#111] border border-white/20 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full shadow-md group-hover:scale-105 transition">
-                  <img
-                    src={step.icon}
-                    alt={step.title}
-                    className="w-8 h-8 md:w-10 md:h-10"
-                  />
+                  <img src={step.icon} alt={step.title} className="w-8 h-8 md:w-10 md:h-10" />
                 </div>
-                <h3 className="text-lg md:text-xl font-semibold text-white my-5">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-white/60">{step.description}</p>
+                <h3 className="text-xl font-semibold text-white my-5">{step.title}</h3>
+                <p className="text-sm text-white/60 leading-snug">{step.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </motion.div>
 
-      {/* FAQs Section */}
       <FAQs />
     </section>
   );
