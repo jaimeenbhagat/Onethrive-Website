@@ -92,10 +92,10 @@ const AboutSection = () => {
             Building Better Workplaces,<br />One Team at a Time
           </h2>
           <p className="text-lg text-white mb-4 leading-relaxed">
-            OneThrive is more than just an employee engagement company—we’re workplace culture architects.
+            OneThrive is more than just an employee engagement company we’re workplace culture architects.
           </p>
           <p className="text-lg text-white leading-relaxed">
-            As a new player in this space, we bring a fresh, fun, and forward-thinking approach.
+            As a new player in this space, we bring a fresh, fun, and forward thinking approach.
           </p>
         </motion.div>
 
@@ -163,7 +163,7 @@ const AboutSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-[#00FFAB] mb-4">Our Process</h2>
           <p className="text-lg text-white max-w-2xl mx-auto leading-relaxed">
-            A step-by-step journey to meaningful, measurable engagement — tailored to your team.
+            A step by step journey to meaningful, measurable engagement tailored to your team.
           </p>
         </div>
 
