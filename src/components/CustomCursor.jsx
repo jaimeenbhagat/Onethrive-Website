@@ -14,7 +14,7 @@ const CustomCursor = () => {
     const removeHover = () => setHovered(false);
 
     window.addEventListener("mousemove", move);
-    const hoverables = document.querySelectorAll("a, button, .cursor-hover");
+    const hoverables = document.querySelectorAll(".cursor-hover");
 
     hoverables.forEach((el) => {
       el.addEventListener("mouseenter", addHover);
@@ -45,8 +45,6 @@ const CustomCursor = () => {
         height: 12,
         backgroundColor: "#00FFAB",
         boxShadow: "0 0 10px #00FFAB, 0 0 20px #00FFAB",
-        // Removed mixBlendMode to fix maroon effect
-        // mixBlendMode: "normal",
       }}
     />
   );
