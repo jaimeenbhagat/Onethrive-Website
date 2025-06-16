@@ -12,8 +12,8 @@ const HeroSection = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* Overlay for better text contrast */}
-      <div className="absolute inset-0 bg-black/60 z-0"></div>
+      {/* Darker overlay for better text contrast */}
+      <div className="absolute inset-0 bg-black/70 z-0"></div>
 
       {/* Text Content */}
       <motion.div
