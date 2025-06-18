@@ -58,9 +58,9 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-20% 0px -20% 0px" });
   
-  // Updated scroll ranges for sequential animation
-  const stepStart = index * 0.16; // 0%, 16%, 32%, 48%, 64%
-  const stepEnd = stepStart + 0.10; // 10%, 26%, 42%, 58%, 74%
+  // Much smaller scroll ranges for faster sequential animation
+  const stepStart = index * 0.08; // 0%, 8%, 16%, 24%, 32%
+  const stepEnd = stepStart + 0.06; // 6%, 14%, 22%, 30%, 38%
   
   const stepProgress = useTransform(
     containerScrollProgress,
@@ -70,8 +70,8 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
 
   // Once animated in, steps stay fully visible (opacity stays at 1)
   const opacity = useTransform(stepProgress, [0, 1], [0, 1]);
-  const scale = useTransform(stepProgress, [0, 1], [0.9, 1]);
-  const y = useTransform(stepProgress, [0, 1], [30, 0]);
+  const scale = useTransform(stepProgress, [0, 1], [0.8, 1]);
+  const y = useTransform(stepProgress, [0, 1], [40, 0]);
 
   return (
     <motion.div
@@ -83,11 +83,11 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-[#00FFAB]/20 via-[#00FFAB]/10 to-transparent rounded-full blur-xl"
         animate={inView ? { 
-          scale: [1, 1.3, 1], 
-          opacity: [0.2, 0.6, 0.2],
+          scale: [1, 1.2, 1], 
+          opacity: [0.2, 0.5, 0.2],
           rotate: [0, 180, 360]
         } : {}}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       />
       
       {/* Step icon with enhanced animations */}
@@ -95,7 +95,7 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
         <motion.div
           className="absolute inset-0 rounded-full border-2 border-[#00FFAB]/40"
           animate={inView ? { rotate: 360, scale: [1, 1.1, 1] } : {}}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
           className="bg-gradient-to-br from-[#111] to-[#222] border-2 border-[#00FFAB]/30 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full shadow-lg shadow-[#00FFAB]/30 relative z-10"
@@ -105,14 +105,14 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
             borderColor: "#00FFAB",
             boxShadow: "0 0 30px rgba(0, 255, 171, 0.5)"
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 15 }}
+          transition={{ type: "spring", stiffness: 400, damping: 20 }}
         >
           <motion.img
             src={step.icon}
             alt={step.title}
             className="w-8 h-8 md:w-10 md:h-10"
             animate={inView ? { rotate: [0, 10, -10, 0] } : {}}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.div>
         
@@ -121,7 +121,7 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
           className="absolute -top-2 -right-2 bg-[#00FFAB] text-black text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center"
           initial={{ scale: 0, rotate: -180 }}
           animate={inView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
-          transition={{ delay: index * 0.1, type: "spring", stiffness: 300 }}
+          transition={{ delay: index * 0.05, type: "spring", stiffness: 400, duration: 0.4 }}
         >
           {index + 1}
         </motion.div>
@@ -132,10 +132,10 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ 
-          delay: index * 0.15 + 0.3, 
-          duration: 0.8,
+          delay: index * 0.08 + 0.2, 
+          duration: 0.5,
           type: "spring",
-          stiffness: 100
+          stiffness: 150
         }}
       >
         <motion.h3 
@@ -158,7 +158,7 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
           className="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-[#00FFAB] via-[#00FFAB]/50 to-transparent origin-left"
           initial={{ scaleX: 0, opacity: 0 }}
           animate={inView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
-          transition={{ delay: index * 0.2 + 0.5, duration: 1 }}
+          transition={{ delay: index * 0.12 + 0.3, duration: 0.6 }}
         />
       )}
 
@@ -180,9 +180,9 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
                 scale: [0, 1, 0],
               }}
               transition={{
-                duration: 2 + Math.random(),
+                duration: 1.5 + Math.random(),
                 repeat: Infinity,
-                delay: Math.random() * 2,
+                delay: Math.random() * 1.5,
                 ease: "easeInOut",
               }}
             />
@@ -195,19 +195,36 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
 
 const AboutSection = () => {
   const processRef = useRef(null);
+  const [allStepsCompleted, setAllStepsCompleted] = useState(false);
+  
   const { scrollYProgress } = useScroll({
     target: processRef,
-    offset: ["start bottom", "end top"] // Start when steps area enters, not the title
+    offset: ["start bottom", "end top"]
   });
 
   // Create a ref for just the steps container
   const stepsRef = useRef(null);
   const { scrollYProgress: stepsScrollProgress } = useScroll({
     target: stepsRef,
-    offset: ["start center", "end center"] // Animation triggers when steps are in center
+    offset: ["start center", "end center"]
   });
 
-  const backgroundY = useTransform(stepsScrollProgress, [0, 1], ["0%", "30%"]);
+  // Monitor when all steps animation is complete
+  useEffect(() => {
+    const unsubscribe = stepsScrollProgress.onChange((latest) => {
+      // All steps complete when scroll progress reaches 0.4 (40%)
+      // This is after the last step (starts at 32% and ends at 38%)
+      if (latest >= 0.4) {
+        setAllStepsCompleted(true);
+      } else {
+        setAllStepsCompleted(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [stepsScrollProgress]);
+
+  const backgroundY = useTransform(stepsScrollProgress, [0, 1], ["0%", "20%"]);
 
   return (
     <section className="w-full text-white bg-black font-interphase">
@@ -220,7 +237,7 @@ const AboutSection = () => {
             className="md:w-1/2"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl font-bold text-[#00FFAB] mb-6 leading-tight">
               Building Better Workplaces,
@@ -241,7 +258,7 @@ const AboutSection = () => {
             className="md:w-1/2"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
           >
             <img
               src={aboutImage}
@@ -257,7 +274,7 @@ const AboutSection = () => {
         className="min-h-screen flex flex-col justify-center px-6 md:px-20 max-w-7xl mx-auto"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.8 }}
       >
         <div className="text-center mb-4">
           <h2 className="text-4xl font-bold text-white mb-2">
@@ -273,7 +290,7 @@ const AboutSection = () => {
           {services.map((service, idx) => (
             <motion.div
               key={idx}
-              className="bg-black rounded-3xl overflow-hidden cursor-pointer group shadow-xl h-[240px]"
+              className="bg-black rounded-3xl overflow-hidden cursor-pointer group shadow-xl h-[200px]"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
               onClick={() => (window.location.href = "/services")}
@@ -294,7 +311,7 @@ const AboutSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-4  ">
+        <div className="text-center mt-4">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -322,7 +339,7 @@ const AboutSection = () => {
 
         {/* Floating ambient particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(15)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute w-1 h-1 bg-[#00FFAB]/40 rounded-full"
@@ -331,14 +348,14 @@ const AboutSection = () => {
                 top: `${Math.random() * 100}%`,
               }}
               animate={{
-                y: [-20, -100],
+                y: [-20, -80],
                 opacity: [0, 1, 0],
                 scale: [0, 1, 0],
               }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: 2 + Math.random() * 1.5,
                 repeat: Infinity,
-                delay: Math.random() * 2,
+                delay: Math.random() * 1.5,
                 ease: "easeOut",
               }}
             />
@@ -353,7 +370,7 @@ const AboutSection = () => {
             className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFAB] via-white to-[#00FFAB] mb-6"
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
           >
             Our Process
@@ -363,7 +380,7 @@ const AboutSection = () => {
             className="w-32 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-6"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
           />
           
@@ -371,7 +388,7 @@ const AboutSection = () => {
             className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
             viewport={{ once: true }}
           >
             A step-by-step journey to meaningful, measurable engagement — tailored to your team.
@@ -384,7 +401,7 @@ const AboutSection = () => {
             className="hidden md:block absolute top-[50px] left-0 w-full h-1 bg-white/10 rounded-full"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           />
           <motion.div
@@ -405,7 +422,18 @@ const AboutSection = () => {
         </div>
       </motion.div>
 
-      <FAQs />
+      {/* FAQs - Only show after all steps are completed */}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={allStepsCompleted ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+        transition={{ 
+          duration: 0.8, 
+          delay: allStepsCompleted ? 0.3 : 0,
+          ease: "easeOut"
+        }}
+      >
+        <FAQs />
+      </motion.div>
     </section>
   );
 };
