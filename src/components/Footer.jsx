@@ -63,8 +63,8 @@ const Footer = () => {
       {/* Animated Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 bg-[#00FFAB] rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 bg-blue-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-500 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-gray-600 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-[#00FFAB] rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
       {/* Main Content */}
@@ -89,7 +89,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <p className="text-gray-300 text-lg leading-relaxed max-w-md">
+            <p className="text-gray-300 text-lg font-bold leading-relaxed max-w-md">
               Empowering businesses through innovative technology solutions. We
               don't just deliver services we create digital experiences that
               drive real results.
@@ -98,20 +98,20 @@ const Footer = () => {
             {/* Contact Info with Icons */}
             <div className="space-y-4">
               <div className="flex items-center space-x-4 text-white hover:text-[#00FFAB] transition-colors cursor-pointer group">
-                <div className="bg-gradient-to-r from-[#00FFAB] to-blue-500 p-3 rounded-full group-hover:shadow-lg group-hover:shadow-[#00FFAB]/30 transition-all">
+                <div className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-800 p-3 rounded-full group-hover:shadow-lg group-hover:shadow-[#00FFAB]/30 transition-all">
                   <FaPhone className="text-black text-sm" />
                 </div>
                 <div>
-                  <p className="font-semibold">+91 9137849313</p>
-                  <p className="text-sm text-gray-400">+91 7718840072</p>
+                  <p className="font-bold text-lg">+91 9137849313</p>
+                  <p className="text-sm text-gray-400 font-semibold">+91 7718840072</p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-4 text-white hover:text-[#00FFAB] transition-colors cursor-pointer group">
-                <div className="bg-gradient-to-r from-[#00FFAB] to-blue-500 p-3 rounded-full group-hover:shadow-lg group-hover:shadow-[#00FFAB]/30 transition-all">
+                <div className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-800 p-3 rounded-full group-hover:shadow-lg group-hover:shadow-[#00FFAB]/30 transition-all">
                   <FaEnvelope className="text-black text-sm" />
                 </div>
-                <a href="mailto:info@onethrive.in" className="font-semibold">
+                <a href="mailto:info@onethrive.in" className="font-bold text-lg">
                   info@onethrive.in
                 </a>
               </div>
@@ -121,7 +121,7 @@ const Footer = () => {
             <div className="flex space-x-4 pt-4">
               <motion.a
                 href="#"
-                className="bg-gradient-to-r from-pink-500 to-purple-600 p-4 rounded-xl text-white text-xl hover:shadow-lg hover:shadow-pink-500/30 transition-all"
+                className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-700 p-4 rounded-xl text-black text-xl hover:shadow-lg hover:shadow-[#00FFAB]/30 transition-all"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -129,7 +129,7 @@ const Footer = () => {
               </motion.a>
               <motion.a
                 href="#"
-                className="bg-gradient-to-r from-blue-600 to-blue-800 p-4 rounded-xl text-white text-xl hover:shadow-lg hover:shadow-blue-500/30 transition-all"
+                className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-700 p-4 rounded-xl text-black text-xl hover:shadow-lg hover:shadow-[#00FFAB]/30 transition-all"
                 whileHover={{ scale: 1.1, rotate: -5 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -142,7 +142,7 @@ const Footer = () => {
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl font-bold mb-6 text-white relative">
               Quick Links
-              <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-[#00FFAB] to-blue-500 rounded-full"></div>
+              <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-600 rounded-full"></div>
             </h3>
             <ul className="space-y-3">
               {quickLinks.map(({ name, path }, idx) => (
@@ -153,7 +153,7 @@ const Footer = () => {
                 >
                   <button
                     onClick={() => handleLinkClick(path)}
-                    className="text-gray-300 hover:text-[#00FFAB] transition-all duration-300 text-lg font-medium relative group"
+                    className="text-gray-300 hover:text-[#00FFAB] transition-all duration-300 text-lg font-bold relative group"
                   >
                     <span className="relative z-10">{name}</span>
                     <div className="absolute inset-0 bg-[#00FFAB]/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
@@ -167,7 +167,7 @@ const Footer = () => {
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl font-bold mb-6 text-white relative">
               Our Policies
-              <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-[#00FFAB] to-blue-500 rounded-full"></div>
+              <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-600 rounded-full"></div>
             </h3>
             <ul className="space-y-3">
               {policies.map(({ name, path }, idx) => (
@@ -178,7 +178,7 @@ const Footer = () => {
                 >
                   <button
                     onClick={() => handleLinkClick(path)}
-                    className="text-gray-300 hover:text-[#00FFAB] transition-all duration-300 text-lg font-medium relative group"
+                    className="text-gray-300 hover:text-[#00FFAB] transition-all duration-300 text-lg font-bold relative group"
                   >
                     <span className="relative z-10">{name}</span>
                     <div className="absolute inset-0 bg-[#00FFAB]/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
@@ -195,9 +195,9 @@ const Footer = () => {
           variants={itemVariants}
         >
           <div className="flex justify-center items-center text-center">
-            <p className="text-gray-400 text-lg">
+            <p className="text-gray-400 text-lg font-bold">
               © {new Date().getFullYear()}{" "}
-              <span className="text-[#00FFAB] font-bold">OneThrive</span>. All
+              <span className="text-[#00FFAB] font-black text-xl">OneThrive</span>. All
               rights reserved.
             </p>
           </div>
