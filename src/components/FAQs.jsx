@@ -39,6 +39,50 @@ const FAQs = () => {
 
   return (
     <div className="bg-black font-interphase text-white">
+      {/* Custom CSS for gradient animations */}
+      <style jsx>{`
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes gradientRotate {
+          0% { background-position: 0% 0%; }
+          25% { background-position: 100% 0%; }
+          50% { background-position: 100% 100%; }
+          75% { background-position: 0% 100%; }
+          100% { background-position: 0% 0%; }
+        }
+        
+        @keyframes colorPulse {
+          0%, 100% { 
+            background: linear-gradient(45deg, #00FFAB, #0a0a0a, #00FFAB, #1a1a1a, #00FFAB);
+          }
+          50% { 
+            background: linear-gradient(45deg, #0a0a0a, #00FFAB, #1a1a1a, #00FFAB, #0a0a0a);
+          }
+        }
+        
+        .gradient-animated {
+          background: linear-gradient(45deg, #00FFAB, #0a0a0a, #00FFAB, #1a1a1a, #00FFAB, #0a0a0a);
+          background-size: 600% 600%;
+          animation: gradientShift 8s ease infinite;
+        }
+        
+        .gradient-rotating {
+          background: conic-gradient(from 0deg, #00FFAB, #0a0a0a, #00FFAB, #1a1a1a, #00FFAB);
+          animation: gradientRotate 12s linear infinite;
+        }
+        
+        .gradient-overlay {
+          background: radial-gradient(circle at 50% 50%, rgba(0, 255, 171, 0.3) 0%, transparent 50%),
+                      linear-gradient(45deg, rgba(0, 255, 171, 0.1), rgba(10, 10, 10, 0.8), rgba(0, 255, 171, 0.1));
+          background-size: 300% 300%, 400% 400%;
+          animation: gradientShift 6s ease infinite;
+        }
+      `}</style>
+
       {/* FAQ Accordion */}
       <div
         className="py-2 px-6 sm:px-10 md:px-20 max-w-7xl mx-auto"
@@ -48,7 +92,7 @@ const FAQs = () => {
         }}
       >
         <div className="mb-8 lg:mb-10 text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-5xl font-medium leading-tight">
+          <h2 className="text-4xl md:text-5xl font-medium leading-tight">
             Got Questions?<br />
             We've Got <span className="text-[#00FFAB]">Answers</span>!
           </h2>
@@ -87,39 +131,138 @@ const FAQs = () => {
         </div>
       </div>
 
-      {/* Book a Call - Full Screen Frame */}
+      {/* Smooth Transition from Black to Gradient */}
+      <div className="h-32 bg-gradient-to-b from-black to-transparent relative z-10"></div>
+
+      {/* Book a Call - Full Screen Section with Enhanced Animated Gradient */}
       <motion.div
-        className="w-full min-h-screen flex flex-col items-center justify-center px-6 sm:px-10 md:px-20 bg-gradient-to-br from-[#0a0a0a] via-[#101010] to-[#00FFAB] text-center relative overflow-hidden"
+        className="min-h-screen flex items-center justify-center text-white px-6 sm:px-10 md:px-20 text-center relative overflow-hidden -mt-32"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Floating Icon */}
-        <motion.div
-          className="w-16 h-16 mx-auto mb-6 border-2 border-[#00FFAB] text-[#00FFAB] text-3xl rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm"
-          animate={{ y: [0, -8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        >
-          ?
-        </motion.div>
+        {/* Base Black Background */}
+        <div className="absolute inset-0 bg-black z-0" />
+        
+        {/* Subtle Gradient that Builds Up */}
+        <motion.div 
+          className="absolute inset-0 z-[1]"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(0, 255, 171, 0.1) 0%, rgba(0, 0, 0, 0.8) 70%)'
+          }}
+          animate={{
+            opacity: [0.3, 0.7, 0.3]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        {/* Primary Animated Gradient Background - More Subtle */}
+        <div className="absolute inset-0 z-[2] opacity-20">
+          <div className="gradient-animated w-full h-full" />
+        </div>
+        
+        {/* Secondary Rotating Gradient Layer - Even More Subtle */}
+        <div className="absolute inset-0 z-[3] opacity-10">
+          <div className="gradient-rotating w-full h-full" />
+        </div>
 
-        <h3 className="text-3xl md:text-4xl font-bold mb-4">
-          Need Personalized Help?
-        </h3>
-        <p className="text-gray-200 mb-6 text-base md:text-lg max-w-2xl mx-auto">
-          Let’s talk and create a custom employee engagement strategy
-          tailored to your team’s goals.
-        </p>
+        {/* Floating Gradient Orbs - More Subtle */}
+        <motion.div 
+          className="absolute top-20 left-20 w-40 h-40 rounded-full opacity-15"
+          style={{
+            background: 'radial-gradient(circle, #00FFAB 0%, transparent 70%)'
+          }}
+          animate={{ 
+            x: [0, 50, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.2, 1]
+          }}
+          transition={{ 
+            duration: 8, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+        />
+        
+        <motion.div 
+          className="absolute bottom-20 right-20 w-32 h-32 rounded-full opacity-10"
+          style={{
+            background: 'radial-gradient(circle, #00FFAB 0%, transparent 70%)'
+          }}
+          animate={{ 
+            x: [0, -40, 0],
+            y: [0, 40, 0],
+            scale: [1, 0.8, 1]
+          }}
+          transition={{ 
+            duration: 6, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+        />
 
-        <button
-          onClick={() => (window.location.href = "/contact")}
-          className="bg-[#00FFAB] text-black font-semibold px-8 py-4 rounded-full hover:bg-white transition shadow-md hover:shadow-[#00FFAB]/40"
-        >
-          Book a Call →
-        </button>
+        {/* Subtle Overlay */}
+        <div className="absolute inset-0 bg-black/10 z-10" />
 
-        {/* Accent Glow */}
-        <div className="absolute -bottom-16 -right-16 w-40 h-40 bg-[#00FFAB] blur-3xl opacity-20 rounded-full z-0"></div>
+        {/* Content */}
+        <div className="relative z-20 max-w-5xl">
+          <motion.div
+            className="w-16 h-16 mx-auto mb-6 border-2 border-[#00FFAB] text-[#00FFAB] text-3xl rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm bg-black/30"
+            animate={{ 
+              y: [0, -8, 0],
+              boxShadow: [
+                '0 0 20px rgba(0, 255, 171, 0.3)',
+                '0 0 40px rgba(0, 255, 171, 0.6)',
+                '0 0 20px rgba(0, 255, 171, 0.3)'
+              ]
+            }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 2, 
+              ease: "easeInOut" 
+            }}
+          >
+            ?
+          </motion.div>
+
+          <motion.h3 
+            className="text-5xl md:text-6xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Need Personalized Help?
+          </motion.h3>
+          
+          <motion.p 
+            className="text-gray-200 mb-8 text-base md:text-xl max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Let's talk and create a custom employee engagement strategy
+            tailored to your team's goals.
+          </motion.p>
+
+          <motion.button
+            onClick={() => (window.location.href = "/contact")}
+            className="bg-[#00FFAB] text-black font-semibold px-8 py-4 rounded-full hover:bg-white transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(0,255,171,0.5)] transform hover:scale-105"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            whileHover={{ 
+              boxShadow: '0 0 40px rgba(0, 255, 171, 0.8)',
+              scale: 1.05 
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Book a Call →
+          </motion.button>
+        </div>
       </motion.div>
     </div>
   );

@@ -86,14 +86,14 @@ const ClientLogosCarousel = () => {
         <h2 className="text-4xl font-bold text-white mb-4">
           Trusted by Industry Leaders
         </h2>
-        <p className="text-lg text-white/70 max-w-2xl mx-auto">
+        <p className="text-lg text-white/70 max-w-3xl mx-auto">
           Join the growing list of companies that have transformed their workplace culture with OneThrive
         </p>
         <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-6 rounded-full" />
       </div>
 
       {/* Carousel Container */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden h-36">
         {/* Gradient overlays for seamless loop effect */}
         <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black to-transparent z-10" />
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-10" />
@@ -118,13 +118,13 @@ const ClientLogosCarousel = () => {
           {clientLogos.map((client, index) => (
             <motion.div
               key={`first-${index}`}
-              className="flex-shrink-0 w-48 h-48 flex items-center justify-center bg-white/5 rounded-xl border border-white/10 hover:border-[#00FFAB]/50 transition-all duration-300"
+              className="flex-shrink-0 w-48 h-full flex items-center justify-center bg-white/5 rounded-xl border border-white/10 hover:border-[#00FFAB]/50 transition-all duration-300"
               whileHover={{ scale: 1.05, backgroundColor: "rgba(0, 255, 171, 0.1)" }}
             >
               <img
                 src={client.logo}
                 alt={client.name}
-                className="max-w-48 max-h-48 object-contain filter  transition-all duration-300"
+                className="max-w-40 max-h-28 object-contain filter  transition-all duration-300"
               />
             </motion.div>
           ))}
@@ -133,13 +133,13 @@ const ClientLogosCarousel = () => {
           {clientLogos.map((client, index) => (
             <motion.div
               key={`second-${index}`}
-              className="flex-shrink-0 w-32 h-20 flex items-center justify-center bg-white/5 rounded-xl border border-white/10 hover:border-[#00FFAB]/50 transition-all duration-300"
+              className="flex-shrink-0 w-48 h-32 flex items-center justify-center bg-white/5 rounded-xl border border-white/10 hover:border-[#00FFAB]/50 transition-all duration-300"
               whileHover={{ scale: 1.05, backgroundColor: "rgba(0, 255, 171, 0.1)" }}
             >
               <img
                 src={client.logo}
                 alt={client.name}
-                className="max-w-24 max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="max-w-40 max-h-28 object-contain filter transition-all duration-300"
               />
             </motion.div>
           ))}
@@ -185,7 +185,7 @@ const Home = () => {
             <img
               src={aboutImage}
               alt="About"
-              className="w-full h-130 rounded-2xl shadow-lg shadow-[#00FFAB]/30"
+              className="w-full h-80 rounded-2xl shadow-lg shadow-[#00FFAB]/30"
             />
           </motion.div>
         </div>
