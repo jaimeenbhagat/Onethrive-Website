@@ -1,0 +1,75 @@
+import { motion } from "framer-motion";
+import service1 from "../../assets/services/services1.png";
+import service2 from "../../assets/services/services2.png";
+import service3 from "../../assets/services/services3.png";
+import service4 from "../../assets/services/services4.png";
+import service5 from "../../assets/services/services5.png";
+import service7 from "../../assets/services/services7.png";
+
+const services = [
+  { title: "Team Building Games", image: service1 },
+  { title: "Wellness Programs", image: service2 },
+  { title: "Creative Workshops", image: service3 },
+  { title: "Sports Tournaments", image: service4 },
+  { title: "Entertainment Events", image: service5 },
+  { title: "Offsite Retreats", image: service7 },
+];
+
+const ServicesSection = () => {
+  return (
+    <motion.div
+      className="min-h-screen flex flex-col justify-center px-6 md:px-20 max-w-7xl mx-auto"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <div className="text-center mb-4">
+        <h2 className="text-4xl font-bold text-white mb-2">
+          ONE PLATFORM FOR ALL YOUR
+        </h2>
+        <h2 className="text-4xl font-bold text-[#00FFAB]">
+          ENGAGEMENT NEEDS
+        </h2>
+        <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-4 rounded-full" />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service, idx) => (
+          <motion.div
+            key={idx}
+            className="bg-black rounded-3xl overflow-hidden cursor-pointer group shadow-xl h-[200px]"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => (window.location.href = "/services")}
+          >
+            <div className="relative w-full h-full">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="object-cover w-full h-full"
+              />
+              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
+                <h3 className="text-white text-xl font-bold text-center px-2">
+                  {service.title}
+                </h3>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="text-center mt-4">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => (window.location.href = "/services")}
+          className="bg-[#00FFAB] text-black font-bold px-8 py-4 rounded-full shadow-lg hover:bg-white transition"
+        >
+          Explore All Services
+        </motion.button>
+      </div>
+    </motion.div>
+  );
+};
+
+export default ServicesSection;

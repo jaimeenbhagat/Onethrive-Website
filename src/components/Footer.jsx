@@ -81,18 +81,10 @@ const Footer = () => {
           >
             <div className="flex items-center space-x-4">
               <img src={logo} alt="OneThrive Logo" className="h-16 md:h-20" />
-              <div>
-                <h3 className="text-3xl font-bold text-white">OneThrive</h3>
-                <p className="text-[#00FFAB] font-semibold">
-                  Innovation Unleashed
-                </p>
-              </div>
             </div>
 
             <p className="text-gray-300 text-lg font-bold leading-relaxed max-w-md">
-              Empowering businesses through innovative technology solutions. We
-              don't just deliver services we create digital experiences that
-              drive real results.
+              We empower organizations to build thriving workplace cultures through engaging team-building experiences, wellness initiatives, and curated employee programs. From fun to functional, our experiences are designed to inspire connection, boost morale, and drive lasting impact.
             </p>
 
             {/* Contact Info with Icons */}
