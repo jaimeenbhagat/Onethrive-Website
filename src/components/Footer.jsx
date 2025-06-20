@@ -1,11 +1,11 @@
 import {
+  FaInstagram,
+  FaLinkedinIn,
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import logo from "../assets/Logo.png";
-import instagramLogo from "../assets/instagram-logo.png"; // Add your Instagram logo image path
-import linkedinLogo from "../assets/linkedin-logo.png"; // Add your LinkedIn logo image path
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -111,32 +111,21 @@ const Footer = () => {
 
             {/* Social Media */}
             <div className="flex space-x-4 pt-4">
-              {/* Instagram with original logo image */}
               <motion.a
                 href="#"
-                className=" p-3 rounded-xl hover:shadow-lg hover:shadow-pink-500/30 transition-all"
+                className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-700 p-4 rounded-xl text-black text-xl hover:shadow-lg hover:shadow-[#00FFAB]/30 transition-all"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <img 
-                  src={instagramLogo} 
-                  alt="Instagram" 
-                  className="w-10 h-10"
-                />
+                <FaInstagram />
               </motion.a>
-              
-              {/* LinkedIn with original logo image */}
               <motion.a
                 href="#"
-                className=" p-3 rounded-xl hover:shadow-lg hover:shadow-blue-500/30 transition-all"
+                className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-700 p-4 rounded-xl text-black text-xl hover:shadow-lg hover:shadow-[#00FFAB]/30 transition-all"
                 whileHover={{ scale: 1.1, rotate: -5 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <img 
-                  src={linkedinLogo} 
-                  alt="LinkedIn" 
-                  className="w-11 h-11"
-                />
+                <FaLinkedinIn />
               </motion.a>
             </div>
           </motion.div>
