@@ -24,10 +24,10 @@ const ServicesSection = () => {
       transition={{ duration: 0.8 }}
     >
       <div className="text-center mb-4">
-        <h2 className="text-4xl font-bold text-white mb-2">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
           ONE PLATFORM FOR ALL YOUR
         </h2>
-        <h2 className="text-4xl font-bold text-[#00FFAB]">
+        <h2 className="text-4xl md:text-6xl font-bold text-[#00FFAB]">
           ENGAGEMENT NEEDS
         </h2>
         <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-4 rounded-full" />

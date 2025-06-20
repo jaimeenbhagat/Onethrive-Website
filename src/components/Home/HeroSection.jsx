@@ -28,7 +28,7 @@ const HeroSection = () => {
           One Roof. One Thrive.
         </h1>
 
-        <p className="text-base sm:text-lg text-gray-200 mb-8 leading-relaxed">
+        <p className="text-base sm:text-lg text-gray-200 mb-8 font-bold leading-relaxed">
           At OneThrive, we create meaningful, memorable experiences that bring
           your teams closer from energizing team-building activities to impactful
           engagement strategies. Whether you're scaling culture or boosting

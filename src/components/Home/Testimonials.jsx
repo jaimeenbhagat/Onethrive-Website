@@ -64,7 +64,7 @@ const TestimonialCard = ({ testimonial }) => {
         </div>
         
         {/* Testimonial Message */}
-        <p className="text-base text-white leading-relaxed  italic font-light flex-grow">
+        <p className="text-base text-white leading-relaxed  italic  font-bold flex-grow">
           {testimonial.message}
         </p>
         
@@ -109,7 +109,7 @@ const Testimonials = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             What Our Clients Say
           </h2>
-          <p className="text-lg text-white/70 max-w-3xl mx-auto">
+          <p className="text-lg text-white/70 max-w-3xl mx-auto font-bold">
             Don't just take our word for it - hear from the companies we've helped transform
           </p>
           <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-6 rounded-full" />
