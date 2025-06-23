@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaHeart } from 'react-icons/fa';
 import herosectionImage from '../assets/about.png';
 
 const blogs = [
@@ -80,18 +79,11 @@ const blogs = [
 
 const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [likedBlogs, setLikedBlogs] = useState([]);
   const blogsPerPage = 6;
   const totalPages = Math.ceil(blogs.length / blogsPerPage);
 
   const startIdx = (currentPage - 1) * blogsPerPage;
   const currentBlogs = blogs.slice(startIdx, startIdx + blogsPerPage);
-
-  const toggleLike = (id) => {
-    setLikedBlogs((prev) =>
-      prev.includes(id) ? prev.filter((blogId) => blogId !== id) : [...prev, id]
-    );
-  };
 
   const goToPage = (page) => {
     if (page >= 1 && page <= totalPages) {
@@ -128,16 +120,6 @@ const Blog = () => {
             <div className="p-5 space-y-2">
               <h3 className="text-xl font-semibold text-white">{blog.title}</h3>
               <p className="text-sm text-gray-400">By {blog.author}</p>
-              <button
-                onClick={() => toggleLike(blog.id)}
-                className={`mt-3 w-10 h-10 flex items-center justify-center rounded-full border-2 transition-transform duration-300 ${
-                  likedBlogs.includes(blog.id)
-                    ? 'bg-[#00FFAB] text-black border-[#00FFAB]'
-                    : 'bg-black border-[#00FFAB] text-[#00FFAB]'
-                } hover:scale-110`}
-              >
-                <FaHeart />
-              </button>
             </div>
           </motion.div>
         ))}

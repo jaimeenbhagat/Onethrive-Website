@@ -6,10 +6,6 @@ const Contact = () => {
     <section className="min-h-screen font-interphase bg-black text-white mt-24 px-6 md:px-20 py-16 flex flex-col md:flex-row justify-between items-start gap-10">
       {/* Left - Contact Info */}
       <div className="w-auto">
-      <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-3 bg-[#00FFAB]  transform rotate-45"></div>
-              <span className="text-gray-300 text-base font-medium">Contact Us</span>
-      </div>
       <h2 className="text-4xl md:text-5xl font-semibold mb-4">
           Get in <span className="text-green-400">touch</span> with us
         </h2>
