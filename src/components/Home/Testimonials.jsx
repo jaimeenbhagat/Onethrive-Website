@@ -69,14 +69,14 @@ const TestimonialCard = ({ testimonial }) => {
         </p>
         
         {/* Author Info */}
-        <div className="flex flex-col mt-1">
-          <h4 className="text-lg font-semibold text-[#00FFAB] mb-1">
+        <div className="flex flex-col">
+          <h4 className="text-lg font-semibold text-[#00FFAB]">
             {testimonial.name}
           </h4>
           <p className="text-white/80 font-medium text-sm">
             {testimonial.position}
           </p>
-          <p className="text-white/60 text-xs">
+          <p className="text-white text-base font-medium">
             {testimonial.company}
           </p>
         </div>
@@ -109,7 +109,7 @@ const Testimonials = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             What Our Clients Say
           </h2>
-          <p className="text-lg text-white/70 max-w-3xl mx-auto font-bold">
+          <p className="text-lg text-white max-w-3xl mx-auto font-bold">
             Don't just take our word for it - hear from the companies we've helped transform
           </p>
           <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-6 rounded-full" />
@@ -117,7 +117,7 @@ const Testimonials = () => {
 
         {/* Testimonials Slider */}
         <div className="max-w-6xl mx-auto">
-          <div className="relative h-[400px] overflow-hidden">
+          <div className="relative h-[350px] overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div 
                 key={currentIndex}
@@ -154,4 +154,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;    
+export default Testimonials;

@@ -84,15 +84,9 @@ const FAQs = () => {
       `}</style>
 
       {/* FAQ Accordion */}
-      <div
-        className="py-2 px-6 sm:px-10 md:px-20 max-w-7xl mx-auto"
-        style={{
-          fontFamily:
-            '"Bricolage Grotesque", "Bricolage Grotesque Placeholder", sans-serif',
-        }}
-      >
+      <div className="py-2 px-6 sm:px-10 md:px-20 max-w-7xl mx-auto font-interphase">
         <div className="mb-8 lg:mb-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-medium leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
             Got Questions?<br />
             We've Got <span className="text-[#00FFAB]">Answers</span>!
           </h2>
@@ -108,7 +102,7 @@ const FAQs = () => {
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-5 md:px-6 py-4 text-left flex justify-between items-center"
               >
-                <span className="text-base md:text-lg font-medium pr-3 leading-relaxed">
+                <span className="text-base md:text-lg font-white font-bold pr-3 leading-relaxed">
                   {faq.question}
                 </span>
                 <motion.div

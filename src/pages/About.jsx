@@ -374,13 +374,13 @@ const AboutUs = () => {
           {[ 
             {
               name: "Sujal Jain",
-              role: "Founder",
+              role: "Co-founder",
               image: team1,
               desc: "With a deep passion for organizational culture, he envisioned a company that blends fun, creativity, and purpose to engage employees like never before."
             },
             {
               name: "Smeet Shah",
-              role: "Founder",
+              role: "Co-founder",
               image: team2,
               desc: "He is the logistical genius who makes OneThrive's magic happen. With his skills in sports management, he ensures every event runs like clockwork."
             },

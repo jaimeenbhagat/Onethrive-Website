@@ -1,6 +1,7 @@
 import {
   FaInstagram,
   FaLinkedinIn,
+  FaYoutube,
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
@@ -17,14 +18,13 @@ const Footer = () => {
     { name: "About Us", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
+    { name: "Contact Us", path: "/contact" },
   ];
 
   const policies = [
     { name: "Privacy Policy", path: "/privacy-policy" },
     { name: "Cancellation & Refund", path: "/cancellation-refund" },
     { name: "Terms & Conditions", path: "/terms-conditions" },
-    { name: "Shipping & Exchanges", path: "/shipping-exchanges" },
   ];
 
   const handleLinkClick = (path) => {
@@ -112,7 +112,7 @@ const Footer = () => {
             {/* Social Media */}
             <div className="flex space-x-4 pt-4">
               <motion.a
-                href="#"
+                href="https://www.instagram.com/onethrive.in/"
                 className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-700 p-4 rounded-xl text-black text-xl hover:shadow-lg hover:shadow-[#00FFAB]/30 transition-all"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
@@ -120,12 +120,20 @@ const Footer = () => {
                 <FaInstagram />
               </motion.a>
               <motion.a
-                href="#"
+                href="https://www.linkedin.com/company/onethrive/"
                 className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-700 p-4 rounded-xl text-black text-xl hover:shadow-lg hover:shadow-[#00FFAB]/30 transition-all"
                 whileHover={{ scale: 1.1, rotate: -5 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <FaLinkedinIn />
+              </motion.a>
+              <motion.a
+                href="https://www.youtube.com/@OneThriveIn"
+                className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-700 p-4 rounded-xl text-black text-xl hover:shadow-lg hover:shadow-[#00FFAB]/30 transition-all"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaYoutube />
               </motion.a>
             </div>
           </motion.div>

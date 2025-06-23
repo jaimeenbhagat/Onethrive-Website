@@ -17,7 +17,7 @@ const whyChooseUs = [
     gradient: "from-[#00FF88] to-[#00FFAB]"
   },
   {
-    title: "Customized Solutions",
+    title: "Personalised Solutions",
     description: "Tailored to your specific industry needs",
     icon: "🎯", 
     stats: "100% Custom",
@@ -66,7 +66,7 @@ const WhyChooseUs = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImdyaWQiIG9wYWNpdHk9IjAuMSI+CjxwYXRoIGQ9Ik0wIDQwVjBIMUwwIDQwWiIgZmlsbD0iIzAwRkZBQiIvPgo8cGF0aCBkPSJNNDAgMEg0MFY0MEgzOUw0MCAwWiIgZmlsbD0iIzAwRkZBQiIvPgo8cGF0aCBkPSJNMCAwSDQwVjFIMEwwIDBaIiBmaWxsPSIjMDBGRkFCIi8+CjxwYXRoIGQ9Ik0wIDQwSDQwVjM5SDBMNDAgWiIgZmlsbD0iIzAwRkZBQiIvPgo8L2c+Cjwvc3ZnPgo=')] opacity-20"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
-        {/* Compact Header */}
+        {/* Fixed Header with proper padding */}
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: -30 }}
@@ -74,7 +74,7 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00FFAB] via-white to-[#00FFAB] mb-4 relative"
+            className="text-4xl md:text-5xl font-black text-white mb-4 relative leading-tight py-2"
             animate={{
               backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
             }}
@@ -85,21 +85,6 @@ const WhyChooseUs = () => {
             }}
           >
             Why Choose OneThrive?
-            
-            {/* Subtle glow effect */}
-            <motion.span
-              className="absolute inset-0 text-4xl md:text-5xl font-black text-[#00FFAB] opacity-30 blur-sm -z-10"
-              animate={{
-                opacity: [0.2, 0.4, 0.2],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              Why Choose OneThrive?
-            </motion.span>
           </motion.h2>
           
           <motion.div
@@ -110,17 +95,16 @@ const WhyChooseUs = () => {
           />
           
           <motion.p
-            className="text-lg text-white/80 max-w-3xl font-bold mx-auto"
+            className="text-lg text-white max-w-3xl font-bold mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Transformative experiences that drive{" "}
-            <span className="text-[#00FFAB] font-extrabold">real results</span>
+            Transformative experiences that drive real results
           </motion.p>
         </motion.div>
 
-        {/* Compact Cards Grid */}
+        {/* Cards Grid with improved spacing */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {whyChooseUs.map((item, index) => (
             <motion.div
@@ -204,12 +188,18 @@ const WhyChooseUs = () => {
                     )}
                   </motion.div>
                   
-                  {/* Title */}
+                  {/* Title - Fixed for "Result Driven" */}
                   <motion.h3
-                    className="text-lg font-bold text-white mb-2 group-hover:text-[#00FFAB] transition-colors duration-300"
+                    className="text-lg font-bold text-white mb-2 group-hover:text-[#00FFAB] transition-colors duration-300 leading-tight min-h-[3.5rem] flex items-center justify-center"
                     layoutId={`title-${index}`}
                   >
-                    {item.title}
+                    {index === 4 ? (
+                      <span className="text-center">
+                        Result<br />Driven
+                      </span>
+                    ) : (
+                      item.title
+                    )}
                   </motion.h3>
                   
                   {/* Description */}
@@ -259,7 +249,7 @@ const WhyChooseUs = () => {
           ))}
         </div>
 
-        {/* Compact CTA */}
+        {/* CTA */}
         <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0, y: 30 }}

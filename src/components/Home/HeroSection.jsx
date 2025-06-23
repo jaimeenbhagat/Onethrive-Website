@@ -17,30 +17,28 @@ const HeroSection = () => {
 
       {/* Text Content */}
       <motion.div
-        className="relative z-10 max-w-3xl text-center"
+        className="relative z-10 max-w-4xl text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="font-satoshi text-3xl sm:text-4xl md:text-5xl font-bold leading-snug mb-6">
-          Everything You Need for Team Building & Engagement.
+        <h1 className="font-satoshi text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 sm:mb-6">
+          Everything You Need for Team Building & Employee Engagement.
           <br className="hidden sm:block" />
           One Roof. One Thrive.
         </h1>
 
-        <p className="text-base sm:text-lg text-gray-200 mb-8 font-bold leading-relaxed">
-          At OneThrive, we create meaningful, memorable experiences that bring
-          your teams closer from energizing team-building activities to impactful
-          engagement strategies. Whether you're scaling culture or boosting
-          collaboration, we deliver everything you need to help your people connect,
-          grow, and thrive.
+        <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-8 font-bold leading-relaxed max-w-3xl mx-auto">
+          At OneThrive, we create meaningful, memorable experiences that bring your teams closer. 
+          Whether you're scaling culture or boosting collaboration, we deliver everything you need 
+          to help your people connect, grow, and thrive.
         </p>
 
         <motion.a
           href="/contact"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-block px-6 py-3 bg-[#00FFAB] text-black font-semibold border border-black shadow-[4px_4px_0px_rgba(0,0,0,0.8)] transition duration-300"
+          className="inline-block px-6 py-3 bg-[#00FFAB] text-black font-semibold rounded-lg shadow-[4px_4px_0px_rgba(0,0,0,0.8)] transition duration-300 text-base sm:text-lg"
         >
           Elevate Your Team Today →
         </motion.a>

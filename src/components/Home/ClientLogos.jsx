@@ -31,7 +31,7 @@ const ClientLogos = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
           Trusted by Industry Leaders
         </h2>
-        <p className="text-lg text-white/70 max-w-3xl mx-auto font-bold">
+        <p className="text-md text-white max-w-3xl mx-auto font-bold">
           Join the growing list of companies that have transformed their workplace culture with OneThrive
         </p>
         <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-6 rounded-full" />
