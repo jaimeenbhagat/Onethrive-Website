@@ -224,42 +224,188 @@ const AboutUs = () => {
   const backgroundY = useTransform(stepsScrollProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <section className="w-full text-white bg-black py-30 px-6 md:px-20 font-interphase">
+    <section className="w-full text-white bg-black py-30 px-6 md:px-20 font-interphase relative overflow-hidden">
+      {/* Global floating particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-[#00FFAB]/30 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [-20, -100],
+              opacity: [0, 0.8, 0],
+              scale: [0, 1.5, 0],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 3,
+              ease: "easeOut",
+            }}
+          />
+        ))}
+      </div>
+
       {/* Company About Section */}
       <motion.div
-        className="max-w-6xl mx-auto mb-24 text-center"
+        className="max-w-6xl mx-auto mb-24 text-center relative"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-[#00FFAB] mb-6">About Us</h2>
-        <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-4xl mx-auto">
+        {/* Background gradient effects */}
+        <motion.div
+          className="absolute -top-20 -left-20 w-40 h-40 bg-gradient-to-r from-[#00FFAB]/10 via-[#00FFAB]/5 to-transparent rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -bottom-20 -right-20 w-60 h-60 bg-gradient-to-l from-[#00FFAB]/10 via-[#00FFAB]/5 to-transparent rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold mb-6 relative"
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+        >
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFAB] via-white to-[#00FFAB] animate-pulse">
+            About Us
+          </span>
+          <motion.div
+            className="absolute -inset-1 bg-gradient-to-r from-[#00FFAB]/20 via-transparent to-[#00FFAB]/20 blur-lg -z-10"
+            animate={{
+              opacity: [0.3, 0.6, 0.3],
+              scale: [0.95, 1.05, 0.95],
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.h2>
+
+        <motion.div
+          className="w-24 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-8"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+        />
+
+        <motion.p 
+          className="text-lg md:text-xl text-white/80 leading-relaxed max-w-4xl mx-auto relative"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
           OneThrive is a dynamic employee engagement company specializing in creating vibrant and connected workplace communities. We believe that engaged employees are the key to sustained success, and we partner with organizations to design tailored strategies that boost morale, enhance communication, recognize achievements, and create a truly fulfilling work environment for everyone.
-        </p>
+        </motion.p>
       </motion.div>
 
       {/* Vision and Mission */}
       <motion.div
-        className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-32"
+        className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-32 relative"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className="bg-[#111] border border-white/10 rounded-2xl p-8 shadow-lg hover:shadow-[#00FFAB]/30 transition duration-300">
-          <h3 className="text-3xl font-semibold text-[#00FFAB] mb-4">Our Vision</h3>
-          <p className="text-white/80 text-lg leading-relaxed">
+        {/* Background glow effects */}
+        <motion.div
+          className="absolute top-0 left-1/4 w-32 h-32 bg-[#00FFAB]/5 rounded-full blur-2xl"
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.3, 0.7, 0.3],
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <motion.div
+          className="bg-gradient-to-br from-[#111] via-[#0a0a0a] to-[#111] border border-[#00FFAB]/20 rounded-2xl p-8 shadow-lg hover:shadow-[#00FFAB]/30 transition-all duration-500 relative overflow-hidden group"
+          whileHover={{ 
+            scale: 1.02,
+            borderColor: "rgba(0, 255, 171, 0.4)",
+            boxShadow: "0 20px 40px rgba(0, 255, 171, 0.1)"
+          }}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Animated background gradient */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-br from-[#00FFAB]/5 via-transparent to-[#00FFAB]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            initial={false}
+          />
+          
+          {/* Floating corner accent */}
+          <motion.div
+            className="absolute top-4 right-4 w-3 h-3 bg-[#00FFAB] rounded-full"
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.5, 1, 0.5],
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          <motion.h3 
+            className="text-3xl font-semibold text-[#00FFAB] mb-4 relative z-10"
+            whileHover={{ scale: 1.05 }}
+          >
+            Our Vision
+          </motion.h3>
+          <p className="text-white/80 text-lg leading-relaxed relative z-10">
             At OneThrive, we elevate workplace culture through tailored experiences that inspire team bonding, ignite creativity, and promote holistic employee well-being. By blending engagement with performance, we help organizations build happier, stronger, and more resilient teams.
           </p>
-        </div>
-        <div className="bg-[#111] border border-white/10 rounded-2xl p-8 shadow-lg hover:shadow-[#00FFAB]/30 transition duration-300">
-          <h3 className="text-3xl font-semibold text-[#00FFAB] mb-4">Our Mission</h3>
-          <p className="text-white/80 text-lg leading-relaxed">
+        </motion.div>
+
+        <motion.div
+          className="bg-gradient-to-bl from-[#111] via-[#0a0a0a] to-[#111] border border-[#00FFAB]/20 rounded-2xl p-8 shadow-lg hover:shadow-[#00FFAB]/30 transition-all duration-500 relative overflow-hidden group"
+          whileHover={{ 
+            scale: 1.02,
+            borderColor: "rgba(0, 255, 171, 0.4)",
+            boxShadow: "0 20px 40px rgba(0, 255, 171, 0.1)"
+          }}
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          {/* Animated background gradient */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-bl from-[#00FFAB]/5 via-transparent to-[#00FFAB]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            initial={false}
+          />
+          
+          {/* Floating corner accent */}
+          <motion.div
+            className="absolute top-4 left-4 w-3 h-3 bg-[#00FFAB] rounded-full"
+            animate={{
+              scale: [1, 1.5, 1],
+              opacity: [0.5, 1, 0.5],
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          />
+
+          <motion.h3 
+            className="text-3xl font-semibold text-[#00FFAB] mb-4 relative z-10"
+            whileHover={{ scale: 1.05 }}
+          >
+            Our Mission
+          </motion.h3>
+          <p className="text-white/80 text-lg leading-relaxed relative z-10">
             At OneThrive, we aim to redefine employee engagement by becoming the go-to partner for building vibrant, purpose-driven teams. We envision workplaces as thriving ecosystems of collaboration, creativity, and connection—where employees are empowered to grow, perform, and truly belong.
           </p>
-        </div>
+        </motion.div>
       </motion.div>
 
-      {/* Our Process - Enhanced Version */}
+      {/* Our Process - Enhanced Version (Unchanged as requested) */}
       <motion.div
         ref={processRef}
         className="relative min-h-screen flex flex-col justify-center px-6 md:px-20 max-w-7xl mx-auto overflow-hidden py-6 mb-32"
@@ -360,15 +506,54 @@ const AboutUs = () => {
 
       {/* Meet the Team */}
       <motion.div
-        className="max-w-6xl mx-auto mb-24"
+        className="max-w-6xl mx-auto mb-24 relative"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-4xl font-bold text-center mb-12 text-[#00FFAB]">Meet Our Team</h2>
-        <p className="text-center text-gray-400 max-w-xl mx-auto mb-10">
+        {/* Background elements */}
+        <motion.div
+          className="absolute top-0 left-1/2 w-40 h-40 bg-[#00FFAB]/5 rounded-full blur-3xl transform -translate-x-1/2"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <motion.h2 
+          className="text-4xl font-bold text-center mb-4 relative"
+          initial={{ scale: 0.9 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.6, type: "spring", stiffness: 150 }}
+        >
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFAB] via-white to-[#00FFAB]">
+            Meet Our Team
+          </span>
+          <motion.div
+            className="absolute -inset-1 bg-gradient-to-r from-[#00FFAB]/10 via-transparent to-[#00FFAB]/10 blur-xl -z-10"
+            animate={{
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.h2>
+
+        <motion.div
+          className="w-20 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-8"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        />
+
+        <motion.p 
+          className="text-center text-gray-400 max-w-xl mx-auto mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
           Driven by passion, guided by purpose — meet the people who make OneThrive thrive.
-        </p>
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 place-items-center">
           {[ 
@@ -393,14 +578,106 @@ const AboutUs = () => {
           ].map((member, index) => (
             <motion.div
               key={index}
-              className="text-center"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 200 }}
+              className="text-center relative group"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.2,
+                type: "spring",
+                stiffness: 100
+              }}
+              whileHover={{ scale: 1.05, y: -10 }}
             >
-              <img src={member.image} alt={member.name} className="w-40 h-40 rounded-full object-cover mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-[#00FFAB]">{member.name}</h3>
-              <p className="text-sm text-gray-400 mb-2">{member.role}</p>
-              <p className="text-sm text-gray-300 max-w-sm mx-auto">{member.desc}</p>
+              {/* Background glow effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-[#00FFAB]/10 via-[#00FFAB]/5 to-[#00FFAB]/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                animate={{
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              {/* Profile image with animated border */}
+              <motion.div className="relative mb-6">
+                <motion.img 
+                  src={member.image} 
+                  alt={member.name} 
+                  className="w-40 h-40 rounded-full object-cover mx-auto relative z-10 border-4 border-black"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                />
+                
+                {/* Floating accent dots */}
+                <motion.div
+                  className="absolute top-2 right-2 w-2 h-2 bg-[#00FFAB] rounded-full"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.6, 1, 0.6],
+                  }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div
+                  className="absolute bottom-8 left-2 w-1.5 h-1.5 bg-[#00FFAB]/70 rounded-full"
+                  animate={{
+                    scale: [1, 2, 1],
+                    opacity: [0.4, 0.8, 0.4],
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                />
+              </motion.div>
+
+              <motion.h3 
+                className="text-xl font-semibold mb-2 group-hover:text-[#00FFAB] transition-colors duration-300 relative"
+                whileHover={{ scale: 1.05 }}
+              >
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFAB] via-white to-[#00FFAB]">
+                  {member.name}
+                </span>
+              </motion.h3>
+              
+              <motion.p 
+                className="text-sm text-gray-400 mb-4 relative"
+                whileHover={{ color: "#00FFAB" }}
+              >
+                {member.role}
+                <motion.div
+                  className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-[#00FFAB] group-hover:w-full group-hover:left-0 transition-all duration-300"
+                />
+              </motion.p>
+              
+              <motion.p 
+                className="text-sm text-gray-300 max-w-sm mx-auto leading-relaxed group-hover:text-white/90 transition-colors duration-300"
+                whileHover={{ scale: 1.02 }}
+              >
+                {member.desc}
+              </motion.p>
+
+              {/* Floating particles around team member */}
+              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                {[...Array(4)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-[#00FFAB]/60 rounded-full"
+                    style={{
+                      left: `${20 + Math.random() * 60}%`,
+                      top: `${20 + Math.random() * 60}%`,
+                    }}
+                    animate={{
+                      y: [-5, -20, -5],
+                      x: [-3, 3, -3],
+                      opacity: [0, 1, 0],
+                      scale: [0, 1, 0],
+                    }}
+                    transition={{
+                      duration: 1.2 + Math.random() * 0.5,
+                      repeat: Infinity,
+                      delay: Math.random() * 1,
+                      ease: "easeInOut",
+                    }}
+                  />
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
@@ -408,28 +685,181 @@ const AboutUs = () => {
 
       {/* Company Journey */}
       <motion.div
-        className="max-w-4xl mx-auto"
+        className="max-w-4xl mx-auto relative"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-4xl font-bold text-center mb-12 text-[#00FFAB]">
-          Company Journey
-        </h2>
-        <div className="relative border-l-4 border-[#00FFAB] pl-8">
-          {timeline.map((item, index) => (
-            <motion.div
-              key={index}
-              className="mb-12 relative"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <div className="absolute -left-4 top-1 w-3 h-3 bg-[#00FFAB] rounded-full"></div>
-              <h3 className="text-xl font-semibold mb-2 text-[#00FFAB]">{item.title}</h3>
-              <p className="text-gray-300">{item.description}</p>
-            </motion.div>
-          ))}
+        {/* Background gradient effects */}
+        <motion.div
+          className="absolute top-20 right-0 w-32 h-32 bg-[#00FFAB]/5 rounded-full blur-2xl"
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-20 left-0 w-24 h-24 bg-[#00FFAB]/8 rounded-full blur-2xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+
+        <motion.h2 
+          className="text-4xl font-bold text-center mb-12 relative"
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8, type: "spring", stiffness: 120 }}
+        >
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFAB] via-white to-[#00FFAB]">
+            Company Journey
+          </span>
+          <motion.div
+            className="absolute -inset-2 bg-gradient-to-r from-[#00FFAB]/10 via-transparent to-[#00FFAB]/10 blur-xl -z-10"
+            animate={{
+              opacity: [0.2, 0.5, 0.2],
+              scale: [0.95, 1.05, 0.95],
+            }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.h2>
+
+        <motion.div
+          className="w-24 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-16"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+        />
+
+        <div className="relative">
+          {/* Enhanced timeline line with gradient and glow */}
+          <motion.div
+            className="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-[#00FFAB] via-[#00FFAB]/60 to-[#00FFAB]/30 rounded-full shadow-lg shadow-[#00FFAB]/30"
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          />
+          
+          {/* Animated progress indicator */}
+          <motion.div
+            className="absolute left-3.5 top-0 w-2 h-2 bg-[#00FFAB] rounded-full shadow-lg shadow-[#00FFAB]/50"
+            animate={{
+              y: [0, 400, 0],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          <div className="pl-12">
+            {timeline.map((item, index) => (
+              <motion.div
+                key={index}
+                className="mb-16 relative group"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                {/* Timeline dot with enhanced animation */}
+                <motion.div 
+                  className="absolute -left-16 top-2 w-6 h-6 bg-gradient-to-r from-[#00FFAB] to-[#00CC88] rounded-full shadow-lg shadow-[#00FFAB]/40 border-2 border-black flex items-center justify-center"
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.2 + 0.3,
+                    type: "spring",
+                    stiffness: 200
+                  }}
+                  whileHover={{ 
+                    scale: 1.3,
+                    boxShadow: "0 0 20px rgba(0, 255, 171, 0.6)"
+                  }}
+                >
+                  <motion.div
+                    className="w-2 h-2 bg-black rounded-full"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </motion.div>
+
+                {/* Content card with enhanced styling */}
+                <motion.div
+                  className="bg-gradient-to-br from-[#111] via-[#0a0a0a] to-[#111] border border-[#00FFAB]/20 rounded-xl p-6 shadow-lg hover:shadow-[#00FFAB]/20 transition-all duration-500 relative overflow-hidden group-hover:border-[#00FFAB]/40"
+                  whileHover={{ 
+                    scale: 1.02,
+                    y: -5,
+                    boxShadow: "0 15px 30px rgba(0, 255, 171, 0.1)"
+                  }}
+                >
+                  {/* Animated background effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-[#00FFAB]/5 via-transparent to-[#00FFAB]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    initial={false}
+                  />
+                  
+                  {/* Corner accent */}
+                  <motion.div
+                    className="absolute top-3 right-3 w-2 h-2 bg-[#00FFAB] rounded-full"
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0.6, 1, 0.6],
+                    }}
+                    transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: index * 0.3 }}
+                  />
+
+                  <motion.h3 
+                    className="text-xl font-semibold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#00FFAB] to-white relative z-10"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {item.title}
+                  </motion.h3>
+                  
+                  <motion.p 
+                    className="text-gray-300 leading-relaxed relative z-10 group-hover:text-white/90 transition-colors duration-300"
+                    initial={{ opacity: 0.8 }}
+                    whileHover={{ opacity: 1, scale: 1.01 }}
+                  >
+                    {item.description}
+                  </motion.p>
+
+                  {/* Floating particles within cards */}
+                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    {[...Array(3)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 bg-[#00FFAB]/50 rounded-full"
+                        style={{
+                          left: `${20 + Math.random() * 60}%`,
+                          top: `${20 + Math.random() * 60}%`,
+                        }}
+                        animate={{
+                          y: [-5, -15, -5],
+                          x: [-2, 2, -2],
+                          opacity: [0, 1, 0],
+                          scale: [0, 1, 0],
+                        }}
+                        transition={{
+                          duration: 1.5 + Math.random() * 0.5,
+                          repeat: Infinity,
+                          delay: Math.random() * 1,
+                          ease: "easeInOut",
+                        }}
+                      />
+                    ))}
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </section>
