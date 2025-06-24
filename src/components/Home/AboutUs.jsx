@@ -16,10 +16,10 @@ const AboutUs = () => {
             <br />
             Elevate Your Culture
           </h2>
-          <p className="text-lg text-white mb-4 leading-relaxed">
+          <p className="text-lg text-white mb-4 font-bold leading-relaxed">
             Break free from one off events and spark genuine connection. OneThrive partners with HR leaders and directors to craft unforgettable experiences dynamic workshops, immersive offsites, and engaging activities that boost collaboration, lift morale, and energize your workforce.
           </p>
-          <p className="text-lg text-white leading-relaxed">
+          <p className="text-lg text-white font-bold leading-relaxed">
             Ready to build a workplace everyone talks about? Let's get started.
           </p>
         </motion.div>
@@ -33,7 +33,7 @@ const AboutUs = () => {
           <img
             src={aboutImage}
             alt="About"
-            className="w-full h-80 rounded-2xl shadow-lg shadow-[#00FFAB]/30"
+            className="w-full h-120 rounded-2xl shadow-lg shadow-[#00FFAB]/30"
           />
         </motion.div>
       </div>
