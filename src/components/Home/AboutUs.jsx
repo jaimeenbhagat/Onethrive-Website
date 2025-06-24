@@ -33,7 +33,7 @@ const AboutUs = () => {
           <img
             src={aboutImage}
             alt="About"
-            className="w-full h-120 rounded-2xl shadow-lg shadow-[#00FFAB]/30"
+            className="w-full h-full rounded-2xl shadow-lg shadow-[#00FFAB]/30"
           />
         </motion.div>
       </div>
