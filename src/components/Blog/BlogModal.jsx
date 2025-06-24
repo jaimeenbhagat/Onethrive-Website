@@ -71,7 +71,7 @@ const BlogModal = ({ blog, isOpen, onClose }) => {
                     </h2>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-[#00FFAB] rounded-full animate-pulse"></div>
-                      <p className="text-[#00FFAB] text-lg font-medium">
+                      <p className="text-[#00FFAB] text-lg font-bold">
                         By {blog.author}
                       </p>
                     </div>
@@ -97,7 +97,7 @@ const BlogModal = ({ blog, isOpen, onClose }) => {
                     {blog.description.split('\n\n').map((paragraph, index) => (
                       <motion.p
                         key={index}
-                        className="text-gray-300 leading-relaxed text-lg mb-6 text-justify"
+                        className="text-white font-bold leading-relaxed text-lg mb-6 text-justify"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 + (index * 0.1) }}
