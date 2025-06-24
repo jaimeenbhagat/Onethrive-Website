@@ -1,36 +1,24 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import client1 from "../../assets/ClientLogo/EDS.png";
+import client2 from "../../assets/ClientLogo/DJSCE.png";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    position: "HR Director",
-    company: "TechCorp Solutions",
-    message: "OneThrive transformed our company culture completely. The team building activities were engaging and our employee satisfaction scores increased by 40% after working with them."
+    name: "Swarali Teli",
+    position: "HR",
+    company: "EDS International Pvt. Ltd.",
+    message: "The session was really good! The Laughter Yoga segment left us feeling fresh and energized. I especially enjoyed the tower-building challenge. It was a lot of fun. Participating in more such games would make the experience even better.",
+    rating: 5,
+    logo: client1
   },
   {
-    name: "Michael Chen",
-    position: "Operations Manager", 
-    company: "Digital Innovations",
-    message: "The wellness programs provided by OneThrive have been a game-changer for our remote team. Our productivity and team cohesion have never been better."
-  },
-  {
-    name: "Emily Rodriguez",
-    position: "CEO",
-    company: "StartupHub",
-    message: "What sets OneThrive apart is their ability to customize experiences for our unique needs. Every event feels personal and impactful for our growing company."
-  },
-  {
-    name: "David Thompson",
-    position: "Team Lead",
-    company: "Creative Agency Pro",
-    message: "The creative workshops organized by OneThrive sparked innovation in our team. We've implemented several ideas that came from those sessions into our actual projects."
-  },
-  {
-    name: "Lisa Park",
-    position: "People & Culture Manager",
-    company: "Global Enterprises",
-    message: "OneThrive's offsite retreats brought our distributed team together like never before. The ROI on team engagement has been phenomenal."
+    name: "Dr. Hari Vasudevan",
+    position: "Principal",
+    company: "SVKM'sDJSCE",
+    message: "The event was truly refreshing. It helped me improve my concentration, especially through the breathing exercises. The combination of movement and mindfulness had a strong impact. I'd describe the experience as energizing.",
+    rating: 4,
+    logo: client2
   }
 ];
 
@@ -43,11 +31,11 @@ const TestimonialCard = ({ testimonial }) => {
       <div className="relative z-10 h-full flex flex-col">
         {/* Company Logo */}
         <div className="mb-4">
-          <div className="w-28 h-12 bg-gradient-to-r from-[#00FFAB]/20 to-[#00FFAB]/40 rounded-lg flex items-center justify-center">
-            <span className="text-[#00FFAB] font-bold text-xs">
-              {testimonial.company}
-            </span>
-          </div>
+          <img 
+              src={testimonial.logo} 
+              alt={testimonial.company}
+              className="w-28 h-12 object-contain"
+          />
         </div>
 
         {/* Star Rating */}
@@ -55,7 +43,7 @@ const TestimonialCard = ({ testimonial }) => {
           {[...Array(5)].map((_, i) => (
             <svg
               key={i}
-              className="w-4 h-4 text-[#00FFAB] fill-current"
+              className={`w-4 h-4 ${i < testimonial.rating ? 'text-[#00FFAB]' : 'text-gray-500'} fill-current`}
               viewBox="0 0 20 20"
             >
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -64,8 +52,8 @@ const TestimonialCard = ({ testimonial }) => {
         </div>
         
         {/* Testimonial Message */}
-        <p className="text-base text-white leading-relaxed  italic  font-bold flex-grow">
-          {testimonial.message}
+        <p className="text-base text-white leading-relaxed italic font-bold flex-grow">
+          "{testimonial.message}"
         </p>
         
         {/* Author Info */}

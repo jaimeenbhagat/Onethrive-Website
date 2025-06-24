@@ -5,6 +5,7 @@ import ServicesSection from "../components/Home/ServicesSection";
 import WhyChooseUs from "../components/Home/WhyChooseUs";
 import ClientLogos from "../components/Home/ClientLogos";
 import Testimonials from "../components/Home/Testimonials";
+import MomentsThatMatter from "../components/Home/MomentsThatMatter";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <AboutUs />
       <ServicesSection />
       <WhyChooseUs />
+      <MomentsThatMatter />
       <ClientLogos />
       <Testimonials />
       <FAQs />
