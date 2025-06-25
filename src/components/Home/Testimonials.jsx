@@ -29,14 +29,6 @@ const TestimonialCard = ({ testimonial }) => {
       <div className="absolute inset-0 bg-gradient-to-r from-[#00FFAB]/5 via-[#00FFAB]/10 to-transparent rounded-2xl" />
       
       <div className="relative z-10 h-full flex flex-col items-left text-left">
-        {/* Company Logo */}
-        <div className="mb-4">
-          <img 
-              src={testimonial.logo} 
-              alt={testimonial.company}
-              className="w-28 h-12 object-contain"
-          />
-        </div>
 
         {/* Star Rating */}
         <div className="flex mb-4">
@@ -52,19 +44,19 @@ const TestimonialCard = ({ testimonial }) => {
         </div>
         
         {/* Testimonial Message */}
-        <p className="text-lg md:text-xl text-white leading-relaxed italic font-medium mb-6 max-w-2xl text-left">
+        <p className="text-lg md:text-xl text-white leading-relaxed italic font-bold mb-6 max-w-2xl text-left">
           "{testimonial.message}"
         </p>
         
         {/* Author Info */}
-        <div className="flex flex-col items-left">
-          <h4 className="text-xl font-semibold text-[#00FFAB] mb-1">
+        <div className="flex flex-col items-end">
+          <h4 className="text-xl font-bold text-[#00FFAB] mb-1">
             {testimonial.name}
           </h4>
-          <p className="text-white/80 font-medium text-base mb-1">
+          <p className="text-white/80 font-bold text-base mb-1">
             {testimonial.position}
           </p>
-          <p className="text-white text-base font-medium">
+          <p className="text-white text-base font-bold">
             {testimonial.company}
           </p>
         </div>
