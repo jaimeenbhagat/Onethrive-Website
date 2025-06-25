@@ -50,13 +50,11 @@ const ClientLogos = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }}
           >
-            <div className="w-80 h-48 flex items-center justify-center bg-white/8 backdrop-blur-sm rounded-3xl border border-white/20 group-hover:border-[#00FFAB]/60 transition-all duration-500 group-hover:bg-white/12 group-hover:shadow-2xl group-hover:shadow-[#00FFAB]/20">
-              <img
+            <img
                 src={client.logo}
                 alt={client.name}
                 className="max-w-64 max-h-40 object-contain filter transition-all duration-500 group-hover:scale-105"
               />
-            </div>
             {/* Glow effect */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#00FFAB]/0 via-[#00FFAB]/10 to-[#00FFAB]/0 opacity-0 group-hover:opacity-100 transition-all duration-500 blur-2xl -z-10" />
           </motion.div>
