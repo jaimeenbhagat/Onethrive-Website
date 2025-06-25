@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import local images
-import moment1 from '../../assets/moments/1.png';
-import moment2 from '../../assets/moments/2.png';
-import moment3 from '../../assets/moments/3.png';
-import moment4 from '../../assets/moments/4.png';
-import moment5 from '../../assets/moments/5.png';
-import moment6 from '../../assets/moments/6.png';
+import moment1 from '../../assets/moments/image1.png';
+import moment2 from '../../assets/moments/image2.png';
+import moment3 from '../../assets/moments/image3.png';
+import moment4 from '../../assets/moments/image4.png';
+import moment5 from '../../assets/moments/image5.png';
+import moment6 from '../../assets/moments/image6.jpg';
 
 const MomentsThatMatter = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
