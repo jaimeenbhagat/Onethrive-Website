@@ -37,7 +37,7 @@ const ClientLogos = () => {
           Trusted by Industry Leaders
         </motion.h2>
         <motion.p 
-          className="text-xl text-gray-300 max-w-4xl mx-auto font-medium leading-relaxed"
+          className="text-xl text-white max-w-4xl mx-auto font-bold leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -87,7 +87,7 @@ const ClientLogos = () => {
                 <h3 className="text-white font-bold text-lg md:text-xl mb-2">
                   {client.name}
                 </h3>
-                <p className="text-gray-400 text-sm md:text-base mb-4">
+                <p className="text-white font-bold text-sm md:text-base mb-4">
                   {client.description}
                 </p>
               </motion.div>
