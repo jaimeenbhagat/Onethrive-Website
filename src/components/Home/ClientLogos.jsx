@@ -25,7 +25,7 @@ const ClientLogos = () => {
           Trusted by Industry Leaders
         </motion.h2>
         <motion.p 
-          className="text-lg text-white/90 max-w-3xl mx-auto font-medium leading-relaxed"
+          className="text-lg text-white  max-w-4xl mx-auto font-bold leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
