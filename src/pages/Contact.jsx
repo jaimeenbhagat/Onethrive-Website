@@ -27,7 +27,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen font-interphase font-bold bg-black text-white mt-24 px-6 md:px-20 py-16 flex flex-col md:flex-row justify-between items-start gap-10">
+    <section className="min-h-screen font-interphase font-bold bg-black text-white mt-6 px-6 md:px-20 py-16 flex flex-col md:flex-row justify-between items-start gap-10">
       {/* Left - Contact Info */}
       <div className="w-full md:w-1/3">
         <h2 className="text-4xl md:text-5xl text-center font-bold mb-4">
