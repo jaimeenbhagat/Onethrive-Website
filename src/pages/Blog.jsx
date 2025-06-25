@@ -41,10 +41,10 @@ const Blog = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#00FFAB] to-[#00CC88] bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4  bg-clip-text text-white">
           Our Latest Blogs
         </h2>
-        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+        <p className="text-white text-lg max-w-2xl mx-auto">
           Discover insights, trends, and expert perspectives on employee engagement, 
           workplace culture, and organizational growth.
         </p>

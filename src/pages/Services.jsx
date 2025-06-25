@@ -254,13 +254,7 @@ const Services = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="mb-12 text-center">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-4 h-4 bg-[#00FFAB] rounded transform rotate-45"></div>
-            <span className="text-gray-300 text-base font-medium">
-              Our Services
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Transform Your <span className="text-[#00FFAB]">Team</span>
             <br />
             With Our{" "}
@@ -268,7 +262,7 @@ const Services = () => {
               Experiences
             </span>
           </h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white font-bold text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Discover our comprehensive range of employee engagement solutions
             designed to boost morale, enhance collaboration, and create lasting
             positive impact in your organization.

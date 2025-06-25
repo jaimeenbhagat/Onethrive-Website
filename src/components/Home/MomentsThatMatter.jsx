@@ -1,5 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+// Import local images
+import moment1 from '../../assets/moments/1.png';
+import moment2 from '../../assets/moments/2.png';
+import moment3 from '../../assets/moments/3.png';
+import moment4 from '../../assets/moments/4.png';
+import moment5 from '../../assets/moments/5.png';
+import moment6 from '../../assets/moments/6.png';
 
 const MomentsThatMatter = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -7,23 +15,27 @@ const MomentsThatMatter = () => {
   const moments = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=600&fit=crop"
+      image: moment1
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&h=600&fit=crop"
+      image: moment2
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop"
+      image: moment3
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&h=600&fit=crop"
+      image: moment4
     },
     {
       id: 5,
-      image: "https://images.unsplash.com/photo-1559223607-b4d0555ae227?w=800&h=600&fit=crop"
+      image: moment5
+    },
+    {
+      id: 6,
+      image: moment6
     }
   ];
 
@@ -38,6 +50,15 @@ const MomentsThatMatter = () => {
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
+
+  // Auto-play functionality - changes photo every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % moments.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [moments.length]);
 
   return (
     <section className="w-full bg-black py-16 px-4 overflow-hidden font-interphase">
@@ -80,13 +101,13 @@ const MomentsThatMatter = () => {
             >
               {moments.map((moment) => (
                 <div key={moment.id} className="w-full h-full flex-shrink-0 relative">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${moment.image})` }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/20"></div>
-                  </div>
+                  <img 
+                    src={moment.image} 
+                    alt={`Moment ${moment.id}`}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/20"></div>
                 </div>
               ))}
             </div>
