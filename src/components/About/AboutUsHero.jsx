@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AboutUsHero = () => {
   return (
-    <div className="max-w-7xl mx-auto mb-24 relative">
+    <div className="max-w-7xl mx-auto mb-32 relative">
       {/* Background gradient effects */}
       <motion.div
         className="absolute -top-20 -left-20 w-40 h-40 bg-gradient-to-r from-[#00FFAB]/10 via-[#00FFAB]/5 to-transparent rounded-full blur-3xl"
