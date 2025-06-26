@@ -75,56 +75,19 @@ const ProcessStep = ({ step, index, isActive, isCompleted }) => {
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        {/* Icon container */}
+        {/* Icon container - simplified without animations */}
         <motion.div className="relative flex-shrink-0">
-          {/* Animated background glow */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-[#00FFAB]/30 via-[#00FFAB]/20 to-transparent rounded-full blur-xl"
-            animate={isActive ? { 
-              scale: [1, 1.3, 1], 
-              opacity: [0.3, 0.6, 0.3],
-              rotate: [0, 180, 360]
-            } : {}}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
-          
-          {/* Rotating border */}
-          <motion.div
-            className="absolute inset-0 rounded-full border-2 border-[#00FFAB]/40"
-            animate={isActive ? { rotate: 360 } : {}}
-            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          />
-          
-          {/* Main icon */}
+          {/* Main icon container */}
           <motion.div
             className="bg-gradient-to-br from-[#111] to-[#222] border-2 border-[#00FFAB]/30 
               w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full 
               shadow-lg shadow-[#00FFAB]/30 relative z-10"
-            animate={isActive ? { 
-              scale: [1, 1.1, 1],
-              borderColor: ["rgba(0, 255, 171, 0.3)", "rgba(0, 255, 171, 0.8)", "rgba(0, 255, 171, 0.3)"]
-            } : {}}
-            transition={{ duration: 2, repeat: Infinity }}
           >
-            <motion.img
+            <img
               src={step.icon}
               alt={step.title}
               className="w-8 h-8 md:w-10 md:h-10"
-              animate={isActive ? { rotate: [0, 10, -10, 0] } : {}}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             />
-          </motion.div>
-          
-          {/* Step number */}
-          <motion.div
-            className="absolute -bottom-2 -right-2 bg-gradient-to-r from-[#00FFAB] to-[#00CC88] 
-              text-black text-sm font-bold w-6 h-6 md:w-8 md:h-8 rounded-full 
-              flex items-center justify-center border-2 border-black md:text-sm"
-            initial={{ scale: 0, rotate: -180 }}
-            animate={inView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
-            transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 400 }}
-          >
-            {index + 1}
           </motion.div>
         </motion.div>
 
@@ -317,8 +280,6 @@ const OurProcess = () => {
             ))}
           </div>
         </div>
-
-
       </motion.div>
     </div>
   );
