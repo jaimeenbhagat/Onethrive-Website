@@ -29,7 +29,7 @@ const ClientLogos = () => {
     >
       <div className="text-center mb-20">
         <motion.h2 
-          className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight"
+          className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -68,7 +68,7 @@ const ClientLogos = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-[#00FFAB]/20 via-[#00D4AA]/20 to-[#00FFAB]/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 scale-110" />
             
             {/* Logo container */}
-            <div className="relative bg-gradient-to-br from-gray-900/50 to-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 md:p-4 transition-all duration-500 group-hover:border-[#00FFAB]/50 group-hover:shadow-2xl group-hover:shadow-[#00FFAB]/20">
+            <div className="relative bg-black backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 md:p-4 transition-all duration-500 group-hover:border-[#00FFAB]/50 group-hover:shadow-2xl group-hover:shadow-[#00FFAB]/20">
               {/* Logo image */}
               <div className="flex justify-center items-center">
                 <img
