@@ -42,7 +42,7 @@ const Contact = () => {
       {/* Left - Contact Info */}
       <div className="w-full md:w-1/3 flex flex-col justify-center">
         <h2 className="text-4xl md:text-5xl text-center font-bold mb-4">
-          Get in touch<br />with us
+          Let's Connect
         </h2>
         <p className="text-white font-bold mb-8 text-center">
           We'd love to hear from you! Whether you have questions or need support, feel free to reach out.
@@ -70,9 +70,9 @@ const Contact = () => {
 
       {/* Right - Contact Form */}
       <div className="w-full md:w-2/3 bg-[#0d0d0d] border border-neutral-800 p-8 rounded-2xl space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
           <div>
-            <label htmlFor="fullName" className="block text-gray-300 font-medium mb-2">Full Name</label>
+            <label htmlFor="fullName" className="block text-white font-bold mb-2">Full Name</label>
             <input
               type="text"
               id="fullName"
@@ -80,11 +80,11 @@ const Contact = () => {
               value={formData.fullName}
               onChange={handleInputChange}
               placeholder="John Doe"
-              className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500"
+              className="w-full bg-black border font-bold border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500"
             />
           </div>
           <div>
-            <label htmlFor="workEmail" className="block text-gray-300 font-medium mb-2">Email</label>
+            <label htmlFor="workEmail" className="block text-white font-bold mb-2">Email</label>
             <input
               type="email"
               id="workEmail"
@@ -99,7 +99,7 @@ const Contact = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="phoneNumber" className="block text-gray-300 font-medium mb-2">Phone Number</label>
+            <label htmlFor="phoneNumber" className="block text-white font-bold mb-2">Phone Number</label>
             <input
               type="tel"
               id="phoneNumber"
@@ -111,7 +111,7 @@ const Contact = () => {
             />
           </div>
           <div>
-            <label htmlFor="companyName" className="block text-gray-300 font-medium mb-2">Company Name</label>
+            <label htmlFor="companyName" className="block text-white font-bold mb-2">Company Name</label>
             <input
               type="text"
               id="companyName"
@@ -126,7 +126,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="participants" className="block text-gray-300 font-medium mb-2">Number of Participants</label>
+            <label htmlFor="participants" className="block text-white font-bold mb-2">Number of Participants</label>
             <input
               type="number"
               id="participants"
@@ -138,7 +138,7 @@ const Contact = () => {
             />
           </div>
           <div>
-            <label className="block text-gray-300 font-medium mb-2">Activity Type</label>
+            <label className="block text-white font-bold mb-2">Activity Type</label>
             <div className="relative">
               <div
                 onClick={() => setShowDropdown(!showDropdown)}
@@ -183,7 +183,7 @@ const Contact = () => {
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-gray-300 font-medium mb-2">Tell us about your query</label>
+          <label htmlFor="message" className="block text-white font-bold mb-2">Tell us about your query</label>
           <textarea
             id="message"
             name="message"
