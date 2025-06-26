@@ -54,31 +54,28 @@ const AboutUsHero = () => {
           />
 
           <motion.p
-            className="text-lg md:text-xl text-white/80 leading-relaxed relative mb-8"
+            className="text-lg md:text-xl text-white/80 leading-relaxed relative mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            OneThrive is a dynamic employee engagement company specializing in
-            creating vibrant and connected workplace communities. We believe
-            that engaged employees are the key to sustained success, and we
-            partner with organizations to design tailored strategies that boost
-            morale, enhance communication, recognize achievements, and create a
-            truly fulfilling work environment for everyone.
+            It started with a simple realization—workplace culture isn't just about 
+            deadlines and meetings. It's about people. At OneThrive, we saw employees 
+            burning out and teams disconnected, so we built a company dedicated to 
+            transforming work into an experience.
           </motion.p>
 
-          <motion.div
+          <motion.p
+            className="text-lg md:text-xl text-white/80 leading-relaxed relative mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <Link
-              to="/contact"
-              className="inline-block px-8 py-3 bg-gradient-to-r from-[#00FFAB] to-[#00FFAB]/80 text-black font-semibold rounded-lg hover:from-[#00FFAB]/90 hover:to-[#00FFAB]/70 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#00FFAB]/25"
-            >
-              Contact Us
-            </Link>
-          </motion.div>
+            From team-building challenges to wellness initiatives, we create moments 
+            that leave lasting impacts. We partner with organizations to design tailored 
+            strategies that boost morale and create truly fulfilling work environments. 
+            Because when employees thrive, businesses do too.
+          </motion.p>
         </motion.div>
 
         {/* Right side - Image */}
@@ -95,7 +92,7 @@ const AboutUsHero = () => {
           >
             {/* Image container with glow effect */}
             <motion.div
-              className="relative overflow-hidden rounded-2xl"
+              className="relative overflow-hidden"
               animate={{
                 boxShadow: [
                   "0 0 30px rgba(0, 255, 171, 0.1)",
