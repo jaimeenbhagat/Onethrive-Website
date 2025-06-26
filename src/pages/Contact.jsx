@@ -1,22 +1,33 @@
 import React, { useState } from 'react';
-import { FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { Phone, Mail } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     workEmail: '',
-    phoneNumber: '',
+    phoneNumber: '+91 ',
     companyName: '',
     participants: '',
-    activityType: '',
+    activityType: [],
     message: ''
   });
+
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
+    }));
+  };
+
+  const handleCheckboxChange = (value) => {
+    setFormData(prev => ({
+      ...prev,
+      activityType: prev.activityType.includes(value)
+        ? prev.activityType.filter(item => item !== value)
+        : [...prev.activityType, value]
     }));
   };
 
@@ -27,11 +38,11 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen font-interphase font-bold bg-black text-white mt-6 px-6 md:px-20 py-16 flex flex-col md:flex-row justify-between items-start gap-10">
+    <section className="min-h-screen font-bold bg-black text-white mt-6 px-6 md:px-20 py-16 flex flex-col md:flex-row justify-between items-center gap-10">
       {/* Left - Contact Info */}
-      <div className="w-full md:w-1/3">
+      <div className="w-full md:w-1/3 flex flex-col justify-center">
         <h2 className="text-4xl md:text-5xl text-center font-bold mb-4">
-          Get in touch with us
+          Get in touch<br />with us
         </h2>
         <p className="text-white font-bold mb-8 text-center">
           We'd love to hear from you! Whether you have questions or need support, feel free to reach out.
@@ -40,14 +51,14 @@ const Contact = () => {
         <div className="bg-[#0d0d0d] p-4 rounded-xl w-full border border-neutral-800 relative">
           <div className="space-y-6 text-xl">
             <div className="flex items-center gap-4">
-              <FaPhoneAlt className="text-green-400 text-3xl" />
+              <Phone className="text-green-400 text-3xl" />
               <div>
                 <p className="font-semibold text-2xl">Phone Number</p>
                 <p className="text-gray-300 pt-1">+91 88502 10248</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <FaEnvelope className="text-green-400 text-3xl" />
+              <Mail className="text-green-400 text-3xl" />
               <div>
                 <p className="font-semibold text-2xl">Email Address</p>
                 <p className="text-gray-300 pt-1">info@onethrive.in</p>
@@ -73,7 +84,7 @@ const Contact = () => {
             />
           </div>
           <div>
-            <label htmlFor="workEmail" className="block text-gray-300 font-medium mb-2">Work Email</label>
+            <label htmlFor="workEmail" className="block text-gray-300 font-medium mb-2">Email</label>
             <input
               type="email"
               id="workEmail"
@@ -95,7 +106,7 @@ const Contact = () => {
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleInputChange}
-              placeholder="+1 (555) 000-0000"
+              placeholder="+91 "
               className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500"
             />
           </div>
@@ -127,40 +138,58 @@ const Contact = () => {
             />
           </div>
           <div>
-            <label htmlFor="activityType" className="block text-gray-300 font-medium mb-2">Activity Type</label>
+            <label className="block text-gray-300 font-medium mb-2">Activity Type</label>
             <div className="relative">
-              <select
-                id="activityType"
-                name="activityType"
-                value={formData.activityType}
-                onChange={handleInputChange}
-                className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white appearance-none cursor-pointer"
+              <div
+                onClick={() => setShowDropdown(!showDropdown)}
+                className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white cursor-pointer flex justify-between items-center"
               >
-                <option value="" className="bg-black text-white">Exploring Options</option>
-                <option value="team-building" className="bg-black text-white">Team Building</option>
-                <option value="wellness-programs" className="bg-black text-white">Wellness Programs</option>
-                <option value="creative-workshops" className="bg-black text-white">Creative Workshops</option>
-                <option value="sports-tournaments" className="bg-black text-white">Sports Tournaments</option>
-                <option value="centertainment-events" className="bg-black text-white">Entertainment Events</option>
-                <option value="offsite-retreats" className="bg-black text-white">Offsite Retreats</option>
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className={formData.activityType.length > 0 ? "text-white" : "text-gray-500"}>
+                  {formData.activityType.length > 0 
+                    ? `${formData.activityType.length} selected`
+                    : "Select activities"
+                  }
+                </span>
+                <svg className={`w-4 h-4 text-gray-400 transition-transform ${showDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
+              
+              {showDropdown && (
+                <div className="absolute z-10 w-full mt-1 bg-black border border-neutral-700 rounded-lg shadow-lg">
+                  {[
+                    { value: 'team-building', label: 'Team Building' },
+                    { value: 'wellness-programs', label: 'Wellness Programs' },
+                    { value: 'creative-workshops', label: 'Creative Workshops' },
+                    { value: 'sports-tournaments', label: 'Sports Tournaments' },
+                    { value: 'entertainment-events', label: 'Entertainment Events' },
+                    { value: 'offsite-retreats', label: 'Offsite Retreats' }
+                  ].map((option) => (
+                    <label key={option.value} className="flex items-center gap-3 px-4 py-2 hover:bg-neutral-800 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        value={option.value}
+                        checked={formData.activityType.includes(option.value)}
+                        onChange={() => handleCheckboxChange(option.value)}
+                        className="w-4 h-4 text-green-400 bg-black border-neutral-700 rounded focus:ring-green-400 focus:ring-2"
+                      />
+                      <span className="text-white">{option.label}</span>
+                    </label>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-gray-300 font-medium mb-2">Tell us about your vision</label>
+          <label htmlFor="message" className="block text-gray-300 font-medium mb-2">Tell us about your query</label>
           <textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleInputChange}
-            placeholder="Share your team building goals and requirements..."
+            placeholder="Share your goals and requirements..."
             className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500 h-32 resize-none"
           ></textarea>
         </div>
