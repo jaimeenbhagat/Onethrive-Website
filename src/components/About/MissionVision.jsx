@@ -73,7 +73,7 @@ const MissionVision = () => {
                   </h3>
                 </motion.div>
 
-                <p className="text-white/80 text-lg leading-relaxed flex-grow">
+                <p className="text-white font-bold text-lg leading-relaxed flex-grow">
                   At <span className="text-[#00FFAB] font-medium">OneThrive</span>, we elevate workplace culture through tailored experiences that inspire team bonding, ignite creativity, and promote holistic employee well-being. By blending engagement with performance, we help organizations build happier, stronger, and more resilient teams.
                 </p>
 
@@ -131,7 +131,7 @@ const MissionVision = () => {
                   </h3>
                 </motion.div>
 
-                <p className="text-white/80 text-lg leading-relaxed flex-grow">
+                <p className="text-white font-bold text-lg leading-relaxed flex-grow">
                   At <span className="text-[#00FFAB] font-medium">OneThrive</span>, we aim to redefine employee engagement by becoming the go-to partner for building vibrant, purpose-driven teams. We envision workplaces as thriving ecosystems of collaboration, creativity, and connection—where employees are empowered to grow, perform, and truly belong.
                 </p>
 

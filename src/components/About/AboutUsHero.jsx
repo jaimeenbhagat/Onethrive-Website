@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import aboutusimage from "../../assets/aboutus.png"; 
+import aboutusimage from "../../assets/aboutus.png";
+import { Link } from "react-router-dom";
+
 
 const AboutUsHero = () => {
   return (
@@ -19,7 +21,12 @@ const AboutUsHero = () => {
           scale: [1.2, 1, 1.2],
           opacity: [0.2, 0.5, 0.2],
         }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -30,15 +37,13 @@ const AboutUsHero = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 relative"
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
           >
-            <span className="text-white">
-              About Us
-            </span>
+            <span className="text-white">About Us</span>
           </motion.h2>
 
           <motion.div
@@ -48,24 +53,31 @@ const AboutUsHero = () => {
             transition={{ delay: 0.3, duration: 1 }}
           />
 
-          <motion.p 
+          <motion.p
             className="text-lg md:text-xl text-white/80 leading-relaxed relative mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            OneThrive is a dynamic employee engagement company specializing in creating vibrant and connected workplace communities. We believe that engaged employees are the key to sustained success, and we partner with organizations to design tailored strategies that boost morale, enhance communication, recognize achievements, and create a truly fulfilling work environment for everyone.
+            OneThrive is a dynamic employee engagement company specializing in
+            creating vibrant and connected workplace communities. We believe
+            that engaged employees are the key to sustained success, and we
+            partner with organizations to design tailored strategies that boost
+            morale, enhance communication, recognize achievements, and create a
+            truly fulfilling work environment for everyone.
           </motion.p>
 
-          {/* Optional: Add a call-to-action button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <button className="px-8 py-3 bg-gradient-to-r from-[#00FFAB] to-[#00FFAB]/80 text-black font-semibold rounded-lg hover:from-[#00FFAB]/90 hover:to-[#00FFAB]/70 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#00FFAB]/25">
-              Learn More
-            </button>
+            <Link
+              to="/contact"
+              className="inline-block px-8 py-3 bg-gradient-to-r from-[#00FFAB] to-[#00FFAB]/80 text-black font-semibold rounded-lg hover:from-[#00FFAB]/90 hover:to-[#00FFAB]/70 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[#00FFAB]/25"
+            >
+              Contact Us
+            </Link>
           </motion.div>
         </motion.div>
 
@@ -99,10 +111,10 @@ const AboutUsHero = () => {
                 alt="Team collaboration"
                 className="w-80 h-96 lg:w-96 lg:h-[500px] object-cover"
               />
-              
+
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-              
+
               {/* Floating accent element */}
               <motion.div
                 className="absolute -top-4 -right-4 w-8 h-8 bg-[#00FFAB] rounded-full blur-sm"
@@ -110,7 +122,11 @@ const AboutUsHero = () => {
                   scale: [1, 1.5, 1],
                   opacity: [0.6, 1, 0.6],
                 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
             </motion.div>
 
@@ -120,14 +136,19 @@ const AboutUsHero = () => {
               animate={{ rotate: 360 }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
             />
-            
+
             <motion.div
               className="absolute -top-6 -right-6 w-6 h-6 bg-[#00FFAB]/30 rounded-full"
               animate={{
                 scale: [1, 1.3, 1],
                 opacity: [0.3, 0.8, 0.3],
               }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
             />
           </motion.div>
         </motion.div>

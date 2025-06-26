@@ -10,27 +10,27 @@ import evaluationIcon from "../../assets/process/evaluation.png";
 const processSteps = [
   {
     title: "Discovery",
-    description: "Understand your goals, challenges, and culture.",
+    description: "We analyze your workplace culture, challenges, and objectives to craft the perfect engagement strategy.",
     icon: discoveryIcon,
   },
   {
     title: "Planning",
-    description: "Strategize timeline, resources, and activities.",
+    description: "Our team designs customized programs tailored to your company's needs based on the insights received from the discovery process.",
     icon: planningIcon,
   },
   {
     title: "Execution",
-    description: "Bring the plan to life with creativity and precision.",
+    description: "We handle the curation, logistics, coordination, and facilitation of events, ensuring a seamless and engaging experience.",
     icon: executionIcon,
   },
   {
     title: "Engagement",
-    description: "Interactive and meaningful team participation.",
+    description: "Employees participate in immersive, interactive and rewarding activities curated by Team OneThrive.",
     icon: engagementIcon,
   },
   {
     title: "Evaluation",
-    description: "Measure success and refine future programs.",
+    description: "We collect feedback, measure success, and continuously refine our approach to maximize the engagement impact.",
     icon: evaluationIcon,
   },
 ];
@@ -72,7 +72,7 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
       />
       
       {/* Step icon with integrated number at bottom */}
-      <motion.div className="relative mb-6">
+      <motion.div className="relative mb-6 flex-shrink-0">
         <motion.div
           className="absolute inset-0 rounded-full border-2 border-[#00FFAB]/40"
           animate={inView ? { rotate: 360, scale: [1, 1.1, 1] } : {}}
@@ -110,6 +110,7 @@ const ProcessStep = ({ step, index, containerScrollProgress }) => {
 
       {/* Content with enhanced staggered animation */}
       <motion.div
+        className="flex flex-col items-center"
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ 
@@ -200,7 +201,7 @@ const OurProcess = () => {
   return (
     <motion.div
       ref={processRef}
-      className="relative min-h-screen flex flex-col justify-center px-6 md:px-20 max-w-7xl mx-auto overflow-hidden py-6 mb-32"
+      className="relative min-h-screen flex flex-col justify-center px-6 md:px-20 max-w-7xl mx-auto overflow-hidden py-16 mb-32"
     >
       {/* Animated background elements */}
       <motion.div
@@ -238,7 +239,7 @@ const OurProcess = () => {
 
       {/* Enhanced section title */}
       <motion.div
-        className="text-center mb-5 relative z-10"
+        className="text-center relative z-10"
       >
         <motion.h2
           className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00FFAB] via-white to-[#00FFAB] mb-6"
@@ -272,7 +273,7 @@ const OurProcess = () => {
       <div ref={stepsRef} className="relative z-10">
         {/* Enhanced progress bar */}
         <motion.div
-          className="hidden md:block absolute top-[50px] left-0 w-full h-1 bg-white/10 rounded-full "
+          className="hidden md:block absolute top-[50px] left-0 w-full h-1 bg-transparent rounded-full"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -283,7 +284,7 @@ const OurProcess = () => {
           style={{ scaleX: stepsScrollProgress }}
         />
 
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 z-10 relative">
+        <div className="flex flex-col md:flex-row justify-between items-stretch md:items-start gap-8 md:gap-4 z-10 relative pt-16">
           {processSteps.map((step, index) => (
             <ProcessStep
               key={index}
@@ -297,5 +298,4 @@ const OurProcess = () => {
     </motion.div>
   );
 };
-
 export default OurProcess;
