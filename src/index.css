@@ -85,4 +85,4 @@ body {
   font-family: "TT Interphases", sans-serif;
 }
 
-
+@tailwind utilities;

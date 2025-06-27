@@ -61,19 +61,25 @@ const OurTeam = () => {
             name: "Sujal Jain",
             role: "Co-founder",
             image: team1,
-            desc: "With a deep passion for organizational culture, he envisioned a company that blends fun, creativity, and purpose to engage employees like never before."
+            desc: "With a deep passion for organizational culture, he envisioned a company that blends fun, creativity, and purpose to engage employees like never before.",
+            email: "sujal@onethrive.in",
+            linkedin: "https://www.linkedin.com/in/sujal-jain-7072b6252/"
           },
           {
             name: "Smeet Shah",
             role: "Co-founder",
             image: team2,
-            desc: "He is the logistical genius who makes OneThrive's magic happen. With his skills in sports management, he ensures every event runs like clockwork."
+            desc: "He is the logistical genius who makes OneThrive's magic happen. With his skills in sports management, he ensures every event runs like clockwork.",
+            email: "smeet.s@onethrive.in",
+            linkedin: "https://www.linkedin.com/in/smeet-shah-86333b228/"
           },
           {
             name: "Parth Patva",
             role: "Co-founder",
             image: team3,
-            desc: "The creative strategist behind OneThrive's vision. Parth brings innovation and clarity to our mission, making sure every idea resonates with purpose and impact."
+            desc: "The creative strategist behind OneThrive's vision. Parth brings innovation and clarity to our mission, making sure every idea resonates with purpose and impact.",
+            email: "parth@onethrive.in",
+            linkedin: "https://www.linkedin.com/in/parth-patva-909452174/"
           },
         ].map((member, index) => (
           <motion.div
@@ -147,11 +153,60 @@ const OurTeam = () => {
             </motion.p>
             
             <motion.p 
-              className="text-sm text-gray-300 max-w-sm mx-auto leading-relaxed group-hover:text-white/90 transition-colors duration-300"
+              className="text-sm text-gray-300 max-w-sm mx-auto leading-relaxed group-hover:text-white/90 transition-colors duration-300 mb-6"
               whileHover={{ scale: 1.02 }}
             >
               {member.desc}
             </motion.p>
+
+            {/* Contact Links */}
+            <motion.div 
+              className="flex justify-center space-x-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
+            >
+              {/* LinkedIn Link */}
+              <motion.a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-10 h-10 bg-[#0077B5]/10 hover:bg-[#0077B5]/20 border border-[#0077B5]/30 hover:border-[#0077B5]/60 rounded-full transition-all duration-300 group/link"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <svg 
+                  className="w-5 h-5 text-[#0077B5] group-hover/link:text-white transition-colors duration-300" 
+                  fill="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <motion.div
+                  className="absolute inset-0 bg-[#0077B5]/20 rounded-full opacity-0 group-hover/link:opacity-100 blur-sm transition-opacity duration-300"
+                />
+              </motion.a>
+
+              {/* Email Link */}
+              <motion.a
+                href={`mailto:${member.email}`}
+                className="flex items-center justify-center w-10 h-10 bg-[#00FFAB]/10 hover:bg-[#00FFAB]/20 border border-[#00FFAB]/30 hover:border-[#00FFAB]/60 rounded-full transition-all duration-300 group/link"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <svg 
+                  className="w-5 h-5 text-[#00FFAB] group-hover/link:text-white transition-colors duration-300" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <motion.div
+                  className="absolute inset-0 bg-[#00FFAB]/20 rounded-full opacity-0 group-hover/link:opacity-100 blur-sm transition-opacity duration-300"
+                />
+              </motion.a>
+            </motion.div>
 
             {/* Floating particles around team member */}
             <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
