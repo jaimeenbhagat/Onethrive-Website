@@ -108,7 +108,7 @@ const Contact = () => {
       // In production, try to use environment variable first
       return process.env.REACT_APP_API_URL || 
              // Fallback to your Vercel backend URL
-             'https://your-backend-app.vercel.app';
+             'https://onethrive-temp.vercel.app';
     } else {
       // Development environment
       return process.env.REACT_APP_API_URL || 'http://localhost:3001';
