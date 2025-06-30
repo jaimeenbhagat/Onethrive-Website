@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import aboutusimage from "../../assets/aboutus.png";
 import { Link } from "react-router-dom";
 
-
 const AboutUsHero = () => {
   return (
     <div className="max-w-7xl mx-auto mb-32 relative">
@@ -35,47 +34,47 @@ const AboutUsHero = () => {
           className="text-left"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.h2
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 relative"
-            initial={{ scale: 0.9, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             <span className="text-white">About Us</span>
           </motion.h2>
 
           <motion.div
             className="w-24 h-1 bg-gradient-to-r from-[#00FFAB] via-[#00FFAB]/70 to-transparent mb-8"
-            initial={{ scaleX: 0 }}
+            initial={{ scaleX: 0, transformOrigin: "left" }}
             whileInView={{ scaleX: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 1, ease: "easeOut" }}
           />
 
-          <motion.p
-            className="text-lg md:text-xl text-white font-bold leading-relaxed relative mb-4"
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
           >
-            It started with a simple realization—workplace culture isn't just about 
-            deadlines and meetings. It's about people. At OneThrive, we saw employees 
-            burning out and teams disconnected, so we built a company dedicated to 
-            transforming work into an experience.
-          </motion.p>
+            <p className="text-lg md:text-xl text-white font-bold leading-relaxed relative mb-4">
+              It started with a simple realization—workplace culture isn't just about 
+              deadlines and meetings. It's about people. At OneThrive, we saw employees 
+              burning out and teams disconnected, so we built a company dedicated to 
+              transforming work into an experience.
+            </p>
 
-          <motion.p
-            className="text-lg md:text-xl text-white font-bold leading-relaxed relative mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-            From team-building challenges to wellness initiatives, we create moments 
-            that leave lasting impacts. We partner with organizations to design tailored 
-            strategies that boost morale and create truly fulfilling work environments. 
-            Because when employees thrive, businesses do too.
-          </motion.p>
+            <p className="text-lg md:text-xl text-white font-bold leading-relaxed relative mb-8">
+              From team-building challenges to wellness initiatives, we create moments 
+              that leave lasting impacts. We partner with organizations to design tailored 
+              strategies that boost morale and create truly fulfilling work environments. 
+              Because when employees thrive, businesses do too.
+            </p>
+          </motion.div>
         </motion.div>
 
         {/* Right side - Image */}
@@ -83,12 +82,13 @@ const AboutUsHero = () => {
           className="flex justify-center lg:justify-end"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
           <motion.div
             className="relative"
             whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             {/* Image container with glow effect */}
             <motion.div
@@ -107,6 +107,7 @@ const AboutUsHero = () => {
                 src={aboutusimage}
                 alt="Team collaboration"
                 className="w-80 h-96 lg:w-96 lg:h-[500px] object-cover"
+                loading="lazy"
               />
 
               {/* Overlay gradient */}

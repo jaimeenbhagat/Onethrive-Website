@@ -68,16 +68,6 @@ const ClientLogos = () => {
                 className="w-72 h-48 object-contain"
               />
             </div>
-            
-            {/* Client info */}
-            <div>
-              <h3 className="text-white font-bold text-lg md:text-xl mb-2">
-                {client.name}
-              </h3>
-              <p className="text-white font-bold text-sm md:text-base">
-                {client.description}
-              </p>
-            </div>
           </motion.div>
         ))}
       </div>

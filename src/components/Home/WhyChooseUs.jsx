@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const whyChooseUs = [
   {
@@ -48,13 +48,9 @@ const whyChooseUs = [
 
 const WhyChooseUs = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const containerRef = useRef(null);
 
   return (
-    <div 
-      ref={containerRef}
-      className="relative h-screen bg-black overflow-hidden flex items-center justify-center"
-    >
+    <div className="relative h-screen bg-black overflow-hidden flex items-center justify-center">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-72 h-72 bg-[#00FFAB] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
@@ -66,7 +62,7 @@ const WhyChooseUs = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImdyaWQiIG9wYWNpdHk9IjAuMSI+CjxwYXRoIGQ9Ik0wIDQwVjBIMUwwIDQwWiIgZmlsbD0iIzAwRkZBQiIvPgo8cGF0aCBkPSJNNDAgMEg0MFY0MEgzOUw0MCAwWiIgZmlsbD0iIzAwRkZBQiIvPgo8cGF0aCBkPSJNMCAwSDQwVjFIMEwwIDBaIiBmaWxsPSIjMDBGRkFCIi8+CjxwYXRoIGQ9Ik0wIDQwSDQwVjM5SDBMNDAgWiIgZmlsbD0iIzAwRkZBQiIvPgo8L2c+Cjwvc3ZnPgo=')] opacity-20"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
-        {/* Header with larger spacing */}
+        {/* Header */}
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: -30 }}
@@ -74,7 +70,7 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-white mb-4 relative leading-tight py-2"
+            className="text-4xl md:text-5xl font-bold text-white mb-4 relative leading-tight"
             animate={{
               backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
             }}
@@ -104,9 +100,8 @@ const WhyChooseUs = () => {
           </motion.p>
         </motion.div>
 
-        {/* Cards Grid with larger cards and better spacing */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-7xl mx-auto"
-        >
+        {/* Cards Grid - Fixed alignment */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-7xl mx-auto">
           {whyChooseUs.map((item, index) => (
             <motion.div
               key={index}
@@ -122,7 +117,7 @@ const WhyChooseUs = () => {
               onHoverEnd={() => setHoveredIndex(null)}
             >
               <motion.div
-                className="bg-gradient-to-br from-gray-900/60 via-black/80 to-gray-900/60 backdrop-blur-sm border border-[#00FFAB]/20 rounded-2xl p-7 h-full text-center relative overflow-hidden min-h-[300px] flex flex-col justify-center"
+                className="bg-gradient-to-br from-gray-900/60 via-black/80 to-gray-900/60 backdrop-blur-sm border border-[#00FFAB]/20 rounded-2xl p-6 h-[320px] text-center relative overflow-hidden flex flex-col justify-between"
                 whileHover={{ 
                   scale: 1.08,
                   y: -8,
@@ -144,10 +139,10 @@ const WhyChooseUs = () => {
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 />
                 
-                <div className="relative z-10 flex flex-col items-center justify-center h-full">
-                  {/* Stats Badge */}
+                {/* Top Section: Stats Badge */}
+                <div className="relative z-10 flex flex-col items-center">
                   <motion.div
-                    className={`inline-block px-4 py-1.5 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-sm mb-4 shadow-lg`}
+                    className={`inline-block px-4 py-1.5 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-sm shadow-lg`}
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}
@@ -155,10 +150,12 @@ const WhyChooseUs = () => {
                   >
                     {item.stats}
                   </motion.div>
-                  
-                  {/* Icon with advanced hover effects */}
+                </div>
+                
+                {/* Middle Section: Icon */}
+                <div className="relative z-10 flex flex-col items-center justify-center flex-grow">
                   <motion.div
-                    className="text-4xl mb-4 relative"
+                    className="text-4xl relative"
                     whileHover={{ 
                       scale: 1.3,
                       rotate: [0, -15, 15, 0],
@@ -188,24 +185,19 @@ const WhyChooseUs = () => {
                       </motion.div>
                     )}
                   </motion.div>
-                  
-                  {/* Title */}
+                </div>
+
+                {/* Bottom Section: Title and Description */}
+                <div className="relative z-10 flex flex-col items-center">
                   <motion.h3
-                    className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-[#00FFAB] transition-colors duration-300 leading-tight min-h-[3.5rem] flex items-center justify-center"
+                    className="text-lg font-bold text-white mb-3 group-hover:text-[#00FFAB] transition-colors duration-300 leading-tight h-[3.5rem] flex items-center justify-center text-center"
                     layoutId={`title-${index}`}
                   >
-                    {index === 4 ? (
-                      <span className="text-center">
-                        Result<br />Driven
-                      </span>
-                    ) : (
-                      item.title
-                    )}
+                    {item.title}
                   </motion.h3>
                   
-                  {/* Description */}
                   <motion.p
-                    className="text-sm md:text-base text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug"
+                    className="text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug text-center"
                     initial={{ opacity: 0.7 }}
                     whileHover={{ opacity: 1 }}
                   >
