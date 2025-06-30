@@ -86,7 +86,7 @@ const ProcessStep = ({ step, index, isActive, isCompleted }) => {
             <img
               src={step.icon}
               alt={step.title}
-              className="w-8 h-8 md:w-10 md:h-10"
+              className="w-12 h-12 md:w-16 md:h-16"
             />
           </motion.div>
         </motion.div>
