@@ -1,11 +1,11 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-import discoveryIcon from "../../assets/process/discovery.png";
-import planningIcon from "../../assets/process/planning.png";
-import executionIcon from "../../assets/process/execution.png";
-import engagementIcon from "../../assets/process/engagement.png";
-import evaluationIcon from "../../assets/process/evaluation.png";
+import discoveryIcon from "../../assets/process/1.png";
+import planningIcon from "../../assets/process/2.png";
+import executionIcon from "../../assets/process/3.png";
+import engagementIcon from "../../assets/process/4.png";
+import evaluationIcon from "../../assets/process/5.png";
 
 const processSteps = [
   {
