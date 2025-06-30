@@ -66,7 +66,7 @@ const WhyChooseUs = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImdyaWQiIG9wYWNpdHk9IjAuMSI+CjxwYXRoIGQ9Ik0wIDQwVjBIMUwwIDQwWiIgZmlsbD0iIzAwRkZBQiIvPgo8cGF0aCBkPSJNNDAgMEg0MFY0MEgzOUw0MCAwWiIgZmlsbD0iIzAwRkZBQiIvPgo8cGF0aCBkPSJNMCAwSDQwVjFIMEwwIDBaIiBmaWxsPSIjMDBGRkFCIi8+CjxwYXRoIGQ9Ik0wIDQwSDQwVjM5SDBMNDAgWiIgZmlsbD0iIzAwRkZBQiIvPgo8L2c+Cjwvc3ZnPgo=')] opacity-20"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
-        {/* Fixed Header with proper padding */}
+        {/* Header with larger spacing */}
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: -30 }}
@@ -74,7 +74,7 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-black text-white mb-4 relative leading-tight py-2"
+            className="text-4xl md:text-5xl font-bold text-white mb-4 relative leading-tight py-2"
             animate={{
               backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
             }}
@@ -88,14 +88,14 @@ const WhyChooseUs = () => {
           </motion.h2>
           
           <motion.div
-            className="w-32 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-4"
+            className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-4"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
           />
           
           <motion.p
-            className="text-lg text-white max-w-3xl font-bold mx-auto"
+            className="text-lg md:text-xl text-white max-w-3xl font-bold mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -104,8 +104,9 @@ const WhyChooseUs = () => {
           </motion.p>
         </motion.div>
 
-        {/* Cards Grid with improved spacing */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {/* Cards Grid with larger cards and better spacing */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-7xl mx-auto"
+        >
           {whyChooseUs.map((item, index) => (
             <motion.div
               key={index}
@@ -121,7 +122,7 @@ const WhyChooseUs = () => {
               onHoverEnd={() => setHoveredIndex(null)}
             >
               <motion.div
-                className="bg-gradient-to-br from-gray-900/60 via-black/80 to-gray-900/60 backdrop-blur-sm border border-[#00FFAB]/20 rounded-2xl p-6 h-full text-center relative overflow-hidden"
+                className="bg-gradient-to-br from-gray-900/60 via-black/80 to-gray-900/60 backdrop-blur-sm border border-[#00FFAB]/20 rounded-2xl p-7 h-full text-center relative overflow-hidden min-h-[300px] flex flex-col justify-center"
                 whileHover={{ 
                   scale: 1.08,
                   y: -8,
@@ -143,10 +144,10 @@ const WhyChooseUs = () => {
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 />
                 
-                <div className="relative z-10">
+                <div className="relative z-10 flex flex-col items-center justify-center h-full">
                   {/* Stats Badge */}
                   <motion.div
-                    className={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-xs mb-3 shadow-lg`}
+                    className={`inline-block px-4 py-1.5 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-sm mb-4 shadow-lg`}
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}
@@ -157,7 +158,7 @@ const WhyChooseUs = () => {
                   
                   {/* Icon with advanced hover effects */}
                   <motion.div
-                    className="text-3xl mb-3 relative"
+                    className="text-4xl mb-4 relative"
                     whileHover={{ 
                       scale: 1.3,
                       rotate: [0, -15, 15, 0],
@@ -176,7 +177,7 @@ const WhyChooseUs = () => {
                     {/* Icon glow */}
                     {hoveredIndex === index && (
                       <motion.div
-                        className="absolute inset-0 text-3xl opacity-50 blur-sm text-[#00FFAB]"
+                        className="absolute inset-0 text-5xl opacity-50 blur-sm text-[#00FFAB]"
                         animate={{
                           scale: [1, 1.5, 1],
                           opacity: [0.3, 0.8, 0.3]
@@ -188,9 +189,9 @@ const WhyChooseUs = () => {
                     )}
                   </motion.div>
                   
-                  {/* Title - Fixed for "Result Driven" */}
+                  {/* Title */}
                   <motion.h3
-                    className="text-lg font-bold text-white mb-2 group-hover:text-[#00FFAB] transition-colors duration-300 leading-tight min-h-[3.5rem] flex items-center justify-center"
+                    className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-[#00FFAB] transition-colors duration-300 leading-tight min-h-[3.5rem] flex items-center justify-center"
                     layoutId={`title-${index}`}
                   >
                     {index === 4 ? (
@@ -204,7 +205,7 @@ const WhyChooseUs = () => {
                   
                   {/* Description */}
                   <motion.p
-                    className="text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug"
+                    className="text-sm md:text-base text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug"
                     initial={{ opacity: 0.7 }}
                     whileHover={{ opacity: 1 }}
                   >
@@ -248,43 +249,6 @@ const WhyChooseUs = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* CTA */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-        >
-          <motion.button
-            className="relative px-8 py-3 bg-gradient-to-r from-[#00FFAB] to-[#00CC88] text-black font-bold rounded-full shadow-xl hover:shadow-[#00FFAB]/50 transition-all duration-300 overflow-hidden group"
-            whileHover={{ 
-              scale: 1.05, 
-              boxShadow: "0 0 30px rgba(0, 255, 171, 0.6)",
-              y: -2
-            }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.span
-              className="absolute inset-0 bg-gradient-to-r from-[#00CC88] to-[#00FFAB] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
-            />
-            <span className="relative z-10">Experience the Difference</span>
-            
-            {/* Pulse effect */}
-            <motion.div
-              className="absolute inset-0 bg-[#00FFAB] rounded-full opacity-20"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.2, 0.1, 0.2]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          </motion.button>
-        </motion.div>
       </div>
     </div>
   );

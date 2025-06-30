@@ -22,13 +22,13 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="font-satoshi text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 sm:mb-6">
+        <h1 className="font-satoshi text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-extrabold leading-tight mb-4 sm:mb-6">
           Everything You Need for Team Building & Employee Engagement.
           <br className="hidden sm:block" />
           One Roof. One Thrive.
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-8 font-bold leading-relaxed max-w-3xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-white text-center mb-6 sm:mb-8 font-medium leading-relaxed max-w-4xl mx-auto">
           At OneThrive, we create meaningful, memorable experiences that bring your teams closer. 
           Whether you're scaling culture or boosting collaboration, we deliver everything you need 
           to help your people connect, grow, and thrive.

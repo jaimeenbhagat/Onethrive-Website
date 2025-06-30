@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Phone, Mail, CheckCircle, AlertCircle } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+import { Phone, Mail, CheckCircle, AlertCircle, MapPin } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +15,7 @@ const Contact = () => {
 
   const [showDropdown, setShowDropdown] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+  const [submitStatus, setSubmitStatus] = useState(null);
   const [validationErrors, setValidationErrors] = useState({});
 
   // Activity options mapping
@@ -26,6 +27,45 @@ const Contact = () => {
     { value: "entertainment-events", label: "Entertainment Events" },
     { value: "offsite-retreats", label: "Offsite Retreats" },
   ];
+
+  // Structured data for local business
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact OneThrive - Employee Engagement Company Mumbai",
+    "description": "Get in touch with Mumbai's leading employee engagement company. Free consultation available for team building, corporate wellness, and workplace culture transformation.",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "OneThrive",
+      "description": "Employee engagement and team building company in Mumbai",
+      "telephone": "+91-88502-10248",
+      "email": "info@onethrive.in",
+      "url": "https://onethrive.in",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "India"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "19.0760",
+        "longitude": "72.8777"
+      },
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "serviceArea": {
+        "@type": "City",
+        "name": "Mumbai"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-88502-10248",
+        "contactType": "customer service",
+        "email": "info@onethrive.in",
+        "availableLanguage": ["English", "Hindi", "Marathi"]
+      }
+    }
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -54,7 +94,6 @@ const Contact = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     
-    // Clear validation error when user starts typing
     if (validationErrors[name]) {
       setValidationErrors(prev => ({
         ...prev,
@@ -103,14 +142,9 @@ const Contact = () => {
   };
 
   const getApiUrl = () => {
-    // Environment-based API URL detection
     if (process.env.NODE_ENV === 'production') {
-      // In production, try to use environment variable first
-      return process.env.REACT_APP_API_URL || 
-             // Fallback to your Vercel backend URL
-             'https://onethrive-backend.onrender.com';
+      return process.env.REACT_APP_API_URL || 'https://onethrive-backend.onrender.com';
     } else {
-      // Development environment
       return process.env.REACT_APP_API_URL || 'http://localhost:3001';
     }
   };
@@ -126,11 +160,7 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      console.log("Submitting form data:", formData);
-
-      // Get API URL based on environment
       const API_URL = getApiUrl();
-      console.log("Using API URL:", API_URL);
       
       const response = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
@@ -140,12 +170,7 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
-      console.log("Response status:", response.status);
-
       if (response.ok) {
-        const result = await response.json();
-        console.log("Server response:", result);
-
         setSubmitStatus("success");
         setFormData({
           fullName: "",
@@ -159,8 +184,6 @@ const Contact = () => {
         setShowDropdown(false);
         setValidationErrors({});
       } else {
-        const errorData = await response.json().catch(() => ({}));
-        console.error("Server returned error:", response.status, errorData);
         setSubmitStatus("error");
       }
     } catch (error) {
@@ -178,7 +201,6 @@ const Contact = () => {
     ${validationErrors[fieldName] ? 'border-red-500 focus:border-red-500 focus:ring-red-400' : ''}
   `;
 
-  // Function to get display text for selected activities
   const getSelectedActivitiesDisplay = () => {
     if (formData.activityType.length === 0) {
       return "Select activities";
@@ -199,167 +221,224 @@ const Contact = () => {
   };
 
   return (
-    <section className="min-h-screen font-bold bg-black text-white mt-6 px-6 md:px-20 py-16 flex flex-col md:flex-row justify-between items-center gap-10">
-      {/* Left - Contact Info */}
-      <div className="w-full md:w-1/3 flex flex-col justify-center">
-        <h2 className="text-4xl md:text-5xl text-center font-bold mb-4">
-          Let's Connect
-        </h2>
-        <p className="text-white font-bold mb-8 text-center">
-          We'd love to hear from you! Whether you have questions or need
-          support, feel free to reach out.
-        </p>
+    <>
+      <Helmet>
+        {/* Primary Meta Tags */}
+        <title>Contact OneThrive - Employee Engagement Company Mumbai | Free Consultation</title>
+        <meta 
+          name="description" 
+          content="Contact Mumbai's leading employee engagement company OneThrive. Get free consultation for team building, corporate wellness & workplace transformation. Call +91 88502 10248 today." 
+        />
+        <meta 
+          name="keywords" 
+          content="contact OneThrive Mumbai, employee engagement consultation, team building enquiry Mumbai, corporate wellness contact, free discovery call Mumbai, employee engagement company contact" 
+        />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Contact OneThrive - Employee Engagement Company Mumbai" />
+        <meta property="og:description" content="Get in touch with Mumbai's premier employee engagement company. Free consultation available for workplace transformation." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://onethrive.in/contact" />
+        <meta property="og:image" content="https://onethrive.in/contact-og-image.jpg" />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Contact OneThrive - Employee Engagement Company Mumbai" />
+        <meta name="twitter:description" content="Contact Mumbai's leading employee engagement company for free consultation." />
+        
+        {/* Local Business Meta Tags */}
+        <meta name="geo.region" content="IN-MH" />
+        <meta name="geo.placename" content="Mumbai" />
+        <meta name="geo.position" content="19.0760;72.8777" />
+        
+        {/* SEO Enhancement */}
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://onethrive.in/contact" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
 
-        <div className="bg-[#0d0d0d] p-4 rounded-xl w-full border border-neutral-800 relative">
-          <div className="space-y-6 text-xl">
-            <div className="flex items-center gap-4">
-              <Phone className="text-green-400 text-3xl" />
-              <div>
-                <p className="font-semibold text-2xl">Phone Number</p>
-                <p className="text-gray-300 pt-1">+91 88502 10248</p>
+      <section className="min-h-screen font-bold bg-black text-white mt-6 px-6 md:px-20 py-16 flex flex-col md:flex-row justify-between items-center gap-10">
+        {/* SEO-optimized hidden content */}
+        <div className="sr-only">
+          <h1>Contact OneThrive - Mumbai's Leading Employee Engagement Company</h1>
+          <p>
+            Ready to transform your workplace culture? Contact OneThrive, Mumbai's 
+            premier employee engagement and team building company. We offer free 
+            discovery calls to understand your organizational needs and design 
+            customized engagement solutions that deliver measurable results.
+          </p>
+          <p>
+            Serving companies across Mumbai including BKC, Andheri, Powai, Thane, 
+            and all major business districts. Our team building experts are ready 
+            to help you reduce attrition, boost employee morale, and create a 
+            thriving workplace culture with our proven "We Before Me" approach.
+          </p>
+        </div>
+
+        {/* Left - Contact Info */}
+        <div className="w-full md:w-1/3 flex flex-col justify-center">
+          <h2 className="text-4xl md:text-5xl text-center font-bold mb-4">
+            Let's Connect
+          </h2>
+          <p className="text-white font-bold mb-8 text-center">
+            Ready to transform your workplace? Get your free consultation with Mumbai's 
+            leading employee engagement experts. We're here to help build your thriving culture.
+          </p>
+
+          <div className="bg-[#0d0d0d] p-4 rounded-xl w-full border border-neutral-800 relative">
+            <div className="space-y-6 text-xl">
+              <div className="flex items-center gap-4">
+                <Phone className="text-green-400 text-3xl" />
+                <div>
+                  <p className="font-semibold text-2xl">Phone Number</p>
+                  <p className="text-gray-300 pt-1">+91 88502 10248</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <Mail className="text-green-400 text-3xl" />
-              <div>
-                <p className="font-semibold text-2xl">Email Address</p>
-                <p className="text-gray-300 pt-1">info@onethrive.in</p>
+              <div className="flex items-center gap-4">
+                <Mail className="text-green-400 text-3xl" />
+                <div>
+                  <p className="font-semibold text-2xl">Email Address</p>
+                  <p className="text-gray-300 pt-1">info@onethrive.in</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <MapPin className="text-green-400 text-3xl" />
+                <div>
+                  <p className="font-semibold text-2xl">Service Area</p>
+                  <p className="text-gray-300 pt-1">Mumbai & Surrounding Areas</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Right - Contact Form */}
-      <div className="w-full md:w-2/3 bg-[#0d0d0d] border border-neutral-800 p-8 rounded-2xl space-y-6">
-        {/* Status Messages */}
-        {submitStatus === "success" && (
-          <div className="bg-green-900/20 border border-green-400 rounded-lg p-4 flex items-center gap-3 animate-fade-in">
-            <CheckCircle className="text-green-400 w-5 h-5" />
-            <span className="text-green-400">
-              Message sent successfully! We'll get back to you soon.
-            </span>
-          </div>
-        )}
-
-        {submitStatus === "error" && (
-          <div className="bg-red-900/20 border border-red-400 rounded-lg p-4 flex items-center gap-3 animate-fade-in">
-            <AlertCircle className="text-red-400 w-5 h-5" />
-            <span className="text-red-400">
-              Failed to send message. Please try again or contact us directly.
-            </span>
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} noValidate>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label
-                htmlFor="fullName"
-                className="block text-white font-bold mb-2"
-              >
-                Full Name *
-              </label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                placeholder="John Doe"
-                required
-                className={inputClasses('fullName')}
-              />
-              {validationErrors.fullName && (
-                <p className="text-red-400 text-sm mt-1">{validationErrors.fullName}</p>
-              )}
-            </div>
-            <div>
-              <label
-                htmlFor="workEmail"
-                className="block text-white font-bold mb-2"
-              >
-                Email *
-              </label>
-              <input
-                type="email"
-                id="workEmail"
-                name="workEmail"
-                value={formData.workEmail}
-                onChange={handleInputChange}
-                placeholder="john@company.com"
-                required
-                className={inputClasses('workEmail')}
-              />
-              {validationErrors.workEmail && (
-                <p className="text-red-400 text-sm mt-1">{validationErrors.workEmail}</p>
-              )}
-            </div>
+        {/* Right - Contact Form */}
+        <div className="w-full md:w-2/3 bg-[#0d0d0d] border border-neutral-800 p-8 rounded-2xl space-y-6">
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold text-green-400 mb-2">Get Your Free Discovery Call</h3>
+            <p className="text-gray-300">
+              Tell us about your team building and employee engagement needs. 
+              Our Mumbai-based experts will design a customized solution for your organization.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label
-                htmlFor="phoneNumber"
-                className="block text-white font-bold mb-2"
-              >
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                id="phoneNumber"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleInputChange}
-                placeholder="+91 "
-                className={inputClasses('phoneNumber')}
-              />
-              {validationErrors.phoneNumber && (
-                <p className="text-red-400 text-sm mt-1">{validationErrors.phoneNumber}</p>
-              )}
+          {/* Status Messages */}
+          {submitStatus === "success" && (
+            <div className="bg-green-900/20 border border-green-400 rounded-lg p-4 flex items-center gap-3 animate-fade-in">
+              <CheckCircle className="text-green-400 w-5 h-5" />
+              <span className="text-green-400">
+                Message sent successfully! Our Mumbai team will get back to you within 24 hours.
+              </span>
             </div>
-            <div>
-              <label
-                htmlFor="companyName"
-                className="block text-white font-bold mb-2"
-              >
-                Company Name
-              </label>
-              <input
-                type="text"
-                id="companyName"
-                name="companyName"
-                value={formData.companyName}
-                onChange={handleInputChange}
-                placeholder="Company Ltd."
-                className={inputClasses('companyName')}
-              />
-            </div>
-          </div>
+          )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label
-                htmlFor="participants"
-                className="block text-white font-bold mb-2"
-              >
-                Number of Participants
-              </label>
-              <input
-                type="number"
-                id="participants"
-                name="participants"
-                value={formData.participants}
-                onChange={handleInputChange}
-                placeholder="10"
-                min="1"
-                className={inputClasses('participants')}
-              />
-              {validationErrors.participants && (
-                <p className="text-red-400 text-sm mt-1">{validationErrors.participants}</p>
-              )}
+          {submitStatus === "error" && (
+            <div className="bg-red-900/20 border border-red-400 rounded-lg p-4 flex items-center gap-3 animate-fade-in">
+              <AlertCircle className="text-red-400 w-5 h-5" />
+              <span className="text-red-400">
+                Failed to send message. Please call us directly at +91 88502 10248 or try again.
+              </span>
             </div>
-            <div>
+          )}
+
+          <form onSubmit={handleSubmit} noValidate>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label htmlFor="fullName" className="block text-white font-bold mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  placeholder="John Doe"
+                  required
+                  className={inputClasses('fullName')}
+                />
+                {validationErrors.fullName && (
+                  <p className="text-red-400 text-sm mt-1">{validationErrors.fullName}</p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="workEmail" className="block text-white font-bold mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="workEmail"
+                  name="workEmail"
+                  value={formData.workEmail}
+                  onChange={handleInputChange}
+                  placeholder="john@company.com"
+                  required
+                  className={inputClasses('workEmail')}
+                />
+                {validationErrors.workEmail && (
+                  <p className="text-red-400 text-sm mt-1">{validationErrors.workEmail}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label htmlFor="phoneNumber" className="block text-white font-bold mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleInputChange}
+                  placeholder="+91 "
+                  className={inputClasses('phoneNumber')}
+                />
+                {validationErrors.phoneNumber && (
+                  <p className="text-red-400 text-sm mt-1">{validationErrors.phoneNumber}</p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="companyName" className="block text-white font-bold mb-2">
+                  Company Name
+                </label>
+                <input
+                  type="text"
+                  id="companyName"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleInputChange}
+                  placeholder="Company Ltd."
+                  className={inputClasses('companyName')}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label htmlFor="participants" className="block text-white font-bold mb-2">
+                  Number of Participants
+                </label>
+                <input
+                  type="number"
+                  id="participants"
+                  name="participants"
+                  value={formData.participants}
+                  onChange={handleInputChange}
+                  placeholder="10"
+                  min="1"
+                  className={inputClasses('participants')}
+                />
+                {validationErrors.participants && (
+                  <p className="text-red-400 text-sm mt-1">{validationErrors.participants}</p>
+                )}
+              </div>
+              <div>
               <label className="block text-white font-bold mb-2">
                 Activity Type
               </label>
@@ -469,6 +548,7 @@ const Contact = () => {
         }
       `}</style>
     </section>
+    </> 
   );
 };
 
