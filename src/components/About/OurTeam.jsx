@@ -27,7 +27,7 @@ const OurTeam = () => {
         whileInView={{ scale: 1 }}
         transition={{ duration: 0.6, type: "spring", stiffness: 150 }}
       >
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FFAB] via-white to-[#00FFAB]">
+        <span className="text-white font-bold">
           Meet Our Team
         </span>
         <motion.div
@@ -47,7 +47,7 @@ const OurTeam = () => {
       />
 
       <motion.p 
-        className="text-center text-gray-400 max-w-xl mx-auto mb-10"
+        className="text-center text-white font-bold max-w-3xl mx-auto mb-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
@@ -143,7 +143,7 @@ const OurTeam = () => {
             </motion.h3>
             
             <motion.p 
-              className="text-sm text-gray-400 mb-4 relative"
+              className="text-sm text-white font-bold mb-4 relative"
               whileHover={{ color: "#00FFAB" }}
             >
               {member.role}
@@ -153,7 +153,7 @@ const OurTeam = () => {
             </motion.p>
             
             <motion.p 
-              className="text-sm text-gray-300 max-w-sm mx-auto leading-relaxed group-hover:text-white/90 transition-colors duration-300 mb-6"
+              className="text-sm text-white max-w-sm mx-auto leading-relaxed group-hover:text-white/90 transition-colors duration-300 mb-6"
               whileHover={{ scale: 1.02 }}
             >
               {member.desc}

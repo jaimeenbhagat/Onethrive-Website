@@ -54,7 +54,7 @@ const AboutUsHero = () => {
           />
 
           <motion.p
-            className="text-lg md:text-xl text-white/80 leading-relaxed relative mb-4"
+            className="text-lg md:text-xl text-white font-bold leading-relaxed relative mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -66,7 +66,7 @@ const AboutUsHero = () => {
           </motion.p>
 
           <motion.p
-            className="text-lg md:text-xl text-white/80 leading-relaxed relative mb-8"
+            className="text-lg md:text-xl text-white font-bold leading-relaxed relative mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}

@@ -35,18 +35,21 @@ const processSteps = [
   },
 ];
 
-const ProcessStep = ({ step, index, isActive, isCompleted }) => {
+const ProcessStep = ({ step, index, isActive, isCompleted, shouldShow }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, margin: "-30% 0px -30% 0px" });
   
   const isLeft = index % 2 === 0;
+
+  // Don't render if shouldn't show
+  if (!shouldShow) return null;
 
   return (
     <motion.div
       ref={ref}
       className={`flex items-center w-full relative ${isLeft ? 'justify-start' : 'justify-end'} mb-16 md:mb-24`}
       initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
-      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? -100 : 100 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: index * 0.2, type: "spring", stiffness: 100 }}
     >
       {/* Connection line to center */}
@@ -57,8 +60,8 @@ const ProcessStep = ({ step, index, isActive, isCompleted }) => {
             : 'left-0 from-[#00FFAB] to-transparent'
         }`}
         initial={{ scaleX: 0 }}
-        animate={isActive ? { scaleX: 1 } : { scaleX: 0 }}
-        transition={{ duration: 0.5 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
       />
 
       {/* Process step card */}
@@ -67,7 +70,7 @@ const ProcessStep = ({ step, index, isActive, isCompleted }) => {
           bg-gradient-to-br from-[#111]/90 to-[#222]/90 backdrop-blur-sm 
           border border-[#00FFAB]/20 rounded-2xl p-6 md:p-8 group
           ${isActive ? 'border-[#00FFAB]/60 shadow-2xl shadow-[#00FFAB]/20' : ''}
-          ${isCompleted ? 'border-[#00FFAB]/40' : ''}`}
+          ${isCompleted ? 'border-[#00FFAB]/40 bg-gradient-to-br from-[#111]/70 to-[#222]/70' : ''}`}
         whileHover={{ 
           scale: 1.05,
           borderColor: "rgba(0, 255, 171, 0.8)",
@@ -75,19 +78,25 @@ const ProcessStep = ({ step, index, isActive, isCompleted }) => {
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        {/* Icon container - simplified without animations */}
+        {/* Icon container */}
         <motion.div className="relative flex-shrink-0">
           {/* Main icon container */}
           <motion.div
-            className="bg-gradient-to-br from-[#111] to-[#222] border-2 border-[#00FFAB]/30 
+            className={`bg-gradient-to-br from-[#111] to-[#222] border-2 
               w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full 
-              shadow-lg shadow-[#00FFAB]/30 relative z-10"
+              shadow-lg relative z-10 transition-all duration-300
+              ${isCompleted ? 'border-[#00FFAB]/60 shadow-[#00FFAB]/40' : 'border-[#00FFAB]/30 shadow-[#00FFAB]/30'}
+              ${isActive ? 'border-[#00FFAB] shadow-[#00FFAB]/50' : ''}`}
           >
             <img
               src={step.icon}
               alt={step.title}
-              className="w-12 h-12 md:w-16 md:h-16"
+              className={`w-12 h-12 md:w-16 md:h-16 transition-all duration-300
+                ${isCompleted ? 'brightness-110' : ''}
+                ${isActive ? 'brightness-125 scale-110' : ''}`}
             />
+            
+
           </motion.div>
         </motion.div>
 
@@ -95,19 +104,19 @@ const ProcessStep = ({ step, index, isActive, isCompleted }) => {
         <motion.div
           className={`flex-1 ${isLeft ? 'text-left' : 'text-right'}`}
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.1 + 0.4, duration: 0.6 }}
         >
           <motion.h3 
-            className="text-xl md:text-2xl font-semibold text-white mb-3 
-              group-hover:text-[#00FFAB] transition-colors duration-300"
+            className={`text-xl md:text-2xl font-semibold mb-3 transition-colors duration-300
+              ${isActive ? 'text-[#00FFAB]' : isCompleted ? 'text-white' : 'text-white group-hover:text-[#00FFAB]'}`}
             whileHover={{ scale: 1.05 }}
           >
             {step.title}
           </motion.h3>
           <motion.p 
-            className="text-sm md:text-base text-white/70 leading-relaxed 
-              group-hover:text-white/90 transition-colors duration-300"
+            className={`text-sm md:text-base leading-relaxed transition-colors duration-300
+              ${isActive ? 'text-white/90' : isCompleted ? 'text-white/80' : 'text-white/70 group-hover:text-white/90'}`}
             whileHover={{ scale: 1.02 }}
           >
             {step.description}
@@ -115,7 +124,7 @@ const ProcessStep = ({ step, index, isActive, isCompleted }) => {
         </motion.div>
       </motion.div>
 
-      {/* Floating particles */}
+      {/* Active step floating particles */}
       {isActive && (
         <div className="absolute inset-0 pointer-events-none">
           {[...Array(6)].map((_, i) => (
@@ -150,34 +159,46 @@ const OurProcess = () => {
   const processRef = useRef(null);
   const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState(new Set());
+  const [visibleSteps, setVisibleSteps] = useState(new Set([0])); // Track which steps should be visible
   
   const { scrollYProgress } = useScroll({
     target: processRef,
     offset: ["start center", "end center"]
   });
 
-  // Track active step based on scroll progress
+  // Track active step and visible steps based on scroll progress
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((latest) => {
+      const totalSteps = processSteps.length;
+      const progress = Math.max(0, Math.min(1, latest));
+      
+      // Calculate which step should be active
       const newActiveStep = Math.min(
-        Math.floor(latest * processSteps.length * 1.2),
-        processSteps.length - 1
+        Math.floor(progress * totalSteps * 1.2),
+        totalSteps - 1
       );
       
       setActiveStep(newActiveStep);
       
-      // Mark steps as completed
+      // Mark previous steps as completed
       const newCompleted = new Set();
       for (let i = 0; i < newActiveStep; i++) {
         newCompleted.add(i);
       }
       setCompletedSteps(newCompleted);
+      
+      // Make steps visible progressively (sticky behavior)
+      const newVisible = new Set();
+      for (let i = 0; i <= newActiveStep; i++) {
+        newVisible.add(i);
+      }
+      setVisibleSteps(newVisible);
     });
 
     return () => unsubscribe();
   }, [scrollYProgress]);
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-black/50 via-black to-black/50 overflow-hidden">
@@ -229,8 +250,7 @@ const OurProcess = () => {
           viewport={{ once: true }}
         >
           <motion.h2
-            className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text 
-              bg-gradient-to-r from-[#00FFAB] via-white to-[#00FFAB] mb-6"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
             animate={{ backgroundPosition: ["0%", "100%", "0%"] }}
             transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
           >
@@ -246,7 +266,7 @@ const OurProcess = () => {
           />
           
           <motion.p
-            className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-white font-bold max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -257,17 +277,20 @@ const OurProcess = () => {
         </motion.div>
 
         {/* Vertical timeline */}
-        <div className="relative">
+        <div className="relative" style={{ minHeight: `${processSteps.length * 300}px` }}>
           {/* Central vertical line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-transparent via-[#00FFAB]/30 to-transparent" />
           
           {/* Animated progress line */}
           <motion.div
             className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-[#00FFAB] via-[#00CC88] to-[#00FFAB] origin-top"
-            style={{ scaleY: scrollYProgress }}
+            style={{ 
+              scaleY: useTransform(scrollYProgress, [0, 1], [0, 1]),
+              height: '100%'
+            }}
           />
 
-          {/* Process steps */}
+          {/* Process steps - only render visible ones */}
           <div className="relative">
             {processSteps.map((step, index) => (
               <ProcessStep
@@ -276,10 +299,13 @@ const OurProcess = () => {
                 index={index}
                 isActive={activeStep === index}
                 isCompleted={completedSteps.has(index)}
+                shouldShow={visibleSteps.has(index)}
               />
             ))}
           </div>
         </div>
+
+       
       </motion.div>
     </div>
   );
