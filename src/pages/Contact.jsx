@@ -217,14 +217,14 @@ const Contact = () => {
         <div className="bg-[#0d0d0d] p-4 rounded-xl w-full border border-neutral-800 relative">
           <div className="space-y-6 text-xl">
             <div className="flex items-center gap-4">
-              <Phone className="text-green-400 text-3xl" />
+              <Phone className="text-[#00FFAB] text-3xl" />
               <div>
                 <p className="font-semibold text-2xl">Phone Number</p>
                 <p className="text-gray-300 pt-1">+91 88502 10248</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <Mail className="text-green-400 text-3xl" />
+              <Mail className="text-[#00FFAB] text-3xl" />
               <div>
                 <p className="font-semibold text-2xl">Email Address</p>
                 <p className="text-gray-300 pt-1">info@onethrive.in</p>
@@ -238,9 +238,9 @@ const Contact = () => {
       <div className="w-full md:w-2/3 bg-[#0d0d0d] border border-neutral-800 p-8 rounded-2xl space-y-6">
         {/* Status Messages */}
         {submitStatus === "success" && (
-          <div className="bg-green-900/20 border border-green-400 rounded-lg p-4 flex items-center gap-3 animate-fade-in">
-            <CheckCircle className="text-green-400 w-5 h-5" />
-            <span className="text-green-400">
+          <div className="bg-green-900/20 border border-[#00FFAB] rounded-lg p-4 flex items-center gap-3 animate-fade-in">
+            <CheckCircle className="text-[#00FFAB] w-5 h-5" />
+            <span className="text-[#00FFAB]">
               Message sent successfully! We'll get back to you soon.
             </span>
           </div>
@@ -370,7 +370,7 @@ const Contact = () => {
               <div className="relative dropdown-container">
                 <div
                   onClick={() => setShowDropdown(!showDropdown)}
-                  className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white cursor-pointer flex justify-between items-center transition-colors duration-200"
+                  className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00FFAB] focus:border-[#00FFAB] text-white cursor-pointer flex justify-between items-center transition-colors duration-200"
                 >
                   <span
                     className={
@@ -410,7 +410,7 @@ const Contact = () => {
                           value={option.value}
                           checked={formData.activityType.includes(option.value)}
                           onChange={() => handleCheckboxChange(option.value)}
-                          className="w-4 h-4 text-green-400 bg-black border-neutral-700 rounded focus:ring-green-400 focus:ring-2"
+                          className="w-4 h-4 text-green-400 bg-black border-neutral-700 rounded focus:ring-[#00FFAB] focus:ring-2"
                         />
                         <span className="text-white">{option.label}</span>
                       </label>
@@ -434,14 +434,14 @@ const Contact = () => {
               value={formData.message}
               onChange={handleInputChange}
               placeholder="Share your goals and requirements..."
-              className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500 h-32 resize-none transition-colors duration-200"
+              className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00FFAB] focus:border-[#00FFAB] text-white placeholder-gray-500 h-32 resize-none transition-colors duration-200"
             />
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-green-500 to-green-400 text-black font-bold py-4 px-6 rounded-lg hover:from-green-600 hover:to-green-500 transition-all duration-300 flex items-center justify-center gap-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            className="w-full bg-[#00FFAB] text-black font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
             {!isSubmitting && (
