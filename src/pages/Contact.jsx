@@ -86,12 +86,16 @@ const Contact = () => {
 
     if (!formData.workEmail.trim()) {
       errors.workEmail = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.workEmail)) {
+    } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.workEmail)) {
       errors.workEmail = "Please enter a valid email address";
     }
 
-    if (formData.phoneNumber && formData.phoneNumber !== "+91 " && !/^\+91\s\d{10}$/.test(formData.phoneNumber)) {
-      errors.phoneNumber = "Please enter a valid Indian phone number";
+    if (formData.phoneNumber && formData.phoneNumber !== "+91 ") {
+      // Remove spaces and check if it's a valid Indian phone number
+      const cleanPhone = formData.phoneNumber.replace(/\s+/g, '');
+      if (!/^\+91[6-9]\d{9}$/.test(cleanPhone)) {
+        errors.phoneNumber = "Please enter a valid Indian phone number (10 digits starting with 6-9)";
+      }
     }
 
     if (formData.participants && (isNaN(formData.participants) || parseInt(formData.participants) < 1)) {
