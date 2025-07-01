@@ -233,7 +233,7 @@ const FAQs = () => {
           </motion.h3>
           
           <motion.p 
-            className="text-gray-200 mb-8 text-base md:text-xl max-w-4xl mx-auto font-bold"
+            className="text-white mb-8 text-base md:text-xl max-w-4xl mx-auto font-medium"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}

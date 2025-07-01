@@ -91,7 +91,7 @@ const WhyChooseUs = () => {
           />
           
           <motion.p
-            className="text-lg md:text-xl text-white max-w-3xl font-bold mx-auto"
+            className="text-xl text-white max-w-3xl font-medium mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}

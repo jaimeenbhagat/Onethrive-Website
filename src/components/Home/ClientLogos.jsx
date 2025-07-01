@@ -34,20 +34,20 @@ const ClientLogos = () => {
         >
           Trusted by Industry Leaders
         </motion.h2>
+        <motion.div
+            className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-4"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
         <motion.p 
-          className="text-xl text-white max-w-5xl mx-auto font-bold leading-relaxed"
+          className="text-xl text-white max-w-5xl mx-auto font-medium leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           Join the growing list of companies that have transformed their workplace culture with OneThrive
         </motion.p>
-        <motion.div 
-          className="w-32 h-1 bg-gradient-to-r from-[#00FFAB] to-[#00D4AA] mx-auto mt-8 rounded-full"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        />
       </div>
 
       {/* Simple Logo Display */}

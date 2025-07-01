@@ -68,7 +68,13 @@ const MomentsThatMatter = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 relative">
             Moments That Matter
           </h2>
-          <p className="text-md text-white font-bold max-w-4xl mx-auto relative">
+          <div
+            className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-2 "
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
+          <p className="text-xl text-white font-medium max-w-5xl mx-auto relative">
             Capturing the essence of excellence through unforgettable experiences and transformative events
           </p>
         </div>
