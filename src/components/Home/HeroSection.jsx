@@ -17,7 +17,7 @@ const HeroSection = () => {
 
       {/* Text Content */}
       <motion.div
-        className="relative z-10 max-w-5xl text-center"
+        className="relative z-10 max-w-7xl text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}

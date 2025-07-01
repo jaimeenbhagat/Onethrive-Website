@@ -142,7 +142,7 @@ const WhyChooseUs = () => {
                 {/* Top Section: Stats Badge */}
                 <div className="relative z-10 flex flex-col items-center">
                   <motion.div
-                    className={`inline-block px-4 py-1.5 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-sm shadow-lg`}
+                    className={`flex items-center justify-center w-32 h-8 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-sm shadow-lg`}
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}

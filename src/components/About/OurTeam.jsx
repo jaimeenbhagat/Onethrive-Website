@@ -12,9 +12,9 @@ const OurTeam = () => {
       transition={{ duration: 0.8 }}
     >
       {/* Header Section */}
-      <div className="text-center mb-16">
+      <div className="text-center mb-6">
         <motion.h2 
-          className="text-5xl font-bold mb-6"
+          className="text-5xl font-bold mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -69,7 +69,7 @@ const OurTeam = () => {
         ].map((member, index) => (
           <motion.div
             key={index}
-            className="group bg-gray-900/40 backdrop-blur-sm border border-gray-800/50 rounded-2xl p-6 hover:border-[#00FFAB]/30 transition-all duration-500 relative overflow-hidden h-[420px] flex flex-col"
+            className="group bg-black backdrop-blur-sm border border-gray-800 rounded-2xl p-6 hover:border-[#00FFAB] transition-all duration-500 relative overflow-hidden h-[420px] flex flex-col"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
@@ -173,16 +173,6 @@ const OurTeam = () => {
           </motion.div>
         ))}
       </div>
-
-      {/* Bottom accent */}
-      <motion.div
-        className="mt-16 text-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
-      >
-        <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#00FFAB]/50 to-transparent mx-auto"></div>
-      </motion.div>
     </motion.div>
   );
 };
