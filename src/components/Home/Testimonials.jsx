@@ -101,8 +101,8 @@ const Testimonials = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-base text-white max-w-2xl mx-auto font-bold">
-            Don't just take our word for it - hear from the companies we've helped transform
+          <p className="text-xl text-white max-w-3xl mx-auto font-bold">
+            Don't just take our word for it hear from the companies we've helped transform
           </p>
           <div className="w-20 h-1 bg-[#00FFAB] mx-auto mt-4 rounded-full" />
         </div>
