@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Phone, Mail, CheckCircle, AlertCircle } from "lucide-react";
 
 const Contact = () => {
@@ -15,9 +15,53 @@ const Contact = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+  const [validationErrors, setValidationErrors] = useState({});
+
+  // Activity options mapping
+  const activityOptions = [
+    { value: "team-building", label: "Team Building" },
+    { value: "wellness-programs", label: "Wellness Programs" },
+    { value: "creative-workshops", label: "Creative Workshops" },
+    { value: "sports-tournaments", label: "Sports Tournaments" },
+    { value: "entertainment-events", label: "Entertainment Events" },
+    { value: "offsite-retreats", label: "Offsite Retreats" },
+  ];
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showDropdown && !event.target.closest('.dropdown-container')) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showDropdown]);
+
+  // Clear status messages after 5 seconds
+  useEffect(() => {
+    if (submitStatus) {
+      const timer = setTimeout(() => {
+        setSubmitStatus(null);
+      }, 3001);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    
+    // Clear validation error when user starts typing
+    if (validationErrors[name]) {
+      setValidationErrors(prev => ({
+        ...prev,
+        [name]: null
+      }));
+    }
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -33,22 +77,62 @@ const Contact = () => {
     }));
   };
 
+  const validateForm = () => {
+    const errors = {};
+
+    if (!formData.fullName.trim()) {
+      errors.fullName = "Full name is required";
+    }
+
+    if (!formData.workEmail.trim()) {
+      errors.workEmail = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.workEmail)) {
+      errors.workEmail = "Please enter a valid email address";
+    }
+
+    if (formData.phoneNumber && formData.phoneNumber !== "+91 " && !/^\+91\s\d{10}$/.test(formData.phoneNumber)) {
+      errors.phoneNumber = "Please enter a valid Indian phone number";
+    }
+
+    if (formData.participants && (isNaN(formData.participants) || parseInt(formData.participants) < 1)) {
+      errors.participants = "Please enter a valid number of participants";
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const getApiUrl = () => {
+    // Environment-based API URL detection
+    if (process.env.NODE_ENV === 'production') {
+      // In production, try to use environment variable first
+      return process.env.REACT_APP_API_URL || 
+             // Fallback to your Vercel backend URL
+             'https://onethrive-backend.onrender.com';
+    } else {
+      // Development environment
+      return process.env.REACT_APP_API_URL || 'http://localhost:3001';
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    // Basic validation
-    if (!formData.fullName.trim() || !formData.workEmail.trim()) {
-      alert("Please fill in your name and email");
-      setIsSubmitting(false);
+    
+    if (!validateForm()) {
       return;
     }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
     try {
       console.log("Submitting form data:", formData);
 
-      const response = await fetch("http://localhost:5000/api/contact", {
+      // Get API URL based on environment
+      const API_URL = getApiUrl();
+      console.log("Using API URL:", API_URL);
+      
+      const response = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,16 +141,9 @@ const Contact = () => {
       });
 
       console.log("Response status:", response.status);
-      console.log("Response headers:", response.headers);
 
       if (response.ok) {
-        const contentType = response.headers.get("content-type");
-        let result = {};
-
-        if (contentType && contentType.includes("application/json")) {
-          result = await response.json();
-        }
-
+        const result = await response.json();
         console.log("Server response:", result);
 
         setSubmitStatus("success");
@@ -80,8 +157,10 @@ const Contact = () => {
           message: "",
         });
         setShowDropdown(false);
+        setValidationErrors({});
       } else {
-        console.error("Server returned error status:", response.status);
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Server returned error:", response.status, errorData);
         setSubmitStatus("error");
       }
     } catch (error) {
@@ -89,6 +168,33 @@ const Contact = () => {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const inputClasses = (fieldName) => `
+    w-full bg-black border font-bold border-neutral-700 rounded-lg px-4 py-3 
+    focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 
+    text-white placeholder-gray-500 transition-colors duration-200
+    ${validationErrors[fieldName] ? 'border-red-500 focus:border-red-500 focus:ring-red-400' : ''}
+  `;
+
+  // Function to get display text for selected activities
+  const getSelectedActivitiesDisplay = () => {
+    if (formData.activityType.length === 0) {
+      return "Select activities";
+    }
+    
+    const selectedLabels = formData.activityType.map(value => {
+      const option = activityOptions.find(opt => opt.value === value);
+      return option ? option.label : value;
+    });
+    
+    if (selectedLabels.length === 1) {
+      return selectedLabels[0];
+    } else if (selectedLabels.length === 2) {
+      return selectedLabels.join(', ');
+    } else {
+      return `${selectedLabels[0]}, ${selectedLabels[1]} +${selectedLabels.length - 2} more`;
     }
   };
 
@@ -128,7 +234,7 @@ const Contact = () => {
       <div className="w-full md:w-2/3 bg-[#0d0d0d] border border-neutral-800 p-8 rounded-2xl space-y-6">
         {/* Status Messages */}
         {submitStatus === "success" && (
-          <div className="bg-green-900/20 border border-green-400 rounded-lg p-4 flex items-center gap-3">
+          <div className="bg-green-900/20 border border-green-400 rounded-lg p-4 flex items-center gap-3 animate-fade-in">
             <CheckCircle className="text-green-400 w-5 h-5" />
             <span className="text-green-400">
               Message sent successfully! We'll get back to you soon.
@@ -137,7 +243,7 @@ const Contact = () => {
         )}
 
         {submitStatus === "error" && (
-          <div className="bg-red-900/20 border border-red-400 rounded-lg p-4 flex items-center gap-3">
+          <div className="bg-red-900/20 border border-red-400 rounded-lg p-4 flex items-center gap-3 animate-fade-in">
             <AlertCircle className="text-red-400 w-5 h-5" />
             <span className="text-red-400">
               Failed to send message. Please try again or contact us directly.
@@ -145,7 +251,7 @@ const Contact = () => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
               <label
@@ -162,8 +268,11 @@ const Contact = () => {
                 onChange={handleInputChange}
                 placeholder="John Doe"
                 required
-                className="w-full bg-black border font-bold border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500"
+                className={inputClasses('fullName')}
               />
+              {validationErrors.fullName && (
+                <p className="text-red-400 text-sm mt-1">{validationErrors.fullName}</p>
+              )}
             </div>
             <div>
               <label
@@ -180,8 +289,11 @@ const Contact = () => {
                 onChange={handleInputChange}
                 placeholder="john@company.com"
                 required
-                className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500"
+                className={inputClasses('workEmail')}
               />
+              {validationErrors.workEmail && (
+                <p className="text-red-400 text-sm mt-1">{validationErrors.workEmail}</p>
+              )}
             </div>
           </div>
 
@@ -200,8 +312,11 @@ const Contact = () => {
                 value={formData.phoneNumber}
                 onChange={handleInputChange}
                 placeholder="+91 "
-                className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500"
+                className={inputClasses('phoneNumber')}
               />
+              {validationErrors.phoneNumber && (
+                <p className="text-red-400 text-sm mt-1">{validationErrors.phoneNumber}</p>
+              )}
             </div>
             <div>
               <label
@@ -217,7 +332,7 @@ const Contact = () => {
                 value={formData.companyName}
                 onChange={handleInputChange}
                 placeholder="Company Ltd."
-                className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500"
+                className={inputClasses('companyName')}
               />
             </div>
           </div>
@@ -238,17 +353,20 @@ const Contact = () => {
                 onChange={handleInputChange}
                 placeholder="10"
                 min="1"
-                className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500"
+                className={inputClasses('participants')}
               />
+              {validationErrors.participants && (
+                <p className="text-red-400 text-sm mt-1">{validationErrors.participants}</p>
+              )}
             </div>
             <div>
               <label className="block text-white font-bold mb-2">
                 Activity Type
               </label>
-              <div className="relative">
+              <div className="relative dropdown-container">
                 <div
                   onClick={() => setShowDropdown(!showDropdown)}
-                  className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white cursor-pointer flex justify-between items-center"
+                  className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white cursor-pointer flex justify-between items-center transition-colors duration-200"
                 >
                   <span
                     className={
@@ -257,12 +375,10 @@ const Contact = () => {
                         : "text-gray-500"
                     }
                   >
-                    {formData.activityType.length > 0
-                      ? `${formData.activityType.length} selected`
-                      : "Select activities"}
+                    {getSelectedActivitiesDisplay()}
                   </span>
                   <svg
-                    className={`w-4 h-4 text-gray-400 transition-transform ${
+                    className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
                       showDropdown ? "rotate-180" : ""
                     }`}
                     fill="none"
@@ -279,30 +395,11 @@ const Contact = () => {
                 </div>
 
                 {showDropdown && (
-                  <div className="absolute z-10 w-full mt-1 bg-black border border-neutral-700 rounded-lg shadow-lg">
-                    {[
-                      { value: "team-building", label: "Team Building" },
-                      {
-                        value: "wellness-programs",
-                        label: "Wellness Programs",
-                      },
-                      {
-                        value: "creative-workshops",
-                        label: "Creative Workshops",
-                      },
-                      {
-                        value: "sports-tournaments",
-                        label: "Sports Tournaments",
-                      },
-                      {
-                        value: "entertainment-events",
-                        label: "Entertainment Events",
-                      },
-                      { value: "offsite-retreats", label: "Offsite Retreats" },
-                    ].map((option) => (
+                  <div className="absolute z-10 w-full mt-1 bg-black border border-neutral-700 rounded-lg shadow-lg animate-fade-in">
+                    {activityOptions.map((option) => (
                       <label
                         key={option.value}
-                        className="flex items-center gap-3 px-4 py-2 hover:bg-neutral-800 cursor-pointer"
+                        className="flex items-center gap-3 px-4 py-2 hover:bg-neutral-800 cursor-pointer transition-colors duration-200"
                       >
                         <input
                           type="checkbox"
@@ -333,7 +430,7 @@ const Contact = () => {
               value={formData.message}
               onChange={handleInputChange}
               placeholder="Share your goals and requirements..."
-              className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500 h-32 resize-none"
+              className="w-full bg-black border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-green-400 text-white placeholder-gray-500 h-32 resize-none transition-colors duration-200"
             />
           </div>
 
@@ -361,6 +458,16 @@ const Contact = () => {
           </button>
         </form>
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.3s ease-out; 
+        }
+      `}</style>
     </section>
   );
 };

@@ -4,7 +4,7 @@ import { useState } from "react";
 const whyChooseUs = [
   {
     title: "Expert Facilitation",
-    description: "10+ years of transformative experience",
+    description: "Transformative experience with proven results",
     icon: "👥",
     stats: "10+ Years",
     gradient: "from-[#00FFAB] to-[#00CC88]"
@@ -20,7 +20,7 @@ const whyChooseUs = [
     title: "Personalised Solutions",
     description: "Tailored to your specific industry needs",
     icon: "🎯", 
-    stats: "100% Custom",
+    stats: "Fully Custom",
     gradient: "from-[#88FFAA] to-[#00FF88]"
   },
   {
@@ -32,9 +32,9 @@ const whyChooseUs = [
   },
   {
     title: "Result Driven",
-    description: "Measurable outcomes with clear ROI",
+    description: "Measurable outcomes with<br/>clear ROI",
     icon: "📊",
-    stats: "ROI Focused",
+    stats: "ROI Foucused",
     gradient: "from-[#44FF99] to-[#00FFAB]"
   },
   {
@@ -200,9 +200,8 @@ const WhyChooseUs = () => {
                     className="text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug text-center"
                     initial={{ opacity: 0.7 }}
                     whileHover={{ opacity: 1 }}
-                  >
-                    {item.description}
-                  </motion.p>
+                    dangerouslySetInnerHTML={{ __html: item.description }}
+                  />
                 </div>
 
                 {/* Hover glow effect */}

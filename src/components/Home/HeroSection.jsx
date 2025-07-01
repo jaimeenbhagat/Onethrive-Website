@@ -29,9 +29,8 @@ const HeroSection = () => {
         </h1>
 
         <p className="text-base sm:text-lg md:text-xl text-white text-center mb-6 sm:mb-8 font-medium leading-relaxed max-w-3xl mx-auto">
-          At OneThrive, we create meaningful, memorable experiences that bring your teams <br /> closer. 
-          Whether you're scaling culture or boosting collaboration, we deliver everything you need 
-          to help your people connect, grow, and thrive.
+        At OneThrive, we create purposeful, memorable experiences that bring your teams <br />
+        closer. Whether you're scaling culture or boosting collaboration, we deliver everything you need to help your people connect, grow, and thrive.
         </p>
 
         <motion.a

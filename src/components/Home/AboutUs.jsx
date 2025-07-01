@@ -20,7 +20,7 @@ const AboutUs = () => {
             Break free from one off events and spark genuine connection. OneThrive partners with HR leaders and directors to craft unforgettable experiences dynamic workshops, immersive offsites, and engaging activities that boost collaboration, lift morale, and energize your workforce.
           </p>
           <p className="text-lg text-white font-bold leading-relaxed">
-            Ready to build a workplace everyone talks about? Let's get started.
+            Ready to build a workplace everyone talks about? <br /> Let's get started.
           </p>
         </motion.div>
 

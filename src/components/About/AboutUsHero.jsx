@@ -62,7 +62,7 @@ const AboutUsHero = () => {
             transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
           >
             <p className="text-lg md:text-xl text-white font-bold leading-relaxed relative mb-4">
-              It started with a simple realization—workplace culture isn't just about 
+              It started with a simple realization workplace culture isn't just about 
               deadlines and meetings. It's about people. At OneThrive, we saw employees 
               burning out and teams disconnected, so we built a company dedicated to 
               transforming work into an experience.
