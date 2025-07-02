@@ -34,7 +34,7 @@ const whyChooseUs = [
     title: "Result Driven",
     description: "Measurable outcomes with<br/>clear ROI",
     icon: "📊",
-    stats: "ROI Foucused",
+    stats: "ROI Focused",
     gradient: "from-[#44FF99] to-[#00FFAB]"
   },
   {
@@ -50,27 +50,27 @@ const WhyChooseUs = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className="relative h-screen bg-black overflow-hidden flex items-center justify-center">
+    <div className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center px-4 sm:px-6 md:px-1 my-24 py-10">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-[#00FFAB] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
-        <div className="absolute top-10 right-10 w-72 h-72 bg-[#00CC88] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-10 left-1/2 w-72 h-72 bg-[#88FFAA] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-10 left-10 w-56 sm:w-64 h-56 sm:h-64 bg-[#00FFAB] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute top-10 right-10 w-56 sm:w-64 h-56 sm:h-64 bg-[#00CC88] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-10 left-1/2 w-56 sm:w-64 h-56 sm:h-64 bg-[#88FFAA] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9ImdyaWQiIG9wYWNpdHk9IjAuMSI+CjxwYXRoIGQ9Ik0wIDQwVjBIMUwwIDQwWiIgZmlsbD0iIzAwRkZBQiIvPgo8cGF0aCBkPSJNNDAgMEg0MFY0MEgzOUw0MCAwWiIgZmlsbD0iIzAwRkZBQiIvPgo8cGF0aCBkPSJNMCAwSDQwVjFIMEwwIDBaIiBmaWxsPSIjMDBGRkFCIi8+CjxwYXRoIGQ9Ik0wIDQwSDQwVjM5SDBMNDAgWiIgZmlsbD0iIzAwRkZBQiIvPgo8L2c+Cjwvc3ZnPgo=')] opacity-20"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div 
-          className="text-center mb-12"
+        <motion.div
+          className="text-center mb-10 sm:mb-12 px-2"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-white mb-4 relative leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 relative leading-tight"
             animate={{
               backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
             }}
@@ -82,16 +82,16 @@ const WhyChooseUs = () => {
           >
             Why Choose OneThrive?
           </motion.h2>
-          
+
           <motion.div
-            className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-4"
+            className="w-24 sm:w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-3"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
           />
-          
+
           <motion.p
-            className="text-xl text-white max-w-3xl font-medium mx-auto"
+            className="text-base sm:text-lg md:text-xl text-white max-w-xl font-medium mx-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -100,16 +100,16 @@ const WhyChooseUs = () => {
           </motion.p>
         </motion.div>
 
-        {/* Cards Grid - Fixed alignment */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-7xl mx-auto">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
           {whyChooseUs.map((item, index) => (
             <motion.div
               key={index}
               className="relative group cursor-pointer"
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ 
-                duration: 0.5, 
+              transition={{
+                duration: 0.5,
                 delay: index * 0.1,
                 ease: "easeOut"
               }}
@@ -117,8 +117,8 @@ const WhyChooseUs = () => {
               onHoverEnd={() => setHoveredIndex(null)}
             >
               <motion.div
-                className="bg-gradient-to-br from-gray-900/60 via-black/80 to-gray-900/60 backdrop-blur-sm border border-[#00FFAB]/20 rounded-2xl p-6 h-[320px] text-center relative overflow-hidden flex flex-col justify-between"
-                whileHover={{ 
+                className="bg-gradient-to-br from-gray-900/60 via-black/80 to-gray-900/60 backdrop-blur-sm border border-[#00FFAB]/20 rounded-2xl p-4 sm:p-6 h-[280px] sm:h-[320px] text-center relative overflow-hidden flex flex-col justify-between"
+                whileHover={{
                   scale: 1.08,
                   y: -8,
                   rotateX: 5,
@@ -127,7 +127,7 @@ const WhyChooseUs = () => {
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                {/* Rotating border effect */}
+                {/* Rotating border */}
                 <motion.div
                   className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100"
                   style={{
@@ -138,11 +138,11 @@ const WhyChooseUs = () => {
                   } : {}}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 />
-                
-                {/* Top Section: Stats Badge */}
+
+                {/* Stats */}
                 <div className="relative z-10 flex flex-col items-center">
                   <motion.div
-                    className={`flex items-center justify-center w-32 h-8 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-sm shadow-lg`}
+                    className={`flex items-center justify-center w-24 sm:w-32 h-8 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-sm shadow-lg`}
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}
@@ -151,12 +151,12 @@ const WhyChooseUs = () => {
                     {item.stats}
                   </motion.div>
                 </div>
-                
-                {/* Middle Section: Icon */}
+
+                {/* Icon */}
                 <div className="relative z-10 flex flex-col items-center justify-center flex-grow">
                   <motion.div
-                    className="text-4xl relative"
-                    whileHover={{ 
+                    className="text-3xl sm:text-4xl relative"
+                    whileHover={{
                       scale: 1.3,
                       rotate: [0, -15, 15, 0],
                     }}
@@ -170,11 +170,9 @@ const WhyChooseUs = () => {
                     >
                       {item.icon}
                     </motion.div>
-                    
-                    {/* Icon glow */}
                     {hoveredIndex === index && (
                       <motion.div
-                        className="absolute inset-0 text-5xl opacity-50 blur-sm text-[#00FFAB]"
+                        className="absolute inset-0 text-4xl sm:text-5xl opacity-50 blur-sm text-[#00FFAB]"
                         animate={{
                           scale: [1, 1.5, 1],
                           opacity: [0.3, 0.8, 0.3]
@@ -187,29 +185,29 @@ const WhyChooseUs = () => {
                   </motion.div>
                 </div>
 
-                {/* Bottom Section: Title and Description */}
+                {/* Title & Description */}
                 <div className="relative z-10 flex flex-col items-center">
                   <motion.h3
-                    className="text-lg font-bold text-white mb-3 group-hover:text-[#00FFAB] transition-colors duration-300 leading-tight h-[3.5rem] flex items-center justify-center text-center"
+                    className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3 group-hover:text-[#00FFAB] transition-colors duration-300 leading-tight h-[3rem] sm:h-[3.5rem] flex items-center justify-center text-center"
                     layoutId={`title-${index}`}
                   >
                     {item.title}
                   </motion.h3>
-                  
+
                   <motion.p
-                    className="text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug text-center"
+                    className="text-xs sm:text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug text-center px-1"
                     initial={{ opacity: 0.7 }}
                     whileHover={{ opacity: 1 }}
                     dangerouslySetInnerHTML={{ __html: item.description }}
                   />
                 </div>
 
-                {/* Hover glow effect */}
+                {/* Hover Glow */}
                 <motion.div
                   className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
                 />
 
-                {/* Floating particles on hover */}
+                {/* Particles */}
                 {hoveredIndex === index && (
                   <div className="absolute inset-0 pointer-events-none">
                     {[...Array(3)].map((_, i) => (

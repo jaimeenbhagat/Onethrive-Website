@@ -52,7 +52,7 @@ function Navbar() {
         <div className="md:hidden z-30">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-black text-3xl focus:outline-none"
+            className="text-white text-3xl focus:outline-none"
           >
             {isOpen ? <HiX /> : <HiMenuAlt3 />}
           </button>
