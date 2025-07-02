@@ -62,7 +62,7 @@ const ClientLogos = () => {
           >
             {/* Logo image - same size as before */}
             <div className="flex justify-center items-center mb-4">
-              <img
+              <img loading="lazy" 
                 src={client.logo}
                 alt={client.name}
                 className="w-72 h-48 object-contain"

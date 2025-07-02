@@ -43,7 +43,7 @@ const ServicesSection = () => {
             onClick={() => (window.location.href = "/services")}
           >
             <div className="relative w-full h-full">
-              <img
+              <img loading="lazy" 
                 src={service.image}
                 alt={service.title}
                 className="object-cover w-full h-full"

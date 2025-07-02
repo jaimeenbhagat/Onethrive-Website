@@ -88,7 +88,7 @@ const ProcessStep = ({ step, index, isActive, isCompleted, shouldShow }) => {
               ${isCompleted ? 'border-[#00FFAB]/60 shadow-[#00FFAB]/40' : 'border-[#00FFAB]/30 shadow-[#00FFAB]/30'}
               ${isActive ? 'border-[#00FFAB] shadow-[#00FFAB]/50' : ''}`}
           >
-            <img
+            <img loading="lazy" 
               src={step.icon}
               alt={step.title}
               className={`w-12 h-12 md:w-16 md:h-16 transition-all duration-300

@@ -80,7 +80,7 @@ const Footer = () => {
             variants={itemVariants}
           >
             <div className="flex items-center space-x-4">
-              <img src={logo} alt="OneThrive Logo" className="h-16 md:h-20" />
+              <img loading="lazy"  src={logo} alt="OneThrive Logo" className="h-16 md:h-20" />
             </div>
 
             <p className="text-gray-300 text-lg font-bold leading-relaxed max-w-md">

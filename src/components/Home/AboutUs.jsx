@@ -30,7 +30,7 @@ const AboutUs = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <img
+          <img loading="lazy" 
             src={aboutImage}
             alt="About"
             className="w-full h-full rounded-2xl shadow-lg shadow-[#00FFAB]/30"

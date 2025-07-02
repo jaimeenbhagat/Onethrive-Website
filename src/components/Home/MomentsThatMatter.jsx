@@ -107,7 +107,7 @@ const MomentsThatMatter = () => {
             >
               {moments.map((moment) => (
                 <div key={moment.id} className="w-full h-full flex-shrink-0 relative">
-                  <img 
+                  <img loading="lazy"  
                     src={moment.image} 
                     alt={`Moment ${moment.id}`}
                     className="absolute inset-0 w-full h-full object-cover"
