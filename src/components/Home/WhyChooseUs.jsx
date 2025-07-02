@@ -10,7 +10,7 @@ const whyChooseUs = [
     gradient: "from-[#00FFAB] to-[#00CC88]"
   },
   {
-    title: "Scalable Programs", 
+    title: "Scalable Programs",
     description: "From startups to Fortune 500 companies",
     icon: "📈",
     stats: "All Sizes",
@@ -19,7 +19,7 @@ const whyChooseUs = [
   {
     title: "Personalised Solutions",
     description: "Tailored to your specific industry needs",
-    icon: "🎯", 
+    icon: "🎯",
     stats: "Fully Custom",
     gradient: "from-[#88FFAA] to-[#00FF88]"
   },
@@ -27,7 +27,7 @@ const whyChooseUs = [
     title: "Diverse Offerings",
     description: "Extensive portfolio of engaging activities",
     icon: "🎪",
-    stats: "100+ Activities", 
+    stats: "100+ Activities",
     gradient: "from-[#00FFAB] to-[#66FFBB]"
   },
   {
@@ -71,14 +71,8 @@ const WhyChooseUs = () => {
         >
           <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 relative leading-tight"
-            animate={{
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "linear"
-            }}
+            animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           >
             Why Choose OneThrive?
           </motion.h2>
@@ -117,7 +111,7 @@ const WhyChooseUs = () => {
               onHoverEnd={() => setHoveredIndex(null)}
             >
               <motion.div
-                className="bg-gradient-to-br from-gray-900/60 via-black/80 to-gray-900/60 backdrop-blur-sm border border-[#00FFAB]/20 rounded-2xl p-4 sm:p-6 h-[280px] sm:h-[320px] text-center relative overflow-hidden flex flex-col justify-between"
+                className="bg-gradient-to-br from-gray-900/60 via-black/80 to-gray-900/60 backdrop-blur-sm border border-[#00FFAB]/20 rounded-2xl p-5 sm:p-6 h-[280px] sm:h-[320px] text-center relative overflow-hidden flex flex-col justify-between"
                 whileHover={{
                   scale: 1.08,
                   y: -8,
@@ -133,16 +127,14 @@ const WhyChooseUs = () => {
                   style={{
                     background: `conic-gradient(from 0deg, transparent, ${item.gradient.split(' ')[1]}, transparent, ${item.gradient.split(' ')[3]}, transparent)`
                   }}
-                  animate={hoveredIndex === index ? {
-                    rotate: [0, 360],
-                  } : {}}
+                  animate={hoveredIndex === index ? { rotate: [0, 360] } : {}}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                 />
 
                 {/* Stats */}
                 <div className="relative z-10 flex flex-col items-center">
                   <motion.div
-                    className={`flex items-center justify-center w-24 sm:w-32 h-8 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-sm shadow-lg`}
+                    className={`flex items-center justify-center w-28 sm:w-32 h-9 sm:h-8 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-base sm:text-sm shadow-lg`}
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}
@@ -155,17 +147,12 @@ const WhyChooseUs = () => {
                 {/* Icon */}
                 <div className="relative z-10 flex flex-col items-center justify-center flex-grow">
                   <motion.div
-                    className="text-3xl sm:text-4xl relative"
-                    whileHover={{
-                      scale: 1.3,
-                      rotate: [0, -15, 15, 0],
-                    }}
+                    className="text-5xl sm:text-5xl relative"
+                    whileHover={{ scale: 1.3, rotate: [0, -15, 15, 0] }}
                     transition={{ duration: 0.6 }}
                   >
                     <motion.div
-                      animate={hoveredIndex === index ? {
-                        y: [-1, 1, -1],
-                      } : {}}
+                      animate={hoveredIndex === index ? { y: [-1, 1, -1] } : {}}
                       transition={{ duration: 2, repeat: Infinity }}
                     >
                       {item.icon}
@@ -173,10 +160,7 @@ const WhyChooseUs = () => {
                     {hoveredIndex === index && (
                       <motion.div
                         className="absolute inset-0 text-4xl sm:text-5xl opacity-50 blur-sm text-[#00FFAB]"
-                        animate={{
-                          scale: [1, 1.5, 1],
-                          opacity: [0.3, 0.8, 0.3]
-                        }}
+                        animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.8, 0.3] }}
                         transition={{ duration: 1, repeat: Infinity }}
                       >
                         {item.icon}
@@ -188,14 +172,14 @@ const WhyChooseUs = () => {
                 {/* Title & Description */}
                 <div className="relative z-10 flex flex-col items-center">
                   <motion.h3
-                    className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3 group-hover:text-[#00FFAB] transition-colors duration-300 leading-tight h-[3rem] sm:h-[3.5rem] flex items-center justify-center text-center"
+                    className="text-xl sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-[#00FFAB] transition-colors duration-300 leading-tight h-[3rem] sm:h-[3.5rem] flex items-center justify-center text-center"
                     layoutId={`title-${index}`}
                   >
                     {item.title}
                   </motion.h3>
 
                   <motion.p
-                    className="text-xs sm:text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug text-center px-1"
+                    className="text-md sm:text-md text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug text-center px-1"
                     initial={{ opacity: 0.7 }}
                     whileHover={{ opacity: 1 }}
                     dangerouslySetInnerHTML={{ __html: item.description }}

@@ -23,6 +23,7 @@ const ServicesSection = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
+      {/* Heading */}
       <div className="text-center mb-4">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
           ONE PLATFORM FOR ALL YOUR
@@ -33,6 +34,7 @@ const ServicesSection = () => {
         <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-4 rounded-full" />
       </div>
 
+      {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service, idx) => (
           <motion.div
@@ -43,12 +45,22 @@ const ServicesSection = () => {
             onClick={() => (window.location.href = "/services")}
           >
             <div className="relative w-full h-full">
-              <img loading="lazy" 
+              <img
+                loading="lazy"
                 src={service.image}
                 alt={service.title}
                 className="object-cover w-full h-full"
               />
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
+
+              {/* Mobile: Always show title */}
+              <div className="absolute inset-0 bg-black/70 flex items-center justify-center md:hidden">
+                <h3 className="text-white text-xl font-bold text-center px-2">
+                  {service.title}
+                </h3>
+              </div>
+
+              {/* Laptop: Show title on hover */}
+              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all items-center justify-center hidden md:flex">
                 <h3 className="text-white text-xl font-bold text-center px-2">
                   {service.title}
                 </h3>
@@ -58,6 +70,7 @@ const ServicesSection = () => {
         ))}
       </div>
 
+      {/* Button */}
       <div className="text-center mt-4">
         <motion.button
           whileHover={{ scale: 1.05 }}
