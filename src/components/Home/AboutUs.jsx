@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import aboutImage from "../../assets/about.webp";
+import aboutImage from "../../assets/about.png";
 
 const AboutUs = () => {
   return (
