@@ -12,8 +12,10 @@ import About from './pages/About'
 import Services from './pages/Services'
 import ScrollToTop from './components/ScrollToTop';
 import Blog from './pages/Blog'
-// import FAQs from './pages/FAQs'
 import Contact from './pages/Contact'
+import PrivacyPolicy from './components/Policies/PrivacyPolicy';
+import CancellationRefundPolicy from './components/Policies/CancellationRefundPolicy';
+import TermsConditions from './components/Policies/TermsConditions';
 
 function App() {
   return (
@@ -29,8 +31,10 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/Blog" element={<Blog />} />
-            {/* <Route path="/FAQs" element={<FAQs />} /> */}
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/cancellation-refund" element={<CancellationRefundPolicy />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
           </Routes>
         </main>
 
