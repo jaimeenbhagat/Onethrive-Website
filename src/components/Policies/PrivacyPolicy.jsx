@@ -266,7 +266,7 @@ const PrivacyPolicy = () => {
             <h2 className="text-3xl font-bold text-[#00FFAB] mb-4">13. Grievance Redressal (As per IT Rules, 2021)</h2>
             <p className="mb-4">To comply with Rule 5(9) of the SPDI Rules and Rule 3(2) of the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021:</p>
             
-            <div className="bg-gray-900 p-6 rounded-lg border border-[#00FFAB]/20">
+            <div className="bg-black p-6 rounded-lg border border-[#00FFAB]/20">
               <h3 className="text-2xl font-bold text-[#00FFAB] mb-3">Grievance Officer Contact:</h3>
               <div className="space-y-2">
                 <p><strong className="text-[#00FFAB]">Name:</strong> Smeet Shah</p>
@@ -287,7 +287,7 @@ const PrivacyPolicy = () => {
             <h2 className="text-3xl font-bold text-[#00FFAB] mb-4">14. Contact Us</h2>
             <p className="mb-4">For questions or concerns about this Privacy Policy:</p>
             
-            <div className="bg-gray-900 p-6 rounded-lg border border-[#00FFAB]/20">
+            <div className="bg-black p-6 rounded-lg border border-[#00FFAB]/20">
               <div className="space-y-2">
                 <p><strong className="text-[#00FFAB]">📧 Email:</strong> info@onethrive.in</p>
                 <p><strong className="text-[#00FFAB]">🌐 Website:</strong> www.onethrive.in</p>

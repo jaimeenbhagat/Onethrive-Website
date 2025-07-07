@@ -75,7 +75,7 @@ const TermsConditions = () => {
           >
             <h2 className="text-3xl font-bold text-[#00FFAB] mb-4">3. Intellectual Property Rights</h2>
             
-            <div className="bg-purple-900/20 p-6 rounded-lg border border-purple-500/30">
+            <div className="bg-black p-6 rounded-lg border border-[#00FFAB]/30">
               <ul className="space-y-3">
                 <li>• All original content on our platform, including visuals, tools, text, brand assets, and digital materials, is the exclusive property of OneThrive.</li>
                 <li>• Clients may not copy, share, or reproduce any content without written permission.</li>
@@ -126,7 +126,7 @@ const TermsConditions = () => {
           >
             <h2 className="text-3xl font-bold text-[#00FFAB] mb-4">6. Cancellation and Refund Policy</h2>
             
-            <div className="bg-red-900/20 p-6 rounded-lg border border-red-500/30">
+            <div className="bg-black p-6 rounded-lg border border-red-500/30">
               <ul className="space-y-3">
                 <li>• Once services are confirmed, any client-initiated cancellations, changes in scope, rescheduling, or reductions will attract a <span className="text-red-400 font-bold">100% cancellation fee</span>.</li>
                 <li>• No refunds are applicable on advance payments or confirmed bookings.</li>
@@ -239,7 +239,7 @@ const TermsConditions = () => {
           >
             <h2 className="text-3xl font-bold text-[#00FFAB] mb-4">13. Governing Law and Jurisdiction</h2>
             
-            <div className="bg-blue-900/20 p-6 rounded-lg border border-blue-500/30">
+            <div className="bg-black p-6 rounded-lg border border-blue-500/30">
               <ul className="space-y-3">
                 <li>• These Terms shall be governed in accordance with the laws of India.</li>
                 <li>• Any disputes shall be subject to the exclusive jurisdiction of the courts of Mumbai, Maharashtra.</li>
@@ -288,7 +288,7 @@ const TermsConditions = () => {
             <h2 className="text-3xl font-bold text-[#00FFAB] mb-4">16. Contact Information</h2>
             <p className="mb-4">For any questions regarding these Terms or to request clarifications:</p>
             
-            <div className="bg-gray-900 p-6 rounded-lg border border-[#00FFAB]/20">
+            <div className="bg-black p-6 rounded-lg border border-[#00FFAB]/20">
               <div className="space-y-2">
                 <p><strong className="text-[#00FFAB]">📧 Email:</strong> info@onethrive.in</p>
                 <p><strong className="text-[#00FFAB]">🌐 Website:</strong> www.onethrive.in</p>
@@ -302,7 +302,7 @@ const TermsConditions = () => {
             transition={{ duration: 0.6 }}
             className="mt-12"
           >
-            <div className="bg-[#00FFAB]/10 p-8 rounded-lg border border-[#00FFAB]/30">
+            <div className="bg-black p-8 rounded-lg border border-[#00FFAB]/30">
               <h3 className="text-2xl font-bold text-[#00FFAB] mb-4">Agreement Acknowledgment</h3>
               <p className="text-lg">
                 By using OneThrive's services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. 

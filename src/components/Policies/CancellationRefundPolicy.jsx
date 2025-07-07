@@ -36,7 +36,7 @@ const CancellationRefundPolicy = () => {
                 considered a final agreement.
               </p>
               
-              <div className="bg-red-900/20 p-6 rounded-lg border border-red-500/30">
+              <div className="bg-black p-6 rounded-lg border border-red-500/30">
                 <p className="mb-4">If the client initiates any of the following after confirmation:</p>
                 <ul className="space-y-2 ml-4">
                   <li>• Cancels the service in full or in part</li>
@@ -61,7 +61,7 @@ const CancellationRefundPolicy = () => {
             <h2 className="text-3xl font-bold text-[#00FFAB] mb-4">2. Refunds</h2>
             
             <div className="space-y-4">
-              <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
+              <div className="bg-black p-6 rounded-lg border border-gray-700">
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="text-red-400 mr-2">•</span>
@@ -100,7 +100,7 @@ const CancellationRefundPolicy = () => {
           >
             <h2 className="text-3xl font-bold text-[#00FFAB] mb-4">4. Legal Enforcement</h2>
             
-            <div className="bg-blue-900/20 p-6 rounded-lg border border-blue-500/30">
+            <div className="bg-black p-6 rounded-lg border border-blue-500/30">
               <p>
                 This policy is enforceable under Indian law. It supersedes any verbal agreements or informal
                 commitments made prior to written confirmation.
@@ -134,7 +134,7 @@ const CancellationRefundPolicy = () => {
             <h2 className="text-3xl font-bold text-[#00FFAB] mb-4">6. Contact Us</h2>
             <p className="mb-4">If you have any questions or concerns, please reach out to us:</p>
             
-            <div className="bg-gray-900 p-6 rounded-lg border border-[#00FFAB]/20">
+            <div className="bg-black p-6 rounded-lg border border-[#00FFAB]/20">
               <div className="space-y-2">
                 <p><strong className="text-[#00FFAB]">📧 Email:</strong> info@onethrive.in</p>
                 <p><strong className="text-[#00FFAB]">🌐 Website:</strong> www.onethrive.in</p>
@@ -148,7 +148,7 @@ const CancellationRefundPolicy = () => {
             transition={{ duration: 0.6 }}
             className="mt-12"
           >
-            <div className="bg-[#00FFAB]/10 p-8 rounded-lg border border-[#00FFAB]/30">
+            <div className="bg-black p-8 rounded-lg border border-[#00FFAB]/30">
               <h3 className="text-2xl font-bold text-[#00FFAB] mb-4">Important Notice</h3>
               <p className="text-lg">
                 We strongly recommend reviewing this policy carefully before confirming any services. 

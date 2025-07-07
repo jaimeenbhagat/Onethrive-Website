@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import bgImage from "../../assets/herosectionimage1.png";
+import bgImage from "../../assets/herosectionimage1.webp";
 
 const HeroSection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);

@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center px-4 sm:px-6 md:px-1 my-24 py-10">
+    <div className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center px-4 sm:px-6 md:px-1  py-10">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 left-10 w-56 sm:w-64 h-56 sm:h-64 bg-[#00FFAB] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>

@@ -3,7 +3,7 @@ import aboutImage from "../../assets/about.png";
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen flex items-center px-6 py-16 md:px-20 max-w-7xl mx-auto">
+    <div className="min-h-screen flex items-center px-6  md:px-20 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row items-center justify-between gap-12 w-full">
         <motion.div
           className="md:w-1/2 font-bold"

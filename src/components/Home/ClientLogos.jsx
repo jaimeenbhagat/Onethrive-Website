@@ -20,7 +20,7 @@ const clientLogos = [
 const ClientLogos = () => {
   return (
     <motion.div
-      className="min-h-[500px] flex flex-col justify-center px-6 md:px-20 max-w-7xl mx-auto py-20"
+      className="min-h-[500px] flex flex-col justify-center px-6 md:px-20 max-w-7xl mx-auto py-10"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
