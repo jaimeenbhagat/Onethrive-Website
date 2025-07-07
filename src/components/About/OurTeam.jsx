@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import team1 from "../../assets/team/sujal.png";
-import team2 from "../../assets/team/smeet.png";
-import team3 from "../../assets/team/parth.png";
+import team1 from "../../assets/team/sujal.webp";
+import team2 from "../../assets/team/smeet.webp";
+import team3 from "../../assets/team/parth.webp";
 
 const OurTeam = () => {
   return (
