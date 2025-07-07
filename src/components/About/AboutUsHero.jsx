@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import aboutusimage from "../../assets/aboutus.png";
+import aboutusimage from "../../assets/aboutus.webp";
 import { Link } from "react-router-dom";
 
 const AboutUsHero = () => {
