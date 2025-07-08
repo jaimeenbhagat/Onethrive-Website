@@ -57,7 +57,16 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: imageLoaded ? 0.2 : 0 }}
       >
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-extrabold leading-tight mb-4 sm:mb-6">
+        {/* Mobile heading */}
+        <h1 className="block sm:hidden text-2xl font-extrabold leading-tight mb-4">
+          Everything You Need for <br />
+          Team Building & <br />
+          Employee Engagement. <br />
+          One Roof. One Thrive.
+        </h1>
+
+        {/* Desktop heading */}
+        <h1 className="hidden sm:block text-3xl md:text-4xl lg:text-5xl text-center font-extrabold leading-tight mb-4 sm:mb-6">
           Everything You Need for <br /> Team Building & Employee Engagement.
           <br className="hidden sm:block" />
           One Roof. One Thrive.

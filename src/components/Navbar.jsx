@@ -68,13 +68,13 @@ function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white px-6 pt-4 pb-8 space-y-4 flex flex-col"
+            className="md:hidden backdrop-blur-xs px-6 pt-4 pb-8 space-y-4 flex flex-col"
           >
             {navItems.map(({ name, path }) => (
               <button
                 key={name}
                 onClick={() => handleNavClick(path)}
-                className="text-black text-left text-base font-semibold hover:text-[#00FFAB] tracking-wide uppercase transition"
+                className="text-white text-left text-base font-semibold hover:text-[#00FFAB] tracking-wide uppercase transition"
               >
                 {name}
               </button>

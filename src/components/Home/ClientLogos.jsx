@@ -25,9 +25,9 @@ const ClientLogos = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="text-center mb-20">
+      <div className="text-center mb-12 md:mb-20 mt-8 md:mt-0">
         <motion.h2 
-          className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
+          className="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6 tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -35,13 +35,13 @@ const ClientLogos = () => {
           Trusted by Industry Leaders
         </motion.h2>
         <motion.div
-            className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-4"
+            className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-3 md:mb-4"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
           />
         <motion.p 
-          className="text-xl text-white max-w-5xl mx-auto font-medium leading-relaxed"
+          className="text-base md:text-xl text-white max-w-5xl mx-auto font-medium leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -50,8 +50,8 @@ const ClientLogos = () => {
         </motion.p>
       </div>
 
-      {/* Simple Logo Display */}
-      <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-20 max-w-6xl mx-auto">
+      {/* Logo Display - Mobile: side by side | Desktop: same as before */}
+      <div className="flex flex-row md:flex-row justify-center items-center gap-6 md:gap-20 max-w-6xl mx-auto">
         {clientLogos.map((client, index) => (
           <motion.div
             key={index}
@@ -60,12 +60,12 @@ const ClientLogos = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
           >
-            {/* Logo image - same size as before */}
+            {/* Logo image - smaller for mobile, same for desktop */}
             <div className="flex justify-center items-center mb-4">
               <img loading="lazy" 
                 src={client.logo}
                 alt={client.name}
-                className="w-72 h-48 object-contain"
+                className="w-40 h-28 md:w-72 md:h-48 object-contain"
               />
             </div>
           </motion.div>

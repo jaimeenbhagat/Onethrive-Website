@@ -24,7 +24,7 @@ const testimonials = [
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="bg-gradient-to-br from-[#111] to-[#222] border border-[#00FFAB]/20 rounded-2xl p-6 md:p-8 overflow-hidden w-full max-w-3xl mx-auto relative">
+    <div className="bg-gradient-to-br from-[#111] to-[#222] border border-[#00FFAB]/20 rounded-2xl p-6 md:p-8 overflow-hidden w-full max-w-4xl mx-auto relative">
       {/* Background glow effect */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#00FFAB]/5 via-[#00FFAB]/10 to-transparent rounded-2xl" />
       
@@ -95,7 +95,7 @@ const Testimonials = () => {
 
   return (
     <div className="bg-black py-16 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">

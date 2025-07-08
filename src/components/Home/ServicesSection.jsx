@@ -18,28 +18,28 @@ const services = [
 const ServicesSection = () => {
   return (
     <motion.div
-      className="min-h-screen flex flex-col justify-center px-6 md:px-20 max-w-7xl mx-auto"
+      className="min-h-screen flex flex-col justify-center px-6 md:px-20 max-w-8xl mx-auto"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
       {/* Heading */}
-      <div className="text-center mb-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
+      <div className="text-center mb-4 mt-8 sm:mt-0">
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
           ONE PLATFORM FOR ALL YOUR
         </h2>
-        <h2 className="text-4xl md:text-5xl font-bold text-[#00FFAB]">
+        <h2 className="text-3xl md:text-5xl font-bold text-[#00FFAB]">
           ENGAGEMENT NEEDS
         </h2>
         <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-4 rounded-full" />
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Grid - Mobile: 2 columns, 3 rows | Laptop: 3 columns responsive */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6">
         {services.map((service, idx) => (
           <motion.div
             key={idx}
-            className="bg-black rounded-3xl overflow-hidden cursor-pointer group shadow-xl h-[180px]"
+            className="bg-black rounded-3xl overflow-hidden cursor-pointer group shadow-xl h-[140px] sm:h-[180px]"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             onClick={() => (window.location.href = "/services")}
@@ -53,7 +53,14 @@ const ServicesSection = () => {
               />
 
               {/* Mobile: Always show title */}
-              <div className="absolute inset-0 bg-black/70 flex items-center justify-center md:hidden">
+              <div className="absolute inset-0 bg-black/70 flex items-center justify-center sm:hidden">
+                <h3 className="text-white text-base font-bold text-center px-2 leading-tight">
+                  {service.title}
+                </h3>
+              </div>
+
+              {/* Tablet: Always show title */}
+              <div className="absolute inset-0 bg-black/70  items-center justify-center hidden sm:flex md:hidden">
                 <h3 className="text-white text-xl font-bold text-center px-2">
                   {service.title}
                 </h3>
