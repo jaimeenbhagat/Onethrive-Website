@@ -25,13 +25,18 @@ const ServicesSection = () => {
     >
       {/* Heading */}
       <div className="text-center mb-4 mt-4 sm:mt-0">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
-          ONE PLATFORM FOR ALL YOUR
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
+          Our Services
         </h2>
-        <h2 className="text-3xl md:text-5xl font-bold text-[#00FFAB]">
-          ENGAGEMENT NEEDS
-        </h2>
-        <div className="w-24 h-1 bg-[#00FFAB] mx-auto mt-4 rounded-full" />
+        <div
+            className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-2 "
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
+          <p className="text-xl text-white font-medium max-w-5xl mx-auto relative">
+          Transforming workplaces through engaging experiences that build stronger teams
+        </p>
       </div>
 
       {/* Grid - Mobile: 2 columns, 3 rows | Laptop: 3 columns responsive */}
@@ -39,7 +44,7 @@ const ServicesSection = () => {
         {services.map((service, idx) => (
           <motion.div
             key={idx}
-            className="bg-black rounded-3xl overflow-hidden cursor-pointer group shadow-xl h-[140px] sm:h-[180px]"
+            className="bg-black rounded-3xl overflow-hidden cursor-pointer group shadow-xl h-[140px] sm:h-[190px]"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             onClick={() => (window.location.href = "/services")}

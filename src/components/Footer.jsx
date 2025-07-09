@@ -68,7 +68,7 @@ const Footer = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 px-6 sm:px-10 md:px-20 py-16 font-interphase">
+      <div className="relative z-10 px-6 sm:px-10 md:px-20 py-8 font-interphase">
         {/* Main Grid Section */}
         <motion.div
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-gray-700 pt-16"
@@ -89,14 +89,17 @@ const Footer = () => {
 
             {/* Contact Info with Icons */}
             <div className="space-y-4">
-              <div className="flex items-center space-x-4 text-white hover:text-[#00FFAB] transition-colors cursor-pointer group">
+              <a 
+                href="tel:+918850210248" 
+                className="flex items-center space-x-4 text-white hover:text-[#00FFAB] transition-colors cursor-pointer group"
+              >
                 <div className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-800 p-3 rounded-full group-hover:shadow-lg group-hover:shadow-[#00FFAB]/30 transition-all">
                   <FaPhone className="text-black text-sm" />
                 </div>
                 <div>
                   <p className="font-bold text-lg">+91 88502 10248</p>
                 </div>
-              </div>
+              </a>
 
               <div className="flex items-center space-x-4 text-white hover:text-[#00FFAB] transition-colors cursor-pointer group">
                 <div className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-800 p-3 rounded-full group-hover:shadow-lg group-hover:shadow-[#00FFAB]/30 transition-all">

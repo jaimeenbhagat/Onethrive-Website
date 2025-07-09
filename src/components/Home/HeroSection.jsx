@@ -66,7 +66,7 @@ const HeroSection = () => {
         </h1>
 
         {/* Desktop heading */}
-        <h1 className="hidden sm:block text-5xl md:text-6xl lg:text-7xl text-center font-extrabold leading-tight mb-6 sm:mb-6">
+        <h1 className="hidden sm:block text-5xl md:text-4xl lg:text-5xl text-center font-extrabold leading-tight mb-6 sm:mb-6">
           Everything You Need for <br /> Team Building & Employee Engagement.
           <br className="hidden sm:block" />
           One Roof. One Thrive.

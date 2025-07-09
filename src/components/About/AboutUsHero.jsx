@@ -38,13 +38,13 @@ const AboutUsHero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 relative"
+            className="text-4xl md:text-5xl lg:text-6xl mb-6 relative"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            <span className="text-white">About Us</span>
+            <span className="text-white font-extrabold">About Us</span>
           </motion.h2>
 
           <motion.div
@@ -61,14 +61,14 @@ const AboutUsHero = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
           >
-            <p className="text-lg md:text-xl text-white font-bold leading-relaxed relative mb-4">
+            <p className="text-lg md:text-xl text-white font-medium leading-relaxed relative mb-4">
               It started with a simple realization workplace culture isn't just about 
               deadlines and meetings. It's about people. At OneThrive, we saw employees 
               burning out and teams disconnected, so we built a company dedicated to 
               transforming work into an experience.
             </p>
 
-            <p className="text-lg md:text-xl text-white font-bold leading-relaxed relative mb-8">
+            <p className="text-lg md:text-xl text-white font-medium leading-relaxed relative mb-8">
               From team-building challenges to wellness initiatives, we create moments 
               that leave lasting impacts. We partner with organizations to design tailored 
               strategies that boost morale and create truly fulfilling work environments. 

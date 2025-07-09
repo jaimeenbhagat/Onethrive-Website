@@ -220,14 +220,24 @@ const Contact = () => {
               <Phone className="text-[#00FFAB] text-3xl" />
               <div>
                 <p className="font-semibold text-2xl">Phone Number</p>
-                <p className="text-gray-300 pt-1">+91 88502 10248</p>
+                <a 
+                  href="tel:+918850210248" 
+                  className="text-gray-300 pt-1 hover:text-[#00FFAB] transition-colors duration-200 cursor-pointer"
+                >
+                  +91 88502 10248
+                </a>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <Mail className="text-[#00FFAB] text-3xl" />
               <div>
                 <p className="font-semibold text-2xl">Email Address</p>
-                <p className="text-gray-300 pt-1">info@onethrive.in</p>
+                <a 
+                  href="mailto:info@onethrive.in" 
+                  className="text-gray-300 pt-1 hover:text-[#00FFAB] transition-colors duration-200 cursor-pointer"
+                >
+                  info@onethrive.in
+                </a>
               </div>
             </div>
           </div>

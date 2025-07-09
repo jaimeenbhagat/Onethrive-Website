@@ -12,14 +12,14 @@ const AboutUs = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#00FFAB] mb-6 leading-tight">
-            Energize Your Team,
+            Energizing Teams,
             <br />
-            Elevate Your Culture
+            Elevating Culture
           </h2>
-          <p className="text-lg md:text-xl text-white mb-6 font-bold leading-relaxed">
+          <p className="text-lg md:text-xl text-white mb-6 font-medium leading-relaxed">
             Break free from one off events and spark genuine connection. OneThrive partners with HR leaders and directors to craft unforgettable experiences dynamic workshops, immersive offsites, and engaging activities that boost collaboration, lift morale, and energize your workforce.
           </p>
-          <p className="text-lg md:text-xl text-white font-bold leading-relaxed">
+          <p className="text-lg md:text-xl text-white font-medium leading-relaxed">
             Ready to build a workplace everyone talks about? <br /> Let's get started.
           </p>
         </motion.div>
