@@ -24,7 +24,7 @@ const ServicesSection = () => {
       transition={{ duration: 0.8 }}
     >
       {/* Heading */}
-      <div className="text-center mb-4 mt-8 sm:mt-0">
+      <div className="text-center mb-4 mt-4 sm:mt-0">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
           ONE PLATFORM FOR ALL YOUR
         </h2>

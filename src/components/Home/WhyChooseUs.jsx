@@ -134,7 +134,7 @@ const WhyChooseUs = () => {
                 {/* Stats */}
                 <div className="relative z-10 flex flex-col items-center">
                   <motion.div
-                    className={`flex items-center justify-center w-20 sm:w-28 md:w-32 h-6 sm:h-9 md:h-8 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-xs sm:text-base md:text-sm shadow-lg`}
+                    className={`flex items-center justify-center w-24 sm:w-28 md:w-32 h-6 sm:h-9 md:h-8 rounded-full bg-gradient-to-r ${item.gradient} text-black font-bold text-xs sm:text-base md:text-sm shadow-lg`}
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}

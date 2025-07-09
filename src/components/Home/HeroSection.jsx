@@ -66,13 +66,13 @@ const HeroSection = () => {
         </h1>
 
         {/* Desktop heading */}
-        <h1 className="hidden sm:block text-3xl md:text-4xl lg:text-5xl text-center font-extrabold leading-tight mb-4 sm:mb-6">
+        <h1 className="hidden sm:block text-5xl md:text-6xl lg:text-7xl text-center font-extrabold leading-tight mb-6 sm:mb-6">
           Everything You Need for <br /> Team Building & Employee Engagement.
           <br className="hidden sm:block" />
           One Roof. One Thrive.
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-white text-center mb-6 sm:mb-8 font-medium leading-relaxed max-w-4xl mx-auto">
+        <p className="text-xl sm:text-lg md:text-xl text-white text-center mb-8 sm:mb-8 font-medium leading-relaxed max-w-4xl mx-auto">
           At OneThrive, we create purposeful, memorable experiences that bring your teams closer. <br/> 
           Whether you're scaling culture or boosting collaboration, we deliver everything you need to help your people connect, grow, and thrive.
         </p>
