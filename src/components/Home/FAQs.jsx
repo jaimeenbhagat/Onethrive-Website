@@ -29,7 +29,7 @@ const FAQs = () => {
     {
       question: "What is the process for booking an event?",
       answer:
-        "Simply contact us via the Request a Quote page or give us a call. We'll schedule a consultation to discuss your needs and craft a personalized proposal.",
+        "Simply reach out to us via our 'Contact Us page' or give us a call. We'll schedule a consultation to understand your needs and craft a personalized proposal.",
     },
   ];
 

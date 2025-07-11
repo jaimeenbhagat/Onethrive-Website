@@ -15,7 +15,7 @@ const testimonials = [
   {
     name: "Dr. Hari Vasudevan",
     position: "Principal",
-    company: "SVKM'sDJSCE",
+    company: "SVKM's DJSCE",
     message: "The event was truly refreshing. It helped me improve my concentration, especially through the breathing exercises. The combination of movement and mindfulness had a strong impact. I'd describe the experience as energizing.",
     rating: 4,
     logo: client2
