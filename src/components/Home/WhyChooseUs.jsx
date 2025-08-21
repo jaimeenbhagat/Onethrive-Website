@@ -32,7 +32,7 @@ const whyChooseUs = [
   },
   {
     title: "Result Driven",
-    description: "Measurable outcomes with clear ROI",
+    description: "Measurable outcomes with<br/>clear ROI",
     icon: "📊",
     stats: "ROI Focused",
     gradient: "from-[#44FF99] to-[#00FFAB]"
@@ -179,7 +179,7 @@ const WhyChooseUs = () => {
                   </motion.h3>
 
                   <motion.p
-                    className="text-xs sm:text-md md:text-md text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug text-center py-1 px-1 h-11"
+                    className="text-xs sm:text-md md:text-md text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug text-center px-1"
                     initial={{ opacity: 0.7 }}
                     whileHover={{ opacity: 1 }}
                     dangerouslySetInnerHTML={{ __html: item.description }}

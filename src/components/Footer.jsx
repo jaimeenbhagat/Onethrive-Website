@@ -19,6 +19,8 @@ const Footer = () => {
     { name: "Services", path: "/services" },
     { name: "Blog", path: "/blog" },
     { name: "Contact Us", path: "/contact" },
+    { name: "ROI Calculator", path: "/roi-calculator" },
+    { name: "Culture Quiz", path: "/culture-quiz" },
   ];
 
   const policies = [
@@ -83,7 +85,7 @@ const Footer = () => {
               <img loading="lazy"  src={logo} alt="OneThrive Logo" className="h-16 md:h-20" />
             </div>
 
-            <p className="text-gray-300 text-lg font-bold leading-relaxed max-w-md">
+            <p className="text-white text-lg font-bold leading-relaxed max-w-md">
               We empower organizations to build thriving workplace cultures through engaging team-building experiences, wellness initiatives, and curated employee programs. From fun to functional, our experiences are designed to inspire connection, boost morale, and drive lasting impact.
             </p>
 
@@ -155,7 +157,7 @@ const Footer = () => {
                 >
                   <button
                     onClick={() => handleLinkClick(path)}
-                    className="text-gray-300 hover:text-[#00FFAB] transition-all duration-300 text-lg font-bold relative group"
+                    className="text-white hover:text-[#00FFAB] transition-all duration-300 text-lg font-bold relative group"
                   >
                     <span className="relative z-10">{name}</span>
                     <div className="absolute inset-0 bg-[#00FFAB]/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
@@ -180,7 +182,7 @@ const Footer = () => {
                 >
                   <button
                     onClick={() => handleLinkClick(path)}
-                    className="text-gray-300 hover:text-[#00FFAB] transition-all duration-300 text-lg font-bold relative group"
+                    className="text-white hover:text-[#00FFAB] transition-all duration-300 text-lg font-bold relative group"
                   >
                     <span className="relative z-10">{name}</span>
                     <div className="absolute inset-0 bg-[#00FFAB]/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
@@ -197,7 +199,7 @@ const Footer = () => {
           variants={itemVariants}
         >
           <div className="flex justify-center items-center text-center">
-            <p className="text-gray-400 text-lg font-bold">
+            <p className="text-white text-lg font-bold">
               © {new Date().getFullYear()}{" "}
               <span className="text-[#00FFAB] font-black text-xl">OneThrive</span>. All
               rights reserved.

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Services = () => {
+const Blog = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -68,4 +68,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Blog;

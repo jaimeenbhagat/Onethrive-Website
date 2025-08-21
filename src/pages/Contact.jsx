@@ -209,6 +209,12 @@ const Contact = () => {
         <h2 className="text-4xl md:text-5xl text-center font-bold mb-4">
           Let's Connect
         </h2>
+        <div
+            className="w-36  h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-2 "
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
         <p className="text-white font-bold mb-8 text-center">
           We'd love to hear from you! Whether you have questions or need
           support, feel free to reach out.
