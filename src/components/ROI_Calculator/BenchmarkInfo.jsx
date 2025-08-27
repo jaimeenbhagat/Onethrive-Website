@@ -49,19 +49,19 @@ const BenchmarkInfo = () => {
               <ul className="space-y-3 ml-6">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-[#00FFAB] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-white">
+                  <span className="text-white text-lg">
                     <span className="font-bold">Disengagement Cost:</span> Estimated from lost productivity and extra absenteeism days.
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-[#00FFAB] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-white">
+                  <span className="text-white text-lg">
                     <span className="font-bold">Turnover Cost:</span> Calculated by multiplying employees who left by replacement cost.
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-[#00FFAB] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-white">
+                  <span className="text-white text-lg">
                     <span className="font-bold">Potential Revenue Increase:</span> Projected based on improved engagement impact.
                   </span>
                 </li>
@@ -74,19 +74,19 @@ const BenchmarkInfo = () => {
               <ul className="space-y-3 ml-6">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-[#00FFAB] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-white">
+                  <span className="text-white text-lg">
                     Productivity loss from disengaged employees: <span className="font-bold text-[#00FFAB]">34% of annual salary</span>.
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-[#00FFAB] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-white">
+                  <span className="text-white text-lg">
                     Average cost to replace an employee: <span className="font-bold text-[#00FFAB]">125% of annual salary</span>.
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-[#00FFAB] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                  <span className="text-white">
+                  <span className="text-white text-lg">
                     Highly engaged companies see <span className="font-bold text-[#00FFAB]">2-5% higher annual revenue growth</span>.
                   </span>
                 </li>
