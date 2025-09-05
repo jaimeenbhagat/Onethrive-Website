@@ -7,7 +7,8 @@ import Footer from './components/Footer'
 import Background from './components/Background';
 import CustomCursor from "./components/CustomCursor";
 import ScrollToTop from './components/ScrollToTop';
-
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 // Importing pages
 import Home from './pages/Home'
 import About from './pages/About'
@@ -27,6 +28,8 @@ import TermsConditions from './components/Policies/TermsConditions';
 function App() {
   return (
     <Router>
+      <Analytics/>
+      <SpeedInsights/>
       <div className=" text-white font-interphase min-h-screen flex flex-col">
         <Navbar />
         <ScrollToTop />
