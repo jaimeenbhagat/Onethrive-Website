@@ -23,32 +23,25 @@ const HeroSection = () => {
       className="relative w-full min-h-screen bg-black text-white flex items-center justify-center px-4 sm:px-10 md:px-20 pt-20 pb-12 md:pt-32 md:pb-24 font-interphase"
     >
       {/* Background Image Container */}
-      <div className="absolute inset-0 z-0">
-        {/* Fallback gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800"></div>
-        
-        {/* Actual background image */}
-        <div
-          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{
-            backgroundImage: `url(${bgImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        ></div>
-        
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/70"></div>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Show skeleton only while loading and no error */}
+        {!imageLoaded && !imageError && (
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-800 via-gray-900 to-black animate-pulse"></div>
+        )}
+        {/* Show image only when loaded and no error */}
+        {imageLoaded && !imageError && (
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-500 opacity-100"
+            style={{
+              backgroundImage: `url(${bgImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></div>
+        )}
+        {/* Overlay always on top for darkening effect */}
+        <div className="absolute inset-0 w-full h-full bg-black/70 pointer-events-none"></div>
       </div>
-
-      {/* Loading skeleton (optional) */}
-      {!imageLoaded && !imageError && (
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black animate-pulse"></div>
-        </div>
-      )}
 
       {/* Text Content */}
       <motion.div

@@ -9,16 +9,18 @@ import MomentsThatMatter from "../components/Home/MomentsThatMatter";
 
 const Home = () => {
   return (
-    <section className="w-full text-white bg-black font-interphase">
+    <div className="w-full min-h-screen bg-black font-interphase">
       <HeroSection />
-      <AboutUs />
-      <ServicesSection />
-      <WhyChooseUs />
-      <MomentsThatMatter />
-      <ClientLogos />
-      <Testimonials />
-      <FAQs />
-    </section>
+      <div className="w-full text-white bg-black">
+        <AboutUs />
+        <ServicesSection />
+        <WhyChooseUs />
+        <MomentsThatMatter />
+        <ClientLogos />
+        <Testimonials />
+        <FAQs />
+      </div>
+    </div>
   );
 };
 
