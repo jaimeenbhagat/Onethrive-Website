@@ -318,7 +318,7 @@ const ServiceGrid = ({ services, serviceCategories, onServiceClick }) => {
 
     return (
       <div
-        className={`bg-black rounded-xl md:rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl group relative border border-gray-800 hover:border-[#00FFAB]/50 h-[340px] md:h-[400px] flex flex-col ${className}`}
+        className={`bg-black rounded-xl md:rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl group relative border border-gray-800 hover:border-[#00FFAB]/50 h-[300px] md:h-[400px] flex flex-col ${className}`}
         onClick={handleClick}
       >
         {/* Service Image */}
@@ -371,7 +371,7 @@ const ServiceGrid = ({ services, serviceCategories, onServiceClick }) => {
           </div>
 
           <div className="h-8 md:h-10 mb-2 md:mb-4">
-            <p className="text-gray-400 text-xs md:text-sm line-clamp-2 leading-relaxed">
+            <p className="text-gray-400 text-xs md:text-sm line-clamp-2 pb-2">
               {service.subtitle}
             </p>
           </div>
@@ -447,25 +447,27 @@ const ServiceGrid = ({ services, serviceCategories, onServiceClick }) => {
           return (
             <div key={categoryId} className="space-y-3 md:space-y-6">
               {/* Category Header with Arrows */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-3 md:mb-6 px-4 sm:px-0">
-                <div className="bg-gradient-to-r from-[#00FFAB] to-green-400 p-2 md:p-3 rounded-xl">
-                  <div className="w-4 h-4 md:w-6 md:h-6 bg-black rounded flex items-center justify-center">
-                    <div className="w-2 h-2 md:w-3 md:h-3 bg-[#00FFAB] rounded-sm"></div>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-1 md:mb-6 px-4 sm:px-0">
+                <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
+                  <div className="bg-gradient-to-r from-[#00FFAB] to-green-400 p-2 md:p-3 rounded-xl flex-shrink-0">
+                    <div className="w-4 h-4 md:w-6 md:h-6 bg-black rounded flex items-center justify-center">
+                      <div className="w-2 h-2 md:w-3 md:h-3 bg-[#00FFAB] rounded-sm"></div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold text-white truncate">
-                    {categoryData.name}
-                  </h2>
-                  <p className="text-gray-400 text-xs sm:text-sm lg:text-base">
-                    {categoryData.description}
-                  </p>
+                  <div className="flex-1 min-w-0">
+                    <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold text-white truncate">
+                      {categoryData.name}
+                    </h2>
+                    <p className="text-gray-400 text-xs sm:text-sm lg:text-base">
+                      {categoryData.description}
+                    </p>
+                  </div>
                 </div>
                 <div className="hidden md:block flex-1 h-px bg-gradient-to-r from-[#00FFAB] to-transparent"></div>
 
                 {/* Navigation Arrows - positioned after the line */}
                 {!isExpanded && (
-                  <div className="flex items-center gap-2 self-end sm:self-center">
+                  <div className="flex items-center gap-2 self-end sm:self-center flex-shrink-0">
                     {/* Left Arrow */}
                     <button
                       onClick={() => scrollLeft(categoryId)}
