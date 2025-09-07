@@ -119,7 +119,7 @@ const OurTeam = () => {
             
             {/* Description */}
             <motion.p 
-              className="text-white leading-relaxed text-center relative z-10 flex-grow text-sm"
+              className="text-white leading-relaxed text-center relative z-10 flex-grow text-xs md:text-sm"
               whileHover={{ color: "#e5e7eb" }}
             >
               {member.desc}
