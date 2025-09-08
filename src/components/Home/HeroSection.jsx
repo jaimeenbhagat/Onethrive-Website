@@ -53,7 +53,7 @@ const HeroSection = () => {
         {/* Mobile heading - Same content, better sizing */}
         <h1 className="block sm:hidden text-2xl font-extrabold leading-tight mb-6 px-2">
           Everything You Need for <br />
-          Team Building & <br />
+          Team Building &
           Employee Engagement. <br />
           One Roof. One Thrive.
         </h1>
