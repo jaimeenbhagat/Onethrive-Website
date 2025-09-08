@@ -152,7 +152,7 @@ function Navbar() {
                             <button
                               key={item.name}
                               onClick={() => handleNavClick(item.path)}
-                              className="text-white/80 text-center text-sm font-medium hover:text-[#00FFAB] transition block w-full"
+                              className="text-white text-center text-sm font-medium hover:text-[#00FFAB] transition block w-full"
                             >
                               {item.name}
                             </button>

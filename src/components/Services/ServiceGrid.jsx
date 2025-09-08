@@ -447,7 +447,7 @@ const ServiceGrid = ({ services, serviceCategories, onServiceClick }) => {
           return (
             <div key={categoryId} className="space-y-3 md:space-y-6">
               {/* Category Header with Arrows */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-1 md:mb-6 px-4 sm:px-0">
+              <div className="flex items-center gap-2 sm:gap-4 mb-1 md:mb-6 px-4 sm:px-0">
                 <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
                   <div className="bg-gradient-to-r from-[#00FFAB] to-green-400 p-2 md:p-3 rounded-xl flex-shrink-0">
                     <div className="w-4 h-4 md:w-6 md:h-6 bg-black rounded flex items-center justify-center">
@@ -465,14 +465,16 @@ const ServiceGrid = ({ services, serviceCategories, onServiceClick }) => {
                 </div>
                 <div className="hidden md:block flex-1 h-px bg-gradient-to-r from-[#00FFAB] to-transparent"></div>
 
-                {/* Navigation Arrows - positioned after the line */}
+                {/* Navigation Arrows - Always inline on all devices */}
                 {!isExpanded && (
-                  <div className="flex items-center gap-2 self-end sm:self-center flex-shrink-0">
+                  <div className="flex items-center gap-2 flex-shrink-0">
                     {/* Left Arrow */}
                     <button
                       onClick={() => scrollLeft(categoryId)}
                       disabled={!canScrollLeft[categoryId]}
-                      className={`bg-black bg-opacity-90 hover:bg-opacity-100 text-[#00FFAB] rounded-full p-1.5 md:p-3 transition-all duration-300 hover:scale-110 shadow-xl border border-[#00FFAB] border-opacity-30 ${
+                      className={`bg-black bg-opacity-90 hover:bg-opacity-100 text-[#00FFAB] rounded-full transition-all duration-300 hover:scale-110 shadow-xl border border-[#00FFAB] border-opacity-30 
+                        p-2 sm:p-2.5 md:p-3
+                        ${
                         !canScrollLeft[categoryId]
                           ? "opacity-30 cursor-not-allowed"
                           : "hover:border-opacity-60"
@@ -480,7 +482,7 @@ const ServiceGrid = ({ services, serviceCategories, onServiceClick }) => {
                       aria-label="Scroll left"
                     >
                       <svg
-                        className="w-3 h-3 md:w-5 md:h-5"
+                        className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -498,7 +500,9 @@ const ServiceGrid = ({ services, serviceCategories, onServiceClick }) => {
                     <button
                       onClick={() => scrollRight(categoryId)}
                       disabled={!canScrollRight[categoryId]}
-                      className={`bg-black bg-opacity-90 hover:bg-opacity-100 text-[#00FFAB] rounded-full p-1.5 md:p-3 transition-all duration-300 hover:scale-110 shadow-xl border border-[#00FFAB] border-opacity-30 ${
+                      className={`bg-black bg-opacity-90 hover:bg-opacity-100 text-[#00FFAB] rounded-full transition-all duration-300 hover:scale-110 shadow-xl border border-[#00FFAB] border-opacity-30
+                        p-2 sm:p-2.5 md:p-3
+                        ${
                         !canScrollRight[categoryId]
                           ? "opacity-30 cursor-not-allowed"
                           : "hover:border-opacity-60"
@@ -506,7 +510,7 @@ const ServiceGrid = ({ services, serviceCategories, onServiceClick }) => {
                       aria-label="Scroll right"
                     >
                       <svg
-                        className="w-3 h-3 md:w-5 md:h-5"
+                        className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -540,9 +544,9 @@ const ServiceGrid = ({ services, serviceCategories, onServiceClick }) => {
                           );
                         }
                       }}
-                      className="flex gap-3 md:gap-4 lg:gap-6 overflow-x-auto overflow-y-visible scrollbar-hide pb-2 px-4 sm:px-0"
+                      className="flex gap-3 md:gap-4 lg:gap-6 overflow-x-auto overflow-y-visible scrollbar-hide py-4 md:py-6 px-4 sm:px-0"
                       style={{
-                        minHeight: "360px",
+                        minHeight: "420px",
                         scrollbarWidth: "none",
                         msOverflowStyle: "none",
                       }}
