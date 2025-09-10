@@ -74,8 +74,8 @@ const MomentsThatMatter = () => {
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
           />
-          <p className="text-xl text-white font-medium max-w-5xl mx-auto relative">
-            Capturing the essence of excellence through unforgettable experiences and transformative events
+          <p className="text-md md:text-xl text-white font-medium max-w-5xl mx-auto relative">
+            Capturing excellence through unforgettable experiences and transformative events
           </p>
         </div>
 

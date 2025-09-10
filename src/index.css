@@ -14,7 +14,7 @@ textarea:focus {
 
 /* Scrollbar customization (optional, for dark theme aesthetics) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {

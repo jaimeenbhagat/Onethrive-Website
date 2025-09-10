@@ -52,23 +52,17 @@ const HeroSection = () => {
       >
         {/* Mobile heading - Same content, better sizing */}
         <h1 className="block sm:hidden text-2xl font-extrabold leading-tight mb-6 px-2">
-          Everything You Need for <br />
-          Team Building &
-          Employee Engagement. <br />
-          One Roof. One Thrive.
+          Build Stronger Teams. <br />Boost Real Engagement.
         </h1>
 
         {/* Desktop heading - Unchanged */}
         <h1 className="hidden sm:block text-5xl md:text-4xl lg:text-5xl text-center font-extrabold leading-tight mb-6 sm:mb-6">
-          Everything You Need for <br /> Team Building & Employee Engagement.
-          <br className="hidden sm:block" />
-          One Roof. One Thrive.
+          Build Stronger Teams. <br />Boost Real Engagement.
         </h1>
 
         {/* Mobile & Desktop description - Same content */}
         <p className="text-lg sm:text-lg md:text-xl text-white text-center mb-8 sm:mb-8 font-medium leading-relaxed max-w-3xl sm:max-w-4xl mx-auto px-2 sm:px-0">
-          At OneThrive, we create purposeful, memorable experiences that bring your teams closer. <br className="hidden sm:block"/> 
-          Whether you're scaling culture or boosting collaboration, we deliver everything you need to help your people connect, grow, and thrive.
+          We design employee experiences that <br />spark connection, collaboration, and growth.
         </p>
 
         <motion.a

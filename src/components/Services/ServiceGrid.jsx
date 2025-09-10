@@ -564,7 +564,7 @@ const ServiceGrid = ({ services, serviceCategories, onServiceClick }) => {
                       {hasMoreThanSix && (
                         <div
                           key="see-more"
-                          className="bg-gradient-to-br from-[#00FFAB] to-green-400 rounded-xl md:rounded-2xl flex items-center justify-center cursor-pointer h-[340px] md:h-[400px] min-w-[220px] md:min-w-[280px] w-[220px] md:w-[280px] max-w-[220px] md:max-w-[280px] border border-gray-800 hover:border-[#00FFAB]/50 transition-all duration-300 hover:scale-105 flex-shrink-0"
+                          className="bg-gradient-to-br from-[#00FFAB] to-green-400 rounded-xl md:rounded-2xl flex items-center justify-center cursor-pointer h-[300px] md:h-[400px] min-w-[220px] md:min-w-[280px] w-[220px] md:w-[280px] max-w-[220px] md:max-w-[280px] border border-gray-800 hover:border-[#00FFAB]/50 transition-all duration-300 hover:scale-105 flex-shrink-0"
                           onClick={() => handleSeeMore(categoryId)}
                         >
                           <div className="text-center">

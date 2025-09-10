@@ -7,7 +7,6 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [filters, setFilters] = useState({
     category: "all",
-    headcount: "all",
     duration: "all",
     difficulty: "all"
   });
@@ -32,32 +31,23 @@ const Services = () => {
       return false;
     }
     
-    if (filters.headcount !== "all") {
-      const participants = parseInt(service.participants.split('-')[0]);
-      switch (filters.headcount) {
-        case "small":
-          if (participants > 10) return false;
-          break;
-        case "medium":
-          if (participants < 11 || participants > 30) return false;
-          break;
-        case "large":
-          if (participants < 31) return false;
-          break;
-      }
-    }
-    
     if (filters.duration !== "all") {
       const duration = parseInt(service.duration.split(' ')[0]);
       switch (filters.duration) {
+        case "quick":
+          if (duration > 15) return false;
+          break;
         case "short":
-          if (duration > 30) return false;
+          if (duration < 16 || duration > 45) return false;
           break;
         case "medium":
-          if (duration < 31 || duration > 120) return false;
+          if (duration < 46 || duration > 90) return false;
           break;
         case "long":
-          if (duration < 121) return false;
+          if (duration < 91 || duration > 180) return false;
+          break;
+        case "extended":
+          if (duration < 181) return false;
           break;
       }
     }
@@ -120,7 +110,7 @@ const Services = () => {
               </div>
 
               {/* Filter Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 
                 {/* Category Filter */}
                 <div className="group">
@@ -152,34 +142,6 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Team Size Filter */}
-                <div className="group">
-                  <label className="flex items-center gap-2 text-sm font-semibold mb-3 text-gray-300 group-hover:text-[#00FFAB] transition-colors duration-200">
-                    <span className="text-[#00FFAB]">👥</span>
-                    Team Size
-                  </label>
-                  <div className="relative">
-                    <select
-                      value={filters.headcount}
-                      onChange={(e) => handleFilterChange("headcount", e.target.value)}
-                      className="w-full p-4 bg-black/70 border border-gray-700/50 rounded-xl text-white 
-                               focus:border-[#00FFAB] focus:outline-none focus:ring-2 focus:ring-[#00FFAB]/20 
-                               transition-all duration-200 hover:border-gray-600 cursor-pointer
-                               appearance-none backdrop-blur-sm"
-                    >
-                      <option value="all">All Sizes</option>
-                      <option value="small">Small (1-10)</option>
-                      <option value="medium">Medium (11-30)</option>
-                      <option value="large">Large (31+)</option>
-                    </select>
-                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                      <svg className="w-4 h-4 text-[#00FFAB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Duration Filter */}
                 <div className="group">
                   <label className="flex items-center gap-2 text-sm font-semibold mb-3 text-gray-300 group-hover:text-[#00FFAB] transition-colors duration-200">
@@ -196,9 +158,11 @@ const Services = () => {
                                appearance-none backdrop-blur-sm"
                     >
                       <option value="all">All Durations</option>
-                      <option value="short">Short (≤30 min)</option>
-                      <option value="medium">Medium (31-120 min)</option>
-                      <option value="long">Long (2+ hours)</option>
+                      <option value="quick">Quick (≤15 min)</option>
+                      <option value="short">Short (16-45 min)</option>
+                      <option value="medium">Medium (46-90 min)</option>
+                      <option value="long">Long (91-180 min)</option>
+                      <option value="extended">Extended (3+ hours)</option>
                     </select>
                     <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
                       <svg className="w-4 h-4 text-[#00FFAB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -250,7 +214,6 @@ const Services = () => {
                 <button
                   onClick={() => setFilters({
                     category: "all",
-                    headcount: "all", 
                     duration: "all",
                     difficulty: "all"
                   })}

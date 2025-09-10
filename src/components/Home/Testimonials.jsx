@@ -107,7 +107,7 @@ const Testimonials = () => {
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
           />
-          <p className="text-xl text-white max-w-3xl mx-auto font-medium">
+          <p className="text-md md:text-xl text-white max-w-3xl mx-auto font-medium">
             Don't just take our word for it hear from the companies we've helped transform
           </p>
         </div>

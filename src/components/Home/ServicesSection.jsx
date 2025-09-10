@@ -34,8 +34,8 @@ const ServicesSection = () => {
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
           />
-          <p className="text-xl text-white font-medium max-w-5xl mx-auto relative">
-          Transforming workplaces through engaging experiences that build stronger teams
+          <p className="text-md md:text-xl text-white font-medium max-w-7xl mx-auto relative">
+          Transforming workplaces through experiences that build stronger teams
         </p>
       </div>
 

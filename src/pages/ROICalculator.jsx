@@ -33,21 +33,21 @@ const ROICalculator = () => {
                   <TrendingUp className="w-8 h-8 text-[#00FFAB]" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Calculate Hidden Costs</h3>
-                <p className="text-gray-400">Uncover the true financial impact of employee disengagement on your bottom line</p>
+                <p className="text-white">Uncover the true financial impact of employee disengagement on your bottom line</p>
               </div>
               <div className="bg-black bg-opacity-50 p-6 rounded-xl border border-gray-800">
                 <div className="flex justify-center mb-4">
                   <DollarSign className="w-8 h-8 text-[#00FFAB]" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Potential Savings</h3>
-                <p className="text-gray-400">See how much you could save by improving engagement by just 1-2 points</p>
+                <p className="text-white">See how much you could save by improving engagement by just 1-2 points</p>
               </div>
               <div className="bg-black bg-opacity-50 p-6 rounded-xl border border-gray-800">
                 <div className="flex justify-center mb-4">
                   <Users className="w-8 h-8 text-[#00FFAB]" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Revenue Impact</h3>
-                <p className="text-gray-400">Discover how engaged employees directly contribute to increased revenue</p>
+                <p className="text-white">Discover how engaged employees directly contribute to increased revenue</p>
               </div>
             </div>
           </div>

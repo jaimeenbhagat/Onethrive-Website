@@ -41,12 +41,12 @@ const ClientLogos = () => {
             transition={{ delay: 0.3, duration: 1 }}
           />
         <motion.p 
-          className="text-base md:text-xl text-white max-w-5xl mx-auto font-medium leading-relaxed"
+          className="text-md md:text-xl text-white max-w-5xl mx-auto font-medium leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Join the growing list of companies that have transformed their workplace culture with OneThrive
+          Join the companies transforming workplace culture with OneThrive
         </motion.p>
       </div>
 
