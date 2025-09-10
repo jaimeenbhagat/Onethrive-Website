@@ -27,7 +27,7 @@ const ClientLogos = () => {
     >
       <div className="text-center mb-12 md:mb-20 mt-8 md:mt-0">
         <motion.h2 
-          className="text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6 tracking-tight"
+          className="text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6 tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
