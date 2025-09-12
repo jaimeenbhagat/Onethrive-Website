@@ -19,7 +19,7 @@ const ROICalculator = () => {
             animate={{ scaleX: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
           />
-          <p className="text-white text-lg font-medium max-w-4xl mx-auto mt-4">
+          <p className="text-white text-md font-medium max-w-3xl mx-auto mt-4">
           Discover the hidden costs of employee disengagement and unlock your organization's true potential. <br />
           Our advanced calculator reveals how much money you're losing to turnover, reduced productivity, 
           and absenteeism while showing the incredible ROI of investing in employee engagement.

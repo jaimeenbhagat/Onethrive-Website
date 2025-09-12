@@ -44,7 +44,7 @@ const AboutUsHero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            <span className="text-white font-extrabold">About Us</span>
+            <span className="text-white font-extrabold text-3xl">About Us</span>
           </motion.h2>
 
           <motion.div

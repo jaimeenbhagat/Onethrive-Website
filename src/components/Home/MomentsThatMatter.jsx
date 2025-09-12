@@ -65,7 +65,7 @@ const MomentsThatMatter = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10 relative">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 relative">
+          <h2 className="text-3xl sm:text-3xl md:text-5xl font-bold text-white mb-2 relative">
             Moments That Matter
           </h2>
           <div

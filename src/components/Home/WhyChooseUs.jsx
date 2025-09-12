@@ -70,11 +70,11 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4 relative leading-tight"
+            className="text-3xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-4 relative leading-tight"
             animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           >
-            Why Choose OneThrive?
+            Why Choose Us?
           </motion.h2>
 
           <motion.div

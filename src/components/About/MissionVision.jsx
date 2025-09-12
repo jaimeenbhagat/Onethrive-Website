@@ -40,7 +40,7 @@ const MissionVision = () => {
             className="inline-flex items-center gap-3 mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-3xl md:text-5xl font-bold text-white">
               Our Purpose
             </h2>
           </motion.div>

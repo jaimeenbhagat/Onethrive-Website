@@ -86,7 +86,7 @@ const FAQs = () => {
       {/* FAQ Accordion */}
       <div className="py-2 px-6 sm:px-10 md:px-20 max-w-7xl mx-auto font-interphase">
         <div className="mb-8 lg:mb-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight">
             Got Questions?<br />
             We've Got <span className="text-[#00FFAB]">Answers</span>!
           </h2>

@@ -19,7 +19,7 @@ const OurTeam = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-white font-bold">Meet Our Team</span>
+          <span className="text-white font-bold text-3xl">Meet Our Team</span>
         </motion.h2>
 
         <motion.div
@@ -30,7 +30,7 @@ const OurTeam = () => {
         />
 
         <motion.p 
-          className="text-xl text-white font-bold max-w-4xl mx-auto leading-relaxed"
+          className="text-md md:text-xl text-white font-bold max-w-4xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
