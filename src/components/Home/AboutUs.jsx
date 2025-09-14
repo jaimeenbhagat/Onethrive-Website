@@ -3,7 +3,7 @@ import aboutImage from "../../assets/about.webp";
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen flex items-center px-4 py-8 sm:px-6 md:px-12 lg:px-16">
+    <div className="md:min-h-screen flex items-center px-4 py-8 sm:px-6 md:px-12 lg:px-16">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 w-full max-w-7xl mx-auto">
         <motion.div
           className="w-full lg:w-1/2 order-2 lg:order-1"
