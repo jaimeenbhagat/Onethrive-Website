@@ -82,17 +82,26 @@ const Footer = () => {
             variants={itemVariants}
           >
             <div className="flex items-center space-x-4">
-              <img loading="lazy"  src={logo} alt="OneThrive Logo" className="h-16 md:h-20" />
+              <img
+                loading="lazy"
+                src={logo}
+                alt="OneThrive Logo"
+                className="h-16 md:h-20"
+              />
             </div>
 
             <p className="text-white text-lg font-bold leading-relaxed max-w-md">
-              We empower organizations to build thriving workplace cultures through engaging team-building experiences, wellness initiatives, and curated employee programs. From fun to functional, our experiences are designed to inspire connection, boost morale, and drive lasting impact.
+              We empower organizations to build thriving workplace cultures
+              through engaging team-building experiences, wellness initiatives,
+              and curated employee programs. From fun to functional, our
+              experiences are designed to inspire connection, boost morale, and
+              drive lasting impact.
             </p>
 
             {/* Contact Info with Icons */}
             <div className="space-y-4">
-              <a 
-                href="tel:+918850210248" 
+              <a
+                href="tel:+918850210248"
                 className="flex items-center space-x-4 text-white hover:text-[#00FFAB] transition-colors cursor-pointer group"
               >
                 <div className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-800 p-3 rounded-full group-hover:shadow-lg group-hover:shadow-[#00FFAB]/30 transition-all">
@@ -107,7 +116,10 @@ const Footer = () => {
                 <div className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-800 p-3 rounded-full group-hover:shadow-lg group-hover:shadow-[#00FFAB]/30 transition-all">
                   <FaEnvelope className="text-black text-sm" />
                 </div>
-                <a href="mailto:info@onethrive.in" className="font-bold text-lg">
+                <a
+                  href="mailto:info@onethrive.in"
+                  className="font-bold text-lg"
+                >
                   info@onethrive.in
                 </a>
               </div>
@@ -201,10 +213,29 @@ const Footer = () => {
           <div className="flex justify-center items-center text-center">
             <p className="text-white text-lg font-bold">
               © {new Date().getFullYear()}{" "}
-              <span className="text-[#00FFAB] font-black text-xl">OneThrive</span>. All
-              rights reserved.
+              <span className="text-[#00FFAB] font-black text-xl">
+                OneThrive
+              </span>
+              . All rights reserved.
             </p>
           </div>
+        </motion.div>
+        {/* Developer Credit */}
+        <motion.div
+          className="max-w-7xl mx-auto mt-2 text-center"
+          variants={itemVariants}
+        >
+          <p className="text-white  text-sm font-bold">
+            Designed & Developed by{" "}
+            <a
+              href="https://www.linkedin.com/in/jaimeen-bhagat/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#00FFAB] hover:underline font-extrabold"
+            >
+              Jaimeen Bhagat
+            </a>
+          </p>
         </motion.div>
       </div>
     </motion.footer>
