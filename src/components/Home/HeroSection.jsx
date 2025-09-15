@@ -57,12 +57,12 @@ const HeroSection = () => {
 
         {/* Desktop heading - Unchanged */}
         <h1 className="hidden sm:block text-xl md:text-4xl lg:text-6xl text-center font-extrabold leading-tight mb-6 sm:mb-6">
-          Build Stronger Teams. <br />Boost Real Engagement.
+          Build <span className="text-[#00FFAB]">Stronger</span> Teams. <br />Boost Real <span className="text-[#00FFAB]">Engagement</span>.
         </h1>
 
         {/* Mobile & Desktop description - Same content */}
         <p className="text-lg sm:text-lg md:text-2xl text-white text-center mb-8 sm:mb-8 font-medium leading-relaxed max-w-8xl sm:max-w-8xl mx-auto px-2 sm:px-0">
-          We design employee experiences that <br />spark connection, collaboration,<br /> and growth.
+          We design employee experiences that <br />spark connection, collaboration,<br className="sm:hidden"/> and growth.
         </p>
 
         <motion.a
