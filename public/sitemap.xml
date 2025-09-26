@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main pages -->
+  <url>
+    <loc>https://onethrive.in/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://onethrive.in/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://onethrive.in/services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://onethrive.in/contact</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Resources pages -->
+  <url>
+    <loc>https://onethrive.in/blogs</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://onethrive.in/roi-calculator</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://onethrive.in/culture-quiz</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Policy pages -->
+  <url>
+    <loc>https://onethrive.in/privacy-policy</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onethrive.in/cancellation-refund</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onethrive.in/terms-conditions</loc>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
