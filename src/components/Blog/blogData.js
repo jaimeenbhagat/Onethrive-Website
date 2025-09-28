@@ -1,88 +1,127 @@
-import herosectionImage from '../../assets/about.png';
+import Blogimage1 from '../../../src/assets/Blogs/Blog1.webp';
+import Blogimage2 from '../../../src/assets/Blogs/Blog2.webp';
+import Blogimage3 from '../../../src/assets/Blogs/Blog3.webp';
+import Blogimage4 from '../../../src/assets/Blogs/Blog4.webp';
+import Blogimage5 from '../../../src/assets/Blogs/Blog5.webp';
+import Blogimage6 from '../../../src/assets/Blogs/Blog6.webp';
+import Blogimage7 from '../../../src/assets/Blogs/Blog7.webp';
+import Blogimage8 from '../../../src/assets/Blogs/Blog8.webp';
+import Blogimage9 from '../../../src/assets/Blogs/Blog9.webp';
 
 export const blogs = [
   {
     id: 1,
-    title: "Revolutionizing Employee Engagement",
-    author: "Team OneThrive",
-    image: herosectionImage,
-    description: "Discover how modern companies are transforming their approach to employee engagement through innovative strategies, technology integration, and data-driven insights. Learn about the latest trends that are reshaping workplace culture and driving unprecedented levels of employee satisfaction and productivity.\n\nIn today's rapidly evolving business landscape, traditional employee engagement methods are becoming obsolete. Companies are now leveraging artificial intelligence, machine learning, and advanced analytics to understand employee behavior patterns and preferences at a granular level. This revolution goes beyond simple surveys and feedback forms – it's about creating personalized experiences that resonate with each individual employee.\n\nThe integration of real-time feedback systems, gamification elements, and social recognition platforms has shown remarkable results in boosting employee morale and retention rates. Organizations implementing these cutting-edge approaches report up to 40% improvement in employee satisfaction scores and 25% reduction in turnover rates.\n\nMoreover, the shift towards remote and hybrid work models has accelerated the need for innovative engagement strategies. Virtual team-building activities, digital wellness programs, and AI-powered career development platforms are becoming essential tools for maintaining strong employee connections and fostering professional growth in distributed work environments."
+    title:
+      "Beyond the Trust Fall: Smart Team Building Games That Aren't Cringe (and Actually Work)",
+    category: "Team Building",
+    thumbnail: Blogimage1,
+    excerpt:
+      'The phrase "team building games" can conjure images of awkward icebreakers. However, effective team building games are powerful tools for transforming a group of individual employees into a cohesive, high-performing unit.',
+    author: "OneThrive",
+    readTime: "9 min read",
+    path: "/blogs/beyond-the-trust-fall",
   },
   {
     id: 2,
-    title: "5 Ways to Boost Workplace Productivity",
-    author: "Jaimeen Bhagat",
-    image: "https://source.unsplash.com/400x250/?productivity",
-    description: "Explore proven strategies to enhance productivity in your workplace. From optimizing workflows and eliminating time-wasters to implementing smart technology solutions and fostering collaborative environments, this comprehensive guide covers actionable techniques that deliver measurable results.\n\nProductivity isn't just about working harder – it's about working smarter. The five key strategies outlined in this comprehensive guide focus on systematic approaches that have been tested across various industries and company sizes. First, workflow optimization involves identifying bottlenecks and streamlining processes through automation and better resource allocation.\n\nSecond, the elimination of time-wasters requires a deep analysis of daily activities and the implementation of time-blocking techniques, focused work sessions, and strategic delegation. Third, technology integration plays a crucial role in modern productivity enhancement, from project management tools to AI-powered scheduling assistants.\n\nFourth, creating collaborative environments that encourage knowledge sharing and cross-functional teamwork can significantly boost overall team productivity. Finally, establishing clear metrics and regular performance reviews ensures continuous improvement and sustainable productivity gains. Companies implementing these strategies report average productivity increases of 30-50% within the first quarter."
+    title:
+      "Unleashing Innovation: How Creative Workshops Spark Employee Engagement",
+    category: "Creative Workshops",
+    thumbnail: Blogimage2,
+    excerpt:
+      "Creative workshops for employees are a powerful solution. Far from being mere recreational activities, these high-impact experiences are strategically designed to unlock untapped potential and build stronger, more collaborative teams.",
+    author: "OneThrive",
+    readTime: "8 min read",
+    path: "/blogs/unleashing-innovation",
   },
   {
     id: 3,
-    title: "Why Company Culture Matters More Than Ever",
-    author: "Sneha Sharma",
-    image: "https://source.unsplash.com/400x250/?culture",
-    description: "In today's competitive landscape, company culture has become a critical differentiator for talent acquisition and retention. Dive deep into the elements that create thriving workplace cultures and understand how culture directly impacts business performance, employee wellbeing, and organizational success.\n\nCompany culture extends far beyond ping-pong tables and free snacks – it's the invisible force that drives every decision, interaction, and outcome within an organization. In the post-pandemic era, culture has evolved from a 'nice-to-have' to a business imperative that directly correlates with financial performance and market competitiveness.\n\nResearch shows that companies with strong cultures experience 40% lower turnover, 20% increase in sales, and 12% improvement in customer satisfaction. The key elements of a thriving culture include psychological safety, inclusive leadership, transparent communication, and shared values that are consistently demonstrated through actions, not just words.\n\nModern culture-building requires intentional design and continuous nurturing. This involves creating rituals and traditions that reinforce company values, establishing clear pathways for career growth, implementing fair compensation and recognition systems, and fostering an environment where diverse perspectives are valued and heard. The investment in culture pays dividends through increased innovation, improved employee advocacy, and enhanced brand reputation in the marketplace."
+    title:
+      "Measuring What Matters: Quantifying the ROI of Employee Engagement & Experience",
+    category: "Expert-Insights",
+    thumbnail: Blogimage3,
+    excerpt:
+      'Quantifying the ROI of employee engagement and experience is no longer a "nice-to-have" but a strategic imperative, directly impacting budget allocation and business growth.',
+    author: "OneThrive",
+    readTime: "9 min read",
+    path: "/blogs/measuring-what-matters",
   },
   {
     id: 4,
-    title: "Building a Strong Remote Work Culture",
-    author: "OneThrive HR",
-    image: "https://source.unsplash.com/400x250/?remote,work",
-    description: "Navigate the challenges of remote work while maintaining strong team connections and company values. Learn practical strategies for virtual team building, effective communication protocols, and creating inclusive remote environments that foster collaboration and engagement across distributed teams.\n\nRemote work has fundamentally changed how we think about workplace culture and team dynamics. Building a strong remote work culture requires intentional effort and innovative approaches that go beyond simply replicating in-office experiences in a virtual setting. The key lies in creating meaningful connections and maintaining company values across physical distances.\n\nSuccessful remote cultures prioritize asynchronous communication, establish clear expectations for availability and response times, and invest heavily in digital collaboration tools that facilitate both work and social interactions. Regular virtual coffee chats, online team-building activities, and structured check-ins help maintain the human element that's crucial for team cohesion.\n\nMoreover, remote culture building must address unique challenges such as combating isolation, ensuring equitable participation in meetings, managing different time zones, and creating opportunities for spontaneous interactions that typically happen in physical offices. Companies that excel in remote culture often implement mentorship programs, virtual lunch-and-learns, and digital wellness initiatives that support both professional growth and personal well-being in distributed work environments."
+    title:
+      "Cultivating a Thriving Workplace: Leadership Strategies for Unlocking Employee Engagement",
+    category: "Leadership",
+    thumbnail: Blogimage4,
+    excerpt:
+      'With global employee engagement at a decade low and "quiet quitting" persisting, organizations face a critical challenge: how to inspire, connect, and retain their most valuable asset—their people.',
+    author: "OneThrive",
+    readTime: "12 min read",
+    path: "/blogs/cultivating-a-thriving-workplace",
   },
   {
     id: 5,
-    title: "Gamifying the Workplace Experience",
-    author: "Arjun Mehta",
-    image: "https://source.unsplash.com/400x250/?gamification",
-    description: "Transform mundane work processes into engaging experiences through gamification. Discover how game mechanics like points, badges, leaderboards, and challenges can motivate employees, increase participation in company initiatives, and create a more dynamic and enjoyable work environment.\n\nGamification represents a paradigm shift in how organizations approach employee motivation and engagement. By incorporating game design elements into work processes, companies can tap into fundamental human drives for achievement, competition, and recognition. This approach goes beyond superficial point systems to create meaningful experiences that align with business objectives.\n\nEffective workplace gamification involves careful design of reward systems that recognize both individual achievements and collaborative efforts. Progressive challenges, skill-building quests, and team-based competitions can transform routine tasks into engaging activities. The key is ensuring that game mechanics enhance rather than distract from core work responsibilities.\n\nImplementation requires understanding employee motivations and tailoring experiences to different personality types and roles. While some employees thrive on competition and leaderboards, others are motivated by personal progress tracking and skill development badges. Successful gamification programs also incorporate storytelling elements, create clear progression paths, and provide regular feedback to maintain long-term engagement. When done right, gamification can increase productivity by up to 90% and improve employee satisfaction significantly."
+    title:
+      "Beyond the Bonus: How Strategic Employee Recognition Drives Engagement and Retention",
+    category: "Expert-Insights",
+    thumbnail: Blogimage5,
+    excerpt:
+      "Strategic employee recognition is a vital investment. It's a secret weapon for fostering deep employee engagement and retention.",
+    author: "OneThrive",
+    readTime: "15 min read",
+    path: "/blogs/beyond-the-bonus",
   },
   {
     id: 6,
-    title: "How Feedback Fuels Growth",
-    author: "Tanvi Joshi",
-    image: "https://source.unsplash.com/400x250/?feedback",
-    description: "Unlock the power of constructive feedback to drive personal and organizational growth. Learn about creating feedback-rich cultures, implementing effective feedback systems, and developing skills for giving and receiving feedback that promotes continuous improvement and professional development.\n\nFeedback is the cornerstone of continuous improvement and professional development, yet many organizations struggle to create cultures where feedback flows freely and constructively. The challenge lies not just in giving feedback, but in creating systems and environments where feedback is welcomed, acted upon, and used as a tool for growth rather than criticism.\n\nEffective feedback systems operate on multiple levels: peer-to-peer, manager-to-employee, and upward feedback from team members to leadership. Each type serves different purposes and requires specific approaches. Regular 360-degree feedback sessions, real-time performance discussions, and structured review processes all contribute to a comprehensive feedback ecosystem.\n\nThe art of giving effective feedback involves timing, specificity, and focus on behaviors rather than personality traits. It should be actionable, balanced with recognition of strengths, and delivered in a supportive manner that encourages growth. Equally important is developing skills for receiving feedback – maintaining openness, asking clarifying questions, and creating action plans for improvement. Organizations that master feedback culture see accelerated employee development, improved performance, and higher retention rates as employees feel more supported in their professional growth journey."
+    title: "Employee Retention Strategies: How to Keep Your Top Talent",
+    category: "Expert-Insights",
+    thumbnail: Blogimage6,
+    excerpt:
+      "With the cost of replacing a single employee ranging from $30,000 to $45,000 for a mid-level manager, effective employee retention strategies are no longer just a best practice—they are a strategic imperative.",
+    author: "OneThrive",
+    readTime: "8 min read",
+    path: "/blogs/employee-retention-strategies",
   },
   {
     id: 7,
-    title: "Employee Wellness Trends in 2025",
-    author: "Team OneThrive",
-    image: "https://source.unsplash.com/400x250/?wellness",
-    description: "Stay ahead of the curve with the latest employee wellness trends shaping the modern workplace. From mental health support and flexible wellness programs to innovative health technology and holistic wellbeing approaches that address the evolving needs of today's workforce.\n\nEmployee wellness has evolved from basic health insurance and gym memberships to comprehensive programs that address physical, mental, emotional, and financial well-being. The trends for 2025 reflect a deeper understanding of how various aspects of wellness interconnect and impact overall employee performance and satisfaction.\n\nMental health support has become a top priority, with companies investing in on-site counseling services, meditation apps, stress management workshops, and mental health days. The integration of technology through wearable devices, health tracking apps, and AI-powered wellness coaching provides personalized insights and recommendations for employees.\n\nFlexible wellness programs recognize that one size doesn't fit all. Employees can now choose from a variety of options including virtual fitness classes, nutrition consultations, financial planning services, and hobby-based stress relief activities. The trend toward preventive care includes regular health screenings, ergonomic assessments, and lifestyle coaching. Companies are also addressing social wellness through community building activities, volunteer programs, and initiatives that foster meaningful connections among team members. These comprehensive approaches to wellness not only improve employee health but also demonstrate genuine care for employee well-being, leading to increased loyalty and engagement."
+    title: "The Founder's Guide: Unlocking Employee Engagement for Startup Success",
+    category: 'Expert-Insights',
+    thumbnail: Blogimage7,
+    excerpt: 'For founders, the journey from idea to impactful enterprise is exhilarating, yet fraught with challenges. Amidst product development, fundraising, and market fit, one critical factor often goes unnoticed: employee engagement.',
+    author: 'OneThrive',
+    readTime: '10 min read',
+    path: "/blogs/the-founders-guide",
   },
   {
     id: 8,
-    title: "Crafting Memorable Team Events",
-    author: "Sneha Sharma",
-    image: "https://source.unsplash.com/400x250/?event,team",
-    description: "Create unforgettable team experiences that strengthen bonds and boost morale. Get expert tips on event planning, budget optimization, virtual and hybrid event strategies, and innovative activity ideas that cater to diverse team preferences and build lasting connections among colleagues.\n\nTeam events serve as powerful catalysts for building relationships, improving communication, and fostering a sense of belonging within organizations. The art of crafting memorable team events lies in understanding team dynamics, individual preferences, and organizational culture while creating experiences that resonate with participants long after the event concludes.\n\nSuccessful team events require careful planning that balances fun with meaningful interaction. This involves selecting activities that encourage collaboration, communication, and mutual support while accommodating different personality types and comfort levels. Whether it's problem-solving challenges, creative workshops, or adventure-based activities, the best events create opportunities for team members to see each other in new contexts.\n\nThe shift toward hybrid and virtual events has opened new possibilities for team building. Virtual escape rooms, online cooking classes, digital art workshops, and remote volunteer activities can be just as effective as in-person events when properly designed and facilitated. The key is maintaining interactivity, ensuring everyone feels included, and creating shared experiences that translate into improved workplace relationships. Budget considerations don't have to limit creativity – some of the most impactful team events focus on simple shared experiences like storytelling sessions, skill-sharing workshops, or community service projects that build both team bonds and organizational pride."
+    title:
+      "The CEO's Playbook: How to Build a High-Performing Culture That Drives Growth & Profit",
+    category: "Leadership",
+    thumbnail: Blogimage8,
+    excerpt:
+      "For founders, CEOs, and senior leaders, the ultimate goal is sustained growth and profitability. The true engine of long-term success lies within: a high-performing culture.",
+    author: "OneThrive",
+    readTime: "10 min read",
+    path: "/blogs/ceo-playbook",
   },
   {
     id: 9,
-    title: "The Psychology Behind Rewards",
-    author: "Jaimeen Bhagat",
-    image: "https://source.unsplash.com/400x250/?psychology,reward",
-    description: "Understand the psychological principles that make rewards effective motivators. Explore different types of recognition, timing strategies, personalization techniques, and how to design reward systems that genuinely motivate employees and align with intrinsic motivation factors.\n\nThe psychology of rewards is complex and nuanced, involving understanding what truly motivates different individuals and how external rewards interact with intrinsic motivation. Effective reward systems go beyond simple monetary incentives to create meaningful recognition that aligns with employee values and career aspirations.\n\nTiming plays a crucial role in reward effectiveness. Immediate recognition for achievements maintains momentum and reinforces positive behaviors, while longer-term rewards provide sustained motivation toward larger goals. The most effective programs combine both approaches, creating multiple touchpoints for recognition and celebration.\n\nPersonalization is key to meaningful rewards. While some employees value public recognition and career advancement opportunities, others prefer private acknowledgment or flexible work arrangements. Understanding these preferences requires ongoing dialogue and observation of what energizes each team member.\n\nThe risk of over-relying on extrinsic rewards is the potential to undermine intrinsic motivation. The most successful reward systems enhance rather than replace internal drivers like purpose, autonomy, and mastery. This involves recognizing not just outcomes but also effort, creativity, collaboration, and growth. When rewards are tied to organizational values and individual development goals, they become powerful tools for reinforcing desired behaviors and creating a culture of continuous improvement and mutual appreciation."
+    title: 'Fostering a Culture of Well-being: How to Combat Burnout and Boost Morale',
+    category: 'Wellness',
+    thumbnail: Blogimage9,
+    excerpt: 'In today\'s fast-paced work environment, employee burnout is a pervasive and growing challenge. Characterized by chronic stress, exhaustion, cynicism, and reduced efficacy, burnout significantly impacts individual well-being and organizational productivity. The "always-on" culture, coupled with high workloads and tight deadlines, blur the line between work and personal life, leading to increased anxiety and disengagement.',
+    author: 'OneThrive',
+    readTime: '8 min read',
+    path: "/blogs/fostering-culture",
   },
   {
     id: 10,
-    title: "Creating Emotional Connections at Work",
-    author: "Arjun Mehta",
-    image: "https://source.unsplash.com/400x250/?emotion,workplace",
-    description: "Build deeper emotional connections between employees and their work, colleagues, and organization. Learn about emotional intelligence in the workplace, creating meaningful work experiences, and fostering environments where employees feel valued, understood, and emotionally invested in their roles.\n\nEmotional connections in the workplace are the invisible threads that bind teams together and create environments where people thrive. These connections go beyond professional relationships to encompass genuine care, understanding, and mutual support among colleagues. Building such connections requires intentional effort and organizational commitment to creating psychologically safe spaces.\n\nEmotional intelligence serves as the foundation for workplace connections. This involves developing self-awareness, empathy, and social skills that enable effective communication and relationship building. Leaders play a crucial role in modeling emotional intelligence and creating cultures where emotions are acknowledged and addressed constructively.\n\nMeaningful work experiences are created when employees understand how their contributions connect to larger organizational purposes and societal impact. Storytelling, purpose-driven projects, and regular communication about organizational mission help employees see the significance of their work beyond daily tasks.\n\nFostering emotional connections also involves celebrating personal milestones, supporting team members through challenges, and creating opportunities for authentic sharing and vulnerability. Team rituals, mentorship programs, and informal gathering spaces all contribute to building emotional bonds. When employees feel emotionally connected to their workplace, they demonstrate higher levels of engagement, creativity, and resilience, while organizations benefit from increased loyalty, collaboration, and overall performance."
-  },
-  {
-    id: 11,
-    title: "Virtual Reality in Employee Engagement",
-    author: "OneThrive R&D",
-    image: "https://source.unsplash.com/400x250/?virtualreality",
-    description: "Explore the cutting-edge applications of virtual reality in employee engagement and training. Discover how VR technology is revolutionizing onboarding processes, skill development, team collaboration, and creating immersive experiences that enhance learning and engagement in innovative ways.\n\nVirtual Reality represents the next frontier in employee engagement, offering immersive experiences that were previously impossible in traditional workplace settings. VR technology creates opportunities for experiential learning, remote collaboration, and engagement strategies that capture attention and create lasting memories.\n\nIn training and development, VR enables employees to practice skills in safe, controlled environments. From customer service scenarios to technical procedures, VR simulations provide hands-on experience without real-world risks or costs. This technology is particularly valuable for roles that involve high-stakes situations or expensive equipment.\n\nTeam collaboration takes on new dimensions in virtual environments where geographic boundaries disappear. Virtual meeting spaces, collaborative design environments, and shared problem-solving experiences create connections that transcend physical limitations. These platforms enable remote teams to work together as if they were in the same room.\n\nThe engagement potential of VR lies in its ability to create memorable, emotionally impactful experiences. Virtual team-building adventures, immersive company culture experiences, and gamified learning environments can significantly boost participation and retention. As VR technology becomes more accessible and affordable, forward-thinking organizations are integrating these tools into their engagement strategies to create differentiated employee experiences that attract top talent and enhance workplace satisfaction."
-  },
-  {
-    id: 12,
-    title: "Diversity and Inclusion: Beyond the Basics",
-    author: "Tanvi Joshi",
-    image: "https://source.unsplash.com/400x250/?diversity",
-    description: "Move beyond surface-level diversity initiatives to create truly inclusive workplaces. Learn advanced strategies for building inclusive cultures, addressing unconscious bias, creating equitable opportunities, and measuring the impact of diversity and inclusion efforts on organizational success.\n\nDiversity and inclusion work requires moving beyond checkbox approaches to create fundamental shifts in organizational culture and systems. True inclusion involves creating environments where all employees can bring their authentic selves to work and contribute meaningfully to organizational success.\n\nAdvanced D&I strategies focus on systemic change rather than isolated programs. This includes examining hiring practices, promotion criteria, leadership development pathways, and decision-making processes for bias and barriers. Creating inclusive cultures requires ongoing education, honest dialogue about privilege and discrimination, and accountability measures that ensure progress.\n\nUnconscious bias training alone is insufficient; organizations must implement structural changes that reduce the impact of bias on important decisions. This might involve blind resume reviews, diverse interview panels, standardized evaluation criteria, and regular analysis of demographic patterns in hiring, promotion, and retention data.\n\nMeasuring D&I impact goes beyond demographic tracking to include employee experience surveys, pay equity audits, leadership representation analysis, and correlation studies between diversity metrics and business outcomes. The most successful D&I initiatives are integrated into broader business strategy, with clear goals, regular progress reviews, and leadership commitment that extends beyond public statements to concrete actions and resource allocation. When done authentically and comprehensively, D&I efforts create competitive advantages through improved innovation, better decision-making, and enhanced reputation among diverse talent pools and customer bases."
+    title:
+      "Beyond the Trust Fall: Smart Team Building Games That Aren't Cringe (and Actually Work)",
+    category: "Team Building",
+    thumbnail: Blogimage1,
+    excerpt:
+      'The phrase "team building games" can conjure images of awkward icebreakers. However, effective team building games are powerful tools for transforming a group of individual employees into a cohesive, high-performing unit.',
+    author: "OneThrive",
+    readTime: "9 min read",
+    path: "/blogs/beyond-the-trust-fall",
   },
 ];

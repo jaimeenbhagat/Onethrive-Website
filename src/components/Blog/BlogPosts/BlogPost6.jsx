@@ -1,0 +1,1264 @@
+import React, { useState, useEffect, useRef } from "react";
+import Blogimage5 from "../../../assets/Blogs/Blog5.webp";
+import Blogimage1 from "../../../assets/Blogs/Blog1.webp";
+import Blogimage2 from "../../../assets/Blogs/Blog2.webp";
+import Blogimage8 from "../../../assets/Blogs/Blog8.webp";
+import { useNavigate } from "react-router-dom";
+
+// Content for Employee Retention Strategies blog
+const blogData = {
+  id: 6,
+  title: "Employee Retention Strategies: How to Keep Your Top Talent in 2025",
+  category: "Retention",
+  author: "OneThrive",
+  date: "October 25, 2025",
+  readTime: "8 min read",
+  heroImage: Blogimage5,
+  relatedPosts: [
+    {
+      id: 1,
+      title:
+        "Beyond the Trust Fall: Smart Team Building Games That Aren't Cringe (and Actually Work)",
+      thumbnail: Blogimage1,
+      path: "/blogs/beyond-the-trust-fall",
+    },
+    {
+      id: 2,
+      title:
+        "Measuring What Matters: Quantifying the ROI of Employee Engagement & Experience",
+      thumbnail: Blogimage2,
+      path: "/blogs/measuring-what-matters",
+    },
+    {
+      id: 8,
+      title:
+        "Fostering a Culture of Well-being: How to Combat Burnout and Boost Morale",
+      thumbnail: Blogimage8,
+      path: "/blogs/fostering-culture",
+    },
+  ],
+  content: [
+    {
+      type: "paragraph",
+      parts: [
+        {
+          type: "text",
+          content:
+            "In today's competitive talent landscape, the ability to attract top talent is only half the battle. The true measure of organizational strength lies in its capacity to ",
+        },
+        {
+          type: "bold",
+          content: "retain employees",
+        },
+        {
+          type: "text",
+          content:
+            ", particularly its high-performing individuals. With global employee engagement at a decade low and the cost of replacing a single employee ranging from ",
+        },
+        {
+          type: "bold",
+          content: "$30,000 to $45,000",
+        },
+        {
+          type: "text",
+          content:
+            " for a mid-level manager, effective employee retention strategies are no longer just a best practice—they are a ",
+        },
+        {
+          type: "bold",
+          content: "strategic imperative",
+        },
+        {
+          type: "text",
+          content: " for HR leaders.",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      parts: [
+        {
+          type: "text",
+          content:
+            "This guide delves into the most impactful strategies for retaining your top talent in 2025 and beyond, offering actionable insights and demonstrating how a ",
+        },
+        {
+          type: "bold",
+          content: "holistic approach",
+        },
+        {
+          type: "text",
+          content:
+            " to employee experience can transform your workforce into a loyal, productive, and thriving asset.",
+        },
+      ],
+    },
+    {
+      type: "subheading",
+      text: "The High Cost of Turnover: Why Retention is HR's Top Priority",
+      id: "the-high-cost-of-turnover",
+    },
+    {
+      type: "paragraph",
+      parts: [
+        {
+          type: "text",
+          content:
+            "The modern workforce is characterized by evolving expectations, persistent disengagement, and a demand for more than just a paycheck. When employees leave, especially top performers, the impact on an organization is ",
+        },
+        {
+          type: "bold",
+          content: "significant and far-reaching",
+        },
+        {
+          type: "text",
+          content: ":",
+        },
+      ],
+    },
+    {
+      type: "list",
+      items: [
+        {
+          parts: [
+            { type: "bold", content: "Financial Drain:" },
+            {
+              type: "text",
+              content:
+                " The direct costs of turnover include recruitment fees, onboarding expenses, and training new hires. Indirect costs, like lost productivity, decreased morale among remaining staff, and potential customer dissatisfaction, can be even higher.",
+            },
+          ],
+        },
+        {
+          parts: [
+            { type: "bold", content: "Reduced Productivity & Innovation:" },
+            {
+              type: "text",
+              content:
+                " Losing experienced employees means a loss of institutional knowledge and a disruption to team dynamics. This can lead to decreased output, more errors, and a slowdown in innovation.",
+            },
+          ],
+        },
+        {
+          parts: [
+            { type: "bold", content: "Damaged Workplace Culture:" },
+            {
+              type: "text",
+              content:
+                " High turnover can create a ripple effect of instability and cynicism, negatively impacting team morale and overall company culture. For more on this, read our blog on ",
+            },
+            {
+              type: "link",
+              content:
+                "The CEO's Playbook: How to Build a High-Performing Culture That Drives Growth & Profit",
+              href: "/blogs/ceos-playbook",
+            },
+            { type: "text", content: "." },
+          ],
+        },
+        {
+          parts: [
+            { type: "bold", content: "Difficulty Attracting Talent:" },
+            {
+              type: "text",
+              content:
+                " A reputation for high turnover makes it harder to attract new talent, creating a vicious cycle of recruitment challenges.",
+            },
+          ],
+        },
+        {
+          parts: [
+            { type: "bold", content: "Managerial Burden:" },
+            {
+              type: "text",
+              content:
+                " Managers spend significant time on recruitment and training new hires, diverting focus from strategic initiatives and team development.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "text", content: "Prioritizing " },
+        { type: "bold", content: "employee retention" },
+        {
+          type: "text",
+          content:
+            " is a proactive investment that safeguards your organization's financial health, productivity, and cultural integrity.",
+        },
+      ],
+    },
+    {
+      type: "subheading",
+      text: "Strategic Pillars: Comprehensive Employee Retention Strategies",
+      id: "strategic-pillars",
+    },
+    {
+      type: "paragraph",
+      parts: [
+        {
+          type: "text",
+          content:
+            "Effective employee retention strategies require a multi-faceted approach that addresses the entire employee lifecycle, from onboarding to continuous development and well-being. Here are key pillars for building a loyal workforce:",
+        },
+      ],
+    },
+    {
+      type: "subheading",
+      text: "1. Cultivate a Seamless Onboarding & Employee Experience:",
+      id: "onboarding-and-employee-experience",
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Strategy:" },
+        {
+          type: "text",
+          content:
+            " First impressions matter. A strong onboarding process helps new hires feel welcome, informed, and excited. Beyond onboarding, every interaction throughout their journey should be positive and personalized.",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Actionable Tip:" },
+        { type: "text", content: " Integrate new hires through fun, collaborative " },
+        { type: "link", content: "team-building activities", href: "/services" },
+        {
+          type: "text",
+          content:
+            ", fostering immediate connection. Ensure every touchpoint, from initial welcome to ongoing engagement, is curated for satisfaction.",
+        },
+      ],
+    },
+    {
+      type: "subheading",
+      text: "2. Build a Culture of Recognition & Appreciation:",
+      id: "recognition-and-appreciation",
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Strategy:" },
+        {
+          type: "text",
+          content:
+            " Employees need to feel valued and appreciated for their contributions. Consistent, timely, and personalized recognition, beyond just compensation, is crucial for loyalty and motivation. A ",
+        },
+        { type: "link", content: "Gallup", href: "https://www.gallup.com/workplace/236366/right-culture-not-employee-satisfaction.aspx" },
+        {
+          type: "text",
+          content:
+            " study reveals that employees who feel recognized are more likely to be engaged and less likely to leave, and that a lack of recognition is a top driver of voluntary turnover.",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Actionable Tip:" },
+        { type: "text", content: " Utilize " },
+        { type: "link", content: "corporate entertainment", href: "/services" },
+        {
+          type: "text",
+          content:
+            " or sports events as excellent platforms for public celebration of team and individual successes. Design offsites with dedicated segments for recognizing outstanding contributions, creating memorable moments of appreciation.",
+        },
+      ],
+    },
+    {
+      type: "subheading",
+      text: "3. Prioritize Professional Development & Clear Career Paths:",
+      id: "professional-development",
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Strategy:" },
+        {
+          type: "text",
+          content:
+            " Employees stay longer when they see a clear path for growth and feel invested in their success. Offer mentorship, training, and opportunities to learn new skills and advance their careers. A recent ",
+        },
+        {
+          type: "link",
+          content: "SHRM",
+          href: "https://www.shrm.org/content/dam/en/shrm/shrm-labs/documents/222395-SHRMLabs--TechStars-Report-TechnologiesRetention_R3-2.pdf",
+        },
+        {
+          type: "text",
+          content:
+            " report found that a lack of career development and advancement is the second most common reason for employee turnover.",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Actionable Tip:" },
+        { type: "text", content: " Implement " },
+        { type: "link", content: "creative workshops", href: "/services" },
+        {
+          type: "text",
+          content:
+            " tailored to develop new skills, foster innovative thinking, and provide hands-on learning experiences. Empower managers through leadership offsites to champion growth and career planning within their teams.",
+        },
+      ],
+    },
+    {
+      type: "subheading",
+      text: "4. Support Holistic Well-being & Work-Life Integration:",
+      id: "holistic-well-being",
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Strategy:" },
+        {
+          type: "text",
+          content:
+            " Address burnout and stress by promoting work-life harmony and supporting physical, mental, emotional, and financial health. Flexible work options are a key employee expectation.",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Actionable Tip:" },
+        { type: "text", content: " Offer comprehensive " },
+        { type: "link", content: "wellness programs", href: "/services" },
+        {
+          type: "text",
+          content:
+            " with tailored solutions like mindfulness workshops, physical fitness challenges, and financial wellness seminars. These initiatives directly combat burnout and foster overall well-being, aligning with employee expectations for holistic support.",
+        },
+      ],
+    },
+    {
+      type: "subheading",
+      text: "5. Foster a Positive & Inclusive Workplace Culture:",
+      id: "inclusive-workplace-culture",
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Strategy:" },
+        {
+          type: "text",
+          content:
+            " A strong, positive, and inclusive culture is a decisive factor in retention. It's built on transparency, psychological safety, and a sense of belonging, where diverse perspectives are valued.",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Actionable Tip:" },
+        {
+          type: "text",
+          content:
+            " Design diverse team-building experiences to break down silos and foster authentic connections, crucial for an inclusive culture. Utilize creative workshops to promote diverse problem-solving, and facilitate strategic discussions on Diversity, Equity, and Inclusion (DEI) goals during offsites, embedding them into organizational objectives.",
+        },
+      ],
+    },
+    {
+      type: "subheading",
+      text: "6. Implement Effective Communication & Feedback Loops:",
+      id: "communication-and-feedback",
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Strategy:" },
+        {
+          type: "text",
+          content:
+            " Employees want to feel heard and informed. Regular, two-way communication, active listening, and acting on feedback build trust and ensure employees feel valued. ",
+        },
+        {
+          type: "link",
+          content: "A study by Deloitte",
+          href: "https://www.deloitte.com/au/en/services/consulting/blogs/talent-retention-insights-march-hr-dealmakers-event.html",
+        },
+        {
+          type: "text",
+          content:
+            " highlights that a culture of continuous feedback leads to a more engaged and resilient workforce.",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      parts: [
+        { type: "bold", content: "Actionable Tip:" },
+        {
+          type: "text",
+          content:
+            " Encourage open dialogue in relaxed settings through team-building activities. Provide dedicated time for strategic discussions and feedback sessions during offsites, reinforcing transparent communication from leadership. A recent ",
+        },
+        {
+          type: "link",
+          content: "McKinsey & Company",
+          href: "https://www.mckinsey.com/capabilities/m-and-a/our-insights/retain-integrate-thrive-a-strategy-for-managing-talent-during-m-and-a-transactions",
+        },
+        {
+          type: "text",
+          content:
+            " report discusses the importance of tailoring retention approaches to the mind-sets and motivations of specific employees during times of change.",
+        },
+      ],
+    },
+    {
+      type: "subheading",
+      text: "Best Practices for HR Leaders in Driving Retention",
+      id: "best-practices-for-hr-leaders",
+    },
+    {
+      type: "paragraph",
+      parts: [
+        {
+          type: "text",
+          content:
+            "To ensure your employee retention strategies are truly impactful and sustainable, consider these overarching best practices:",
+        },
+      ],
+    },
+    {
+      type: "list",
+      items: [
+        {
+          parts: [
+            { type: "bold", content: "Data-Driven Insights:" },
+            {
+              type: "text",
+              content:
+                " Leverage HR analytics to identify retention risks, understand turnover drivers, and measure the ROI of your retention initiatives. Predictive analytics can help spot issues before they escalate.",
+            },
+          ],
+        },
+        {
+          parts: [
+            { type: "bold", content: "Manager Enablement:" },
+            {
+              type: "text",
+              content:
+                " Managers are key to retention. Equip them with the tools and training to effectively lead, recognize, and develop their teams, as they drive a significant portion of team engagement.",
+            },
+          ],
+        },
+        {
+          parts: [
+            { type: "bold", content: "Personalize the Experience:" },
+            {
+              type: "text",
+              content:
+                " Tailor communications, benefits, and development opportunities to individual employee needs and preferences. A one-size-fits-all approach is no longer effective.",
+            },
+          ],
+        },
+        {
+          parts: [
+            { type: "bold", content: "Lead by Example:" },
+            {
+              type: "text",
+              content:
+                " HR leaders and senior management must model the behaviors and values they wish to see, championing well-being, transparency, and continuous learning.",
+            },
+          ],
+        },
+        {
+          parts: [
+            { type: "bold", content: "Continuous Improvement:" },
+            {
+              type: "text",
+              content:
+                " Retention is an ongoing process. Regularly audit your strategies, gather feedback, and adapt your approach based on evolving employee expectations and market dynamics. A recent ",
+            },
+            {
+              type: "link",
+              content: "Harvard Business Review",
+              href: "https://www.thequota.co/articles/according-to-the-harvard-business-review-this-is-how-you-can-retain-top-sales-talent",
+            },
+            {
+              type: "text",
+              content:
+                " article highlights the importance of creating opportunities for career mobility and support to retain top talent.",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: "pullquote",
+      text:
+        "Effective employee retention strategies are the bedrock of a successful, sustainable organization. By proactively addressing the multifaceted needs of your workforce—from meaningful recognition and growth to holistic well-being and an inclusive culture—HR leaders can transform turnover challenges into unparalleled opportunities for loyalty, productivity, and innovation.",
+    },
+    {
+      type: "paragraph",
+      parts: [
+        {
+          type: "text",
+          content:
+            "OneThrive specializes in designing curated, meaningful interactions that are meticulously crafted to inspire your team, boost morale, and build a workplace culture where engagement and loyalty thrive. Our comprehensive suite of services—from dynamic team-building and holistic wellness programs to inspiring creative workshops, invigorating sports events, strategic offsites, and memorable entertainment—are all designed to seamlessly integrate into your retention strategy. We help you empower your employees, connect your teams, and ensure every individual feels valued, respected, and engaged, creating moments that truly matter throughout their entire journey with your organization.",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      parts: [
+        {
+          type: "text",
+          content:
+            "Ready to secure your top talent and build a resilient, thriving workforce? Partner with OneThrive today ",
+        },
+        { type: "link", content: "here", href: "/contact" },
+        {
+          type: "text",
+          content:
+            " to explore our customized solutions and discover how we can help your organization create moments that truly matter.",
+        },
+      ],
+    },
+  ],
+};
+
+const ContentBlock = ({ block }) => {
+  const LinkRenderer = ({ parts }) => {
+    if (!parts) return null;
+    return (
+      <>
+        {parts.map((part, index) => {
+          if (part.type === "text") {
+            return <span key={index}>{part.content}</span>;
+          } else if (part.type === "bold") {
+            return (
+              <strong key={index} className="text-[#00FFAB] font-bold">
+                {part.content}
+              </strong>
+            );
+          } else if (part.type === "link") {
+            const isExternal = part.href.startsWith("http");
+            const linkClasses =
+              "text-[#00FFAB] hover:text-white transition-all duration-300 underline decoration-2 decoration-[#00FFAB] underline-offset-4 hover:decoration-white hover:shadow-[0_0_10px_rgba(0,255,171,0.4)]";
+            return (
+              <a
+                key={index}
+                href={part.href}
+                className={linkClasses}
+                target={isExternal ? "_blank" : "_self"}
+                rel={isExternal ? "noopener noreferrer" : ""}
+              >
+                {part.content}
+              </a>
+            );
+          }
+          return null;
+        })}
+      </>
+    );
+  };
+
+  switch (block.type) {
+    case "paragraph":
+      return (
+        <p className="mb-6 sm:mb-8 text-base sm:text-lg text-white leading-relaxed">
+          <LinkRenderer parts={block.parts} />
+        </p>
+      );
+    case "subheading":
+      return (
+        <h3
+          id={block.id}
+          className="text-2xl sm:text-3xl md:text-4xl font-bold mt-12 sm:mt-16 mb-4 sm:mb-6 text-[#00FFAB] relative"
+        >
+          <span className="absolute -left-2 sm:-left-4 top-0 w-0.5 sm:w-1 h-full bg-gradient-to-b from-[#00FFAB] to-transparent rounded-full"></span>
+          {block.text}
+        </h3>
+      );
+    case "pullquote":
+      return (
+        <div className="my-12 sm:my-16 relative px-4 sm:px-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00FFAB]/5 to-transparent rounded-2xl"></div>
+          <blockquote className="relative p-6 sm:p-8 md:p-12 bg-black/90 backdrop-blur-sm rounded-2xl border border-[#00FFAB]/30 text-lg sm:text-xl md:text-2xl font-semibold italic text-white leading-snug shadow-[0_0_30px_rgba(0,255,171,0.1)]">
+            <div className="absolute top-2 sm:top-4 left-4 sm:left-8 text-[#00FFAB] text-4xl sm:text-6xl opacity-30 font-serif">
+              "
+            </div>
+            <div className="relative z-10 px-4 sm:px-0">{block.text}</div>
+            <div className="absolute bottom-2 sm:bottom-4 right-4 sm:right-8 text-[#00FFAB] text-4xl sm:text-6xl opacity-30 font-serif rotate-180">
+              "
+            </div>
+          </blockquote>
+        </div>
+      );
+    case "image":
+      return (
+        <figure className="my-8 sm:my-12">
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-[#00FFAB]/20">
+            <img
+              src={block.url}
+              alt={block.caption}
+              className="w-full h-auto transition-transform duration-500 hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
+          {block.caption && (
+            <figcaption className="mt-4 text-center text-white text-sm italic">
+              {block.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    case "list":
+      return (
+        <ul className="mb-6 sm:mb-8 space-y-3 sm:space-y-4 text-base sm:text-lg text-white">
+          {block.items.map((item, index) => (
+            <li key={index} className="flex items-start">
+              <span className="inline-block w-2 h-2 bg-[#00FFAB] rounded-full mt-2 sm:mt-3 mr-3 sm:mr-4 flex-shrink-0 shadow-[0_0_10px_rgba(0,255,171,0.5)]"></span>
+              <div className="flex-1">
+                <LinkRenderer parts={item.parts} />
+              </div>
+            </li>
+          ))}
+        </ul>
+      );
+    case "linkGroup":
+      return (
+        <div className="bg-black/90 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-[#00FFAB]/30 my-8 sm:my-12 shadow-[0_0_20px_rgba(0,255,171,0.1)]">
+          <h4 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-[#00FFAB]">
+            {block.heading}
+          </h4>
+          <ul className="list-none space-y-3">
+            {block.links.map((link, index) => (
+              <li key={index}>
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-[#00FFAB] transition-all duration-300 hover:underline decoration-2 decoration-[#00FFAB] underline-offset-4"
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    case "link":
+      return (
+        <a
+          href={block.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-[#00FFAB] font-semibold text-base sm:text-lg hover:text-white transition-all duration-300 hover:shadow-[0_0_10px_rgba(0,255,171,0.4)] my-6 sm:my-8 underline decoration-2 decoration-[#00FFAB] underline-offset-4 hover:decoration-white"
+        >
+          {block.text}
+        </a>
+      );
+    default:
+      return null;
+  }
+};
+
+const BlogPost6 = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState("");
+  const [showShareSection, setShowShareSection] = useState(false); // kept, but not used (no mobile changes requested)
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const headingsRef = useRef([]);
+  const relatedPostsRef = useRef(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
+
+      // Check if we've reached the Related Posts section
+      const relatedPostsElement = relatedPostsRef.current;
+      if (relatedPostsElement) {
+        const relatedPostsRect = relatedPostsElement.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // Show share section when Related Posts section comes into view
+        const shouldShowShare = relatedPostsRect.top <= viewportHeight * 0.8;
+        setShowShareSection(shouldShowShare);
+      }
+
+      // Update active section
+      const headings = headingsRef.current;
+      const scrollPosition = window.scrollY + 100;
+
+      for (let i = headings.length - 1; i >= 0; i--) {
+        const element = document.getElementById(headings[i].id);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(headings[i].id);
+          break;
+        }
+      }
+    };
+
+    // Store headings
+    headingsRef.current = blogData.content.filter(
+      (block) => block.type === "subheading"
+    );
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial call
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleCopyLink = () => {
+    const url = "[DYNAMIC_URL]";
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        alert("Link copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy link:", err);
+      });
+  };
+
+  const RelatedPostsCard = ({ post, onClick }) => (
+    <div
+      onClick={onClick}
+      className="group flex flex-col rounded-2xl overflow-hidden shadow-2xl bg-black/90 backdrop-blur-sm border border-[#00FFAB]/30 transition-all duration-500 transform-gpu hover:shadow-[0_0_40px_rgba(0,255,171,0.2)] hover:scale-105 hover:border-[#00FFAB]/60 cursor-pointer"
+    >
+      <div className="relative overflow-hidden">
+        <img
+          src={post.thumbnail}
+          alt={post.title}
+          className="w-full h-40 sm:h-48 object-cover transition-transform duration-500 hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+      <div className="p-4 sm:p-6 flex-1">
+        <h4 className="text-base sm:text-lg font-bold leading-tight line-clamp-3 sm:line-clamp-2 transition-all duration-300 group-hover:text-[#00FFAB] group-hover:drop-shadow-[0_0_5px_rgba(0,255,171,0.5)]">
+          {post.title}
+        </h4>
+      </div>
+    </div>
+  );
+
+  const SocialButton = ({ href, children, label, className = "" }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group bg-black/80 backdrop-blur-sm p-3 sm:p-4 rounded-full border border-[#00FFAB]/30 hover:border-[#00FFAB] hover:bg-[#00FFAB]/10 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,171,0.3)] hover:scale-110 ${className}`}
+      aria-label={label}
+    >
+      <div className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-[#00FFAB] transition-colors duration-300">
+        {children}
+      </div>
+    </a>
+  );
+
+  // Thin vertical share rail for laptops/desktops only (no mobile changes)
+  const ThinShareItem = ({ href, onClick, label, children }) => {
+    const classes =
+      "flex items-center justify-center w-9 h-9 rounded-md bg-black/80 border border-[#00FFAB]/30 hover:border-[#00FFAB] hover:bg-[#00FFAB]/10 transition-all duration-300";
+    if (href) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={label}
+          className={classes}
+          title={label}
+        >
+          {children}
+        </a>
+      );
+    }
+    return (
+      <button
+        onClick={onClick}
+        aria-label={label}
+        className={classes}
+        title={label}
+        type="button"
+      >
+        {children}
+      </button>
+    );
+  };
+
+  return (
+    <div className="font-sans bg-black min-h-screen text-white relative mt-4 sm:mt-8">
+      <style>{`
+        body {
+          font-family: 'Inter', sans-serif;
+        }
+        .text-onethrive-aqua {
+          color: #00FFAB;
+        }
+        .prose-custom ul {
+          list-style-type: none;
+          padding-left: 0;
+        }
+        .prose-custom li {
+          margin-bottom: 0.75rem;
+        }
+        .line-clamp-2 {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #00FFAB;
+          border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #00cc88;
+        }
+
+        /* Mobile menu styles */
+        @media (max-width: 1023px) {
+          .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+          }
+          .mobile-menu.open {
+            transform: translateX(0);
+          }
+        }
+      `}</style>
+
+      {/* Background Pattern */}
+      <div className="fixed inset-0 opacity-5 pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, #00FFAB 1px, transparent 1px)`,
+            backgroundSize: "50px 50px",
+          }}
+        ></div>
+      </div>
+
+      {/* Mobile Overlay */}
+      {showMobileMenu && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setShowMobileMenu(false)}
+        ></div>
+      )}
+
+      {/* Mobile Menu */}
+      <div
+        className={`mobile-menu fixed left-0 top-0 h-full w-80 bg-black/95 backdrop-blur-xl z-40 lg:hidden border-r border-[#00FFAB]/30 ${
+          showMobileMenu ? "open" : ""
+        }`}
+      >
+        <div className="p-6 pt-16">
+          {/* Mobile Table of Contents */}
+          <div className="mb-8">
+            <h4 className="text-xl font-bold mb-4 text-[#00FFAB] flex items-center">
+              <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 16a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
+              </svg>
+              Table of Contents
+            </h4>
+            <ul className="space-y-2">
+              {blogData.content
+                .filter((block) => block.type === "subheading")
+                .map((heading) => (
+                  <li key={heading.id}>
+                    <a
+                      href={`#${heading.id}`}
+                      onClick={() => setShowMobileMenu(false)}
+                      className={`block text-sm px-3 py-2 rounded-lg transition-all duration-300 border-l-2 ${
+                        activeSection === heading.id
+                          ? "text-[#00FFAB] border-[#00FFAB] bg-[#00FFAB]/10 font-semibold"
+                          : "text-white border-transparent hover:text-[#00FFAB] hover:border-[#00FFAB]/50 hover:bg-[#00FFAB]/5"
+                      }`}
+                    >
+                      {heading.text}
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </div>
+
+          {/* Mobile Share Section */}
+          <div>
+            <h4 className="text-xl font-bold mb-4 text-[#00FFAB] flex items-center">
+              <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+              </svg>
+              Share
+            </h4>
+            <div className="grid grid-cols-2 gap-3">
+              <SocialButton
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+                  "[DYNAMIC_URL]"
+                )}`}
+                label="Share on LinkedIn"
+                className="w-full justify-center"
+              >
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.763s.784-1.762 1.75-1.762 1.75.79 1.75 1.762-.783 1.763-1.75 1.763zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </SocialButton>
+              <SocialButton
+                href={`https://x.com/intent/tweet?url=${encodeURIComponent(
+                  "[DYNAMIC_URL]"
+                )}&text=${encodeURIComponent(blogData.title)}`}
+                label="Share on Twitter"
+                className="w-full justify-center"
+              >
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.36 0-6.082 2.72-6.082 6.082 0 .476.056.938.164 1.378-5.056-.255-9.52-2.67-12.516-6.346-.525.908-.827 1.966-.827 3.101 0 2.105 1.071 3.965 2.693 5.064-.99.03-1.918-.304-2.727-.751v.079c0 2.967 2.114 5.448 4.912 6.012-.472.129-.971.196-1.485.196-.363 0-.71.035-1.05.099.78 2.427 3.031 4.195 5.764 4.248-2.083 1.631-4.723 2.585-7.589 2.585-.494 0-.978-.029-1.455-.084 2.684 1.742 5.867 2.76 9.284 2.76 11.13 0 17.221-9.227 17.221-17.221 0-.263-.008-.526-.017-.788.943-.679 1.765-1.533 2.417-2.529z" />
+                </svg>
+              </SocialButton>
+              <SocialButton
+                href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+                  blogData.title + " [DYNAMIC_URL]"
+                )}`}
+                label="Share on WhatsApp"
+                className="w-full justify-center"
+              >
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.04 2.05c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.42 1.34 4.88l-1.39 5.04 5.23-1.37c1.4-.76 2.92-1.16 4.47-1.16 5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm0 18.06c-1.46 0-2.84-.4-4.06-1.16l-3.52.92.93-3.38c-.76-1.29-1.16-2.75-1.16-4.24 0-4.48 3.65-8.12 8.12-8.12s8.12 3.65 8.12 8.12-3.64 8.12-8.12 8.12zm4.38-5.91c-.24-.12-.86-.42-.99-.47-.14-.06-.24-.09-.34.09-.09.18-.34.47-.42.56-.09.09-.17.1-.31.06-.14-.04-.59-.22-1.12-.69-.42-.37-.7-.84-.79-.99-.09-.15-.01-.15.06-.15s.16-.01.24-.01c.08-.01.14-.02.22-.05s.21-.05.32-.12c.1-.06.18-.17.24-.26s.08-.18.04-.34c-.04-.14-.34-.82-.47-1.1s-.26-.22-.34-.23-.17-.02-.24-.02h-.34c-.11-.01-.29-.02-.59.22-.29.23-1.12 1.09-1.12 2.65 0 1.55 1.15 3.07 1.31 3.28 0 0 0 0 0 0.15.21.29.35.59.45.29.1.59.15.89.15.42 0 1.25-.39 1.43-.51.18-.12.42-.19 1.12-.59.7-.42 1.16-.95 1.34-1.22.18-.28.18-.28.1-.41z" />
+                </svg>
+              </SocialButton>
+              <button
+                onClick={handleCopyLink}
+                className="group bg-black/80 backdrop-blur-sm p-3 sm:p-4 rounded-full border border-[#00FFAB]/30 hover:border-[#00FFAB] hover:bg-[#00FFAB]/10 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,171,0.3)] hover:scale-110 w-full justify-center flex items-center"
+                aria-label="Copy link"
+              >
+                <svg
+                  className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-[#00FFAB] transition-colors duration-300"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M16 1h-12c-1.104 0-2 .896-2 2v14h2v-14c0-.551.448-1 1-1h12v-2zm-2 4h-10c-1.104 0-2 .896-2 2v14c0 1.104.896 2 2 2h10c1.104 0 2-.896 2-2v-14c0-1.104-.896-2-2-2zm0 16h-10v-14h10v14z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Thin vertical share rail on the left (DESKTOP ONLY) */}
+      <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 z-40 flex-col items-center space-y-3">
+        {/* LinkedIn */}
+        <ThinShareItem
+          href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+            "[DYNAMIC_URL]"
+          )}`}
+          label="Share on LinkedIn"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            aria-hidden="true"
+            className="text-white"
+            fill="currentColor"
+          >
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.854 0-2.136 1.447-2.136 2.944v5.662H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.604 0 4.268 2.372 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 110-4.123 2.062 2.062 0 010 4.123zM6.999 20.452H3.671V9h3.328v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
+          </svg>
+        </ThinShareItem>
+
+        {/* X (formerly Twitter) */}
+        <ThinShareItem
+          href={`https://x.com/intent/tweet?url=${encodeURIComponent(
+            "[DYNAMIC_URL]"
+          )}&text=${encodeURIComponent(blogData.title)}`}
+          label="Share on X"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            aria-hidden="true"
+            className="text-white"
+            fill="currentColor"
+          >
+            <path d="M18.244 2H21.5l-7.59 8.668L23 22h-6.59l-5.16-6.508L5.2 22H2l8.12-9.277L1 2h6.75l4.67 5.938L18.244 2zm-1.155 18h1.605L7.01 4H5.29l11.8 16z" />
+          </svg>
+        </ThinShareItem>
+
+        {/* WhatsApp */}
+        <ThinShareItem
+          href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+            blogData.title + " [DYNAMIC_URL]"
+          )}`}
+          label="Share on WhatsApp"
+        >
+          <svg
+            viewBox="0 0 32 32"
+            width="18"
+            height="18"
+            aria-hidden="true"
+            className="text-white"
+            fill="currentColor"
+          >
+            <path d="M19.11 17.19c-.3-.15-1.79-.88-2.07-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.51-.89-.79-1.5-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.64-.93-2.25-.24-.58-.49-.5-.68-.51-.18-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.05 1.02-1.05 2.49 0 1.47 1.08 2.89 1.23 3.09.15.2 2.13 3.25 5.16 4.55.72.31 1.29.49 1.73.63.73.23 1.39.2 1.92.12.59-.09 1.79-.73 2.05-1.43.25-.7.25-1.29.17-1.43-.08-.14-.27-.22-.57-.37z" />
+            <path d="M26.7 5.3C23.9 2.5 20.2 1 16.2 1 8.5 1 2.3 7.2 2.3 14.9c0 2.41.63 4.77 1.83 6.86L2 30.8l9.21-2.01c1.99 1.09 4.23 1.66 6.5 1.66 7.7 0 13.9-6.2 13.9-13.9 0-3.99-1.55-7.7-4.41-10.55zM16.71 28.2c-2.07 0-4.06-.55-5.81-1.6l-.42-.25-5.46 1.2 1.16-5.33-.27-.44c-1.13-1.86-1.73-3.98-1.73-6.13 0-6.62 5.38-12 12-12 3.21 0 6.23 1.25 8.5 3.51 2.27 2.27 3.51 5.29 3.51 8.5-.01 6.63-5.39 12-12.07 12z" />
+          </svg>
+        </ThinShareItem>
+
+        {/* Copy to clipboard */}
+        <ThinShareItem onClick={handleCopyLink} label="Copy link">
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            aria-hidden="true"
+            className="text-white"
+            fill="currentColor"
+          >
+            <path d="M16 4h-1.18A3 3 0 0012 2a3 3 0 00-2.82 2H8a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2zm-4-1a1 1 0 011 1h-2a1 1 0 011-1zm4 15H8V6h8v12z" />
+            <path d="M6 8H5a2 2 0 00-2 2v10a2 2 0 002 2h9a2 2 0 002-2v-1H6V8z" opacity=".6" />
+          </svg>
+        </ThinShareItem>
+      </div>
+
+      <main className="container mx-auto px-4 sm:px-6 lg:px-4 py-8 sm:py-12 md:py-16 lg:py-24 relative z-10 mt-12 sm:mt-0">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+          {/* Main Article Content */}
+          <article className="w-full lg:w-3/4 max-w-none mx-auto lg:mx-0">
+            {/* Enhanced Breadcrumb Navigation */}
+            <nav className="text-white text-sm mb-6 sm:mb-8 flex items-center space-x-2 overflow-x-auto">
+              <span
+                onClick={() => (window.location.href = "/blogs")}
+                className="hover:text-[#00FFAB] transition-colors duration-200 cursor-pointer whitespace-nowrap"
+              >
+                Blog
+              </span>
+              <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="hover:text-[#00FFAB] transition-colors duration-200 cursor-pointer whitespace-nowrap">
+                {blogData.category}
+              </span>
+              <svg className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span className="text-white font-medium truncate">
+                {blogData.title}
+              </span>
+            </nav>
+
+            {/* Enhanced Article Header */}
+            <header className="mb-12 sm:mb-16">
+              <div className="relative">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-6 sm:mb-8 bg-white bg-clip-text text-transparent">
+                  {blogData.title}
+                </h1>
+                <div className="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 w-8 h-8 sm:w-12 sm:h-12 bg-[#00FFAB]/10 rounded-full blur-xl"></div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-8 sm:mb-10">
+                <div className="bg-gradient-to-r from-[#00FFAB]/20 to-[#00FFAB]/10 backdrop-blur-sm text-[#00FFAB] text-sm font-bold px-4 py-2 rounded-full border border-[#00FFAB]/30 shadow-[0_0_15px_rgba(0,255,171,0.2)] w-fit">
+                  {blogData.category}
+                </div>
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-white text-sm">
+                  <span className="font-semibold text-[#00FFAB]">
+                    {blogData.author}
+                  </span>
+                  <span className="hidden sm:inline">•</span>
+                  <span>{blogData.date}</span>
+                  <span className="hidden sm:inline">•</span>
+                  <span className="flex items-center">
+                    <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    {blogData.readTime}
+                  </span>
+                </div>
+              </div>
+
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-[#00FFAB]/20 group">
+                <img
+                  src={blogData.heroImage}
+                  alt={blogData.title}
+                  className="w-full h-64 sm:h-80 md:h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 ring-1 ring-[#00FFAB]/20 rounded-2xl sm:rounded-3xl"></div>
+              </div>
+            </header>
+
+            {/* Enhanced Main Content Body */}
+            <section className="prose-custom max-w-none">
+              {blogData.content.map((block, index) => (
+                <ContentBlock key={index} block={block} />
+              ))}
+            </section>
+
+            {/* Bottom Share Buttons (Mobile/Tablet only) - unchanged and hidden on lg */}
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 my-12 sm:my-16 lg:hidden">
+              <SocialButton
+                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+                  "[DYNAMIC_URL]"
+                )}`}
+                label="Share on LinkedIn"
+              >
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.763s.784-1.762 1.75-1.762 1.75.79 1.75 1.762-.783 1.763-1.75 1.763zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+              </SocialButton>
+              <SocialButton
+                href={`https://x.com/intent/tweet?url=${encodeURIComponent(
+                  "[DYNAMIC_URL]"
+                )}&text=${encodeURIComponent(blogData.title)}`}
+                label="Share on Twitter"
+              >
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.36 0-6.082 2.72-6.082 6.082 0 .476.056 .938.164 1.378-5.056 -.255-9.52 -2.67-12.516 -6.346 -.525 .908-.827 1.966-.827 3.101 0 2.105 1.071 3.965 2.693 5.064 -.99 .03-1.918 -.304-2.727 -.751v .079c0 2.967 2.114 5.448 4.912 6.012 -.472 .129-.971 .196-1.485 .196 -.363 0 -.71 .035-1.05 .099 .78 2.427 3.031 4.195 5.764 4.248 -2.083 1.631 -4.723 2.585 -7.589 2.585 -.494 0 -.978 -.029-1.455 -.084 2.684 1.742 5.867 2.76 9.284 2.76 11.13 0 17.221 -9.227 17.221 -17.221 0 -.263 -.008 -.526 -.017 -.788 .943 -.679 1.765 -1.533 2.417 -2.529z" />
+                </svg>
+              </SocialButton>
+              <SocialButton
+                href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+                  blogData.title + " [DYNAMIC_URL]"
+                )}`}
+                label="Share on WhatsApp"
+              >
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.04 2.05c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.42 1.34 4.88l-1.39 5.04 5.23-1.37c1.4-.76 2.92-1.16 4.47-1.16 5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm0 18.06c-1.46 0-2.84-.4-4.06-1.16l-3.52.92.93-3.38c-.76-1.29-1.16-2.75-1.16-4.24 0-4.48 3.65-8.12 8.12-8.12s8.12 3.65 8.12 8.12-3.64 8.12-8.12 8.12zm4.38-5.91c-.24-.12-.86-.42-.99-.47-.14-.06-.24-.09-.34.09-.09.18-.34.47-.42.56-.09.09-.17.1-.31.06-.14-.04-.59-.22-1.12-.69-.42-.37-.7-.84-.79-.99-.09-.15-.01-.15.06-.15s.16-.01.24-.01c.08-.01.14-.02.22-.05s.21-.05.32-.12c.1-.06.18-.17.24-.26s.08-.18.04-.34c-.04-.14-.34-.82-.47-1.1s-.26-.22-.34-.23-.17-.02-.24-.02h-.34c-.11-.01-.29-.02-.59.22-.29.23-1.12 1.09-1.12 2.65 0 1.55 1.15 3.07 1.31 3.28 0 0 0 0 0 0.15.21.29.35.59.45.29.1.59.15.89.15.42 0 1.25-.39 1.43-.51.18-.12.42-.19 1.12-.59.7-.42 1.16-.95 1.34-1.22.18-.28.18-.28.1-.41z" />
+                </svg>
+              </SocialButton>
+              <button
+                onClick={handleCopyLink}
+                className="group bg-black/80 backdrop-blur-sm p-3 sm:p-4 rounded-full border border-[#00FFAB]/30 hover:border-[#00FFAB] hover:bg-[#00FFAB]/10 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,171,0.3)] hover:scale-110"
+                aria-label="Copy link"
+              >
+                <svg
+                  className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-[#00FFAB] transition-colors duration-300"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M16 1h-12c-1.104 0-2 .896-2 2v14h2v-14c0-.551.448-1 1-1h12v-2zm-2 4h-10c-1.104 0-2 .896-2 2v14c0 1.104.896 2 2 2h10c1.104 0 2-.896 2-2v-14c0-1.104-.896-2-2-2zm0 16h-10v-14h10v14z" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Related Posts Section */}
+            <section ref={relatedPostsRef} className="my-16 sm:my-20">
+              <div className="text-center mb-8 sm:mb-12">
+                <h3 className="text-3xl sm:text-4xl font-black mb-4 bg-white bg-clip-text text-transparent">
+                  Related Posts
+                </h3>
+                <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-[#00FFAB] to-transparent mx-auto rounded-full"></div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {blogData.relatedPosts.map((post) => (
+                  <RelatedPostsCard
+                    key={post.id}
+                    post={post}
+                    onClick={() => navigate(post.path)}
+                  />
+                ))}
+              </div>
+            </section>
+
+            {/* Enhanced CTA Section */}
+            <section className="relative bg-gradient-to-br from-black via-black to-[#00FFAB]/5 p-8 sm:p-12 md:p-16 rounded-2xl sm:rounded-3xl border border-[#00FFAB]/30 text-center shadow-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00FFAB]/5 via-transparent to-[#00FFAB]/5 opacity-50"></div>
+              <div className="absolute -top-10 -right-10 w-32 h-32 sm:w-40 sm:h-40 bg-[#00FFAB]/10 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 sm:w-40 sm:h-40 bg-[#00FFAB]/10 rounded-full blur-3xl"></div>
+
+              <div className="relative z-10">
+                <h4 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 bg-white bg-clip-text text-transparent">
+                  Book a Workshop with OneThrive
+                </h4>
+                <p className="text-white mb-8 sm:mb-10 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+                  Ready to secure your top talent and build a resilient, thriving workforce? Partner with OneThrive today to explore our customized solutions.
+                </p>
+                <button className="group bg-gradient-to-r from-[#00FFAB] to-[#00cc88] text-black font-bold px-8 sm:px-10 py-3 sm:py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,171,0.4)] transform-gpu text-sm sm:text-base">
+                  <span className="flex items-center justify-center">
+                    Plan Your Corporate Retreat
+                    <svg
+                      className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </section>
+          </article>
+
+          {/* Sidebar - Always visible on lg; only Table of Contents remains */}
+          <div className="lg:w-1/4 lg:flex flex-col hidden space-y-6">
+            <div className="sticky top-24">
+              {/* Table of Contents */}
+              <div className="bg-gradient-to-br from-black to-black/90 backdrop-blur-xl p-4 rounded-2xl border border-[#00FFAB]/30 shadow-2xl mb-6">
+                <h4 className="text-lg font-bold mb-3 text-[#00FFAB] flex items-center">
+                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 16a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
+                  </svg>
+                  Table of Contents
+                </h4>
+                <ul className="space-y-2">
+                  {blogData.content
+                    .filter((block) => block.type === "subheading")
+                    .map((heading) => (
+                      <li key={heading.id}>
+                        <a
+                          href={`#${heading.id}`}
+                          className={`block text-xs px-3 py-2 rounded-lg transition-all duration-300 border-l-2 ${
+                            activeSection === heading.id
+                              ? "text-[#00FFAB] border-[#00FFAB] bg-[#00FFAB]/10 font-semibold"
+                              : "text-white border-transparent hover:text-[#00FFAB] hover:border-[#00FFAB]/50 hover:bg-[#00FFAB]/5"
+                          }`}
+                        >
+                          {heading.text}
+                        </a>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+
+              {/* Share Section removed from right side as requested */}
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default BlogPost6;
