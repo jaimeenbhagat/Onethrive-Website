@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Title, Meta, Link as HeadLink } from "react-head";
 import ServiceGrid from "../components/Services/ServiceGrid";
 import ServicePage from "../components/Services/ServicePage";
 import { servicesData } from "../components/Services/serviceData";
@@ -30,7 +31,7 @@ const Services = () => {
     if (filters.category !== "all" && service.category !== filters.category) {
       return false;
     }
-    
+
     if (filters.duration !== "all") {
       const duration = parseInt(service.duration.split(' ')[0]);
       switch (filters.duration) {
@@ -51,11 +52,11 @@ const Services = () => {
           break;
       }
     }
-    
+
     if (filters.difficulty !== "all" && service.difficulty.toLowerCase() !== filters.difficulty) {
       return false;
     }
-    
+
     return true;
   });
 
@@ -66,6 +67,18 @@ const Services = () => {
         fontFamily: '"Bricolage Grotesque", "Bricolage Grotesque Placeholder", sans-serif',
       }}
     >
+      {/* SEO Meta Tags */}
+      <Title>Our Services | OneThrive Employee Engagement Solutions</Title>
+      <Meta name="description" content="Explore OneThrive's comprehensive range of employee engagement services designed to boost morale, enhance collaboration, and create lasting positive impact in your organization." />
+      <Meta name="robots" content="index, follow" />
+      <Meta name="keywords" content="Employee Engagement, Team Building, Corporate Activities, Employee Wellness, Corporate Training, Organizational Culture" />
+      <Meta property="og:title" content="Our Services | OneThrive Employee Engagement Solutions" />
+      <Meta property="og:description" content="Discover employee engagement activities by OneThrive designed to improve workplace morale, collaboration, and culture." />
+      <Meta property="og:type" content="website" />
+      <Meta property="og:url" content="https://onethrive.in/services" />
+      <Meta property="og:image" content="https://onethrive.in/og-image.jpg" />
+      <HeadLink rel="canonical" href="https://onethrive.in/services" />
+
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="mb-12 text-center">
@@ -74,9 +87,6 @@ const Services = () => {
           </h1>
           <div
             className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-2 "
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
           />
           <p className="text-white font-medium text-lg md:text-xl max-w-5xl mx-auto leading-relaxed">
             Discover our comprehensive range of employee engagement solutions
@@ -87,15 +97,12 @@ const Services = () => {
 
         {/* Enhanced Filter Section */}
         <div className="mb-12 relative">
-          {/* Background glow effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#00FFAB]/5 via-transparent to-[#00FFAB]/5 rounded-3xl blur-xl"></div>
-          
+
           <div className="relative bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm rounded-3xl border border-gray-800/50 shadow-2xl overflow-hidden">
-            {/* Top accent line */}
             <div className="h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent"></div>
-            
+
             <div className="p-8 md:p-10">
-              {/* Header */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 bg-[#00FFAB] rounded-full animate-pulse"></div>
@@ -109,9 +116,7 @@ const Services = () => {
                 </div>
               </div>
 
-              {/* Filter Grid */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                
                 {/* Category Filter */}
                 <div className="group">
                   <label className="flex items-center gap-2 text-sm font-semibold mb-3 text-gray-300 group-hover:text-[#00FFAB] transition-colors duration-200">
