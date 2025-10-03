@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import client1 from "../../assets/ClientLogo/EDS.png";
 import client2 from "../../assets/ClientLogo/DJSCE.png";
+import client3 from "../../assets/ClientLogo/KONSULTRA.webp";
+import client4 from "../../assets/ClientLogo/PRISMAAI.png";
 
 // Client logos with actual imported images
 const clientLogos = [
@@ -14,6 +16,16 @@ const clientLogos = [
     name: "DJSCE", 
     logo: client2,
     description: "Premier Engineering Institute" 
+  },
+  { 
+    name: "Konsultra", 
+    logo: client3,
+    description: "Innovative Consulting Services" 
+  },
+  { 
+    name: "Prisma AI", 
+    logo: client4,
+    description: "AI-Powered Business Solutions" 
   },
 ];
 
