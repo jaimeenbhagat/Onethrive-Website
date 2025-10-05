@@ -218,12 +218,19 @@ export default function EngagementCalculatorForm() {
 
   // API URL function (copied from contact.jsx)
   const getApiUrl = () => {
-    if (import.meta.env.MODE === 'production') {
-      return import.meta.env.VITE_API_URL || 'https://onethrive-backend.onrender.com';
-    } else {
-      return import.meta.env.VITE_API_URL || 'http://localhost:3001';
-    }
-  };
+  // Check if we're in development or production
+  const isDevelopment = window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1' ||
+                       window.location.hostname.startsWith('192.168.');
+  
+  if (isDevelopment) {
+    // Development environment - use local backend
+    return 'http://localhost:3001';
+  } else {
+    // Production environment - use deployed backend
+    return 'https://onethrive-backend-n8fc.onrender.com';
+  }
+};
   
 
   // Validation function for contact form
