@@ -3,6 +3,7 @@ import Blogimage3 from "../../../assets/Blogs/Blog3.webp";
 import Blogimage8 from "../../../assets/Blogs/Blog8.webp";
 import Blogimage4 from "../../../assets/Blogs/Blog4.webp";
 import Blogimage5 from "../../../assets/Blogs/Blog5.webp";
+import Blogimage3_1 from "../../../assets/Blogs/Blog3.1.png";
 import { useNavigate } from "react-router-dom";
 
 // Content for ROI of Employee Engagement blog
@@ -349,6 +350,10 @@ const blogData = {
             " Our Creative Workshops are specifically designed to unleash innovation and foster a culture of experimentation, directly contributing to new ideas and problem-solving.",
         },
       ],
+    },
+    {
+      type: "image",
+      url: Blogimage3_1,
     },
     {
       type: "subheading",
@@ -1166,7 +1171,7 @@ const BlogPost3 = () => {
                 <img
                   src={blogData.heroImage}
                   alt={blogData.title}
-                  className="w-full h-64 sm:h-80 md:h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute inset-0 ring-1 ring-[#00FFAB]/20 rounded-2xl sm:rounded-3xl"></div>

@@ -3,6 +3,7 @@ import Blogimage4 from "../../../assets/Blogs/Blog4.webp";
 import Blogimage8 from "../../../assets/Blogs/Blog8.webp";
 import Blogimage3 from "../../../assets/Blogs/Blog3.webp";
 import Blogimage7 from "../../../assets/Blogs/Blog7.webp";
+import Blogimage4_1 from "../../../assets/Blogs/Blog4.1.png";
 import { useNavigate } from "react-router-dom";
 
 // Content for Leadership Strategies blog
@@ -196,6 +197,10 @@ const blogData = {
             " are a perfect way to foster a sense of purpose and ownership by allowing employees to use their skills to solve problems creatively, directly contributing to organizational goals.",
         },
       ],
+    },
+    {
+      type: "image",
+      url: Blogimage4_1,
     },
     {
       type: "subheading",
@@ -882,7 +887,7 @@ const BlogPost4 = () => {
                 <img
                   src={blogData.heroImage}
                   alt={blogData.title}
-                  className="w-full h-64 sm:h-80 md:h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute inset-0 ring-1 ring-[#00FFAB]/20 rounded-2xl sm:rounded-3xl"></div>

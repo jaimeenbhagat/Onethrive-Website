@@ -3,6 +3,7 @@ import Blogimage1 from "../../../assets/Blogs/Blog1.webp";
 import Blogimage8 from "../../../assets/Blogs/Blog8.webp";
 import Blogimage3 from "../../../assets/Blogs/Blog3.webp";
 import Blogimage7 from "../../../assets/Blogs/Blog7.webp";
+import Blogimage1_1 from "../../../assets/Blogs/Blog1.1.png";
 import { useNavigate } from "react-router-dom";
 import Blog from "../../../pages/Blog";
 
@@ -373,6 +374,10 @@ const blogData = {
             " are specifically designed to unleash innovation and boost engagement through unique, hands-on experiences that are inherently non-cringe.",
         },
       ],
+    },
+    {
+      type: "image",
+      url: Blogimage1_1,
     },
     {
       type: "subheading",
@@ -1136,7 +1141,7 @@ const BlogPost1 = () => {
                 <img
                   src={blogData.heroImage}
                   alt={blogData.title}
-                  className="w-full h-64 sm:h-80 md:h-96 object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute inset-0 ring-1 ring-[#00FFAB]/20 rounded-2xl sm:rounded-3xl"></div>
