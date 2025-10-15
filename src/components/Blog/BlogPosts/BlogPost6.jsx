@@ -227,7 +227,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "Actionable Tip:" },
         { type: "text", content: " Integrate new hires through fun, collaborative " },
-        { type: "link", content: "team-building activities", href: "/services" },
+        { type: "link", content: "team-building activities", href: "/services?category=team-building" },
         {
           type: "text",
           content:
@@ -262,7 +262,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "Actionable Tip:" },
         { type: "text", content: " Utilize " },
-        { type: "link", content: "corporate entertainment", href: "/services" },
+        { type: "link", content: "corporate entertainment", href: "/services?category=entertainment" },
         {
           type: "text",
           content:
@@ -301,7 +301,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "Actionable Tip:" },
         { type: "text", content: " Implement " },
-        { type: "link", content: "creative workshops", href: "/services" },
+        { type: "link", content: "creative workshops", href: "/services?category=creative-workshop" },
         {
           type: "text",
           content:
@@ -330,7 +330,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "Actionable Tip:" },
         { type: "text", content: " Offer comprehensive " },
-        { type: "link", content: "wellness programs", href: "/services" },
+        { type: "link", content: "wellness programs", href: "/services?category=wellness" },
         {
           type: "text",
           content:

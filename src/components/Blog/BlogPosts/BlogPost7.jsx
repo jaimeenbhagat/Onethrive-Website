@@ -195,7 +195,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Impact:" },
         { type: "text", content: " Our " },
-        { type: "link", content: "Offsite & Retreat Planning", href: "/services" },
+        { type: "link", content: "Offsite & Retreat Planning", href: "/services?category=office-olympics" },
         {
           type: "text",
           content:
@@ -224,7 +224,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Impact:" },
         { type: "text", content: " Our " },
-        { type: "link", content: "Team-Building Experiences", href: "/services" },
+        { type: "link", content: "Team-Building Experiences", href: "/services?category=team-building" },
         {
           type: "text",
           content:
@@ -263,7 +263,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Impact:" },
         { type: "text", content: " Our " },
-        { type: "link", content: "Creative Workshops", href: "/services" },
+        { type: "link", content: "Creative Workshops", href: "/services?category=creative-workshop" },
         {
           type: "text",
           content:
@@ -292,9 +292,9 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Impact:" },
         { type: "text", content: " Our " },
-        { type: "link", content: "Corporate Entertainment", href: "/services" },
+        { type: "link", content: "Corporate Entertainment", href: "/services?category=entertainment" },
         { type: "text", content: " and " },
-        { type: "link", content: "Corporate Sports Events", href: "/services" },
+        { type: "link", content: "Corporate Sports Events", href: "/services?category=sports" },
         {
           type: "text",
           content:
@@ -323,7 +323,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Impact:" },
         { type: "text", content: " Our comprehensive " },
-        { type: "link", content: "Wellness Programs", href: "/services" },
+        { type: "link", content: "Wellness Programs", href: "/services?category=wellness" },
         {
           type: "text",
           content:

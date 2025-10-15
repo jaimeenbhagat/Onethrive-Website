@@ -126,7 +126,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Connection:" },
         { type: "text", content: " Our " },
-        { type: "link", content: "Team-Building Experiences", href: "/services" },
+        { type: "link", content: "Team-Building Experiences", href: "/services?category=team-building" },
         { type: "text", content: " are designed to build trust and break down communication barriers in a low-stakes environment, helping leaders create a foundation of psychological safety." },
       ],
     },
@@ -156,7 +156,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Connection:" },
         { type: "text", content: " Our Leadership Development Programs, often part of a " },
-        { type: "link", content: "Corporate Retreat", href: "/services" },
+        { type: "link", content: "Corporate Retreat", href: "/services?category=office-olympics" },
         { type: "text", content: ", focus on developing these crucial soft skills, equipping leaders with the tools they need to be more empathetic and effective." },
       ],
     },
@@ -190,7 +190,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Connection:" },
         { type: "text", content: " Our " },
-        { type: "link", content: "Creative Workshops", href: "/services" },
+        { type: "link", content: "Creative Workshops", href: "/services?category=creative-workshop" },
         {
           type: "text",
           content:

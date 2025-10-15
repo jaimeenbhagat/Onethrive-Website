@@ -261,7 +261,7 @@ const blogData = {
         {
           type: "link",
           content: "Team-Building Experiences",
-          href: "/services",
+          href: "/services?category=team-building",
         },
         {
           type: "text",
@@ -316,7 +316,7 @@ const blogData = {
           content:
             " We can integrate customized trivia and game show elements into larger ",
         },
-        { type: "link", content: "Corporate Entertainment", href: "/services" },
+        { type: "link", content: "Corporate Entertainment", href: "/services?category=entertainment" },
         {
           type: "text",
           content:
@@ -367,7 +367,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Connection:" },
         { type: "text", content: " Our " },
-        { type: "link", content: "Creative Workshops", href: "/services" },
+        { type: "link", content: "Creative Workshops", href: "/services?category=creative-workshop" },
         {
           type: "text",
           content:
@@ -514,14 +514,14 @@ const blogData = {
           content:
             "This is precisely where OneThrive excels. We are the architects of curated, meaningful interactions that are meticulously crafted to inspire your team, boost morale, and build a workplace culture where engagement and loyalty thrive. Our comprehensive suite of services—from dynamic Team-Building Experiences (including non-cringe games) and holistic ",
         },
-        { type: "link", content: "Wellness Programs", href: "/services" },
+        { type: "link", content: "Wellness Programs", href: "/services?category=wellness" },
         {
           type: "text",
           content: " to inspiring Creative Workshops, invigorating ",
         },
-        { type: "link", content: "Sports Events", href: "/services" },
+        { type: "link", content: "Sports Events", href: "/services?category=sports" },
         { type: "text", content: ", strategic " },
-        { type: "link", content: "Offsites", href: "/services" },
+        { type: "link", content: "Offsites", href: "/services?category=office-olympics" },
         {
           type: "text",
           content:

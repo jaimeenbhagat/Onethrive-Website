@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { Title, Meta, Link as HeadLink } from "react-head";
 import ServiceGrid from "../components/Services/ServiceGrid";
 import ServicePage from "../components/Services/ServicePage";
@@ -6,11 +7,23 @@ import { servicesData } from "../components/Services/serviceData";
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState({
     category: "all",
     duration: "all",
     difficulty: "all"
   });
+
+  // Handle URL parameters for filtering
+  useEffect(() => {
+    const category = searchParams.get('category');
+    if (category) {
+      setFilters(prev => ({
+        ...prev,
+        category: category
+      }));
+    }
+  }, [searchParams]);
 
   const openServiceModal = (service) => {
     setSelectedService(service);
@@ -21,10 +34,19 @@ const Services = () => {
   };
 
   const handleFilterChange = (filterType, value) => {
-    setFilters(prev => ({
-      ...prev,
+    const newFilters = {
+      ...filters,
       [filterType]: value
-    }));
+    };
+    setFilters(newFilters);
+    
+    // Update URL parameters
+    if (value === "all") {
+      searchParams.delete(filterType);
+    } else {
+      searchParams.set(filterType, value);
+    }
+    setSearchParams(searchParams);
   };
 
   const filteredServices = servicesData.services.filter(service => {
@@ -217,11 +239,14 @@ const Services = () => {
                 
                 {/* Clear filters button */}
                 <button
-                  onClick={() => setFilters({
-                    category: "all",
-                    duration: "all",
-                    difficulty: "all"
-                  })}
+                  onClick={() => {
+                    setFilters({
+                      category: "all",
+                      duration: "all",
+                      difficulty: "all"
+                    });
+                    setSearchParams({});
+                  }}
                   className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-[#00FFAB] 
                            transition-colors duration-200 border border-gray-700/50 rounded-lg
                            hover:border-[#00FFAB]/50 backdrop-blur-sm"

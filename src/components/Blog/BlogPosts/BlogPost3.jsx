@@ -179,7 +179,7 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Connection:" },
         { type: "text", content: " Our " },
-        { type: "link", content: "Team-Building Experiences", href: "/services" },
+        { type: "link", content: "Team-Building Experiences", href: "/services?category=team-building" },
         {
           type: "text",
           content:
@@ -219,9 +219,9 @@ const blogData = {
       parts: [
         { type: "bold", content: "OneThrive's Connection:" },
         { type: "text", content: " Our " },
-        { type: "link", content: "Wellness Programs", href: "/services" },
+        { type: "link", content: "Wellness Programs", href: "/services?category=wellness" },
         { type: "text", content: " reduce burnout and improve focus, while " },
-        { type: "link", content: "Creative Workshops", href: "/services" },
+        { type: "link", content: "Creative Workshops", href: "/services?category=creative-workshop" },
         {
           type: "text",
           content:
@@ -265,7 +265,7 @@ const blogData = {
           content:
             " Our Wellness Programs promote physical and mental health, directly reducing stress and illness-related absences. Our ",
         },
-        { type: "link", content: "Corporate Sports Events", href: "/services" },
+        { type: "link", content: "Corporate Sports Events", href: "/services?category=sports" },
         {
           type: "text",
           content:
@@ -309,7 +309,7 @@ const blogData = {
           content:
             " Our services, by boosting internal morale and connection, indirectly empower employees to deliver exceptional customer experiences. For example, a unified, engaged team from an ",
         },
-        { type: "link", content: "Offsite & Retreat", href: "/services" },
+        { type: "link", content: "Offsite & Retreat", href: "/services?category=office-olympics" },
         { type: "text", content: " is better equipped to serve clients." },
       ],
     },
@@ -559,7 +559,7 @@ const blogData = {
           content:
             "This is precisely where OneThrive excels. We are the architects of curated, meaningful interactions that are meticulously crafted to inspire your team, boost morale, and build a workplace culture where engagement and loyalty thrive. Our comprehensive suite of services—from dynamic team-building and holistic wellness programs to inspiring creative workshops, invigorating sports events, strategic offsites, and memorable entertainment—are all designed to seamlessly integrate into your overarching employee engagement strategy. We help you empower your employees, connect your teams, and ensure every individual feels valued, respected, and engaged, creating moments that truly matter throughout their entire journey with your organization, delivering measurable impact that you can proudly present to your leadership. To read more about how a high-performing culture can drive growth and profit, check out our blog on ",
         },
-        { type: "link", content: "The CEO's Playbook", href: "/blogs/ceos-playbook" },
+        { type: "link", content: "The CEO's Playbook", href: "/blogs/ceo-playbook" },
         { type: "text", content: "." },
       ],
     },

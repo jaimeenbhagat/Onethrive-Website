@@ -220,7 +220,7 @@ const blogData = {
       type: "paragraph",
       parts: [
         { type: "text", content: "OneThrive's Solution: Our " },
-        { type: "link", content: "Offsite & Retreat Planning", href: "/services" },
+        { type: "link", content: "Offsite & Retreat Planning", href: "/services?category=office-olympics" },
         { type: "text", content: " services are ideal for " },
         { type: "bold", content: "strategic alignment sessions" },
         {
@@ -256,7 +256,7 @@ const blogData = {
       type: "paragraph",
       parts: [
         { type: "text", content: "OneThrive's Solution: Our " },
-        { type: "link", content: "Creative Workshops", href: "/services" },
+        { type: "link", content: "Creative Workshops", href: "/services?category=creative-workshop" },
         {
           type: "text",
           content:
@@ -323,7 +323,7 @@ const blogData = {
       type: "paragraph",
       parts: [
         { type: "text", content: "OneThrive's Solution: Our diverse " },
-        { type: "link", content: "Team-Building Experiences", href: "/services" },
+        { type: "link", content: "Team-Building Experiences", href: "/services?category=team-building" },
         {
           type: "text",
           content:
@@ -356,7 +356,7 @@ const blogData = {
       type: "paragraph",
       parts: [
         { type: "text", content: "OneThrive's Solution: Our comprehensive " },
-        { type: "link", content: "Wellness Programs", href: "/services" },
+        { type: "link", content: "Wellness Programs", href: "/services?category=wellness" },
         {
           type: "text",
           content:
