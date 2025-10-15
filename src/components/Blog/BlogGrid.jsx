@@ -7,12 +7,9 @@ const categories = [
   "All Posts",
   "Wellness",
   "Team Building",
-  "Sports",
   "Creative Workshops",
   "Leadership",
   "Expert-Insights",
-  "Company Culture",
-  "Corporate Entertainment",
 ];
 const blogsPerPage = 9;
 

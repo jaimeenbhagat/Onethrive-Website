@@ -846,6 +846,20 @@ const BlogPost8 = () => {
             transform: translateX(0);
           }
         }
+        
+        /* Hide social icons below 1355px */
+        @media (max-width: 1355px) {
+          .social-sidebar {
+            display: none !important;
+          }
+        }
+        
+        /* Hide social icons between 1540px-1624px */
+        @media (min-width: 1540px) and (max-width: 1624px) {
+          .social-sidebar {
+            display: none !important;
+          }
+        }
       `}</style>
 
       {/* Background Pattern */}
@@ -964,7 +978,7 @@ const BlogPost8 = () => {
       </div>
 
       {/* Thin vertical share rail on the left (DESKTOP ONLY) */}
-      <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 z-40 flex-col items-center space-y-3">
+      <div className="social-sidebar hidden xl:flex fixed left-4 top-1/2 -translate-y-1/2 z-40 flex-col items-center space-y-3">
         {/* LinkedIn */}
         <ThinShareItem
           href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
@@ -1125,7 +1139,7 @@ const BlogPost8 = () => {
             </section>
 
             {/* Bottom Share Buttons (Mobile/Tablet only) - unchanged and hidden on lg */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 my-12 sm:my-16 lg:hidden">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 my-12 sm:my-16 xl:hidden">
               <SocialButton
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
                   "[DYNAMIC_URL]"

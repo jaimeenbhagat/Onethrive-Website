@@ -854,6 +854,20 @@ const BlogPost1 = () => {
             transform: translateX(0);
           }
         }
+
+        /* Hide social icons below 1355px */
+        @media (max-width: 1355px) {
+          .social-sidebar {
+            display: none !important;
+          }
+        }
+        
+        /* Hide social icons between 1540px-1624px */
+        @media (min-width: 1540px) and (max-width: 1624px) {
+          .social-sidebar {
+            display: none !important;
+          }
+        }
       `}</style>
 
       {/* Background Pattern */}
@@ -980,7 +994,7 @@ const BlogPost1 = () => {
       </div>
 
       {/* Thin vertical share rail on the left (DESKTOP ONLY) */}
-      <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 z-40 flex-col items-center space-y-3">
+      <div className="social-sidebar hidden xl:flex fixed left-4 top-1/2 -translate-y-1/2 z-40 flex-col items-center space-y-3">
         {/* LinkedIn */}
         <ThinShareItem
           href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
@@ -1059,9 +1073,9 @@ const BlogPost1 = () => {
       </div>
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-4 py-8 sm:py-12 md:py-16 lg:py-24 relative z-10 mt-12 sm:mt-0">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <div className="flex flex-col xl:flex-row gap-8 xl:gap-12">
           {/* Main Article Content */}
-          <article className="w-full lg:w-3/4 max-w-none mx-auto lg:mx-0">
+          <article className="w-full xl:w-3/4 max-w-none mx-auto xl:mx-0">
             {/* Enhanced Breadcrumb Navigation */}
             <nav className="text-white text-sm mb-6 sm:mb-8 flex items-center space-x-2 overflow-x-auto">
               <span
@@ -1155,8 +1169,8 @@ const BlogPost1 = () => {
               ))}
             </section>
 
-            {/* Enhanced Social Share Buttons (Mobile/Bottom) - UNCHANGED and hidden on lg */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 my-12 sm:my-16 lg:hidden">
+            {/* Enhanced Social Share Buttons (Mobile/Bottom) - UNCHANGED and hidden on xl */}
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 my-12 sm:my-16 xl:hidden">
               <SocialButton
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
                   "[DYNAMIC_URL]"
@@ -1256,8 +1270,8 @@ const BlogPost1 = () => {
             </section>
           </article>
 
-          {/* Sidebar - Always visible on lg; only Table of Contents remains */}
-          <div className="lg:w-1/4 lg:flex flex-col hidden space-y-6">
+          {/* Sidebar - Always visible on xl; only Table of Contents remains */}
+          <div className="xl:w-1/4 xl:flex flex-col hidden space-y-6">
             <div className="sticky top-24">
               {/* Table of Contents */}
               <div className="bg-gradient-to-br from-black to-black/90 backdrop-blur-xl p-4 rounded-2xl border border-[#00FFAB]/30 shadow-2xl mb-6">

@@ -4,7 +4,7 @@ import { useState } from "react";
 const whyChooseUs = [
   {
     title: "Expert Facilitation",
-    description: "Transformative experience with proven results",
+    description: "Transformative experience with results",
     icon: "👥",
     stats: "10+ Years",
     gradient: "from-[#00FFAB] to-[#00CC88]"
@@ -31,8 +31,8 @@ const whyChooseUs = [
     gradient: "from-[#00FFAB] to-[#66FFBB]"
   },
   {
-    title: "Result Driven",
-    description: "Measurable outcomes with<br/>clear ROI",
+    title: "Result <br/> Driven",
+    description: "Measurable outcomes with clear ROI",
     icon: "📊",
     stats: "ROI Focused",
     gradient: "from-[#44FF99] to-[#00FFAB]"
@@ -174,9 +174,8 @@ const WhyChooseUs = () => {
                   <motion.h3
                     className="text-sm sm:text-xl md:text-xl font-bold text-white mb-1 sm:mb-2 md:mb-3 group-hover:text-[#00FFAB] transition-colors duration-300 leading-tight h-[2rem] sm:h-[3rem] md:h-[3.5rem] flex items-center justify-center text-center"
                     layoutId={`title-${index}`}
-                  >
-                    {item.title}
-                  </motion.h3>
+                    dangerouslySetInnerHTML={{ __html: item.title }}
+                  />
 
                   <motion.p
                     className="text-xs sm:text-md md:text-md text-white/70 group-hover:text-white/90 transition-colors duration-300 leading-snug text-center px-1"
