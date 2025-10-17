@@ -19,7 +19,7 @@ const OurTeam = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-white font-bold text-3xl">Meet Our Team</span>
+          <span className="text-white font-bold text-3xl">Leadership Team</span>
         </motion.h2>
 
         <motion.div
@@ -40,7 +40,7 @@ const OurTeam = () => {
       </div>
 
       {/* Team Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
         {[ 
           {
             name: "Sujal Jain",
@@ -58,18 +58,10 @@ const OurTeam = () => {
             email: "smeet.s@onethrive.in",
             linkedin: "https://www.linkedin.com/in/smeet-shah-86333b228/"
           },
-          {
-            name: "Parth Patva",
-            role: "Co-founder",
-            image: team3,
-            desc: "The creative strategist behind OneThrive's vision. Parth brings innovation and clarity to our mission, making sure every idea resonates with purpose and impact.",
-            email: "parth@onethrive.in",
-            linkedin: "https://www.linkedin.com/in/parth-patva-909452174/"
-          },
         ].map((member, index) => (
           <motion.div
             key={index}
-            className="group bg-black backdrop-blur-sm border border-gray-800 rounded-2xl p-6 hover:border-[#00FFAB] transition-all duration-500 relative overflow-hidden h-[420px] flex flex-col"
+            className="group bg-black backdrop-blur-sm border border-gray-800 rounded-2xl p-6 hover:border-[#00FFAB] transition-all duration-500 relative overflow-hidden h-[420px] flex flex-col w-full sm:w-80 max-w-sm"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ 
