@@ -308,7 +308,7 @@ const blogData = {
     },
     {
       type: "subheading",
-      text: "1. Celebratory Entertainment Events:",
+      text: "1. Celebratory Festive Celebrations:",
       id: "celebratory-entertainment",
     },
     {

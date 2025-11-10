@@ -23,7 +23,7 @@ const Contact = () => {
     { value: "wellness-programs", label: "Wellness Programs" },
     { value: "creative-workshops", label: "Creative Workshops" },
     { value: "sports-tournaments", label: "Sports Tournaments" },
-    { value: "entertainment-events", label: "Entertainment Events" },
+    { value: "entertainment-events", label: "Festive Celebrations" },
     { value: "offsite-retreats", label: "Offsite Retreats" },
   ];
 

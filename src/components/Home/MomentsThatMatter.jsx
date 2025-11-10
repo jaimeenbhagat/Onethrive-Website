@@ -19,43 +19,43 @@ const MomentsThatMatter = () => {
   const moments = [
     {
       id: 1,
-      image: moment1
-    },
-    {
-      id: 2,
-      image: moment2
-    },
-    {
-      id: 3,
-      image: moment3
-    },
-    {
-      id: 4,
-      image: moment4
-    },
-    {
-      id: 5,
-      image: moment5
-    },
-    {
-      id: 6,
-      image: moment6
-    },
-    {
-      id: 7,
-      image: moment7
-    },
-    {
-      id: 8,
       image: moment8
     },
     {
-      id: 9,
+      id: 2,
       image: moment9
     },
     {
-      id: 10,
+      id: 3,
       image: moment10
+    },
+    {
+      id: 4,
+      image: moment1
+    },
+    {
+      id: 5,
+      image: moment2
+    },
+    {
+      id: 6,
+      image: moment3
+    },
+    {
+      id: 7,
+      image: moment4
+    },
+    {
+      id: 8,
+      image: moment5
+    },
+    {
+      id: 9,
+      image: moment6
+    },
+    {
+      id: 10,
+      image: moment7
     }
   ];
 

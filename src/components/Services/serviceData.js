@@ -68,7 +68,7 @@ export const servicesData = {
             },
             {
                 "id": "entertainment",
-                "name": "Entertainment Events",
+                "name": "Festive Celebrations",
                 "description": "Fun & engaging experiences",
                 "icon": "🎭",
                 "gradient": "bg-gradient-to-br from-[#00FFAB] via-green-400 to-green-500",

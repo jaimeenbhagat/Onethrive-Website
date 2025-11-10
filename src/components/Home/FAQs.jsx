@@ -9,7 +9,7 @@ const FAQs = () => {
     {
       question: "What types of employee engagement activities do you offer?",
       answer:
-        "We offer Team Building games, Creative Workshops, Wellness Programs, CSR initiatives, Offsites, Sports & Entertainment events, and custom engagement solutions tailored to your organization's needs.",
+        "We offer Team Building games, Creative Workshops, Wellness Programs, CSR initiatives, Offsites, Sports & Festive Celebrations, and custom engagement solutions tailored to your organization's needs.",
     },
     {
       question: "How do you customize your programs to suit our company culture?",

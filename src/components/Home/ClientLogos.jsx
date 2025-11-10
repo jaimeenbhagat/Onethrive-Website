@@ -4,7 +4,7 @@ import client1 from "../../assets/ClientLogo/EDS.png";
 import client2 from "../../assets/ClientLogo/DJSCE.png";
 import client3 from "../../assets/ClientLogo/KONSULTRA.webp";
 import client4 from "../../assets/ClientLogo/PRISMAAI.png";
-import client5 from "../../assets/ClientLogo/AsianElectronic.jpg";
+import client5 from "../../assets/ClientLogo/AsianElectronic.png";
 import client6 from "../../assets/ClientLogo/LadyLoveLogo.png";
 import client7 from "../../assets/ClientLogo/MystiqueAI.png";
 
