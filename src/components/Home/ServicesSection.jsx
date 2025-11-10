@@ -11,7 +11,7 @@ const services = [
   { title: "Wellness Programs", image: service2 },
   { title: "Creative Workshops", image: service3 },
   { title: "Sports Tournaments", image: service4 },
-  { title: "Entertainment Events", image: service5 },
+  { title: "Festive Celebrations", image: service5 },
   { title: "Offsite Retreats", image: service7 },
 ];
 

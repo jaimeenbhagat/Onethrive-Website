@@ -4,6 +4,10 @@ import client1 from "../../assets/ClientLogo/EDS.png";
 import client2 from "../../assets/ClientLogo/DJSCE.png";
 import client3 from "../../assets/ClientLogo/KONSULTRA.webp";
 import client4 from "../../assets/ClientLogo/PRISMAAI.png";
+import client5 from "../../assets/ClientLogo/AsianElectronic.jpg";
+import client6 from "../../assets/ClientLogo/LadyLoveLogo.png";
+import client7 from "../../assets/ClientLogo/MystiqueAI.png";
+
 
 // Client logos with actual imported images
 const clientLogos = [
@@ -26,6 +30,21 @@ const clientLogos = [
     name: "Prisma AI", 
     logo: client4,
     description: "AI-Powered Business Solutions" 
+  },
+  {
+    name: "Asian Electronics",
+    logo: client5,
+    description: "Consumer Electronics Leader"
+  },
+  {
+    name: "Lady Love",
+    logo: client6,
+    description: "Fashion and Lifestyle Brand"
+  },
+  {
+    name: "Mystique AI",
+    logo: client7,
+    description: "Cutting-Edge AI Technologies"
   },
 ];
 
@@ -62,26 +81,73 @@ const ClientLogos = () => {
         </motion.p>
       </div>
 
-      {/* Logo Display - Mobile: side by side | Desktop: same as before */}
-      <div className="flex flex-row md:flex-row justify-center items-center gap-6 md:gap-20 max-w-6xl mx-auto">
-        {clientLogos.map((client, index) => (
-          <motion.div
-            key={index}
-            className="text-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 + index * 0.2 }}
-          >
-            {/* Logo image - smaller for mobile, same for desktop */}
-            <div className="flex justify-center items-center mb-4">
-              <img loading="lazy" 
+      {/* Infinite Carousel - No Arrows */}
+      <div className="relative overflow-hidden w-full max-w-7xl mx-auto">
+        <motion.div 
+          className="flex gap-8 md:gap-16"
+          animate={{
+            x: [0, -(250 + 64) * clientLogos.length],
+          }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 25,
+              ease: "linear",
+            },
+          }}
+          style={{ willChange: 'transform' }}
+        >
+          {/* Original logos */}
+          {clientLogos.map((client, index) => (
+            <div
+              key={`original-${index}`}
+              className="flex-shrink-0 flex justify-center items-center"
+              style={{ width: '250px' }}
+            >
+              <img 
+                loading="lazy" 
                 src={client.logo}
                 alt={client.name}
-                className="w-40 h-28 md:w-72 md:h-48 object-contain"
+                className="w-full h-40 md:h-52 object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
               />
             </div>
-          </motion.div>
-        ))}
+          ))}
+          {/* Duplicate logos for seamless loop */}
+          {clientLogos.map((client, index) => (
+            <div
+              key={`duplicate-${index}`}
+              className="flex-shrink-0 flex justify-center items-center"
+              style={{ width: '250px' }}
+            >
+              <img 
+                loading="lazy" 
+                src={client.logo}
+                alt={client.name}
+                className="w-full h-40 md:h-52 object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+              />
+            </div>
+          ))}
+          {/* Triple set for extra smooth loop */}
+          {clientLogos.map((client, index) => (
+            <div
+              key={`triple-${index}`}
+              className="flex-shrink-0 flex justify-center items-center"
+              style={{ width: '250px' }}
+            >
+              <img 
+                loading="lazy" 
+                src={client.logo}
+                alt={client.name}
+                className="w-full h-40 md:h-52 object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+              />
+            </div>
+          ))}
+        </motion.div>
+        
+        {/* Gradient overlays for smooth edges */}
+        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-black to-transparent pointer-events-none z-10" />
+        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-black to-transparent pointer-events-none z-10" />
       </div>
     </motion.div>
   );

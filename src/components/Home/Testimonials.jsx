@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import client1 from "../../assets/ClientLogo/EDS.png";
 import client2 from "../../assets/ClientLogo/DJSCE.png";
+import client3 from "../../assets/ClientLogo/PRISMAAI.png";
+import client4 from "../../assets/ClientLogo/KONSULTRA.webp";
+import client5 from "../../assets/ClientLogo/MystiqueAI.png";
 
 const testimonials = [
   {
@@ -19,6 +22,30 @@ const testimonials = [
     message: "The event was truly refreshing. It helped me improve my concentration, especially through the breathing exercises. The combination of movement and mindfulness had a strong impact. I'd describe the experience as energizing.",
     rating: 4,
     logo: client2
+  },
+  {
+    name: "Wg Cdr Naresh Taneja",
+    position: "Executive Vice President HR & Admin",
+    company: "Prisma AI",
+    message: "The Navratri Workshop was fantastic and absolutely energizing for the team. The joyful participation and dancing after the training was a definite highlight, and I would strongly recommend this event to other organizations",
+    rating: 5,
+    logo: client3 // Or your corresponding logo variable
+  },
+  {
+    name: "Gauri Ganeshan",
+    position: "Head of HR",
+    company: "Konsultera Solutions",
+    message: "It was a fantastic experience! The team activity involving the balloons and the chopstick game stood out as memorable highlights. Other teams should absolutely try OneThrive, as it's an amazing experience everyone should have.",
+    rating: 5,
+    logo: client4 // Or your corresponding logo variable
+  },
+  {
+    name: "Santosh Gopakrishnan",
+    position: "Co-Founder & COO",
+    company: "Mystique AI",
+    message: "This Team Building Session was an enthralling five out of five experience! The cup activity unleashed everyone's amazing positive energy. Other teams should absolutely try OneThrive to energize their day and bond effectively.",
+    rating: 5,
+    logo: client5 // Or your corresponding logo variable
   }
 ];
 

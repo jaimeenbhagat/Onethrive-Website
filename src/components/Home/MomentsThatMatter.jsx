@@ -8,6 +8,10 @@ import moment3 from '../../assets/moments/image3.webp';
 import moment4 from '../../assets/moments/image4.webp';
 import moment5 from '../../assets/moments/image5.webp';
 import moment6 from '../../assets/moments/image6.webp';
+import moment7 from '../../assets/moments/image7.jpg';
+import moment8 from '../../assets/moments/image8.jpeg';
+import moment9 from '../../assets/moments/image9.jpg';
+import moment10 from '../../assets/moments/image10.jpg';
 
 const MomentsThatMatter = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -36,6 +40,22 @@ const MomentsThatMatter = () => {
     {
       id: 6,
       image: moment6
+    },
+    {
+      id: 7,
+      image: moment7
+    },
+    {
+      id: 8,
+      image: moment8
+    },
+    {
+      id: 9,
+      image: moment9
+    },
+    {
+      id: 10,
+      image: moment10
     }
   ];
 

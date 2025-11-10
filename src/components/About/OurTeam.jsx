@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import team1 from "../../assets/team/sujal.webp";
 import team2 from "../../assets/team/smeet.webp";
-import team3 from "../../assets/team/parth.webp";
+import team3 from "../../assets/team/vidhimaniar.jpg";
+import { image } from "framer-motion/client";
 
 const OurTeam = () => {
   return (
@@ -58,6 +59,14 @@ const OurTeam = () => {
             email: "smeet.s@onethrive.in",
             linkedin: "https://www.linkedin.com/in/smeet-shah-86333b228/"
           },
+          {
+            name: "Vidhi Maniar",
+            role: "Co-founder",
+            image: team3,
+            desc: "With a strong focus on business development and client relations, she leads OneThrive’s growth initiatives with precision and purpose.",
+            email: "vidhimaniar.work03@gmail.com",
+            linkedin: "https://www.linkedin.com/in/vidhi-maniar-484b752a7/"
+          }
         ].map((member, index) => (
           <motion.div
             key={index}
