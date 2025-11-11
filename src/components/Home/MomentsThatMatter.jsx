@@ -6,9 +6,7 @@ import moment1 from '../../assets/moments/image1.webp';
 import moment2 from '../../assets/moments/image2.webp';
 import moment3 from '../../assets/moments/image3.webp';
 import moment4 from '../../assets/moments/image4.webp';
-import moment5 from '../../assets/moments/image5.webp';
 import moment7 from '../../assets/moments/image7.jpg';
-import moment8 from '../../assets/moments/image8.jpeg';
 import moment9 from '../../assets/moments/image9.jpg';
 import moment10 from '../../assets/moments/image10.jpg';
 
@@ -18,38 +16,30 @@ const MomentsThatMatter = () => {
   const moments = [
     {
       id: 1,
-      image: moment8
-    },
-    {
-      id: 2,
       image: moment9
     },
     {
-      id: 3,
+      id: 2,
       image: moment10
     },
     {
-      id: 4,
+      id: 3,
       image: moment1
     },
     {
-      id: 5,
+      id: 4,
       image: moment2
     },
     {
-      id: 6,
+      id: 5,
       image: moment3
     },
     {
-      id: 7,
+      id: 6,
       image: moment4
     },
     {
-      id: 8,
-      image: moment5
-    },
-    {
-      id: 10,
+      id: 7,
       image: moment7
     }
   ];
@@ -112,7 +102,7 @@ const MomentsThatMatter = () => {
           </button>
 
           {/* Slide Container */}
-          <div className="relative h-[50vh] md:h-[60vh] rounded-2xl overflow-hidden">
+          <div className="relative h-[60vh] md:h-[75vh] rounded-2xl overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[#00FFAB]/5 via-transparent to-black/20 z-10"></div>
             
             {/* Slides */}

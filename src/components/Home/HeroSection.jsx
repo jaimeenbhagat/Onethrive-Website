@@ -52,12 +52,12 @@ const HeroSection = () => {
       >
         {/* Mobile heading - Same content, better sizing */}
         <h1 className="block sm:hidden text-2xl font-extrabold leading-tight mb-6 px-2">
-          Build <span className="text-[#00FFAB]">Stronger</span> Teams. <br />Boost Real <span className="text-[#00FFAB]">Engagement</span>.
+          Build <span className="text-[#00FFAB]">Stronger</span> Teams. <br />Boost <span className="text-[#00FFAB]">Real</span> Engagement.
         </h1>
 
         {/* Desktop heading - Unchanged */}
         <h1 className="hidden sm:block text-xl md:text-4xl lg:text-6xl text-center font-extrabold leading-tight mb-6 sm:mb-6">
-          Build <span className="text-[#00FFAB]">Stronger</span> Teams. <br />Boost Real <span className="text-[#00FFAB]">Engagement</span>.
+          Build <span className="text-[#00FFAB]">Stronger</span> Teams. <br />Boost <span className="text-[#00FFAB]">Real</span> Engagement.
         </h1>
 
         {/* Mobile & Desktop description - Same content */}

@@ -18,7 +18,7 @@ const testimonials = [
   {
     name: "Dr. Hari Vasudevan",
     position: "Principal",
-    company: "SVKM'sDJSCE",
+    company: "SVKM's DJSCE",
     message: "The event was truly refreshing. It helped me improve my concentration, especially through the breathing exercises. The combination of movement and mindfulness had a strong impact. I'd describe the experience as energizing.",
     rating: 4,
     logo: client2
@@ -40,7 +40,7 @@ const testimonials = [
     logo: client4 // Or your corresponding logo variable
   },
   {
-    name: "Santosh Gopakrishnan",
+    name: "Santosh Gopalkrishnan",
     position: "Co-Founder & COO",
     company: "Mystique AI",
     message: "This Team Building Session was an enthralling five out of five experience! The cup activity unleashed everyone's amazing positive energy. Other teams should absolutely try OneThrive to energize their day and bond effectively.",
