@@ -7,7 +7,6 @@ import moment2 from '../../assets/moments/image2.webp';
 import moment3 from '../../assets/moments/image3.webp';
 import moment4 from '../../assets/moments/image4.webp';
 import moment5 from '../../assets/moments/image5.webp';
-import moment6 from '../../assets/moments/image6.webp';
 import moment7 from '../../assets/moments/image7.jpg';
 import moment8 from '../../assets/moments/image8.jpeg';
 import moment9 from '../../assets/moments/image9.jpg';
@@ -48,10 +47,6 @@ const MomentsThatMatter = () => {
     {
       id: 8,
       image: moment5
-    },
-    {
-      id: 9,
-      image: moment6
     },
     {
       id: 10,

@@ -102,14 +102,15 @@ const ClientLogos = () => {
           {clientLogos.map((client, index) => (
             <div
               key={`original-${index}`}
-              className="flex-shrink-0 flex justify-center items-center"
-              style={{ width: '250px' }}
+              className="flex-shrink-0 flex justify-center items-center bg-white/5 rounded-xl p-6"
+              style={{ width: '250px', height: '160px' }}
             >
               <img 
                 loading="lazy" 
                 src={client.logo}
                 alt={client.name}
-                className="w-full h-40 md:h-52 object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+                className="max-w-full max-h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+                style={{ width: '200px', height: '120px' }}
               />
             </div>
           ))}
@@ -117,14 +118,15 @@ const ClientLogos = () => {
           {clientLogos.map((client, index) => (
             <div
               key={`duplicate-${index}`}
-              className="flex-shrink-0 flex justify-center items-center"
-              style={{ width: '250px' }}
+              className="flex-shrink-0 flex justify-center items-center bg-white/5 rounded-xl p-6"
+              style={{ width: '250px', height: '160px' }}
             >
               <img 
                 loading="lazy" 
                 src={client.logo}
                 alt={client.name}
-                className="w-full h-40 md:h-52 object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+                className="max-w-full max-h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+                style={{ width: '200px', height: '120px' }}
               />
             </div>
           ))}
@@ -132,14 +134,15 @@ const ClientLogos = () => {
           {clientLogos.map((client, index) => (
             <div
               key={`triple-${index}`}
-              className="flex-shrink-0 flex justify-center items-center"
-              style={{ width: '250px' }}
+              className="flex-shrink-0 flex justify-center items-center bg-white/5 rounded-xl p-6"
+              style={{ width: '250px', height: '160px' }}
             >
               <img 
                 loading="lazy" 
                 src={client.logo}
                 alt={client.name}
-                className="w-full h-40 md:h-52 object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+                className="max-w-full max-h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
+                style={{ width: '200px', height: '120px' }}
               />
             </div>
           ))}
