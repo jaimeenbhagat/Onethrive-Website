@@ -7,6 +7,7 @@ import client4 from "../../assets/ClientLogo/PRISMAAI.png";
 import client5 from "../../assets/ClientLogo/AsianElectronic.png";
 import client6 from "../../assets/ClientLogo/LadyLoveLogo.png";
 import client7 from "../../assets/ClientLogo/MystiqueAI.png";
+import client8 from "../../assets/ClientLogo/SalesDuo.png";
 
 
 // Client logos with actual imported images
@@ -46,6 +47,11 @@ const clientLogos = [
     logo: client7,
     description: "Cutting-Edge AI Technologies"
   },
+  {
+    name: "Sales Duo",
+    logo: client8,
+    description: "Sales Enablement Platform"
+  }
 ];
 
 const ClientLogos = () => {
