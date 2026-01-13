@@ -8,6 +8,8 @@ import client5 from "../../assets/ClientLogo/AsianElectronic.png";
 import client6 from "../../assets/ClientLogo/LadyLoveLogo.png";
 import client7 from "../../assets/ClientLogo/MystiqueAI.png";
 import client8 from "../../assets/ClientLogo/SalesDuo.png";
+import client9 from "../../assets/ClientLogo/IIFL.PNG";
+import client10 from "../../assets/ClientLogo/Laxmi.PNG";
 
 
 // Client logos with actual imported images
@@ -51,6 +53,16 @@ const clientLogos = [
     name: "Sales Duo",
     logo: client8,
     description: "Sales Enablement Platform"
+  },
+  {
+    name: "IIFL Capital",
+    logo: client9,
+    description: "Financial Services Company"
+  },
+  {
+    name: "Laxmi Dental Limited",
+    logo: client10,
+    description: "Consumer Goods Brand"
   }
 ];
 
