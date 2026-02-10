@@ -40,12 +40,12 @@ const Home = () => {
 
       {/* ✅ Page Components */}
       <HeroSection />
-      <div className="w-full text-white bg-black">
+      <div className="w-full text-white bg-black">        
+        <ClientLogos />
         <AboutUs />
         <ServicesSection />
         <WhyChooseUs />
         <MomentsThatMatter />
-        <ClientLogos />
         <Testimonials />
         <FAQs />
       </div>

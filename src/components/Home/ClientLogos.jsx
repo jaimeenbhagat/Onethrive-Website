@@ -14,46 +14,6 @@ import client10 from "../../assets/ClientLogo/Laxmi.PNG";
 
 // Client logos with actual imported images
 const clientLogos = [
-  { 
-    name: "EDS International", 
-    logo: client1,
-    description: "Leading Technology Solutions" 
-  },
-  { 
-    name: "DJSCE", 
-    logo: client2,
-    description: "Premier Engineering Institute" 
-  },
-  { 
-    name: "Konsultra", 
-    logo: client3,
-    description: "Innovative Consulting Services" 
-  },
-  { 
-    name: "Prisma AI", 
-    logo: client4,
-    description: "AI-Powered Business Solutions" 
-  },
-  {
-    name: "Asian Electronics",
-    logo: client5,
-    description: "Consumer Electronics Leader"
-  },
-  {
-    name: "Lady Love",
-    logo: client6,
-    description: "Fashion and Lifestyle Brand"
-  },
-  {
-    name: "Mystique AI",
-    logo: client7,
-    description: "Cutting-Edge AI Technologies"
-  },
-  {
-    name: "Sales Duo",
-    logo: client8,
-    description: "Sales Enablement Platform"
-  },
   {
     name: "IIFL Capital",
     logo: client9,
@@ -63,11 +23,66 @@ const clientLogos = [
     name: "Laxmi Dental Limited",
     logo: client10,
     description: "Consumer Goods Brand"
+  },
+  {
+    name: "Sales Duo",
+    logo: client8,
+    description: "Sales Enablement Platform"
+  },
+  { 
+    name: "Prisma AI", 
+    logo: client4,
+    description: "AI-Powered Business Solutions" 
+  },
+  { 
+    name: "DJSCE", 
+    logo: client2,
+    description: "Premier Engineering Institute" 
+  },
+  {
+    name: "Mystique AI",
+    logo: client7,
+    description: "Cutting-Edge AI Technologies"
+  },
+  { 
+    name: "Konsultra", 
+    logo: client3,
+    description: "Innovative Consulting Services" 
+  },
+  { 
+    name: "EDS International", 
+    logo: client1,
+    description: "Leading Technology Solutions" 
+  },
+  {
+    name: "Lady Love",
+    logo: client6,
+    description: "Fashion and Lifestyle Brand"
+  },
+  {
+    name: "Asian Electronics",
+    logo: client5,
+    description: "Consumer Electronics Leader"
   }
 ];
 
 const ClientLogos = () => {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
+    <>
+      <style>
+        {`
+          @keyframes scroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(${-(250 + 64) * clientLogos.length}px);
+            }
+          }
+        `}
+      </style>
     <motion.div
       className="md:min-h-[500px] flex flex-col justify-center px-6 md:px-20 max-w-7xl mx-auto md:py-10"
       initial={{ opacity: 0, y: 50 }}
@@ -101,20 +116,15 @@ const ClientLogos = () => {
 
       {/* Infinite Carousel - No Arrows */}
       <div className="relative overflow-hidden w-full max-w-7xl mx-auto">
-        <motion.div 
+        <div 
           className="flex gap-8 md:gap-16"
-          animate={{
-            x: [0, -(250 + 64) * clientLogos.length],
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          style={{
+            animation: 'scroll 35s linear infinite',
+            animationPlayState: isPaused ? 'paused' : 'running',
+            willChange: 'transform'
           }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 25,
-              ease: "linear",
-            },
-          }}
-          style={{ willChange: 'transform' }}
         >
           {/* Original logos */}
           {clientLogos.map((client, index) => (
@@ -164,13 +174,14 @@ const ClientLogos = () => {
               />
             </div>
           ))}
-        </motion.div>
+        </div>
         
         {/* Gradient overlays for smooth edges */}
         <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-black to-transparent pointer-events-none z-10" />
         <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-black to-transparent pointer-events-none z-10" />
       </div>
     </motion.div>
+    </>
   );
 };
 

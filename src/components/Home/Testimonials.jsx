@@ -8,10 +8,10 @@ import client5 from "../../assets/ClientLogo/MystiqueAI.png";
 
 const testimonials = [
   {
-    name: "Swarali Teli",
-    position: "HR",
-    company: "EDS International Pvt. Ltd.",
-    message: "The session was really good! The Laughter Yoga segment left us feeling fresh and energized. I especially enjoyed the tower-building challenge. It was a lot of fun. Participating in more such games would make the experience even better.",
+    name: "Sheetal Kamat",
+    position: "Head of Human Resources",
+    company: "Laxmi Dental Limited",
+    message: "The OneThrive team delivered an exceptionally well-executed team-building program featuring pottery making and tote bag painting, with seamless coordination and a positive team presence that strengthened collaboration, creativity, and overall team morale.",
     rating: 5,
     logo: client1
   },
@@ -32,10 +32,10 @@ const testimonials = [
     logo: client3 // Or your corresponding logo variable
   },
   {
-    name: "Gauri Ganeshan",
-    position: "Head of HR",
-    company: "Konsultera Solutions",
-    message: "It was a fantastic experience! The team activity involving the balloons and the chopstick game stood out as memorable highlights. Other teams should absolutely try OneThrive, as it's an amazing experience everyone should have.",
+    name: "Navleen Kour",
+    position: "Senior Human Resources Associate",
+    company: "SalesDuo, Inc.",
+    message: "We had a great experience with Team OneThrive. They were professional, understanding and coordinated all the activities very well. I would recommend them without any doubts and would also circle back to them for any of our next offsite events!",
     rating: 5,
     logo: client4 // Or your corresponding logo variable
   },
