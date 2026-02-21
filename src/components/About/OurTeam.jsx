@@ -45,7 +45,7 @@ const OurTeam = () => {
         {[ 
           {
             name: "Sujal Jain",
-            role: "Co-founder",
+            role: "Founder",
             image: team1,
             desc: "With a deep passion for organizational culture, he envisioned a company that blends fun, creativity, and purpose to engage employees like never before.",
             email: "sujal@onethrive.in",
@@ -53,7 +53,7 @@ const OurTeam = () => {
           },
           {
             name: "Smeet Shah",
-            role: "Co-founder",
+            role: "Founder",
             image: team2,
             desc: "He is the logistical genius who makes OneThrive's magic happen. With his skills in sports management, he ensures every event runs like clockwork.",
             email: "smeet.s@onethrive.in",

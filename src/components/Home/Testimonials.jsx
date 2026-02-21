@@ -76,7 +76,7 @@ const TestimonialCard = ({ testimonial }) => {
         </p>
         
         {/* Author Info */}
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-start">
           <h4 className="text-xl font-bold text-[#00FFAB] mb-1">
             {testimonial.name}
           </h4>

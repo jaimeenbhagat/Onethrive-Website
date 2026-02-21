@@ -62,7 +62,8 @@ const HeroSection = () => {
 
         {/* Mobile & Desktop description - Same content */}
         <p className="text-lg sm:text-lg md:text-2xl text-white text-center mb-8 sm:mb-8 font-medium leading-relaxed max-w-8xl sm:max-w-8xl mx-auto px-2 sm:px-0">
-          We design high-impact employee experiences that <br />spark connection, collaboration,<br className="sm:hidden"/> and growth.
+          <span className="sm:hidden">We design high-impact employee experiences<br />that spark connection,<br />collaboration, and growth.</span>
+          <span className="hidden sm:inline">We design high-impact employee experiences that <br />spark connection, collaboration, and growth.</span>
         </p>
 
         <motion.a
