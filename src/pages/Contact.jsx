@@ -117,7 +117,7 @@ const Contact = () => {
     return 'http://localhost:3001';
   } else {
     // Production environment - use deployed backend
-    return 'https://onethrive-backend-n8fc.onrender.com';
+    return 'https://onethrive-backend.onrender.com';
   }
 };
 
