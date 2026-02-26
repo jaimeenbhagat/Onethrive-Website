@@ -10,7 +10,7 @@ import client7 from "../../assets/ClientLogo/MystiqueAI.png";
 import client8 from "../../assets/ClientLogo/SalesDuo.png";
 import client9 from "../../assets/ClientLogo/IIFL.PNG";
 import client10 from "../../assets/ClientLogo/Laxmi.PNG";
-import client11 from "../../assets/ClientLogo/BDO.png";
+import client11 from "../../assets/ClientLogo/BDO.PNG";
 
 
 // Client logos with actual imported images
