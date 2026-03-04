@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import client1 from "../../assets/ClientLogo/EDS.png";
 import client2 from "../../assets/ClientLogo/DJSCE.png";
 import client3 from "../../assets/ClientLogo/KONSULTRA.webp";
@@ -74,17 +74,55 @@ const clientLogos = [
 
 const ClientLogos = () => {
   const [isPaused, setIsPaused] = useState(false);
+  const touchTimerRef = useRef(null);
+
+  // Mobile: tap to pause for 2 seconds, then auto-resume
+  const handleTouchStart = useCallback(() => {
+    if (touchTimerRef.current) clearTimeout(touchTimerRef.current);
+    setIsPaused(true);
+    touchTimerRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 2000);
+  }, []);
 
   return (
     <>
       <style>
         {`
           @keyframes scroll {
-            0% {
-              transform: translateX(0);
+            0% { transform: translateX(0); }
+            100% { transform: translateX(${-(250 + 64) * clientLogos.length}px); }
+          }
+          @keyframes scroll-mobile {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(${-(150 + 32) * clientLogos.length}px); }
+          }
+          .logo-track {
+            animation: scroll-mobile 30s linear infinite;
+          }
+          @media (min-width: 768px) {
+            .logo-track {
+              animation: scroll 35s linear infinite;
             }
-            100% {
-              transform: translateX(${-(250 + 64) * clientLogos.length}px);
+          }
+          .logo-card {
+            width: 150px;
+            height: 100px;
+            min-width: 150px;
+          }
+          .logo-card img {
+            width: 120px;
+            height: 75px;
+          }
+          @media (min-width: 768px) {
+            .logo-card {
+              width: 250px;
+              height: 160px;
+              min-width: 250px;
+            }
+            .logo-card img {
+              width: 200px;
+              height: 120px;
             }
           }
         `}
@@ -123,11 +161,11 @@ const ClientLogos = () => {
       {/* Infinite Carousel - No Arrows */}
       <div className="relative overflow-hidden w-full max-w-7xl mx-auto">
         <div 
-          className="flex gap-8 md:gap-16"
+          className="logo-track flex gap-8 md:gap-16"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
           style={{
-            animation: 'scroll 35s linear infinite',
             animationPlayState: isPaused ? 'paused' : 'running',
             willChange: 'transform'
           }}
@@ -136,15 +174,13 @@ const ClientLogos = () => {
           {clientLogos.map((client, index) => (
             <div
               key={`original-${index}`}
-              className="flex-shrink-0 flex justify-center items-center bg-white/5 rounded-xl p-6"
-              style={{ width: '250px', height: '160px' }}
+              className="logo-card flex-shrink-0 flex justify-center items-center bg-white/5 rounded-xl p-3 md:p-6"
             >
               <img 
                 loading="lazy" 
                 src={client.logo}
                 alt={client.name}
-                className="max-w-full max-h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
-                style={{ width: '200px', height: '120px' }}
+                className="max-w-full max-h-full object-contain filter brightness-90 transition-all duration-300"
               />
             </div>
           ))}
@@ -152,15 +188,13 @@ const ClientLogos = () => {
           {clientLogos.map((client, index) => (
             <div
               key={`duplicate-${index}`}
-              className="flex-shrink-0 flex justify-center items-center bg-white/5 rounded-xl p-6"
-              style={{ width: '250px', height: '160px' }}
+              className="logo-card flex-shrink-0 flex justify-center items-center bg-white/5 rounded-xl p-3 md:p-6"
             >
               <img 
                 loading="lazy" 
                 src={client.logo}
                 alt={client.name}
-                className="max-w-full max-h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
-                style={{ width: '200px', height: '120px' }}
+                className="max-w-full max-h-full object-contain filter brightness-90 transition-all duration-300"
               />
             </div>
           ))}
@@ -168,15 +202,13 @@ const ClientLogos = () => {
           {clientLogos.map((client, index) => (
             <div
               key={`triple-${index}`}
-              className="flex-shrink-0 flex justify-center items-center bg-white/5 rounded-xl p-6"
-              style={{ width: '250px', height: '160px' }}
+              className="logo-card flex-shrink-0 flex justify-center items-center bg-white/5 rounded-xl p-3 md:p-6"
             >
               <img 
                 loading="lazy" 
                 src={client.logo}
                 alt={client.name}
-                className="max-w-full max-h-full object-contain filter brightness-90 hover:brightness-110 transition-all duration-300"
-                style={{ width: '200px', height: '120px' }}
+                className="max-w-full max-h-full object-contain filter brightness-90 transition-all duration-300"
               />
             </div>
           ))}
