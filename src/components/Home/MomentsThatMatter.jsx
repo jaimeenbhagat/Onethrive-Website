@@ -2,13 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import local images
-import moment1 from '../../assets/moments/image1.webp';
-import moment2 from '../../assets/moments/image2.webp';
-import moment3 from '../../assets/moments/image3.webp';
-import moment4 from '../../assets/moments/image4.webp';
-import moment7 from '../../assets/moments/image7.jpg';
-import moment9 from '../../assets/moments/image9.jpg';
-import moment10 from '../../assets/moments/image10.jpg';
 import moment11 from '../../assets/moments/IMG_3939.JPG';
 import moment12 from '../../assets/moments/IMG_3940.PNG';    
 import moment13 from '../../assets/moments/IMG_3941.PNG';
@@ -24,58 +17,30 @@ const MomentsThatMatter = () => {
   const moments = [
     {
       id: 1,
-      image: moment9
-    },
-    {
-      id: 2,
-      image: moment10
-    },
-    {
-      id: 3,
-      image: moment1
-    },
-    {
-      id: 4,
-      image: moment2
-    },
-    {
-      id: 5,
-      image: moment3
-    },
-    {
-      id: 6,
-      image: moment4
-    },
-    {
-      id: 7,
-      image: moment7
-    },
-    {
-      id: 8,
       image: moment11
     },
     {
-      id: 9,
+      id: 2,
       image: moment12
     },
     {
-      id: 10,
+      id: 3,
       image: moment13
     },
     {
-      id: 11,
+      id: 4,
       image: moment14
     },
     {
-      id: 12,
+      id: 5,
       image: moment15
     },
     {
-      id: 13,
+      id: 6,
       image: moment16
     },
     {
-      id: 14,
+      id: 7,
       image: moment17
     }
   ];

@@ -231,7 +231,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-[#00FFAB] hover:underline font-extrabold"
             >
-              Jaimeen Bhagat
+              OneThrive Team
             </a>
           </p>
         </motion.div>
