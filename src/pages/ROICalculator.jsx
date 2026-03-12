@@ -1,7 +1,7 @@
 import React from 'react';
 import EngagementROICalculator from '../components/ROI_Calculator/EngagementROICalculator';
 import BenchmarkInfo from '../components/ROI_Calculator/BenchmarkInfo';
-import { CheckCircle, AlertCircle, Calculator, TrendingUp, Users, DollarSign } from "lucide-react";
+import { CheckCircle, AlertCircle, Calculator, TrendingUp, Users, IndianRupee } from "lucide-react";
 
 
 const ROICalculator = () => {
@@ -37,7 +37,7 @@ const ROICalculator = () => {
               </div>
               <div className="bg-black bg-opacity-50 p-6 rounded-xl border border-gray-800">
                 <div className="flex justify-center mb-4">
-                  <DollarSign className="w-8 h-8 text-[#00FFAB]" />
+                  <IndianRupee className="w-8 h-8 text-[#00FFAB]" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">Potential Savings</h3>
                 <p className="text-white">See how much you could save by improving engagement by just 1-2 points</p>

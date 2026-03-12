@@ -111,7 +111,7 @@ const Services = () => {
             className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-2 "
           />
           <p className="text-white font-medium text-lg md:text-xl max-w-5xl mx-auto leading-relaxed">
-            Discover our comprehensive range of employee engagement solutions
+            Discover our comprehensive range of employee engagement solutions starting from ₹3000
             designed to boost morale, enhance collaboration, and create lasting
             positive impact in your organization.
           </p>

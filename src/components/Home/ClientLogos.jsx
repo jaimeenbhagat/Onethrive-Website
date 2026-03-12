@@ -11,34 +11,45 @@ import client8 from "../../assets/ClientLogo/SalesDuo.png";
 import client9 from "../../assets/ClientLogo/IIFL.PNG";
 import client10 from "../../assets/ClientLogo/Laxmi.PNG";
 import client11 from "../../assets/ClientLogo/BDO.PNG";
+import client12 from "../../assets/ClientLogo/Drager_Logo.png";
 
 
 // Client logos with actual imported images
 const clientLogos = [
+  { 
+    name: "DJSCE", 
+    logo: client2,
+    description: "Premier Engineering Institute" 
+  },
+  {
+    name: "BDO",
+    logo: client11,
+    description: "Professional Services Firm"
+  },
   {
     name: "IIFL Capital",
     logo: client9,
     description: "Financial Services Company"
   },
   {
+    name: "Drager",
+    logo: client12,
+    description: "Healthcare Technology Leader"
+  },
+  {
     name: "Laxmi Dental Limited",
     logo: client10,
     description: "Consumer Goods Brand"
-  },
-  {
-    name: "Sales Duo",
-    logo: client8,
-    description: "Sales Enablement Platform"
   },
   { 
     name: "Prisma AI", 
     logo: client4,
     description: "AI-Powered Business Solutions" 
   },
-  { 
-    name: "DJSCE", 
-    logo: client2,
-    description: "Premier Engineering Institute" 
+  {
+    name: "Sales Duo",
+    logo: client8,
+    description: "Sales Enablement Platform"
   },
   {
     name: "Mystique AI",
@@ -50,11 +61,6 @@ const clientLogos = [
     logo: client3,
     description: "Innovative Consulting Services" 
   },
-  { 
-    name: "EDS International", 
-    logo: client1,
-    description: "Leading Technology Solutions" 
-  },
   {
     name: "Lady Love",
     logo: client6,
@@ -65,10 +71,10 @@ const clientLogos = [
     logo: client5,
     description: "Consumer Electronics Leader"
   },
-  {
-    name: "BDO",
-    logo: client11,
-    description: "Professional Services Firm"
+  { 
+    name: "EDS International", 
+    logo: client1,
+    description: "Leading Technology Solutions" 
   }
 ];
 

@@ -9,6 +9,14 @@ import moment4 from '../../assets/moments/image4.webp';
 import moment7 from '../../assets/moments/image7.jpg';
 import moment9 from '../../assets/moments/image9.jpg';
 import moment10 from '../../assets/moments/image10.jpg';
+import moment11 from '../../assets/moments/IMG_3939.JPG';
+import moment12 from '../../assets/moments/IMG_3940.PNG';    
+import moment13 from '../../assets/moments/IMG_3941.PNG';
+import moment14 from '../../assets/moments/IMG_3933.png';
+import moment15 from '../../assets/moments/IMG_3934.png';
+import moment16 from '../../assets/moments/IMG_3935.png';
+import moment17 from '../../assets/moments/IMG_3937.PNG';
+
 
 const MomentsThatMatter = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -41,6 +49,34 @@ const MomentsThatMatter = () => {
     {
       id: 7,
       image: moment7
+    },
+    {
+      id: 8,
+      image: moment11
+    },
+    {
+      id: 9,
+      image: moment12
+    },
+    {
+      id: 10,
+      image: moment13
+    },
+    {
+      id: 11,
+      image: moment14
+    },
+    {
+      id: 12,
+      image: moment15
+    },
+    {
+      id: 13,
+      image: moment16
+    },
+    {
+      id: 14,
+      image: moment17
     }
   ];
 
