@@ -45,8 +45,7 @@ const CancellationRefundPolicy = () => {
                   <li>• Alters the service date, location, or agreed objectives</li>
                 </ul>
                 <p className="mt-4 text-red-300 font-bold">
-                  ...then a <span className="text-red-400">100% cancellation fee</span> will apply, equivalent to the confirmed billing amount, 
-                  even if the payment terms are credit-based.
+                  ...then a <span className="text-red-400">100% cancellation fee</span> will apply, equivalent to the confirmed billing amount within a month of the scheduled service date. This fee is applicable even if the payment terms are credit-based.
                 </p>
               </div>
             </div>
@@ -69,7 +68,7 @@ const CancellationRefundPolicy = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="text-[#00FFAB] mr-2">•</span>
-                    <span>A full refund will be issued if the service is cancelled by OneThrive from our end for any reason.</span>
+                    <span>A full refund will be issued within a month if the service is cancelled by OneThrive from our end for any reason.</span>
                   </li>
                 </ul>
               </div>
