@@ -12,6 +12,7 @@ import client9 from "../../assets/ClientLogo/IIFL.PNG";
 import client10 from "../../assets/ClientLogo/Laxmi.PNG";
 import client11 from "../../assets/ClientLogo/BDO.PNG";
 import client12 from "../../assets/ClientLogo/Drager_Logo.png";
+import client13 from "../../assets/ClientLogo/Happi Planet.png";
 
 
 // Client logos with actual imported images
@@ -30,6 +31,11 @@ const clientLogos = [
     name: "IIFL Capital",
     logo: client9,
     description: "Financial Services Company"
+  },
+  {
+    name: "Happi Planet",
+    logo: client13,
+    description: "Workplace Wellbeing Partner"
   },
   {
     name: "Drager",

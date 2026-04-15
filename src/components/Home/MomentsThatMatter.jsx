@@ -8,7 +8,7 @@ import moment13 from '../../assets/moments/IMG_3941.PNG';
 import moment14 from '../../assets/moments/IMG_3933.png';
 import moment15 from '../../assets/moments/IMG_3934.png';
 import moment16 from '../../assets/moments/IMG_3935.png';
-import moment17 from '../../assets/moments/IMG_3937.PNG';
+import moment17 from '../../assets/moments/IMG_5350.png';
 
 
 const MomentsThatMatter = () => {
