@@ -13,6 +13,10 @@ import client10 from "../../assets/ClientLogo/Laxmi.PNG";
 import client11 from "../../assets/ClientLogo/BDO.PNG";
 import client12 from "../../assets/ClientLogo/Drager_Logo.png";
 import client13 from "../../assets/ClientLogo/Happi Planet.png";
+import client14 from "../../assets/ClientLogo/Glide Tech Logo.png";
+import client15 from "../../assets/ClientLogo/Infytrix Logo.png";
+import client16 from "../../assets/ClientLogo/SF Edu Logo.png";
+import client17 from "../../assets/ClientLogo/VGuard Logo.png";
 
 
 // Client logos with actual imported images
@@ -81,6 +85,26 @@ const clientLogos = [
     name: "EDS International", 
     logo: client1,
     description: "Leading Technology Solutions" 
+  },
+  {
+    name: "Glide Tech",
+    logo: client14,
+    description: "Technology Solutions"
+  },
+  {
+    name: "Infytrix",
+    logo: client15,
+    description: "IT Services Provider"
+  },
+  {
+    name: "SF Edu",
+    logo: client16,
+    description: "Educational Technology"
+  },
+  {
+    name: "V-Guard",
+    logo: client17,
+    description: "Consumer Electricals"
   }
 ];
 
