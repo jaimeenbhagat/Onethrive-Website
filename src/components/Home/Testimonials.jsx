@@ -5,8 +5,9 @@ import client2 from "../../assets/ClientLogo/DJSCE.png";
 import client3 from "../../assets/ClientLogo/PRISMAAI.png";
 import client4 from "../../assets/ClientLogo/KONSULTRA.webp";
 import client5 from "../../assets/ClientLogo/MystiqueAI.png";
+import { useCmsContent } from "../../admin/useCmsContent";
 
-const testimonials = [
+const defaultTestimonials = [
   {
     name: "Sheetal Kamat",
     position: "Head of Human Resources",
@@ -98,6 +99,17 @@ const TestimonialCard = ({ testimonial }) => {
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const cmsTestimonials = useCmsContent("testimonials");
+  const testimonials = cmsTestimonials.length > 0
+    ? cmsTestimonials.map(({ data }) => ({
+        name: data.name || "",
+        position: data.position || data.designation || "",
+        company: data.company || "",
+        message: data.message || "",
+        rating: Number(data.rating) || 0,
+        logo: data.profilePhoto || client1,
+      }))
+    : defaultTestimonials;
 
   // Auto-slide every 6 seconds
   useEffect(() => {
@@ -106,7 +118,7 @@ const Testimonials = () => {
     }, 6000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
   const goToSlide = (index) => {
     setCurrentIndex(index);

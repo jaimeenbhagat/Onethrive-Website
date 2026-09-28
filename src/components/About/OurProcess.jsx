@@ -6,6 +6,7 @@ import planningIcon from "../../assets/process/2.png";
 import executionIcon from "../../assets/process/3.png";
 import engagementIcon from "../../assets/process/4.png";
 import evaluationIcon from "../../assets/process/5.png";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const processSteps = [
   {
@@ -92,6 +93,9 @@ const ProcessStep = ({ step, index }) => {
 
 const OurProcess = () => {
   const processRef = useRef(null);
+  const cmsProcess = useCmsContent("about-process");
+  const processContent = cmsProcess.find(({ slug }) => slug === "about.process")?.data || {};
+  const steps = processContent.steps?.length ? processContent.steps : processSteps;
 
   return (
     <div className="relative bg-black overflow-hidden">
@@ -108,13 +112,13 @@ const OurProcess = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Our Process
+            {processContent.heading || "Our Process"}
           </h2>
 
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-6" />
 
           <p className="text-lg md:text-xl text-white font-bold max-w-4xl mx-auto leading-relaxed">
-            A step-by-step journey to meaningful, measurable engagement tailored to your team.
+            {processContent.description || "A step-by-step journey to meaningful, measurable engagement tailored to your team."}
           </p>
         </motion.div>
 
@@ -125,7 +129,7 @@ const OurProcess = () => {
 
           {/* Process steps */}
           <div className="relative">
-            {processSteps.map((step, index) => (
+            {steps.map((step, index) => (
               <ProcessStep
                 key={index}
                 step={step}

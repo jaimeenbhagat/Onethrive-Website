@@ -9,41 +9,18 @@ import moment14 from '../../assets/moments/IMG_3933.png';
 import moment15 from '../../assets/moments/IMG_3934.png';
 import moment16 from '../../assets/moments/IMG_3935.png';
 import moment17 from '../../assets/moments/IMG_5350.png';
+import { useCmsContent } from '../../admin/useCmsContent';
 
 
 const MomentsThatMatter = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const moments = [
-    {
-      id: 1,
-      image: moment11
-    },
-    {
-      id: 2,
-      image: moment12
-    },
-    {
-      id: 3,
-      image: moment13
-    },
-    {
-      id: 4,
-      image: moment14
-    },
-    {
-      id: 5,
-      image: moment15
-    },
-    {
-      id: 6,
-      image: moment16
-    },
-    {
-      id: 7,
-      image: moment17
-    }
+  const cmsCarousels = useCmsContent('carousels');
+  const defaultMoments = [
+    { id: 1, image: moment11 }, { id: 2, image: moment12 }, { id: 3, image: moment13 },
+    { id: 4, image: moment14 }, { id: 5, image: moment15 }, { id: 6, image: moment16 }, { id: 7, image: moment17 },
   ];
+  const carousel = cmsCarousels.find(({ slug }) => slug === 'home.moments')?.data || {};
+  const moments = carousel.slides?.length ? carousel.slides : defaultMoments;
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % moments.length);
@@ -72,7 +49,7 @@ const MomentsThatMatter = () => {
         {/* Section Header */}
         <div className="text-center mb-10 relative">
           <h2 className="text-3xl sm:text-3xl md:text-5xl font-bold text-white mb-2 relative">
-            Moments That Matter
+            {carousel.title || 'Moments That Matter'}
           </h2>
           <div
             className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-2 "
@@ -81,7 +58,7 @@ const MomentsThatMatter = () => {
             transition={{ delay: 0.3, duration: 1 }}
           />
           <p className="text-md md:text-xl text-white font-medium max-w-5xl mx-auto relative">
-            Capturing excellence through unforgettable experiences and transformative events
+            {carousel.description || 'Capturing excellence through unforgettable experiences and transformative events'}
           </p>
         </div>
 
@@ -115,7 +92,7 @@ const MomentsThatMatter = () => {
                 <div key={moment.id} className="w-full h-full flex-shrink-0 relative">
                   <img loading="lazy"  
                     src={moment.image} 
-                    alt={`Moment ${moment.id}`}
+                    alt={moment.alt || `Moment ${moment.id}`}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>

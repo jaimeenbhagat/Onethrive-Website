@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const FAQs = () => {
   const [openFAQ, setOpenFAQ] = useState(0);
 
-  const faqs = [
+  const defaultFaqs = [
     {
       question: "What types of employee engagement activities do you offer?",
       answer:
@@ -32,6 +33,9 @@ const FAQs = () => {
         "Simply contact us via the Request a Quote page or give us a call. We'll schedule a consultation to discuss your needs and craft a personalized proposal.",
     },
   ];
+  const cmsSections = useCmsContent("sections");
+  const faqData = cmsSections.find(({ slug }) => slug === "home.faqs")?.data?.items;
+  const faqs = Array.isArray(faqData) && faqData.length > 0 ? faqData : defaultFaqs;
 
   const toggleFAQ = (index) => {
     setOpenFAQ(openFAQ === index ? -1 : index);

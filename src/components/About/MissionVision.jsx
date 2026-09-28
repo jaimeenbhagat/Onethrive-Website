@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const MissionVision = () => {
+  const cmsSections = useCmsContent("sections");
+  const content = cmsSections.find(({ slug }) => slug === "about.mission-vision")?.data || {};
   return (
     <div className="relative py-16 px-4 overflow-hidden">
       {/* Background Effects */}
@@ -41,7 +44,7 @@ const MissionVision = () => {
             whileHover={{ scale: 1.05 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold text-white">
-              Our Purpose
+              {content.heading || "Our Purpose"}
             </h2>
           </motion.div>
           <motion.div
@@ -91,12 +94,12 @@ const MissionVision = () => {
                     <div className="w-2 h-2 bg-black rounded-sm transform -rotate-45" />
                   </div>
                   <h3 className="text-3xl font-semibold text-[#00FFAB]">
-                    Our Vision
+                    {content.vision?.title || "Our Vision"}
                   </h3>
                 </motion.div>
 
                 <p className="text-white font-bold text-lg leading-relaxed flex-grow">
-                  At <span className="text-[#00FFAB] font-semibold">OneThrive</span>, we elevate workplace culture through tailored experiences that inspire team bonding, ignite creativity, and promote holistic employee well-being. By blending engagement with performance, we help organizations build happier, stronger, and more resilient teams.
+                  {content.vision?.body || "At OneThrive, we elevate workplace culture through tailored experiences that inspire team bonding, ignite creativity, and promote holistic employee well-being. By blending engagement with performance, we help organizations build happier, stronger, and more resilient teams."}
                 </p>
 
                 {/* Bottom accent line */}
@@ -148,12 +151,12 @@ const MissionVision = () => {
                     <div className="w-2 h-2 bg-black rounded-sm transform -rotate-45" />
                   </div>
                   <h3 className="text-3xl font-semibold text-[#00FFAB]">
-                    Our Mission
+                    {content.mission?.title || "Our Mission"}
                   </h3>
                 </motion.div>
 
                 <p className="text-white font-bold text-lg leading-relaxed flex-grow">
-                  At <span className="text-[#00FFAB] font-semibold">OneThrive</span>, we aim to redefine employee engagement by becoming the go-to partner for building vibrant, purpose-driven teams. We envision workplaces as thriving ecosystems of collaboration, creativity, and connection—where employees are empowered to grow, perform, and truly belong.
+                  {content.mission?.body || "At OneThrive, we aim to redefine employee engagement by becoming the go-to partner for building vibrant, purpose-driven teams. We envision workplaces as thriving ecosystems of collaboration, creativity, and connection where employees are empowered to grow, perform, and truly belong."}
                 </p>
 
                 {/* Bottom accent line */}

@@ -4,6 +4,7 @@ import Blogimage8 from "../../../assets/Blogs/Blog8.webp";
 import Blogimage3 from "../../../assets/Blogs/Blog3.webp";
 import Blogimage7 from "../../../assets/Blogs/Blog7.webp";
 import Blogimage1_1 from "../../../assets/Blogs/Blog1.1.png";
+import { useCmsContent } from "../../../admin/useCmsContent";
 import { useNavigate } from "react-router-dom";
 import Blog from "../../../pages/Blog";
 
@@ -691,6 +692,9 @@ const BlogPost1 = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const headingsRef = useRef([]);
   const navigate = useNavigate();
+  const cmsBlogs = useCmsContent("blogs");
+  const cmsBlog = cmsBlogs.find(({ slug }) => slug === "beyond-the-trust-fall")?.data;
+  if (cmsBlog) Object.assign(blogData, cmsBlog, { heroImage: cmsBlog.heroImage || cmsBlog.image || blogData.heroImage });
 
   useEffect(() => {
     const handleScroll = () => {

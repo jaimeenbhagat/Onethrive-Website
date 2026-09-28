@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCmsContent } from '../../admin/useCmsContent';
 
 // Custom Card components
 const Card = ({ children, className = "" }) => (
@@ -14,12 +15,14 @@ const CardContent = ({ children, className = "" }) => (
 );
 
 const BenchmarkInfo = () => {
+  const cmsRoi = useCmsContent('roi-calculator');
+  const content = cmsRoi.find(({ slug }) => slug === 'benchmarks')?.data || {};
   return (
     <div className="min-h-screen bg-black p-4 sm:p-8 flex items-center justify-center">
       <div className="max-w-2xl mx-auto w-full">
         <Card className="bg-black border-gray-800 border-2">
           <CardContent className="p-6 sm:p-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#00FFAB] mb-6 sm:mb-8">Our Approach & Key Benchmarks</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#00FFAB] mb-6 sm:mb-8">{content.title || 'Our Approach & Key Benchmarks'}</h3>
             
             {/* Main Features */}
             <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">

@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { CheckCircle, AlertCircle, Calculator, TrendingUp, Users, DollarSign } from "lucide-react";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 // Custom Card components
 const Card = ({ children, className = "" }) => (
@@ -97,6 +98,10 @@ const REVENUE_INCREASE_FACTOR_MAX = 0.05;
 const COLORS = ["#ef4444", "#f59e0b", "#00FFAB"];
 
 export default function EngagementCalculatorForm() {
+  const cmsRoi = useCmsContent("roi-calculator");
+  const roiConfig = cmsRoi.find(({ slug }) => slug === "configuration")?.data || {};
+  const defaults = roiConfig.defaults;
+  const benchmarks = roiConfig.benchmarks || {};
   // Core State Variables for Inputs
   const [numEmployees, setNumEmployees] = useState(100);
   const [avgAnnualSalary, setAvgAnnualSalary] = useState(480000);
@@ -122,6 +127,16 @@ export default function EngagementCalculatorForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
   const [validationErrors, setValidationErrors] = useState({});
+
+  useEffect(() => {
+    if (!defaults) return;
+    if (defaults.employees !== undefined) setNumEmployees(Number(defaults.employees));
+    if (defaults.annualSalary !== undefined) setAvgAnnualSalary(Number(defaults.annualSalary));
+    if (defaults.employeesLeft !== undefined) setEmployeesWhoLeft(Number(defaults.employeesLeft));
+    if (defaults.engagementScore !== undefined) setEngagementScore([Number(defaults.engagementScore)]);
+    if (defaults.annualRevenue !== undefined) setAnnualRevenue(Number(defaults.annualRevenue));
+    if (defaults.absenteeismDays !== undefined) setAvgExtraAbsenteeismDaysPerEmployee(Number(defaults.absenteeismDays));
+  }, [defaults]);
 
   // Calculated ROI data state
   const [roiData, setRoiData] = useState({
@@ -150,11 +165,14 @@ export default function EngagementCalculatorForm() {
 
   // Core Calculation Logic Function
   const calculateRoiData = () => {
-    const costPerReplacement = avgAnnualSalary * AVG_REPLACEMENT_COST_FACTOR;
+    const replacementCostFactor = Number(benchmarks.replacementCost ?? AVG_REPLACEMENT_COST_FACTOR);
+    const productivityLossFactor = Number(benchmarks.productivityLoss ?? DISENGAGEMENT_PRODUCTIVITY_LOSS_FACTOR);
+    const workingDays = Number(benchmarks.workingDays ?? WORKING_DAYS_PER_YEAR);
+    const costPerReplacement = avgAnnualSalary * replacementCostFactor;
     const totalTurnoverCost = employeesWhoLeft * costPerReplacement;
     const disengagementInfluenceFactor = (10 - engagementScore[0]) / 10;
-    const avgDailySalary = avgAnnualSalary / WORKING_DAYS_PER_YEAR;
-    const productivityLossCost = numEmployees * avgAnnualSalary * disengagementInfluenceFactor * DISENGAGEMENT_PRODUCTIVITY_LOSS_FACTOR;
+    const avgDailySalary = avgAnnualSalary / workingDays;
+    const productivityLossCost = numEmployees * avgAnnualSalary * disengagementInfluenceFactor * productivityLossFactor;
     const absenteeismCost = numEmployees * avgExtraAbsenteeismDaysPerEmployee * avgDailySalary * disengagementInfluenceFactor;
     const totalDisengagementCost = productivityLossCost + absenteeismCost;
     const totalHiddenLoss = totalTurnoverCost + totalDisengagementCost;
@@ -162,21 +180,21 @@ export default function EngagementCalculatorForm() {
     // Potential Savings (by improving engagement score by 1-2 points)
     const improvedEngagement1Pt = Math.min(10, engagementScore[0] + 1);
     const newDisengagementInfluenceFactor1Pt = (10 - improvedEngagement1Pt) / 10;
-    const newProductivityLossCost1Pt = numEmployees * avgAnnualSalary * newDisengagementInfluenceFactor1Pt * DISENGAGEMENT_PRODUCTIVITY_LOSS_FACTOR;
+    const newProductivityLossCost1Pt = numEmployees * avgAnnualSalary * newDisengagementInfluenceFactor1Pt * productivityLossFactor;
     const newAbsenteeismCost1Pt = numEmployees * avgExtraAbsenteeismDaysPerEmployee * avgDailySalary * newDisengagementInfluenceFactor1Pt;
     const newTotalDisengagementCost1Pt = newProductivityLossCost1Pt + newAbsenteeismCost1Pt;
     const savings1Pt = totalDisengagementCost - newTotalDisengagementCost1Pt;
 
     const improvedEngagement2Pt = Math.min(10, engagementScore[0] + 2);
     const newDisengagementInfluenceFactor2Pt = (10 - improvedEngagement2Pt) / 10;
-    const newProductivityLossCost2Pt = numEmployees * avgAnnualSalary * newDisengagementInfluenceFactor2Pt * DISENGAGEMENT_PRODUCTIVITY_LOSS_FACTOR;
+    const newProductivityLossCost2Pt = numEmployees * avgAnnualSalary * newDisengagementInfluenceFactor2Pt * productivityLossFactor;
     const newAbsenteeismCost2Pt = numEmployees * avgExtraAbsenteeismDaysPerEmployee * avgDailySalary * newDisengagementInfluenceFactor2Pt;
     const newTotalDisengagementCost2Pt = newProductivityLossCost2Pt + newAbsenteeismCost2Pt;
     const savings2Pt = totalDisengagementCost - newTotalDisengagementCost2Pt;
 
     // Potential Revenue Increase
-    const potentialRevenueIncreaseMin = annualRevenue * REVENUE_INCREASE_FACTOR_MIN * ((engagementScore[0] + 1) / 10);
-    const potentialRevenueIncreaseMax = annualRevenue * REVENUE_INCREASE_FACTOR_MAX * ((engagementScore[0] + 2) / 10);
+    const potentialRevenueIncreaseMin = annualRevenue * Number(benchmarks.revenueIncreaseMin ?? REVENUE_INCREASE_FACTOR_MIN) * ((engagementScore[0] + 1) / 10);
+    const potentialRevenueIncreaseMax = annualRevenue * Number(benchmarks.revenueIncreaseMax ?? REVENUE_INCREASE_FACTOR_MAX) * ((engagementScore[0] + 2) / 10);
 
     return {
       totalTurnoverCost,

@@ -7,15 +7,18 @@ import WhyChooseUs from "../components/Home/WhyChooseUs";
 import ClientLogos from "../components/Home/ClientLogos";
 import Testimonials from "../components/Home/Testimonials";
 import MomentsThatMatter from "../components/Home/MomentsThatMatter";
+import { useCmsContent } from "../admin/useCmsContent";
 
 const Home = () => {
+  const cmsSeo = useCmsContent("seo");
+  const seo = cmsSeo.find(({ slug }) => slug === "home")?.data || {};
   return (
     <div className="w-full min-h-screen bg-black font-interphase">
       {/* ✅ SEO Meta Tags for Home Page */}
-      <Title>OneThrive - Employee Engagement & Team Building</Title>
+      <Title>{seo.title || "OneThrive - Employee Engagement & Team Building"}</Title>
       <Meta
         name="description"
-        content="OneThrive brings workplaces to life through employee engagement, team-building experiences, and corporate wellness programs that uplift morale and fuel innovation."
+        content={seo.description || "OneThrive brings workplaces to life through employee engagement, team-building experiences, and corporate wellness programs that uplift morale and fuel innovation."}
       />
       <Meta
         name="keywords"

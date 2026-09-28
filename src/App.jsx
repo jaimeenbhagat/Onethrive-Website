@@ -35,17 +35,57 @@ import BlogPost6 from './components/Blog/BlogPosts/BlogPost6';
 import BlogPost7 from './components/Blog/BlogPosts/BlogPost7';
 import BlogPost8 from './components/Blog/BlogPosts/BlogPost8';
 import BlogPost9 from './components/Blog/BlogPosts/BlogPost9';
+import AdminGuard from './admin/AdminGuard';
+import AdminLayout from './admin/AdminLayout';
+import AdminLogin from './admin/AdminLogin';
+import AdminDashboard from './admin/AdminDashboard';
+import AdminContentPage from './admin/AdminContentPage';
+
+const adminEditors = [
+  ['home', 'Home sections', 'sections'],
+  ['about', 'About', 'sections'],
+  ['services', 'Services', 'services'],
+  ['service-categories', 'Service categories', 'service-categories'],
+  ['about-team', 'Team', 'team'],
+  ['about-process', 'Process', 'about-process'],
+  ['contact', 'Contact', 'contact'],
+  ['resources', 'Resources', 'resources'],
+  ['blogs', 'Blogs', 'blogs'],
+  ['testimonials', 'Testimonials', 'testimonials'],
+  ['clients', 'Client logos', 'client-logos'],
+  ['carousels', 'Carousels', 'carousels'],
+  ['navigation', 'Navigation', 'navigation'],
+  ['footer', 'Footer', 'footer'],
+  ['seo', 'SEO', 'seo'],
+  ['policies', 'Policies', 'policies'],
+  ['roi-calculator', 'ROI calculator', 'roi-calculator'],
+  ['culture-quiz', 'Culture quiz', 'quiz'],
+  ['culture-quiz-results', 'Quiz results', 'quiz-results'],
+  ['settings', 'Settings', 'pages'],
+];
 function App() {
   return (
     <Router>
-      <Analytics/>
-      <SpeedInsights/>
-      <div className=" text-white font-interphase min-h-screen flex flex-col">
-        <Navbar />
-        <ScrollToTop />
-        <Background />
-        <main className="flex-grow">
-          <Routes>
+      <Routes>
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route element={<AdminGuard />}>
+          <Route element={<AdminLayout />}>
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            {adminEditors.map(([path, title, type]) => (
+              <Route key={path} path={`/admin/${path}`} element={<AdminContentPage title={title} type={type} />} />
+            ))}
+          </Route>
+        </Route>
+        <Route path="*" element={
+          <>
+            <Analytics/>
+            <SpeedInsights/>
+            <div className=" text-white font-interphase min-h-screen flex flex-col">
+              <Navbar />
+              <ScrollToTop />
+              <Background />
+              <main className="flex-grow">
+                <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
@@ -71,11 +111,13 @@ function App() {
             <Route path="/blogs/the-founders-guide" element={<BlogPost7 />} />
             <Route path="/blogs/ceo-playbook" element={<BlogPost8 />} />
             <Route path="/blogs/fostering-culture" element={<BlogPost9 />} />
-          </Routes>
-        </main>
-
-        <Footer />
-      </div>
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          </>
+        } />
+      </Routes>
     </Router>
   )
 }

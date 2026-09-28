@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { blogs } from "./blogData.js";
 import { Link } from "react-router-dom";
 import blogimage1 from "../../../src/assets/Blogs/Blog1.webp";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const categories = [
   "All Posts",
@@ -12,10 +13,6 @@ const categories = [
   "Expert-Insights",
 ];
 const blogsPerPage = 9;
-
-const featuredBlog = blogs[0];
-const otherBlogs = blogs.slice(1);
-const trendingBlogs = blogs.slice(2, 5);
 
 const BlogCard = ({ blog }) => (
   <Link to={blog.path}>
@@ -60,6 +57,14 @@ const BlogCard = ({ blog }) => (
 );
 
 const App = () => {
+  const cmsBlogs = useCmsContent("blogs", blogs.map((blog) => ({ slug: blog.path, data: blog })));
+  const normalizedBlogs = useMemo(() => cmsBlogs.map(({ data }) => ({
+    ...data,
+    path: data.path || `/blogs/${data.slug}`,
+  })), [cmsBlogs]);
+  const featuredBlog = normalizedBlogs[0] || blogs[0];
+  const otherBlogs = useMemo(() => normalizedBlogs.slice(1), [normalizedBlogs]);
+  const trendingBlogs = useMemo(() => normalizedBlogs.slice(2, 5), [normalizedBlogs]);
   const [selectedCategory, setSelectedCategory] = useState("All Posts");
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredBlogs, setFilteredBlogs] = useState(otherBlogs);
@@ -71,7 +76,7 @@ const App = () => {
     }
     setFilteredBlogs(newBlogs);
     setCurrentPage(1);
-  }, [selectedCategory]);
+  }, [selectedCategory, otherBlogs]);
 
   const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
   const currentBlogs = filteredBlogs.slice(

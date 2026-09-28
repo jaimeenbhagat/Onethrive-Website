@@ -9,10 +9,20 @@ import {
   Target,
   ArrowRight,
 } from "lucide-react";
-import { quizData } from "../components/CultureQuiz/quizData";
+import { quizData as defaultQuizData } from "../components/CultureQuiz/quizData";
 import { getCultureLevel } from "../components/CultureQuiz/getCultureLevel";
+import { useCmsContent } from "../admin/useCmsContent";
 
 const CultureQuiz = () => {
+  const cmsQuiz = useCmsContent("quiz");
+  const cmsResults = useCmsContent("quiz-results");
+  const quizContent = cmsQuiz.find(({ slug }) => slug === "culture-pulse")?.data || {};
+  const quizData = quizContent.questions?.length ? quizContent.questions : defaultQuizData;
+  const resultContent = cmsResults.find(({ slug }) => slug === "culture-pulse")?.data;
+  const resolveCultureLevel = (score) => {
+    const band = resultContent?.bands?.slice().sort((a, b) => b.minScore - a.minScore).find((item) => score >= item.minScore && score <= (item.maxScore ?? Infinity));
+    return band || getCultureLevel(score);
+  };
   // State variables for the quiz application
   const [answers, setAnswers] = useState({});
   const [showQuiz, setShowQuiz] = useState(false);
@@ -28,6 +38,7 @@ const CultureQuiz = () => {
   const [validationErrors, setValidationErrors] = useState({});
 
   const totalQuestions = quizData.length;
+  const maxPossibleScore = quizContent.maxScore || totalQuestions * 14;
   const allQuestionsAnswered = answeredCount === totalQuestions;
 
   // Refs for scrolling to questions
@@ -167,7 +178,7 @@ const CultureQuiz = () => {
     setSubmitStatus(null);
 
     try {
-      const cultureResult = getCultureLevel(totalScore);
+      const cultureResult = resolveCultureLevel(totalScore);
 
       // Prepare complete submission data (email + quiz results together)
       const submissionData = {
@@ -175,7 +186,7 @@ const CultureQuiz = () => {
         quizType: "culture_quiz",
         totalScore: totalScore,
         totalQuestions: totalQuestions,
-        maxPossibleScore: totalQuestions * 14,
+        maxPossibleScore,
         answeredCount: answeredCount,
         answers: answers,
         cultureLevel: cultureResult, // Corrected key name
@@ -235,7 +246,7 @@ const CultureQuiz = () => {
     window.scrollTo(0, 0);
   };
 
-  const cultureResult = getCultureLevel(totalScore);
+  const cultureResult = resolveCultureLevel(totalScore);
   const progressPercentage = (answeredCount / totalQuestions) * 100;
   const firstUnansweredQuestionId = quizData.find(
     (q) => answers[q.id] === undefined
@@ -245,7 +256,7 @@ const CultureQuiz = () => {
   const copyResultToClipboard = () => {
     let textToCopy = `My company's Culture Pulse: ${cultureResult.level}!\n\n`;
     textToCopy += `Score: ${totalScore} out of ${
-      totalQuestions * 14
+                      maxPossibleScore
     } possible points.\n\n`;
     cultureResult.description.forEach((point) => {
       textToCopy += `- ${point}\n`;
@@ -606,13 +617,13 @@ const CultureQuiz = () => {
               </div>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <div className="text-3xl font-extrabold text-[#00FFAB] mb-1 drop-shadow-lg">
-                  {Math.round((totalScore / (totalQuestions * 14)) * 100)}%
+                  {Math.round((totalScore / maxPossibleScore) * 100)}%
                 </div>
                 <div className="text-xs text-white font-semibold uppercase tracking-wide">
                   Score
                 </div>
                 <div className="text-xs text-white/70 font-medium">
-                  {totalScore} / {totalQuestions * 14}
+                  {totalScore} / {maxPossibleScore}
                 </div>
               </div>
             </div>

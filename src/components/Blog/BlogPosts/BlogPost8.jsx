@@ -4,6 +4,7 @@ import Blogimage2 from "../../../assets/Blogs/Blog2.webp";
 import Blogimage3 from "../../../assets/Blogs/Blog3.webp";
 import Blogimage5 from "../../../assets/Blogs/Blog5.webp";
 import Blogimage8_1 from "../../../assets/Blogs/Blog8.1.png";
+import { useCmsContent } from "../../../admin/useCmsContent";
 import { useNavigate } from "react-router-dom";
 
 // Content for CEO's Playbook blog
@@ -672,6 +673,9 @@ const BlogPost8 = () => {
   const headingsRef = useRef([]);
   const relatedPostsRef = useRef(null);
   const navigate = useNavigate();
+  const cmsBlogs = useCmsContent("blogs");
+  const cmsBlog = cmsBlogs.find(({ slug }) => slug === "ceo-playbook")?.data;
+  if (cmsBlog) Object.assign(blogData, cmsBlog, { heroImage: cmsBlog.heroImage || cmsBlog.image || blogData.heroImage });
 
   useEffect(() => {
     const handleScroll = () => {

@@ -3,8 +3,16 @@ import team1 from "../../assets/team/sujal.webp";
 import team2 from "../../assets/team/smeet.webp";
 import team3 from "../../assets/team/vidhimaniar.jpg";
 import { image } from "framer-motion/client";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const OurTeam = () => {
+  const cmsTeam = useCmsContent("team");
+  const defaultTeam = [
+    { name: "Sujal Jain", role: "Founder", image: team1, desc: "With a deep passion for organizational culture, he envisioned a company that blends fun, creativity, and purpose to engage employees like never before.", email: "sujal@onethrive.in", linkedin: "https://www.linkedin.com/in/sujal-jain-7072b6252/" },
+    { name: "Smeet Shah", role: "Founder", image: team2, desc: "He is the logistical genius who makes OneThrive's magic happen. With his skills in sports management, he ensures every event runs like clockwork.", email: "smeet.s@onethrive.in", linkedin: "https://www.linkedin.com/in/smeet-shah-86333b228/" },
+    { name: "Vidhi Maniar", role: "Co-founder", image: team3, desc: "With a strong focus on business development and client relations, she leads OneThrive's growth initiatives with precision and purpose.", email: "vidhimaniar.work03@gmail.com", linkedin: "https://www.linkedin.com/in/vidhi-maniar-484b752a7/" },
+  ];
+  const team = cmsTeam.length ? cmsTeam.map(({ data }) => ({ ...data, image: data.image || team1, desc: data.desc || data.bio || "" })) : defaultTeam;
   return (
     <motion.div
       className="max-w-7xl mx-auto mb-24 px-6"
@@ -42,32 +50,7 @@ const OurTeam = () => {
 
       {/* Team Grid */}
       <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
-        {[ 
-          {
-            name: "Sujal Jain",
-            role: "Founder",
-            image: team1,
-            desc: "With a deep passion for organizational culture, he envisioned a company that blends fun, creativity, and purpose to engage employees like never before.",
-            email: "sujal@onethrive.in",
-            linkedin: "https://www.linkedin.com/in/sujal-jain-7072b6252/"
-          },
-          {
-            name: "Smeet Shah",
-            role: "Founder",
-            image: team2,
-            desc: "He is the logistical genius who makes OneThrive's magic happen. With his skills in sports management, he ensures every event runs like clockwork.",
-            email: "smeet.s@onethrive.in",
-            linkedin: "https://www.linkedin.com/in/smeet-shah-86333b228/"
-          },
-          {
-            name: "Vidhi Maniar",
-            role: "Co-founder",
-            image: team3,
-            desc: "With a strong focus on business development and client relations, she leads OneThrive’s growth initiatives with precision and purpose.",
-            email: "vidhimaniar.work03@gmail.com",
-            linkedin: "https://www.linkedin.com/in/vidhi-maniar-484b752a7/"
-          }
-        ].map((member, index) => (
+        {team.map((member, index) => (
           <motion.div
             key={index}
             className="group bg-black backdrop-blur-sm border border-gray-800 rounded-2xl p-6 hover:border-[#00FFAB] transition-all duration-500 relative overflow-hidden h-[420px] flex flex-col w-full sm:w-80 max-w-sm"

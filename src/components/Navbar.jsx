@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/Logo.png';
 import { HiMenuAlt3, HiX, HiChevronDown } from 'react-icons/hi';
+import { useCmsContent } from '../admin/useCmsContent';
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -21,6 +22,10 @@ const navItems = [
 ];
 
 function Navbar() {
+  const cmsNavigation = useCmsContent('navigation');
+  const navigationItems = cmsNavigation.length > 0
+    ? cmsNavigation.map(({ data }) => ({ name: data.label, path: data.url, dropdown: data.children }))
+    : navItems;
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const navigate = useNavigate();
@@ -51,7 +56,7 @@ function Navbar() {
 
         {/* Center Nav for Desktop */}
         <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 gap-8 items-center">
-          {navItems.map(({ name, path, dropdown }) => (
+          {navigationItems.map(({ name, path, dropdown }) => (
             <div
               key={name}
               className="relative"
@@ -127,7 +132,7 @@ function Navbar() {
             transition={{ duration: 0.3 }}
             className="md:hidden backdrop-blur-xl bg-black/50 px-6 pt-4 pb-8 space-y-4 flex flex-col"
           >
-            {navItems.map(({ name, path, dropdown }) => (
+            {navigationItems.map(({ name, path, dropdown }) => (
               <div key={name}>
                 {dropdown ? (
                   <div>

@@ -2,16 +2,19 @@ import React from 'react';
 import EngagementROICalculator from '../components/ROI_Calculator/EngagementROICalculator';
 import BenchmarkInfo from '../components/ROI_Calculator/BenchmarkInfo';
 import { CheckCircle, AlertCircle, Calculator, TrendingUp, Users, IndianRupee } from "lucide-react";
+import { useCmsContent } from "../admin/useCmsContent";
 
 
 const ROICalculator = () => {
+  const cmsRoi = useCmsContent("roi-calculator");
+  const page = cmsRoi.find(({ slug }) => slug === "page")?.data || {};
   return (
     <div className="min-h-screen mt-10 bg-black text-white">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 pt-16">
           <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-white mb-6">
-            Employee Engagement ROI Calculator
+            {page.title || "Employee Engagement ROI Calculator"}
           </h1>
           <div
             className="w-72 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-2 "
@@ -20,9 +23,7 @@ const ROICalculator = () => {
             transition={{ delay: 0.3, duration: 1 }}
           />
           <p className="text-white text-md font-medium max-w-3xl mx-auto mt-4">
-          Discover the hidden costs of employee disengagement and unlock your organization's true potential. <br />
-          Our advanced calculator reveals how much money you're losing to turnover, reduced productivity, 
-          and absenteeism while showing the incredible ROI of investing in employee engagement.
+          {page.description || "Discover the hidden costs of employee disengagement and unlock your organization's true potential. Our advanced calculator reveals how much money you're losing to turnover, reduced productivity, and absenteeism while showing the incredible ROI of investing in employee engagement."}
           </p>
           
           {/* Centered Feature Cards Section */}

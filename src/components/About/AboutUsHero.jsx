@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
 import aboutusimage from "../../assets/aboutus.webp";
 import { Link } from "react-router-dom";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const AboutUsHero = () => {
+  const cmsSections = useCmsContent("sections");
+  const content = cmsSections.find(({ slug }) => slug === "about.hero")?.data || {};
+  const paragraphs = content.paragraphs || [
+    "It started with a simple realization workplace culture isn't just about deadlines and meetings. It's about people. At OneThrive, we saw employees burning out and teams disconnected, so we built a company dedicated to transforming work into an experience.",
+    "From team-building challenges to wellness initiatives, we create moments that leave lasting impacts. We partner with organizations to design tailored strategies that boost morale and create truly fulfilling work environments. Because when employees thrive, businesses do too.",
+  ];
   return (
     <div className="max-w-7xl mx-auto mb-32 relative">
       {/* Background gradient effects */}
@@ -44,7 +51,7 @@ const AboutUsHero = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            <span className="text-white font-extrabold text-3xl">About Us</span>
+            <span className="text-white font-extrabold text-3xl">{content.heading || "About Us"}</span>
           </motion.h2>
 
           <motion.div
@@ -62,17 +69,11 @@ const AboutUsHero = () => {
             transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
           >
             <p className="text-lg md:text-xl text-white font-medium leading-relaxed relative mb-4">
-              It started with a simple realization workplace culture isn't just about 
-              deadlines and meetings. It's about people. At OneThrive, we saw employees 
-              burning out and teams disconnected, so we built a company dedicated to 
-              transforming work into an experience.
+              {paragraphs[0]}
             </p>
 
             <p className="text-lg md:text-xl text-white font-medium leading-relaxed relative mb-8">
-              From team-building challenges to wellness initiatives, we create moments 
-              that leave lasting impacts. We partner with organizations to design tailored 
-              strategies that boost morale and create truly fulfilling work environments. 
-              Because when employees thrive, businesses do too.
+              {paragraphs[1]}
             </p>
           </motion.div>
         </motion.div>
@@ -104,8 +105,8 @@ const AboutUsHero = () => {
             >
               {/* Replace this with your actual image */}
               <img
-                src={aboutusimage}
-                alt="Team collaboration"
+                src={content.image || aboutusimage}
+                alt={content.imageAlt || "Team collaboration"}
                 className="w-80 h-96 lg:w-96 lg:h-[500px] object-cover"
                 loading="lazy"
               />

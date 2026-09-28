@@ -4,6 +4,7 @@ import Blogimage1 from "../../../assets/Blogs/Blog1.webp";
 import Blogimage2 from "../../../assets/Blogs/Blog2.webp";
 import Blogimage8 from "../../../assets/Blogs/Blog8.webp";
 import Blogimage7_1 from "../../../assets/Blogs/Blog7.1.png";
+import { useCmsContent } from "../../../admin/useCmsContent";
 import { useNavigate } from "react-router-dom";
 
 // Content for Founder's Guide blog
@@ -617,6 +618,9 @@ const BlogPost7 = () => {
   const headingsRef = useRef([]);
   const relatedPostsRef = useRef(null);
   const navigate = useNavigate();
+  const cmsBlogs = useCmsContent("blogs");
+  const cmsBlog = cmsBlogs.find(({ slug }) => slug === "the-founders-guide")?.data;
+  if (cmsBlog) Object.assign(blogData, cmsBlog, { heroImage: cmsBlog.heroImage || cmsBlog.image || blogData.heroImage });
 
   useEffect(() => {
     const handleScroll = () => {

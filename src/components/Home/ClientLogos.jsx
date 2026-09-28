@@ -17,10 +17,11 @@ import client14 from "../../assets/ClientLogo/Glide Tech Logo.png";
 import client15 from "../../assets/ClientLogo/Infytrix Logo.png";
 import client16 from "../../assets/ClientLogo/SF Edu Logo.png";
 import client17 from "../../assets/ClientLogo/VGuard Logo.png";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 
 // Client logos with actual imported images
-const clientLogos = [
+const defaultClientLogos = [
   { 
     name: "DJSCE", 
     logo: client2,
@@ -109,6 +110,14 @@ const clientLogos = [
 ];
 
 const ClientLogos = () => {
+  const cmsClientLogos = useCmsContent("client-logos");
+  const clientLogos = cmsClientLogos.length > 0
+    ? cmsClientLogos.map(({ data }) => ({
+        name: data.name || "Client",
+        logo: data.logo || client1,
+        description: data.description || "OneThrive client",
+      }))
+    : defaultClientLogos;
   const [isPaused, setIsPaused] = useState(false);
   const touchTimerRef = useRef(null);
 

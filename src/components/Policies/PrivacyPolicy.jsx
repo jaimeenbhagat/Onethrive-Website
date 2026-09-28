@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import React from "react";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const PrivacyPolicy = () => {
+  const cmsPolicies = useCmsContent("policies");
+  const policy = cmsPolicies.find(({ slug }) => slug === "privacy-policy")?.data;
+  if (policy?.html) return <article className="min-h-screen bg-black px-6 py-32 text-white prose prose-invert max-w-5xl mx-auto" dangerouslySetInnerHTML={{ __html: policy.html }} />;
   return (
     <div className="min-h-screen bg-black text-white px-6 py-16 md:px-20 max-w-7xl mx-auto mt-24">
       <motion.div

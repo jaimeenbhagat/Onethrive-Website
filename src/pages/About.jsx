@@ -4,15 +4,18 @@ import CompanyAbout from "../components/About/AboutUsHero";
 import MissionVision from "../components/About/MissionVision";
 import OurProcess from "../components/About/OurProcess";
 import OurTeam from "../components/About/OurTeam";
+import { useCmsContent } from "../admin/useCmsContent";
 
 const AboutUs = () => {
+  const cmsSeo = useCmsContent("seo");
+  const seo = cmsSeo.find(({ slug }) => slug === "about")?.data || {};
   return (
     <>
       {/* ✅ SEO for About Page */}
-      <Title>About Us - OneThrive</Title>
+      <Title>{seo.title || "About Us - OneThrive"}</Title>
       <Meta
         name="description"
-        content="Learn more about OneThrive's mission, vision, and team. We specialize in employee engagement, team-building experiences, and corporate wellness programs."
+        content={seo.description || "Learn more about OneThrive's mission, vision, and team. We specialize in employee engagement, team-building experiences, and corporate wellness programs."}
       />
       <Meta
         name="keywords"

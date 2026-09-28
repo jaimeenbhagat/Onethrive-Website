@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const whyChooseUs = [
   {
@@ -48,6 +49,9 @@ const whyChooseUs = [
 
 const WhyChooseUs = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const cmsSections = useCmsContent("sections");
+  const benefits = cmsSections.find(({ slug }) => slug === "home.benefits")?.data?.items;
+  const visibleBenefits = Array.isArray(benefits) && benefits.length > 0 ? benefits : whyChooseUs;
 
   return (
     <div className="relative md:min-h-screen bg-black overflow-hidden flex items-center justify-center px-4 sm:px-6 md:px-1">
@@ -96,7 +100,7 @@ const WhyChooseUs = () => {
 
         {/* Cards Grid - Mobile: 2 columns, 3 rows | Desktop: 6 columns */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4 md:gap-6">
-          {whyChooseUs.map((item, index) => (
+              {visibleBenefits.map((item, index) => (
             <motion.div
               key={index}
               className="relative group cursor-pointer"

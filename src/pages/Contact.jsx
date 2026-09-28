@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Phone, Mail, CheckCircle, AlertCircle } from "lucide-react";
+import { useCmsContent } from "../admin/useCmsContent";
 
 const Contact = () => {
+  const cmsContact = useCmsContent("contact");
+  const contact = cmsContact.find(({ slug }) => slug === "contact.page")?.data || {};
   const [formData, setFormData] = useState({
     fullName: "",
     workEmail: "",
@@ -209,7 +212,7 @@ const Contact = () => {
       {/* Left - Contact Info */}
       <div className="w-full md:w-1/3 flex flex-col justify-center">
         <h2 className="text-4xl md:text-5xl text-center font-bold mb-4">
-          Let's Connect
+          {contact.heading || "Let's Connect"}
         </h2>
         <div
             className="w-36  h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-2 "
@@ -218,8 +221,7 @@ const Contact = () => {
             transition={{ delay: 0.3, duration: 1 }}
           />
         <p className="text-white font-bold mb-8 text-center">
-          We'd love to hear from you! Whether you have questions or need
-          support, feel free to reach out.
+          {contact.description || "We'd love to hear from you! Whether you have questions or need support, feel free to reach out."}
         </p>
 
         <div className="bg-[#0d0d0d] p-4 rounded-xl w-full border border-neutral-800 relative">
@@ -227,24 +229,24 @@ const Contact = () => {
             <div className="flex items-center gap-4">
               <Phone className="text-[#00FFAB] text-3xl" />
               <div>
-                <p className="font-semibold text-2xl">Phone Number</p>
+                  <p className="font-semibold text-2xl">{contact.phoneLabel || "Phone Number"}</p>
                 <a 
-                  href="tel:+918850210248" 
+                  href={`tel:${contact.phone || "+918850210248"}`} 
                   className="text-gray-300 pt-1 hover:text-[#00FFAB] transition-colors duration-200 cursor-pointer"
                 >
-                  +91 88502 10248
+                  {contact.phone || "+91 88502 10248"}
                 </a>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <Mail className="text-[#00FFAB] text-3xl" />
               <div>
-                <p className="font-semibold text-2xl">Email Address</p>
+                <p className="font-semibold text-2xl">{contact.emailLabel || "Email Address"}</p>
                 <a 
-                  href="mailto:info@onethrive.in" 
+                  href={`mailto:${contact.email || "info@onethrive.in"}`} 
                   className="text-gray-300 pt-1 hover:text-[#00FFAB] transition-colors duration-200 cursor-pointer"
                 >
-                  info@onethrive.in
+                  {contact.email || "info@onethrive.in"}
                 </a>
               </div>
             </div>

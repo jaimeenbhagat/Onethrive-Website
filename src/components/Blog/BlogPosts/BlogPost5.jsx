@@ -4,6 +4,7 @@ import Blogimage1 from "../../../assets/Blogs/Blog1.webp";
 import Blogimage2 from "../../../assets/Blogs/Blog2.webp";
 import Blogimage7 from "../../../assets/Blogs/Blog7.webp";
 import BLogimage5_1 from "../../../assets/Blogs/Blog5.1.png";
+import { useCmsContent } from "../../../admin/useCmsContent";
 import { useNavigate } from "react-router-dom";
 
 // Content for Employee Recognition blog
@@ -733,6 +734,9 @@ const BlogPost5 = () => {
   const headingsRef = useRef([]);
   const relatedPostsRef = useRef(null);
   const navigate = useNavigate();
+  const cmsBlogs = useCmsContent("blogs");
+  const cmsBlog = cmsBlogs.find(({ slug }) => slug === "beyond-the-bonus")?.data;
+  if (cmsBlog) Object.assign(blogData, cmsBlog, { heroImage: cmsBlog.heroImage || cmsBlog.image || blogData.heroImage });
 
   useEffect(() => {
     const handleScroll = () => {

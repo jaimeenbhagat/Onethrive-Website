@@ -4,6 +4,7 @@ import Blogimage8 from "../../../assets/Blogs/Blog8.webp";
 import Blogimage4 from "../../../assets/Blogs/Blog4.webp";
 import Blogimage5 from "../../../assets/Blogs/Blog5.webp";
 import Blogimage3_1 from "../../../assets/Blogs/Blog3.1.png";
+import { useCmsContent } from "../../../admin/useCmsContent";
 import { useNavigate } from "react-router-dom";
 
 // Content for ROI of Employee Engagement blog
@@ -727,6 +728,9 @@ const BlogPost3 = () => {
   const headingsRef = useRef([]);
   const relatedPostsRef = useRef(null);
   const navigate = useNavigate();
+  const cmsBlogs = useCmsContent("blogs");
+  const cmsBlog = cmsBlogs.find(({ slug }) => slug === "measuring-what-matters")?.data;
+  if (cmsBlog) Object.assign(blogData, cmsBlog, { heroImage: cmsBlog.heroImage || cmsBlog.image || blogData.heroImage });
 
   useEffect(() => {
     const handleScroll = () => {

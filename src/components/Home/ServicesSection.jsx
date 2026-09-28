@@ -5,6 +5,7 @@ import service3 from "../../assets/services/services3.png";
 import service4 from "../../assets/services/services4.png";
 import service5 from "../../assets/services/services5.png";
 import service7 from "../../assets/services/services7.png";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const services = [
   { title: "Team Building Games", image: service1 },
@@ -16,6 +17,14 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const cmsServices = useCmsContent("services");
+  const visibleServices = cmsServices.length > 0
+    ? cmsServices.map(({ data }) => ({
+        title: data.title || "Untitled service",
+        image: data.image || service1,
+      }))
+    : services;
+
   return (
     <motion.div
       className="md:min-h-screen flex flex-col justify-center px-6 md:px-20 max-w-8xl mx-auto"
@@ -41,7 +50,7 @@ const ServicesSection = () => {
 
       {/* Grid - Mobile: 2 columns, 3 rows | Laptop: 3 columns responsive */}
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-6">
-        {services.map((service, idx) => (
+        {visibleServices.map((service, idx) => (
           <motion.div
             key={idx}
             className="bg-black rounded-3xl overflow-hidden cursor-pointer group shadow-xl h-[140px] sm:h-[190px]"

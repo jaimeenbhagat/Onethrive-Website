@@ -9,9 +9,12 @@ import {
 import logo from "../assets/Logo.png";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useCmsContent } from "../admin/useCmsContent";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const cmsFooter = useCmsContent("footer");
+  const footer = cmsFooter.find(({ slug }) => slug === "site.footer")?.data || {};
 
   const quickLinks = [
     { name: "Home", path: "/" },
@@ -89,24 +92,22 @@ const Footer = () => {
             </div>
 
             <p className="text-white text-lg font-bold leading-relaxed max-w-md">
-              We empower organizations to build thriving workplace cultures
-              through engaging team-building experiences, wellness initiatives,
-              and curated employee programs. From fun to functional, our
-              experiences are designed to inspire connection, boost morale, and
-              drive lasting impact.
+              {footer.description || "We empower organizations to build thriving workplace cultures"}
+              {!footer.description && " "}
+              {!footer.description && "through engaging team-building experiences, wellness initiatives, and curated employee programs. From fun to functional, our experiences are designed to inspire connection, boost morale, and drive lasting impact."}
             </p>
 
             {/* Contact Info with Icons */}
             <div className="space-y-4">
               <a
-                href="tel:+918850210248"
+                  href={`tel:${footer.phone || "+918850210248"}`}
                 className="flex items-center space-x-4 text-white hover:text-[#00FFAB] transition-colors cursor-pointer group"
               >
                 <div className="bg-gradient-to-r from-[#00FFAB] via-[#00FFAB] to-gray-800 p-3 rounded-full group-hover:shadow-lg group-hover:shadow-[#00FFAB]/30 transition-all">
                   <FaPhone className="text-black text-sm" />
                 </div>
                 <div>
-                  <p className="font-bold text-lg">+91 88502 10248</p>
+                  <p className="font-bold text-lg">{footer.phone || "+91 88502 10248"}</p>
                 </div>
               </a>
 
@@ -115,10 +116,10 @@ const Footer = () => {
                   <FaEnvelope className="text-black text-sm" />
                 </div>
                 <a
-                  href="mailto:info@onethrive.in"
+                  href={`mailto:${footer.email || "info@onethrive.in"}`}
                   className="font-bold text-lg"
                 >
-                  info@onethrive.in
+                  {footer.email || "info@onethrive.in"}
                 </a>
               </div>
             </div>

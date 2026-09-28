@@ -4,8 +4,17 @@ import { Title, Meta, Link as HeadLink } from "react-head";
 import ServiceGrid from "../components/Services/ServiceGrid";
 import ServicePage from "../components/Services/ServicePage";
 import { servicesData } from "../components/Services/serviceData";
+import { useCmsContent } from "../admin/useCmsContent";
 
 const Services = () => {
+  const cmsServices = useCmsContent("services");
+  const cmsCategories = useCmsContent("service-categories");
+  const services = cmsServices.length ? cmsServices.map(({ data }) => data) : servicesData.services;
+  const serviceCategories = cmsCategories.length ? cmsCategories.map(({ data }) => data) : servicesData.serviceCategories;
+  const cmsSeo = useCmsContent("seo");
+  const seo = cmsSeo.find(({ slug }) => slug === "services")?.data || {};
+  const cmsSections = useCmsContent("sections");
+  const pageContent = cmsSections.find(({ slug }) => slug === "services.page")?.data || {};
   const [selectedService, setSelectedService] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState({
@@ -49,7 +58,7 @@ const Services = () => {
     setSearchParams(searchParams);
   };
 
-  const filteredServices = servicesData.services.filter(service => {
+  const filteredServices = services.filter(service => {
     if (filters.category !== "all" && service.category !== filters.category) {
       return false;
     }
@@ -90,8 +99,8 @@ const Services = () => {
       }}
     >
       {/* SEO Meta Tags */}
-      <Title>Our Services | OneThrive Employee Engagement Solutions</Title>
-      <Meta name="description" content="Explore OneThrive's comprehensive range of employee engagement services designed to boost morale, enhance collaboration, and create lasting positive impact in your organization." />
+      <Title>{seo.title || "Our Services | OneThrive Employee Engagement Solutions"}</Title>
+      <Meta name="description" content={seo.description || "Explore OneThrive's comprehensive range of employee engagement services designed to boost morale, enhance collaboration, and create lasting positive impact in your organization."} />
       <Meta name="robots" content="index, follow" />
       <Meta name="keywords" content="Employee Engagement, Team Building, Corporate Activities, Employee Wellness, Corporate Training, Organizational Culture" />
       <Meta property="og:title" content="Our Services | OneThrive Employee Engagement Solutions" />
@@ -105,15 +114,13 @@ const Services = () => {
         {/* Header Section */}
         <div className="mb-12 text-center">
           <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-2">
-            Our Services
+            {pageContent.heading || "Our Services"}
           </h1>
           <div
             className="w-36 h-1 bg-gradient-to-r from-transparent via-[#00FFAB] to-transparent mx-auto mb-2 "
           />
           <p className="text-white font-medium text-lg md:text-xl max-w-5xl mx-auto leading-relaxed">
-            Discover our comprehensive range of employee engagement solutions starting from ₹3000
-            designed to boost morale, enhance collaboration, and create lasting
-            positive impact in your organization.
+            {pageContent.description || "Discover our comprehensive range of employee engagement solutions starting from ₹3000 designed to boost morale, enhance collaboration, and create lasting positive impact in your organization."}
           </p>
         </div>
 
@@ -261,7 +268,7 @@ const Services = () => {
         {/* Service Grid */}
         <ServiceGrid
           services={filteredServices}
-          serviceCategories={servicesData.serviceCategories}
+          serviceCategories={serviceCategories}
           onServiceClick={openServiceModal}
         />
 

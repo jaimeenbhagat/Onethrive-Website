@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const TermsConditions = () => {
+  const cmsPolicies = useCmsContent("policies");
+  const policy = cmsPolicies.find(({ slug }) => slug === "terms-conditions")?.data;
+  if (policy?.html) return <article className="min-h-screen bg-black px-6 py-32 text-white prose prose-invert max-w-5xl mx-auto" dangerouslySetInnerHTML={{ __html: policy.html }} />;
   return (
     <div className="min-h-screen bg-black text-white px-6 py-16 md:px-20 max-w-7xl mx-auto mt-24">
       <motion.div

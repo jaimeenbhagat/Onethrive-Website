@@ -4,6 +4,7 @@ import Blogimage8 from "../../../assets/Blogs/Blog8.webp";
 import Blogimage3 from "../../../assets/Blogs/Blog3.webp";
 import Blogimage7 from "../../../assets/Blogs/Blog7.webp";
 import Blogimage2_2 from "../../../assets/Blogs/Blog2.1.png";
+import { useCmsContent } from "../../../admin/useCmsContent";
 import { useNavigate } from "react-router-dom";
 
 // Content for Creative Workshops blog
@@ -657,6 +658,9 @@ const BlogPost2 = () => {
   const headingsRef = useRef([]);
   const relatedPostsRef = useRef(null);
   const navigate = useNavigate();
+  const cmsBlogs = useCmsContent("blogs");
+  const cmsBlog = cmsBlogs.find(({ slug }) => slug === "unleashing-innovation")?.data;
+  if (cmsBlog) Object.assign(blogData, cmsBlog, { heroImage: cmsBlog.heroImage || cmsBlog.image || blogData.heroImage });
 
   useEffect(() => {
     const handleScroll = () => {

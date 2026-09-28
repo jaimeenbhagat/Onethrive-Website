@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import bgImage from "../../assets/herosectionimage1.webp";
+import { useCmsContent } from "../../admin/useCmsContent";
 
 const HeroSection = () => {
+  const cmsSections = useCmsContent("sections");
+  const hero = cmsSections.find(({ slug }) => slug === "home.hero")?.data || {};
+  const heading = hero.heading || "Build Stronger Teams. Boost Real Engagement.";
+  const description = hero.description || "We design high-impact employee experiences that spark connection, collaboration, and growth.";
+  const heroImage = hero.image || bgImage;
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
@@ -15,8 +21,8 @@ const HeroSection = () => {
     img.onerror = () => {
       setImageError(true);
     };
-    img.src = bgImage;
-  }, []);
+    img.src = heroImage;
+  }, [heroImage]);
 
   return (
     <section
@@ -33,7 +39,7 @@ const HeroSection = () => {
           <div
             className="absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-500 opacity-100"
             style={{
-              backgroundImage: `url(${bgImage})`,
+              backgroundImage: `url(${heroImage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -52,27 +58,26 @@ const HeroSection = () => {
       >
         {/* Mobile heading - Same content, better sizing */}
         <h1 className="block sm:hidden text-2xl font-extrabold leading-tight mb-6 px-2">
-          Build <span className="text-[#00FFAB]">Stronger</span> Teams. <br />Boost <span className="text-[#00FFAB]">Real</span> Engagement.
+          {heading}
         </h1>
 
         {/* Desktop heading - Unchanged */}
         <h1 className="hidden sm:block text-xl md:text-4xl lg:text-6xl text-center font-extrabold leading-tight mb-6 sm:mb-6">
-          Build <span className="text-[#00FFAB]">Stronger</span> Teams. <br />Boost <span className="text-[#00FFAB]">Real</span> Engagement.
+          {heading}
         </h1>
 
         {/* Mobile & Desktop description - Same content */}
         <p className="text-lg sm:text-lg md:text-2xl text-white text-center mb-8 sm:mb-8 font-medium leading-relaxed max-w-8xl sm:max-w-8xl mx-auto px-2 sm:px-0">
-          <span className="sm:hidden">We design high-impact employee experiences<br />that spark connection,<br />collaboration, and growth.</span>
-          <span className="hidden sm:inline">We design high-impact employee experiences that <br />spark connection, collaboration, and growth.</span>
+          {description}
         </p>
 
         <motion.a
-          href="/contact"
+          href={hero.ctaUrl || "/contact"}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="inline-block px-6 py-4 sm:px-6 sm:py-3 bg-[#00FFAB] text-black font-semibold rounded-lg shadow-[4px_4px_0px_rgba(0,0,0,0.8)] transition duration-300 text-lg sm:text-base md:text-lg"
         >
-          Elevate Your Team Today →
+          {hero.ctaText || "Elevate Your Team Today →"}
         </motion.a>
       </motion.div>
     </section>
