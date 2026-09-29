@@ -43,7 +43,7 @@ const AboutUs = () => {
           <div className="relative">
             <img 
               loading="lazy" 
-              src={about.image || aboutImage}
+              src={about.image || aboutImage} onError={(e) => { if(e.target.src !== aboutImage) e.target.src = aboutImage; }}
               alt="About OneThrive - Team building and workplace culture"
               className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] object-cover rounded-xl sm:rounded-2xl shadow-xl shadow-[#00FFAB]/20 hover:shadow-[#00FFAB]/30 transition-shadow duration-300"
             />

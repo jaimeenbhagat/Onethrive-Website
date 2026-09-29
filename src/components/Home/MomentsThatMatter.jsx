@@ -91,7 +91,7 @@ const MomentsThatMatter = () => {
               {moments.map((moment) => (
                 <div key={moment.id} className="w-full h-full flex-shrink-0 relative">
                   <img loading="lazy"  
-                    src={moment.image} 
+                    src={moment.image} onError={(e) => { if (moment.fallbackImage && e.target.src !== moment.fallbackImage) e.target.src = moment.fallbackImage; }} 
                     alt={moment.alt || `Moment ${moment.id}`}
                     className="absolute inset-0 w-full h-full object-cover"
                   />

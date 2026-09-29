@@ -12,7 +12,7 @@ const OurTeam = () => {
     { name: "Smeet Shah", role: "Founder", image: team2, desc: "He is the logistical genius who makes OneThrive's magic happen. With his skills in sports management, he ensures every event runs like clockwork.", email: "smeet.s@onethrive.in", linkedin: "https://www.linkedin.com/in/smeet-shah-86333b228/" },
     { name: "Vidhi Maniar", role: "Co-founder", image: team3, desc: "With a strong focus on business development and client relations, she leads OneThrive's growth initiatives with precision and purpose.", email: "vidhimaniar.work03@gmail.com", linkedin: "https://www.linkedin.com/in/vidhi-maniar-484b752a7/" },
   ];
-  const team = cmsTeam.length ? cmsTeam.map(({ data }) => ({ ...data, image: data.image || team1, desc: data.desc || data.bio || "" })) : defaultTeam;
+  const team = cmsTeam.length ? cmsTeam.map(({ data }) => ({ ...data, image: data.image || defaultTeam.find(t => t.name === data.name)?.image || team1, fallbackImage: defaultTeam.find(t => t.name === data.name)?.image || team1, desc: data.desc || data.bio || "" })) : defaultTeam;
   return (
     <motion.div
       className="max-w-7xl mx-auto mb-24 px-6"
@@ -76,7 +76,7 @@ const OurTeam = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <img loading="lazy"  
-                  src={member.image} 
+                  src={member.image} onError={(e) => { if (member.fallbackImage && e.target.src !== member.fallbackImage) e.target.src = member.fallbackImage; }} 
                   alt={member.name} 
                   className="w-28 h-28 rounded-2xl object-cover mx-auto border-2 border-gray-700 group-hover:border-[#00FFAB]/50 transition-colors duration-300"
                 />

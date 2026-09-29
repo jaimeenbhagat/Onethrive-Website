@@ -223,7 +223,7 @@ const ClientLogos = () => {
             >
               <img 
                 loading="lazy" 
-                src={client.logo}
+                src={client.logo} onError={(e) => { if (client.fallbackLogo && e.target.src !== client.fallbackLogo) e.target.src = client.fallbackLogo; }}
                 alt={client.name}
                 className="max-w-full max-h-full object-contain filter brightness-90 transition-all duration-300"
               />
@@ -237,7 +237,7 @@ const ClientLogos = () => {
             >
               <img 
                 loading="lazy" 
-                src={client.logo}
+                src={client.logo} onError={(e) => { if (client.fallbackLogo && e.target.src !== client.fallbackLogo) e.target.src = client.fallbackLogo; }}
                 alt={client.name}
                 className="max-w-full max-h-full object-contain filter brightness-90 transition-all duration-300"
               />
@@ -251,7 +251,7 @@ const ClientLogos = () => {
             >
               <img 
                 loading="lazy" 
-                src={client.logo}
+                src={client.logo} onError={(e) => { if (client.fallbackLogo && e.target.src !== client.fallbackLogo) e.target.src = client.fallbackLogo; }}
                 alt={client.name}
                 className="max-w-full max-h-full object-contain filter brightness-90 transition-all duration-300"
               />

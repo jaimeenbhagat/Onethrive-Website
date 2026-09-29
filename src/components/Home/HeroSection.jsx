@@ -8,7 +8,7 @@ const HeroSection = () => {
   const hero = cmsSections.find(({ slug }) => slug === "home.hero")?.data || {};
   const heading = hero.heading || "Build Stronger Teams. Boost Real Engagement.";
   const description = hero.description || "We design high-impact employee experiences that spark connection, collaboration, and growth.";
-  const heroImage = hero.image || bgImage;
+  const heroImage = (!imageError && hero.image) ? hero.image : bgImage;
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
@@ -35,7 +35,7 @@ const HeroSection = () => {
           <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-800 via-gray-900 to-black animate-pulse"></div>
         )}
         {/* Show image only when loaded and no error */}
-        {imageLoaded && !imageError && (
+        {imageLoaded && (
           <div
             className="absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-500 opacity-100"
             style={{
